@@ -1,0 +1,226 @@
+<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang=""> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+          <link rel="apple-touch-icon" href="apple-touch-icon.png">        
+          <link rel="stylesheet" href="assets/css/all.min.css">
+          <link rel="stylesheet" href="assets/css/flaticon.css">
+          <link rel="stylesheet" href="assets/css/animate.min.css">
+          <link rel="stylesheet" href="assets/css/bootstrap.css">
+          <link rel="stylesheet" href="assets/css/jquery.fancybox.min.css">
+          <link rel="stylesheet" href="assets/css/jquery.bootstrap-touchspin.min.css">
+          <link rel="stylesheet" href="assets/css/slick.css">
+          <link rel="stylesheet" href="assets/css/responsive.css">
+          <link rel="stylesheet" href="assets/css/color.css">
+          <link rel="stylesheet" href="assets/css/bootstrap-multiselect.css">
+          <link rel="stylesheet" href="assets/css/style.css">
+          <link rel="stylesheet" type="text/css" href="mapa/style.css" />       
+            <style>
+            .map-container-2 {
+              overflow: hidden;
+              padding-bottom: 56.25%;
+              position: relative;
+              height: 0;
+            }
+        
+            .map-container-2 iframe {
+              left: 0;
+              top: 0;
+              height: 100%;
+              width: 100%;
+              position: absolute;
+            }
+          </style>
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+       <header class="stick style1 w-100" style=" background-color: #860f01;">
+                <div class="container">
+                    <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
+                        <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><!--<img class="img-fluid" src="assets/images/img/logoforos.png" alt="Logo" srcset="assets/images/img/logoforos.png">-->LOGO</a></h1></div> 
+                        <nav class="d-inline-flex align-items-center">
+                            <div class="header-left">
+                                <ul class="mb-0 list-unstyled d-inline-flex">
+                                    <li class="menu-item-has-children"><a href="./" title="">INICIO</a></li>
+                                    <li class="menu-item-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
+                                    <li><a href="view/formulario.php" title="">FORMULARIO</a></li>
+                                    <li><a href="oferta.html" title="">OFERTA</a></li>
+                                    <li><a href="#" title="">BLOG</a></li>
+                                </ul>
+                            </div>
+                            <div class="header-right-btns">
+                                <!--<a class="search-btn" href="javascript:void(0);" title="">
+                                    <i class="flaticon-magnifying-glass"></i></a>-->
+                               <a class="user-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
+                               <!-- <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>-->
+                            </div>
+                        </nav>
+                    </div><!-- Logo Menu Wrap -->
+                </div>
+            </header><!-- Header -->
+            <div class="menu-wrap">
+                <span class="menu-close"><i class="fas fa-times"></i></span>
+                <ul class="mb-0 list-unstyled w-100">
+                    <li class="menu-item-has-children"><a href="./" title="">INICIO</a></li>
+                    <li class="menu-it@em-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
+                    <li><a href="#">FORMULARIO</a></li>
+                    <li><a href="#" title="">OFERTA</a></li>
+                    <li><a href="#" title="">BLOG</a></li>                         
+                </ul>
+            </div><!-- Menu Wrap -->  
+  
+    <div class="container-fluid">
+      <!-- Example row of columns -->
+
+      <div class="row">
+        <div class="col-md-12">
+          <div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 900px; width:100%;">
+                    </div>
+        </div>
+     
+      </div>
+                  <footer style="background-color: #860f01;" id="contacto">
+                <div class="w-100 pt-121  opc1 position-relative">
+                    <div class="container position-relative">
+                        <div class="footer-wrap w-100 text-center">
+                            <div class="footer-inner d-inline-block">
+                                <div class="logo d-inline-block">
+                                    <!--<h1 class="mb-0">
+                                        <a href="index.html" title=""><br>
+                                            <img class="img-fluid" src="assets/images/img/logoforos.png" alt="Logo">
+                                        </a>
+                                    </h1>-->
+                                </div>
+                                <p class="mb-0" style="color: #fff">Contacto:</p>
+                                <p class="mb-0" style="color: #fff">forosdevinculacion@fese.mx</p>
+                            </div>
+                            <div class="footer-bottom d-flex flex-wrap justify-content-between w-100">                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer><!-- Footer -->
+    </div> <!-- /container -->        
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+        <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script src="assets/js/popper.min.js"></script>
+      <script src="assets/js/bootstrap.min.js"></script>
+      <script src="assets/js/wow.min.js"></script>
+      <script src="assets/js/counterup.min.js"></script>
+      <script src="assets/js/jquery.downCount.js"></script>
+      <script src="assets/js/jquery.fancybox.min.js"></script>
+      <script src="assets/js/jquery.bootstrap-touchspin.min.js"></script>
+      <script src="assets/js/perfect-scrollbar.min.js"></script>
+      <script src="assets/js/slick.min.js"></script>
+      <script src="assets/js/isotope.min.js"></script>
+      <script src="assets/js/custom-scripts.js"></script> 
+        <script>
+          var customLabel = {
+              restaurant: {
+                  label: 'R'
+              },
+              bar: {
+                  label: 'B'
+              }
+          };
+      
+          function initMap() {
+              var map = new google.maps.Map(document.getElementById('map-container-google-2'), {
+                  center: new google.maps.LatLng(22.39196524350635, -101.83086147620209),
+                  zoom: 5
+              });  
+              var infoWindow = new google.maps.InfoWindow;
+              downloadUrl('xml.php', function(data) {
+                  var xml = data.responseXML;
+                  var markers = xml.documentElement.getElementsByTagName('marker');
+                  Array.prototype.forEach.call(markers, function(markerElem) {
+                      var idmapa = markerElem.getAttribute('idmapa');
+              var persona = markerElem.getAttribute('persona');
+                      var descripcion = markerElem.getAttribute('descripcion');
+                     
+                      var point = new google.maps.LatLng(
+                          parseFloat(markerElem.getAttribute('lat')),
+                          parseFloat(markerElem.getAttribute('lng')));
+                      const contentString =
+                          '<div id="content">' +
+                          '<div id="siteNotice">' +
+                          "</div>" +
+                          '<center>'+
+                          '<h3 id="firstHeading" class="firstHeading">'+ persona +  '</h3>' +
+                          '</center>'+
+                          '<br>'+
+                          '<div id="bodyContent">' +
+                          '<br>'+
+                          "<p><b>" + descripcion + "</p>" +
+                          "</p>" +
+                          "</div>" +
+                          "</div>";
+      
+      
+                      //const image = "img/soldadoss.png";
+                      //  var icon = customLabel[codigo] || {};
+      
+               
+      
+                      var marker = new google.maps.Marker({
+                          map: map,
+                          position: point,
+                          //icon: image
+                      });
+
+                      marker.addListener('click', function() {
+                          infoWindow.setContent(contentString);
+                          infoWindow.open(map, marker);
+
+                      }); 
+                  });  
+
+                 });
+
+              // Una matriz con las coordenadas de los límites de Bucaramanga, extraídas manualmente de la base de datos GADM 
+      
+             
+      }
+      
+          function downloadUrl(url, callback) {
+              var request = window.ActiveXObject ?
+                  new ActiveXObject('Microsoft.XMLHTTP') :
+                  new XMLHttpRequest;
+              request.onreadystatechange = function() {
+                  if (request.readyState == 4) {
+                      request.onreadystatechange = doNothing;
+                      callback(request, request.status);
+                  }
+              };
+              request.open('GET', url, true);
+              request.send(null);
+          }
+      
+          function doNothing() {}
+          </script>
+          <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBytJc5m4kvTJlQ-7s7sokAX3brPQE9peo&callback=initMap"
+              defer>
+          </script>
+
+
+
+
+             <div class="col-md-12">
+              <br><br><br>
+             </div>
+
+
+
+
+
+
+    </body>
+</html>

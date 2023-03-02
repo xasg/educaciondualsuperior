@@ -5,6 +5,9 @@ require_once('../controller/conec.php');
 require_once('../model/databases_programa.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
+$carreras = view_carreras();
+$universidades = view_universidades();
+$programasEducativos = view_programasEductivos();
 $programa = acces_programas($id_ies);
 $responsable = acces_responsable($id_ies);
 $ies = acces_ies($id_ies);
@@ -54,7 +57,7 @@ function addUnidad(){
   <header class="stick style1 w-100" style=" background-color: #860f01;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
-                        <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><!--<img class="img-fluid" src="assets/images/img/logoforos.png" alt="Logo" srcset="assets/images/img/logoforos.png">-->LOGO</a></h1></div> 
+                    <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><!--<img class="img-fluid" src="assets/images/img/logoforos.png" alt="Logo" srcset="assets/images/img/logoforos.png">-->LOGO</a></h1></div> 
                         <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
@@ -168,8 +171,28 @@ function addUnidad(){
 </div>
 </div>
 
+<?php
+   $sql = '' 
+?>
 
+<!-- <form id="carrerasLista" action="" method="POST">
+                                                <label >Grado/Denominacion</label>
+                                                <select value="0"> seleccione </select>
+                                                <?php
+                                                //   include("conexion2.php");
+                                                //   $cod_educativ = 'LI';
+                                                   // include(../);
+                                                //    $lista = "SELECT * FROM carreras 
+                                                //    WHERE cod_programa_F = 'LI'";
+                                                //    $resultado = mysqli_query($conexion,$lista);
+                                                //    while($valores = mysqli_fetch_array($resultado)){
+                                                //       echo'<option value="'..'">'.$valores[cod_educativo].'</option>';
+                                                //    }
+                                                //   ?> 
+                                       </form> -->
 <div class="tab-pane" id="pane2" role="tabpanel" aria-labelledby="profile-tab">
+
+
 <form action="../controller/new_programa.php" method="POST"> 
  <p><strong>Registro de programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2021-2022</strong></p> 
 <div class="row border">
@@ -178,22 +201,30 @@ function addUnidad(){
                                     </div>
 
                                     <div class="col-xl-2"><br>                                    
-                                     <label>Grado/Denominación</label>
-                                           <select class="form-control" name="denominacion" required="">
-                                                <option value="">selecciona</option>
-                                                <option value="TSU">TSU</option>
-                                                <option value="INGENIERÍA">INGENIERÍA</option>
-                                                <option value="LICENCIATURA">LICENCIATURA</option>
-                                                <option value="ESPECIALIDAD">ESPECIALIDAD</option>
-                                                <option value="MAESTRÍA">MAESTRÍA</option>
-                                                <option value="DOCTORADO">DOCTORADO</option>
-                                                <option value="PROFESIONAL ASOCIADO">PROFESIONAL ASOCIADO</option>
-                                             </select>
+                                     <!----> <label>Grado/Denominación</label> 
+                                           <!----> <select class="form-control" name="denominacion" id="denominacion" required="">
+                                             <option value="">Seleccione: </option>
+                                           <?php 
+                                           while ($resul = $universidades->fetch_assoc()) { 
+                                             echo '<option value="'.$resul['id_uni'].'">'.$resul['cod_educativo'].'</option>';    
+                                             }
+                                           ?>
+                                             
+                                             </select> 
+                                       
+                                       
+                                  
+                                  
                                     </div>
                                     <div class="col-xl-6"><br>
                                        <div class="form-group"> 
-                                          <label>Nombre del programa educativo</label>
-                                          <input type="text" class="form-control" name="programa_educativo" onChange="conMayusculas(this)" required="">
+                                          <!-- <label>Nombre del programa educativo</label> -->
+                                          <!-- <input type="text" class="form-control" name="programa_educativo" onChange="conMayusculas(this)" required=""> -->
+                                          <label for="exampleInputEmail1">Nombre del programa educativo</label>
+                                          <select class="form-control" name="carreras" id="carreras" required>
+                                          
+                                          </select> 
+                                                
                                        </div>
                                     </div>
                                     <div class="col-xl-4"><br>
@@ -491,5 +522,20 @@ function addUnidad(){
          });
          })
       </script>
+
+<script language="javascript">
+         $(document).ready(function(){
+           $("#denominacion").change(function () {          
+             $("#denominacion option:selected").each(function () {
+               id_uni = $(this).val();
+               $.post("../includes/getuuniversidades.php", { id_uni:id_uni }, function(data){
+                 $("#carreras").html(data);
+               });            
+             });
+           })
+         });      
+      </script>
+      
+
 
 </html>

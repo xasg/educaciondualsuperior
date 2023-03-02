@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL);
 require_once('../controller/conec.php');
 $mysqli = new mysqli($servername, $username, $password, $dbname);
 $result ='';
@@ -127,6 +128,27 @@ global $mysqli;
 $sql="DELETE FROM programa_educativo WHERE id_ies ='{$id_ies}' ";
 $mysqli->query($sql);
 }
+
+function view_carreras(){
+  global $mysqli;
+  $sql = 'SELECT * FROM carreras';
+  return $mysqli->query($sql);
+  return $result->fetch_assoc();
+  }
+
+  function view_universidades(){
+  global $mysqli;
+  $sql = 'SELECT * FROM universidades';
+  return $mysqli->query($sql);
+  return $result->fetch_assoc();
+  }
+
+  function view_programasEductivos(){
+    global $mysqli;
+    $sql = 'SELECT * FROM programas_educativos';
+    return $mysqli->query($sql);
+    return $result->fetch_assoc();    
+  }
 
 
 

@@ -1,18 +1,18 @@
 
 
 <?php
-$servername = "localhost:3310";
+$servername = "localhost";
 $dbname = "dual";
 $username = "root";
 $password = ""; 
 ?>
 
 
-<?php /**
-$servername = "localhost";
-$dbname = "dual2022";
-$username = "root";
-$password = ""; **/
+<?php 
+// $servername = "localhost";
+// $dbname = "universidades";
+// $username = "root";
+// $password = ""; 
 ?>
 
 <?php/**

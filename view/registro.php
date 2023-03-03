@@ -8,6 +8,7 @@ $id_ies=$_SESSION["id_ies"];
 $carreras = view_carreras();
 $universidades = view_universidades();
 $programasEducativos = view_programasEductivos();
+// $accesoprogramas = acces_progedu($id_ies);
 $programa = acces_programas($id_ies);
 $responsable = acces_responsable($id_ies);
 $ies = acces_ies($id_ies);
@@ -175,21 +176,6 @@ function addUnidad(){
    $sql = '' 
 ?>
 
-<!-- <form id="carrerasLista" action="" method="POST">
-                                                <label >Grado/Denominacion</label>
-                                                <select value="0"> seleccione </select>
-                                                <?php
-                                                //   include("conexion2.php");
-                                                //   $cod_educativ = 'LI';
-                                                   // include(../);
-                                                //    $lista = "SELECT * FROM carreras 
-                                                //    WHERE cod_programa_F = 'LI'";
-                                                //    $resultado = mysqli_query($conexion,$lista);
-                                                //    while($valores = mysqli_fetch_array($resultado)){
-                                                //       echo'<option value="'..'">'.$valores[cod_educativo].'</option>';
-                                                //    }
-                                                //   ?> 
-                                       </form> -->
 <div class="tab-pane" id="pane2" role="tabpanel" aria-labelledby="profile-tab">
 
 
@@ -221,7 +207,7 @@ function addUnidad(){
                                           <!-- <label>Nombre del programa educativo</label> -->
                                           <!-- <input type="text" class="form-control" name="programa_educativo" onChange="conMayusculas(this)" required=""> -->
                                           <label for="exampleInputEmail1">Nombre del programa educativo</label>
-                                          <select class="form-control" name="carreras" id="carreras" required>
+                                          <select class="form-control" name="programa_educativo" id="programa_educativo" required>
                                           
                                           </select> 
                                                 
@@ -529,7 +515,7 @@ function addUnidad(){
              $("#denominacion option:selected").each(function () {
                id_uni = $(this).val();
                $.post("../includes/getuuniversidades.php", { id_uni:id_uni }, function(data){
-                 $("#carreras").html(data);
+                 $("#programa_educativo").html(data);
                });            
              });
            })

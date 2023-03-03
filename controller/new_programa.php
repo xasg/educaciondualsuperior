@@ -1,6 +1,7 @@
 <?php
    error_reporting(E_ALL);
    session_start();
+   // require_once('../controller/conec.php');
    include_once('../model/databases_responsable.php');
    mysqli_set_charset( $mysqli, 'utf8');
    if( $_POST )
@@ -24,7 +25,8 @@
    $egresados_f = isset( $_POST['egresados_f']) ? $_POST['egresados_f'] : '';
    $egresados_m = isset( $_POST['egresados_m']) ? $_POST['egresados_m'] : '';
    $id_ies = isset( $_POST['id_ies']) ? $_POST['id_ies'] : '';
-   crear_programa($id_ies, $denominacion, $programa_educativo, $inicio, $unidad, $unidad_1, $unidad_2, $unidad_3, $unidad_4, $convn, $convn1, $convn2, $convn3, $convn4, $periodo, $sex_fem, $sex_mas, $egresados_f, $egresados_m);
+   global $mysqli;
+  crear_programa($id_ies, $denominacion, $programa_educativo, $inicio, $unidad, $unidad_1, $unidad_2, $unidad_3, $unidad_4, $convn, $convn1, $convn2, $convn3, $convn4, $periodo, $sex_fem, $sex_mas, $egresados_f, $egresados_m);
    $_SESSION["id_ies"]=$id_ies;
 
 

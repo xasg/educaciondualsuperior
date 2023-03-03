@@ -43,9 +43,9 @@ $mysqli->query($sql);
 
 function crear_programa($id, $denominacion, $programa_educativo, $inicio, $unidad, $unidad_1, $unidad_2, $unidad_3, $unidad_4, $periodo, $sex_fem, $sex_mas, $egresados_f, $egresados_m)
 {
-global $mysqli;
+
 $sql="INSERT INTO programa_educativo(id_programa, id_usuario, dt_denominacion, dt_programa, dt_inicio, dt_unidad, dt_unidad_1, dt_unidad_2, dt_unidad_3, dt_unidad_4, dt_periodo, dt_num_m, dt_num_f, dt_egresados_f, dt_egresados_m) 
-                      VALUES (null, '{$id}', '{$denominacion}', '{$programa_educativo}','{$inicio}',  '{$unidad}', '{$unidad_1}', '{$unidad_2}', '{$unidad_3}', '{$unidad_4}', '{$periodo}','{$sex_fem}', '{$sex_mas}', '{$egresados_f}', '{$egresados_m}');";
+                      VALUES (null, '{$id}', '{$denominacion}', '{$sql_programa}','{$inicio}',  '{$unidad}', '{$unidad_1}', '{$unidad_2}', '{$unidad_3}', '{$unidad_4}', '{$periodo}','{$sex_fem}', '{$sex_mas}', '{$egresados_f}', '{$egresados_m}');";
 $mysqli->query($sql);
 }
 
@@ -115,6 +115,7 @@ function  update_programa($id_ies, $denominacion, $programa_educativo, $inicio, 
 
 function  update_ies($id_ies, $email, $telefono, $direccion, $localidad, $municipio, $cp, $latitud, $longitud, $bajo_modalidad, $total_egresados)
 {
+
   global $mysqli;
   $sql = "UPDATE cat_ies SET dt_email = '{$email}', dt_telefono = '{$telefono}', dt_direccion = '{$direccion}', dt_localidad = '{$localidad}', dt_municipio = '{$municipio}',dt_cp = '{$cp}',lat = '{$longitud}',lng = '{$latitud}', dt_bajo_modalidad = '{$bajo_modalidad}', dt_total_egresados = '{$total_egresados}' WHERE id_ies ='{$id_ies}' ";
   $mysqli->query($sql); 
@@ -149,6 +150,15 @@ function view_carreras(){
     return $mysqli->query($sql);
     return $result->fetch_assoc();    
   }
+
+  function acces_progedu($idprograma)
+	{
+  	global $mysqli;
+  	$sql = "SELECT * FROM  universidades
+          WHERE id_uni = '{$idprograma}'";
+ 	 $result = $mysqli->query($sql);
+   	return $result->fetch_assoc();
+	}
 
 
 

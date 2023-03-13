@@ -5,6 +5,7 @@ mysqli_set_charset( $mysqli, 'utf8');
 $id=$_SESSION["id_ies"];
 $programa=base64_decode($_GET['var']);
 $program = acces_programa($programa);
+$denominacion = view_nivel_de_estudios();
 ?> 
 <!DOCTYPE html>
 <html lang="es">
@@ -73,14 +74,14 @@ $program = acces_programa($programa);
                                     <div class="col-xl-4"><br>
                                      <label><strong>Grado/Denominación</strong></label>
                                            <select class="form-control" name="denominacion" required="">
-                                                <option value="<?php echo $program['dt_denominacion'];?>"><?php echo $program['dt_denominacion'];?></option>
-                                                <option value="TSU">TSU</option>
-                                                <option value="INGENIERÍA">INGENIERÍA</option>
-                                                <option value="LICENCIATURA">LICENCIATURA</option>
-                                                <option value="ESPECIALIDAD">ESPECIALIDAD</option>
-                                                <option value="MAESTRÍA">MAESTRÍA</option>
-                                                <option value="DOCTORADO">DOCTORADO</option>
-                                                <option value="PROFESIONAL ASOCIADO">PROFESIONAL ASOCIADO</option>
+                                                <!-- <option value="<?php echo $program['dt_denominacion'];?>"><?php echo $program['dt_denominacion'];?></option> -->
+                                                <!--Se implementa una lista desplegable que consulta los registros de la BD para mostrar los niveles educativos disponibles"-->                                                
+                                                <?php
+                                                while ($resul = $denominacion->fetch_assoc()) {
+                                                   # code...
+                                                   echo'<option value="'.$resul['dt_nombre_nivel'].'">'.$resul['dt_nombre_nivel'].'</option>';}
+                                                ?>
+
                                              </select>
                                     </div>
                                     <div class="col-xl-6"><br>

@@ -9,8 +9,6 @@ if( $mysqli->connect_errno )
   exit;
 }
 
-
-
 function view_entidad()
 {
   global $mysqli;
@@ -27,8 +25,6 @@ function view_subsistema()
   return $mysqli->query($sql);
   return $result->fetch_assoc();
 }
-
-
 
 function crear_usuario($ies, $correo, $password, $est)
 {
@@ -49,11 +45,10 @@ function get_user_acces($correo)
   return $result->fetch_assoc();
 }
 
-
-
 function  crear_responsable($id_user, $entidad, $ies, $subsistema, $nombre_responsable, $cargo, $telefono, $celular)
 {
 global $mysqli;
+
 $sql="INSERT INTO responsable(id_responsable, id_usuario, dt_entidad, id_ies, dt_subsistema, dt_nom_responsable, dt_cargo, dt_telefono, dt_celular) 
        VALUES (null, '{$id_user}', '{$entidad}' , '{$ies}', '{$subsistema}', '{$nombre_responsable}', '{$cargo}', '{$telefono}', '{$celular}')";
 $mysqli->query($sql);
@@ -71,16 +66,22 @@ function  update_ies($ies, $subsistema)
 
 function crear_programa($id_ies, $denominacion, $programa_educativo, $inicio, $unidad, $unidad_1, $unidad_2, $unidad_3, $unidad_4, $convn, $convn1, $convn2, $convn3, $convn4, $periodo, $sex_fem, $sex_mas, $egresados_f, $egresados_m)
 {
-
-global $mysqli;
-  // $denominacion = "SELECT cod_educativo FROM  universidades WHERE id_uni = '{$id_ies}'"; 
-  // $mysqli->query($denominacion);
-
+  // $countador = 1;
+  global $mysqli;
 $sql="INSERT INTO programa_educativo(id_programa, id_ies, dt_denominacion, dt_programa, dt_inicio, dt_unidad, dt_unidad_1, dt_unidad_2, dt_unidad_3, dt_unidad_4, dt_convenio, dt_convenio1, dt_convenio2, dt_convenio3, dt_convenio4, dt_periodo, dt_num_m, dt_num_f, dt_egresados_f, dt_egresados_m) 
-                      VALUES (null, '{$id_ies}', '{$denominacion}', '{$programa_educativo}','{$inicio}',  '{$unidad}', '{$unidad_1}', '{$unidad_2}', '{$unidad_3}', '{$unidad_4}','{$convn}','{$convn1}','{$convn2}','{$convn3}', '{$convn4}', '{$periodo}','{$sex_fem}', '{$sex_mas}', '{$egresados_f}', '{$egresados_m}');";
+                      VALUES (null, '{$id_ies}', '{$denominacion}', '{$programa_educativo}','{$valor}',  '{$unidad}', '{$unidad_1}', '{$unidad_2}', '{$unidad_3}', '{$unidad_4}','{$convn}','{$convn1}','{$convn2}','{$convn3}', '{$convn4}', '{$periodo}','{$sex_fem}', '{$sex_mas}', '{$egresados_f}', '{$egresados_m}')";
 $mysqli->query($sql);
 }
 
+function programa_devolver_educativo($programa_educativo){
+  
+  $conexion = mysqli_connect("host", "usuario", "", "dual");
+  global $mysqli;   
+  $consulta = "SELECT nombre_carrera FROM catalogo_de_programas_educativos Where lista = '{$programa_educativo}' ";
+  $res = $mysqli->query($consulta);
+  $registro = mysqli_fetch_array($res, MYSQLI_ASSOC);
+  return $res->fetch_assoc();
+}
 
 
 function acces_programas($id)
@@ -97,7 +98,7 @@ function acces_programas($id)
 function acces_programas2($id)
 {
   global $mysqli;
-  $sql = "SELECT COUNT(*) AS total FROM programa_educativo 
+  $sql = "SELECT COUNT(*) AS total FROM programa_educativo x|
           WHERE id_usuario = '{$id}'";
   return $mysqli->query($sql);  
   return $result->num_rows($sql);
@@ -114,8 +115,6 @@ function acces_programa($programa)
 }
 
 
-
-
 function  update_programa($id_programa, $denominacion, $programa_educativo, $inicio, $unidad, $unidad_1, $unidad_2, $unidad_3, $unidad_4, $periodo, $sex_fem, $sex_mas, $egresados_f, $egresados_m)
 {
   global $mysqli;
@@ -124,17 +123,11 @@ function  update_programa($id_programa, $denominacion, $programa_educativo, $ini
 
 }
 
-
 function  eliminar($programa)
 {
 global $mysqli;
 $sql="DELETE FROM programa_educativo WHERE id_programa ='{$programa}' ";
 $mysqli->query($sql);
 }
-
-
-
-
-
 
 ?>

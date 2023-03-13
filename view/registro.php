@@ -5,10 +5,8 @@ require_once('../controller/conec.php');
 require_once('../model/databases_programa.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
-$carreras = view_carreras();
-$universidades = view_universidades();
-$programasEducativos = view_programasEductivos();
-// $accesoprogramas = acces_progedu($id_ies);
+$nivel_de_estudios = view_nivel_de_estudios();
+$carreras = view_catalogo();
 $programa = acces_programas($id_ies);
 $responsable = acces_responsable($id_ies);
 $ies = acces_ies($id_ies);
@@ -189,26 +187,29 @@ function addUnidad(){
                                     <div class="col-xl-2"><br>                                    
                                      <!----> <label>Grado/Denominación</label> 
                                            <!----> <select class="form-control" name="denominacion" id="denominacion" required="">
-                                             <option value="">Seleccione: </option>
-                                           <?php 
-                                           while ($resul = $universidades->fetch_assoc()) { 
-                                             echo '<option value="'.$resul['id_uni'].'">'.$resul['cod_educativo'].'</option>';    
-                                             }
-                                           ?>
+                                            <option value="">Seleccione: </option>
+                                             <!--Se implemento una lista desplegable que consulta la BD para mostrar los niveles educativos que corresponden al tipo de subsistema-->
+                                             <?php 
+
+                                                while ($resul = $nivel_de_estudios->fetch_assoc()) {
+                                                   # code...
+                                                   $resul.'id_nivel';
+         echo'<option value="'.$resul['id_nivel'].$resul['dt_nombre_nivel'].'">'.$resul['dt_nombre_nivel'].'</option>';}
+                                          
+                                          ?>
                                              
                                              </select> 
-                                       
-                                       
-                                  
-                                  
-                                    </div>
+                                             
+                                             
+                                             
+                                             
+                                          </div>
                                     <div class="col-xl-6"><br>
                                        <div class="form-group"> 
-                                          <!-- <label>Nombre del programa educativo</label> -->
-                                          <!-- <input type="text" class="form-control" name="programa_educativo" onChange="conMayusculas(this)" required=""> -->
                                           <label for="exampleInputEmail1">Nombre del programa educativo</label>
                                           <select class="form-control" name="programa_educativo" id="programa_educativo" required>
-                                          
+                                             <option value="">Selecciona una:</option>
+                                            
                                           </select> 
                                                 
                                        </div>
@@ -513,8 +514,8 @@ function addUnidad(){
          $(document).ready(function(){
            $("#denominacion").change(function () {          
              $("#denominacion option:selected").each(function () {
-               id_uni = $(this).val();
-               $.post("../includes/getuuniversidades.php", { id_uni:id_uni }, function(data){
+               id_nivel = $(this).val();
+               $.post("../includes/getcatalogo.php", { id_nivel:id_nivel }, function(data){
                  $("#programa_educativo").html(data);
                });            
              });

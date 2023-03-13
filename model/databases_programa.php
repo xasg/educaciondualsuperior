@@ -123,34 +123,28 @@ function  update_ies($id_ies, $email, $telefono, $direccion, $localidad, $munici
 }
 
 
-function  eliminar($id_ies)
+function  eliminar($id_programa
+)
 {
 global $mysqli;
-$sql="DELETE FROM programa_educativo WHERE id_ies ='{$id_ies}' ";
+$sql="DELETE FROM programa_educativo WHERE id_ies ='{$id_programa}' ";
 $mysqli->query($sql);
 }
 
-function view_carreras(){
+function view_catalogo(){
   global $mysqli;
-  $sql = 'SELECT * FROM carreras';
+  $sql = 'SELECT * FROM catalogo_de_programas_educativos';
   return $mysqli->query($sql);
   return $result->fetch_assoc();
   }
 
-  function view_universidades(){
+  function view_nivel_de_estudios(){
   global $mysqli;
-  $sql = 'SELECT * FROM universidades';
+  $sql = "SELECT * FROM nivel_estudios where  id_subsistema";
   return $mysqli->query($sql);
   return $result->fetch_assoc();
   }
-
-  function view_programasEductivos(){
-    global $mysqli;
-    $sql = 'SELECT * FROM programas_educativos';
-    return $mysqli->query($sql);
-    return $result->fetch_assoc();    
-  }
-
+  
   function acces_progedu($idprograma)
 	{
   	global $mysqli;
@@ -160,6 +154,18 @@ function view_carreras(){
    	return $result->fetch_assoc();
 	}
 
+  function obten_programa($id_indice){
+    global $mysqli;
+    $sql = "SELECT * FROM carreras WHERE id_codeducativo_f = '{$id_indice}'";
+    $mysqli->query($sql);
+    // return $result->fetch_assoc();
+  }
+
+  function obten_nivel($id_uni){
+    $consulta = "SELECT id_uni FROM universidades Where id_uni = '{$id_uni}'";
+    $mysqli->query($consulta);
+    return $consulta->fetch_assoc();
+  }
 
 
 

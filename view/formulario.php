@@ -126,18 +126,16 @@ $subsistema=view_subsistema();
                      <div class="form-group">
                         <label for="exampleInputEmail1">Subsistema educativo</label>
                        <select class="form-control" name="subsistema" required>
-                          <option value="" selected>Seleccionar</option>
-                          <option value="Universidades Públicas Federales">UNIVERSIDADES PÚBLICAS FEDERALES</option>
-                                                <option value="Universidades Públicas Estatales con Apoyo Solidario">UNIVERSIDADES PÚBLICAS ESTATALES CON APOYO SOLIDARIO</option>
-                                                <option value="Institutos Tecnológicos">INSTITUTOS TECNOLÓGICOS</option>
-                                                <option value="Universidades Tecnológicas">UNIVERSIDADES TECNOLÓGICAS</option>
-                                                <option value="Universidades Politécnicas">UNIVERSIDADES POLITÉCNICAS</option>
-                                                <option value="Universidad Pedagógica Nacional">UNIVERSIDAD PEDAGÓGICA NACIONAL</option>
-                                                <option value="Universidad Abierta y a Distancia de México">UNIVERSIDAD ABIERTA Y A DISTANCIA DE MÉXICO</option>
-                                                <option value="Universidades Interculturales">UNIVERSIDADES INTERCULTURALES</option>
-                                                <option value="Centros Públicos de Investigación">CENTROS PÚBLICOS DE INVESTIGACIÓN</option>
-                                                <option value="Escuelas Normales Públicas">ESCUELAS NORMALES PÚBLICAS</option>
-                       </select>
+                                           <!--Se implemento una lista desplegable que consulta la BD para mustrar los subsistemas disponibles-->
+                                           <?php 
+                                           
+                                           while ($resul = $subsistema->fetch_assoc()) {
+                                                    # code...
+                                                    echo'<option value="'.$resul['dt_nombre_subsistema'].'">'.$resul['dt_nombre_subsistema'].'</option>';}
+                                
+                                           ?>  
+                                     
+                        </select>
                       </div>                      
                      </div>
 

@@ -100,7 +100,15 @@ function acces_ies($id_ies)
   $sql = "SELECT * FROM cat_ies LEFT JOIN cat_entidad USING(id_cat_entidad) WHERE id_ies = '{$id_ies}'";
   $result = $mysqli->query($sql);
    return $result->fetch_assoc();
-}
+  }
+  
+  function acces_ies_registro($id_ies){
+  global $mysqli;
+  $sql = "SELECT * FROM cat_ies WHERE id_ies = '{$id_ies}'";
+  $result = $mysqli->query($sql);
+  return $result->fetch_assoc();
+
+  }
 
 
 
@@ -140,7 +148,7 @@ function view_catalogo(){
 
   function view_nivel_de_estudios(){
   global $mysqli;
-  $sql = "SELECT * FROM nivel_estudios where  id_subsistema";
+  $sql = "SELECT dt_nombre_nivel,id_nivel FROM nivel_estudios where id_nivel";
   return $mysqli->query($sql);
   return $result->fetch_assoc();
   }

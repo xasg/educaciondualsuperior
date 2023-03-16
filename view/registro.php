@@ -10,6 +10,7 @@ $carreras = view_catalogo();
 $programa = acces_programas($id_ies);
 $responsable = acces_responsable($id_ies);
 $ies = acces_ies($id_ies);
+$ie_sregistro = acces_ies_registro($id_ies);
 $mysqli = new mysqli($servername, $username, $password, $dbname);
 $result ='';
 if($mysqli->connect_errno)
@@ -65,6 +66,7 @@ function addUnidad(){
                                     <li><a href="#" title="">FORMULARIO</a></li>
                                     <li><a href="../oferta.html" title="">OFERTA</a></li>
                                     <li><a href="#" title="">BLOG</a></li>
+                                    <li><?php echo $id_ies?></li>
                                 </ul>
                             </div>
                             <div class="header-right-btns">
@@ -193,8 +195,21 @@ function addUnidad(){
 
                                                 while ($resul = $nivel_de_estudios->fetch_assoc()) {
                                                    # code...
-                                                   $resul.'id_nivel';
-         echo'<option value="'.$resul['id_nivel'].$resul['dt_nombre_nivel'].'">'.$resul['dt_nombre_nivel'].'</option>';}
+
+
+                                                   // if ($resul['id_nivel'] == 2 || $resul['id_nivel'] == 3 ) {
+                                                      
+                                                      echo'<option value="'.$resul['id_nivel'].$resul['dt_nombre_nivel'].'">'.$resul['dt_nombre_nivel'].'</option>';}
+                                                      
+                                                   // }
+
+          
+                                           
+                                          //  while ($resul = $subsistema->fetch_assoc()) {
+                                          //           # code...
+                                          //           echo'<option value="'.$resul['dt_nombre_subsistema'].'">'.$resul['dt_nombre_subsistema'].'</option>';}
+                                
+
                                           
                                           ?>
                                              
@@ -515,7 +530,7 @@ function addUnidad(){
            $("#denominacion").change(function () {          
              $("#denominacion option:selected").each(function () {
                id_nivel = $(this).val();
-               $.post("../includes/getcatalogo.php", { id_nivel:id_nivel }, function(data){
+               $.post("../includes/getcatalogo.php", { id_nivel:id_nivel}, function(data){
                  $("#programa_educativo").html(data);
                });            
              });

@@ -62,6 +62,13 @@ function  update_ies($ies, $subsistema)
   $mysqli->query($sql); 
 
 }
+// function  update_programa($ies, $denominacion)
+// {
+//   global $mysqli;
+//   $sql = "UPDATE programa_educativo SET  dt_denominacion = '{$denominacion}' WHERE id_ies ='{$ies}'";
+//   $mysqli->query($sql); 
+
+// }
 
 
 function crear_programa($id_ies, $denominacion, $programa_educativo, $inicio, $unidad, $unidad_1, $unidad_2, $unidad_3, $unidad_4, $convn, $convn1, $convn2, $convn3, $convn4, $periodo, $sex_fem, $sex_mas, $egresados_f, $egresados_m)

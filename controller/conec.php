@@ -1,8 +1,8 @@
 
 
 <?php
-$servername = "localhost:3310";
-$dbname = "dual";
+$servername = "localhost";
+$dbname = "educaciondual";
 $username = "root";
 $password = ""; 
 ?>
@@ -13,11 +13,4 @@ $servername = "localhost";
 $dbname = "dual2022";
 $username = "root";
 $password = ""; **/
-?>
-
-<?php/**
-$servername = "localhost";
-$dbname = "feseor5_dual2022";
-$username = "feseor5_fese";
-$password = "Fs666AdQe";**/
 ?>

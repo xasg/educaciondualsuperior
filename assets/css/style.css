@@ -2361,7 +2361,7 @@ span.event-loc i {margin-right: .5rem;}
   background-color: #000;
   opacity: 0;
   z-index: 1;
-  content: ;
+  content: 0;
 }
 .post-style1:hover .post-img > a::before {opacity: .5;}
 .post-info {padding-top: 1.375rem;}

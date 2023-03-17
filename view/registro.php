@@ -21,6 +21,12 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
     /* determinar el número de filas del resultado */
     $row_cnt = $result->num_rows;
 }
+
+if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo 
+          WHERE grado_denominacion = 'LIC' ORDER BY programa_educativo ASC")) {
+    /* determinar el número de filas del resultado */
+    $row_cnt2 = $result2->num_rows2;
+}
 error_reporting (E_ALL); 
 ?> 
  <!DOCTYPE html>
@@ -54,7 +60,8 @@ function addUnidad(){
   <header class="stick style1 w-100" style=" background-color: #860f01;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
-                        <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><!--<img class="img-fluid" src="assets/images/img/logoforos.png" alt="Logo" srcset="assets/images/img/logoforos.png">-->LOGO</a></h1></div> 
+                    <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></a></h1></div> 
+
                         <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
@@ -192,14 +199,38 @@ function addUnidad(){
                                     </div>
                                     <div class="col-xl-6"><br>
                                        <div class="form-group"> 
-                                          <label>Nombre del programa educativo</label>
-                                          <input type="text" class="form-control" name="programa_educativo" onChange="conMayusculas(this)" required="">
+                                         <!--INICIO -->
+                                       <label for="exampleInputEmail1">Entidad de la IES</label>
+                                          <select class="form-control" name="entidad" id="entidad" required>
+                                             <option value="">Seleccione:</option>
+                                                      <?php
+                                                      while ($resul = $result2->fetch_assoc()) { 
+                                                         echo '<option value="'.$resul['id_prog_ed'].'">'.$resul['programa_educativo'].'</option>';    
+                                                      }
+                                                      ?>
+                                          </select>
+                                       <!--FIN -->
                                        </div>
+                                       
                                     </div>
                                     <div class="col-xl-4"><br>
                                        <div class="form-group"> 
                                           <label>Año de inicio bajo la modalidad Educación Dual</label>
                                           <input type="text" class="form-control" name="inicio" onChange="conMayusculas(this)" required="">
+                                       </div>
+                                    </div>
+                                    
+                                    <div class="col-xl-12">
+                                       <div class="form-group">
+                                           <label for="nombre">¿A partir de qué periodo académico el estudiante puede ingresar a esta Modalidad Dual?</label>
+                                         <input type="text" class="form-control input-sm" name="periodo" placeholder="Ejemplo: (2 semestre, 4 cuatrimestre, 4 trimestre, etc)" required>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                       <div class="form-group">
+                                       <hr/>
+                                       <label for="nombre"><h3>Información de la unidad económica</h3></label>
+                                       
                                        </div>
                                     </div>
                                     <div class="col-xl-6">
@@ -216,7 +247,7 @@ function addUnidad(){
                                     </div>                                   
 
                                     <div class="col-xl-3"><br>
-                                        <input type="button" class="btn btn-block btn-primary btn-lg" id="add_cancion()" onClick="addUnidad()" value="+ Otra unidad económica" />
+                                        <input hidden type="button" class="btn btn-block btn-primary btn-lg" id="add_cancion()" onClick="addUnidad()" value="+ Otra unidad económica" />
                                     </div>
 
 
@@ -227,12 +258,7 @@ function addUnidad(){
   
 
 
-                                    <div class="col-xl-12">
-                                       <div class="form-group">
-                                           <label for="nombre">¿A partir de qué periodo académico el estudiante puede ingresar a esta Modalidad Dual?</label>
-                                         <input type="text" class="form-control input-sm" name="periodo" placeholder="Ejemplo: (2 semestre, 4 cuatrimestre, 4 trimestre, etc)" required>
-                                       </div>
-                                    </div>
+                                    
 
                                      <div class="col-xl-12">
                                        <div class="form-group">
@@ -255,18 +281,18 @@ function addUnidad(){
 
                                      <div class="col-xl-12">
                                        <div class="form-group">
-                                          <label for="nombre">¿Cuántos estudiantes cursan actualmente este programa educativo bajo la Modalidad Dual?</label>
+                                          <label for="nombre">¿Cuántos docentes se involucrarón en este programa educativo bajo la Modalidad Dual?</label>
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
-                                        <label for="nombre"># De estudiantes femeninos</label>      
+                                        <label for="nombre"># Docentes femeninos</label>      
                                         <input type="text" class="form-control input-sm" name="sex_fem"  required>
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
-                                        <label for="nombre"># De estudiantes masculinos</label>
+                                        <label for="nombre"># Docentes masculinos</label>
                                          <input type="text" class="form-control input-sm" name="sex_mas"  required>
                                        </div>
                                     </div>
@@ -307,6 +333,17 @@ function addUnidad(){
                                         </div>
                                         </div>
                                    </div>
+
+                                   <div class="col-xl-12">
+                                       <div class="form-group">
+                                           <label for="nombre">Seleccione los beneficios derivados de esta colaboración</label>
+                                         <fieldset>      
+                                             <input type="checkbox" name="beneficios" value="Capacitación">Capacitación<br>      
+                                             <input type="checkbox" name="beneficios" value="Inserción">Inserción laboral<br>      
+                                             <input type="checkbox" name="beneficios" value="Vinculación">Vinculación<br>      
+                                          </fieldset>  
+                                       </div>
+                                    </div>
 
                                     <div class="col-xl-12"></div>
 

@@ -1,0 +1,218 @@
+<?php
+error_reporting(E_ALL);
+session_start();
+require_once('../controller/conexion.php');
+require_once('../model/databases_programa.php');
+mysqli_set_charset( $mysqli, 'utf8');
+$id_ies=$_SESSION["id_ies"];
+$subsistema= $_SESSION["subsistema"];
+$programa = acces_programas($id_ies);
+
+if ($result = $mysqli->query("SELECT * FROM programa_educativo 
+          WHERE id_ies = '{$id_ies}'")) {
+    /* determinar el número de filas del resultado */
+    $row_cnt = $result->num_rows;
+}
+
+?> 
+ <!DOCTYPE html>
+<html lang="es">
+<head>
+      <meta charset="UTF-8">
+      <link rel="icon" href="../assets/images/favicon.png" sizes="35x35" type="image/png">
+      <title>Registro</title>
+      <link rel="stylesheet" href="../assets/css/all.min.css">
+        <link rel="stylesheet" href="../assets/css/flaticon.css">
+        <link rel="stylesheet" href="../assets/css/animate.min.css">
+        <link rel="stylesheet" href="../assets/css/bootstrap.css">
+        <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css">
+        <link rel="stylesheet" href="../assets/css/perfect-scrollbar.css">
+        <link rel="stylesheet" href="../assets/css/slick.css">
+        <link rel="stylesheet" href="../assets/css/style.css">
+        <link rel="stylesheet" href="../assets/css/responsive.css">
+        <link rel="stylesheet" href="../assets/css/color.css">
+</head>
+   <body>
+  <header class="stick style1 w-100" style=" background-color: #860f01;">
+                <div class="container">
+                    <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
+                    <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></a></h1></div> 
+
+                        <nav class="d-inline-flex align-items-center">
+                            <div class="header-left">
+                                <ul class="mb-0 list-unstyled d-inline-flex">
+                                    <li class="menu-item-has-children"><a href="../" title="">INICIO</a></li>
+                                    <li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
+                                    <li><a href="#" title="">FORMULARIO</a></li>
+                                    <li><a href="../oferta.html" title="">OFERTA</a></li>
+                                    <li><a href="#" title="">BLOG</a></li>
+                                </ul>
+                            </div>
+                            <div class="header-right-btns">
+                                <!--<a class="search-btn" href="javascript:void(0);" title="">
+                                    <i class="flaticon-magnifying-glass"></i></a>-->
+                               <a class="user-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
+                               <!-- <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>-->
+                            </div>
+                        </nav>
+                    </div><!-- Logo Menu Wrap -->
+                </div>
+            </header><!-- Header -->
+            <div class="menu-wrap">
+                <span class="menu-close"><i class="fas fa-times"></i></span>
+                <ul class="mb-0 list-unstyled w-100">
+                    <li class="menu-item-has-children"><a href="./" title="">INICIO</a></li>
+                    <li class="menu-it@em-has-children"><a href="#" title="">HISTORIA</a></li>  
+                    <li><a href="#">FORMULARIO</a></li>
+                    <li><a href="oferta.html" title="">OFERTA</a></li>
+                    <li><a href="#" title="">BLOG</a></li>                         
+                </ul>
+            </div><!-- Menu Wrap -->
+
+         <!-- Menu Wrap -->
+         <section>
+            <div class="w-100 text-center black-layer position-relative">                   
+            </div><br><br><br>
+         </section>
+
+
+<div class="container"><br><br>
+ <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#pane1" role="tab" aria-controls="home" aria-selected="true">Resumen</a>
+       </li>
+        <li class="nav-item">
+         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#pane3" role="tab" aria-controls="profile" aria-selected="false">Datos Institucionales</a>
+       </li>
+     </ul>
+     <br><br>
+</div>
+
+
+
+<div class="container">
+<div class="tab-content">
+<div class="tab-pane active" id="pane1" role="tabpanel" aria-labelledby="home-tab">
+<div class="row">
+                            <span class="border"><br><br>
+                                    <div class="col-xl-12">
+                                       <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2021-2022</p>
+                                       <p>Agradecemos el apoyo en el llenado, ya que el mismo servirá para mostrar la oferta educativa a nivel nacional, incluyendo a su IES con los programas aquí registrados.</p>
+                                       <p><strong>Se cuenta con <?php echo  $row_cnt;?> programas educativos registrados.</strong></p><?php //echo $subsistema; ?>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="programa.php"><button type="submit" class="btn btn-block btn-primary">Agregar programa educativo</button></a>
+                                    </div>
+                                    <div class="col-md-12"><br>
+                                    <?php if($row_cnt>0){ ?>
+                                     <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                        <thead class="thead-dark">
+                                          <tr>  
+                                                <th>#</th>
+                                                <th>Grado/Denominación</th>
+                                                <th>Programa educativo</th>
+                                                <th>Inicio</th> 
+                                                <th>Periodo</th>
+                                                <th>Unidad economica</th>
+                                          </tr>
+                                        </thead>
+                                            <tbody>
+                                              <?php
+                                              $counter = 1;
+                                              while($prog = $programa->fetch_assoc())
+                                              {
+                                              ?>
+                                              <tr>
+                                                <td class="text-center"><?php echo $counter++ ?></td>
+                                                <td><?php echo strtoupper($prog['dt_denominacion']); ?></td>
+                                                <td><?php echo strtoupper($prog['dt_programa']); ?></td>
+                                                <td><?php echo strtoupper($prog['dt_inicio']); ?></td>
+                                                <td class="text-center"><?php echo strtoupper($prog['dt_unidad']); ?></td>
+                                                <td> 
+                                                    <table class="table table-bordered">
+                                                      <thead>                                                       
+                                                      </thead>
+                                                      <tbody>
+                                                    <?php
+                                                    $id_programa=$prog['id_programa'];
+                                                    $mysqli = new mysqli($servername, $username, $password, $dbname);
+                                                    mysqli_set_charset( $mysqli, 'utf8');
+                                                    $result ='';
+                                                    if($mysqli->connect_errno)
+                                                    {
+                                                      echo '';
+                                                      exit;
+                                                    }
+
+                                                    $sql = "SELECT dt_unidad FROM unidad_educativa where id_programa_educativo= $id_programa ";
+                                                    $result = mysqli_query($mysqli,$sql);
+                                                    while($row = mysqli_fetch_array($result)){
+                                                        ?>
+                                                          <tr>
+                                                           <td><?php echo strtoupper($row['dt_unidad']); ?></td>
+                                                          </tr>
+
+                                                        <?php
+                                                    }
+
+                                                    ?>
+                                                      </tbody>
+                                                    </table>
+                                                </td>
+                                              
+                                              </tr> 
+                                              <?php
+                                                }
+                                              ?>               
+                                            </tbody>
+
+                                      </table><br>
+                                  <?php } ?>
+
+
+                                     </div>                                     
+                            </span><br><br>
+</div>
+</div>
+
+<br><br><br><br>
+</div> 
+</div>
+
+            <footer style="background-color: #98213A;" id="contacto">
+                <div class="w-100 pt-121  opc1 position-relative">
+                    <div class="container position-relative">
+                        <div class="footer-wrap w-100 text-center">
+                            <div class="footer-inner d-inline-block">
+                                <div class="logo d-inline-block">
+                                    <h1 class="mb-0">
+                                        <!--<a href="index.html" title=""><br>
+                                            <img class="img-fluid" src="assets/images/img/logoforos.png" alt="Logo">
+                                        </a>-->
+                                    </h1>
+                                </div>
+                                <p class="mb-0" style="color: #fff">Contacto:</p>
+                                <p class="mb-0" style="color: #fff">@fese.mx</p>
+                            </div>
+                            <div class="footer-bottom d-flex flex-wrap justify-content-between w-100">                              
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer><!-- Footer -->
+      </main>
+      <!-- Main Wrapper -->
+      <script src="../assets/js/jquery.min.js"></script>
+        <script src="../assets/js/popper.min.js"></script>
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <script src="../assets/js/wow.min.js"></script>
+        <script src="../assets/js/counterup.min.js"></script>
+        <script src="../assets/js/jquery.downCount.js"></script>
+        <script src="../assets/js/jquery.fancybox.min.js"></script>
+        <script src="../assets/js/perfect-scrollbar.min.js"></script>
+        <script src="../assets/js/slick.min.js"></script>
+        <script src="../assets/js/custom-scripts.js"></script>
+        <script src="../assets/js/simplyCountdown.min.js"></script>
+        <script src="../assets/js/countdown.js"></script>    
+    
+</html>

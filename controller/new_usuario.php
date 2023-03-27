@@ -23,6 +23,7 @@
    $id_user=$usuario['id_usuario']; 
    crear_responsable($id_user, $entidad, $ies, $subsistema, $nombre_responsable, $cargo, $telefono, $celular);
     $_SESSION["id_ies"] = $ies;
+    $_SESSION["subsistema"] = $subsistema;
    ?>
 <script>
    window.location="../view/registro.php"

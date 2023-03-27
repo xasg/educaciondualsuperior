@@ -10,7 +10,6 @@ $id_ies=$_GET['var'];
 <script>
    window.location="../view/registro.php"
 </script>
-
 <?php
 }else {
     // code...

@@ -1,5 +1,4 @@
 <?php
-error_reporting(E_ALL);
 require_once('../controller/conec.php');
 $mysqli = new mysqli($servername, $username, $password, $dbname);
 $result ='';
@@ -43,9 +42,9 @@ $mysqli->query($sql);
 
 function crear_programa($id, $denominacion, $programa_educativo, $inicio, $unidad, $unidad_1, $unidad_2, $unidad_3, $unidad_4, $periodo, $sex_fem, $sex_mas, $egresados_f, $egresados_m)
 {
-
+global $mysqli;
 $sql="INSERT INTO programa_educativo(id_programa, id_usuario, dt_denominacion, dt_programa, dt_inicio, dt_unidad, dt_unidad_1, dt_unidad_2, dt_unidad_3, dt_unidad_4, dt_periodo, dt_num_m, dt_num_f, dt_egresados_f, dt_egresados_m) 
-                      VALUES (null, '{$id}', '{$denominacion}', '{$sql_programa}','{$inicio}',  '{$unidad}', '{$unidad_1}', '{$unidad_2}', '{$unidad_3}', '{$unidad_4}', '{$periodo}','{$sex_fem}', '{$sex_mas}', '{$egresados_f}', '{$egresados_m}');";
+                      VALUES (null, '{$id}', '{$denominacion}', '{$programa_educativo}','{$inicio}',  '{$unidad}', '{$unidad_1}', '{$unidad_2}', '{$unidad_3}', '{$unidad_4}', '{$periodo}','{$sex_fem}', '{$sex_mas}', '{$egresados_f}', '{$egresados_m}');";
 $mysqli->query($sql);
 }
 
@@ -100,15 +99,7 @@ function acces_ies($id_ies)
   $sql = "SELECT * FROM cat_ies LEFT JOIN cat_entidad USING(id_cat_entidad) WHERE id_ies = '{$id_ies}'";
   $result = $mysqli->query($sql);
    return $result->fetch_assoc();
-  }
-  
-  function acces_ies_registro($id_ies){
-  global $mysqli;
-  $sql = "SELECT * FROM cat_ies WHERE id_ies = '{$id_ies}'";
-  $result = $mysqli->query($sql);
-  return $result->fetch_assoc();
-
-  }
+}
 
 
 
@@ -123,7 +114,6 @@ function  update_programa($id_ies, $denominacion, $programa_educativo, $inicio, 
 
 function  update_ies($id_ies, $email, $telefono, $direccion, $localidad, $municipio, $cp, $latitud, $longitud, $bajo_modalidad, $total_egresados)
 {
-
   global $mysqli;
   $sql = "UPDATE cat_ies SET dt_email = '{$email}', dt_telefono = '{$telefono}', dt_direccion = '{$direccion}', dt_localidad = '{$localidad}', dt_municipio = '{$municipio}',dt_cp = '{$cp}',lat = '{$longitud}',lng = '{$latitud}', dt_bajo_modalidad = '{$bajo_modalidad}', dt_total_egresados = '{$total_egresados}' WHERE id_ies ='{$id_ies}' ";
   $mysqli->query($sql); 
@@ -131,51 +121,22 @@ function  update_ies($id_ies, $email, $telefono, $direccion, $localidad, $munici
 }
 
 
-function  eliminar($id_programa
-)
+function  eliminar($id_ies)
 {
 global $mysqli;
-$sql="DELETE FROM programa_educativo WHERE id_ies ='{$id_programa}' ";
+$sql="DELETE FROM programa_educativo WHERE id_ies ='{$id_ies}' ";
 $mysqli->query($sql);
 }
 
-function view_catalogo(){
+
+
+function view_entidad()
+{
   global $mysqli;
-  $sql = 'SELECT * FROM catalogo_de_programas_educativos';
+  $sql ='SELECT DISTINCT(`grado_denominacion`) FROM `cat_programa_educativo` ORDER BY `cat_programa_educativo`.`grado_denominacion` ASC';
   return $mysqli->query($sql);
   return $result->fetch_assoc();
-  }
-
-  function view_nivel_de_estudios(){
-  global $mysqli;
-  $sql = "SELECT dt_nombre_nivel,id_nivel FROM nivel_estudios where id_nivel";
-  return $mysqli->query($sql);
-  return $result->fetch_assoc();
-  }
-  
-  function acces_progedu($idprograma)
-	{
-  	global $mysqli;
-  	$sql = "SELECT * FROM  universidades
-          WHERE id_uni = '{$idprograma}'";
- 	 $result = $mysqli->query($sql);
-   	return $result->fetch_assoc();
-	}
-
-  function obten_programa($id_indice){
-    global $mysqli;
-    $sql = "SELECT * FROM carreras WHERE id_codeducativo_f = '{$id_indice}'";
-    $mysqli->query($sql);
-    // return $result->fetch_assoc();
-  }
-
-  function obten_nivel($id_uni){
-    $consulta = "SELECT id_uni FROM universidades Where id_uni = '{$id_uni}'";
-    $mysqli->query($consulta);
-    return $consulta->fetch_assoc();
-  }
-
-
+}
 
 
 ?>

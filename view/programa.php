@@ -1,8 +1,11 @@
-<?php
+<?php 
 session_start();
 require_once('../model/databases_responsable.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
+$ies = acces_ies($id_ies);
+$subsistema= $ies['dt_subsistema_resp'];
+$denominacion=view_deno($subsistema);
 $programa = acces_programas($id_ies);
 
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
@@ -10,9 +13,8 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
     /* determinar el número de filas del resultado */
     $row_cnt = $result->num_rows;
 }
-
-?> 
- <!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="es">
 <head>
       <meta charset="UTF-8">
@@ -30,11 +32,11 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
         <link rel="stylesheet" href="../assets/css/color.css">
 </head>
    <body>
+    <?php include("modal_unidad.php");?>
   <header class="stick style1 w-100" style=" background-color: #860f01;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
                     <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></a></h1></div> 
-
                         <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
@@ -64,45 +66,80 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
                     <li><a href="oferta.html" title="">OFERTA</a></li>
                     <li><a href="#" title="">BLOG</a></li>                         
                 </ul>
-            </div><!-- Menu Wrap -->
-
-         <!-- Menu Wrap -->
+            </div>
          <section>
             <div class="w-100 text-center black-layer position-relative">                   
             </div><br><br><br>
          </section>
+<div class="container">
+    <br><br>
+</div>
+<div class="container">
+<div class="tab-content">
+<form action="../controller/new_programa.php" method="POST"> 
+<div class="row p-3 my-3 border">
+<div class="col-xl-12 font-weight-bold">
+   <h5> Registro de programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2021-2022<?php echo $subsistema; ?></h5>
+</div>
+<div class="col-xl-2"><br>
+   <div class="form-group">
+    <label>Grado/Denominación</label>  
+    <select class="form-control"  name="denominacion" id="denominacion" required>
+                            <option value="">Seleccione:</option>
+                                    <?php
+                                     while ($resul = $denominacion->fetch_assoc()) { 
+                                       echo '<option value="'.$resul['grado_denominacion'].'">'.$resul['grado_denominacion'].'</option>';
+                                     } ?>
+    </select> 
+  </div> 
+</div>
 
+<div class="col-xl-6"><br>
+   <div class="form-group">
+    <label>Programa Educativo</label>
+        <select class="form-control" name="programa_edu" id="programa_edu" required></select>  
+  </div> 
+</div>
 
-<div class="container"><br><br>
- <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#pane1" role="tab" aria-controls="home" aria-selected="true">Resumen</a>
-       </li>
-        <li class="nav-item">
-         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#pane3" role="tab" aria-controls="profile" aria-selected="false">Datos Institucionales</a>
-       </li>
-     </ul>
-     <br><br>
+<div class="col-xl-4"><br>
+<div class="form-group">
+  <label>Año de inicio bajo la modalidad Educación Dual</label>
+  <select class="form-control" name="inicio">
+    <option>2023</option>
+    <option>2022</option>
+    <option>2021</option>
+    <option>2020</option>
+    <option>2019</option>
+    <option>2018</option>
+    <option>2017</option>
+    <option>2016</option>
+    <option>2015</option>
+    <option>2014</option>
+    <option>2013</option>
+    <option>2012</option>
+    <option>2011</option>
+  </select>
+</div>
 </div>
 
 
+<div class="col-xl-12"><br>
+  <div class="form-group">
+    <label>¿A partir de qué periodo académico el estudiante puede ingresar a esta Modalidad Dual?</label>
+    <input type="text" class="form-control input-sm" name="periodo" placeholder="Ejemplo: (2 semestre, 4 cuatrimestre, 4 trimestre, etc)" required="">
+  </div>
+</div>
+<div class="col-xl-2"><br>
+  <button type="submit" class="btn btn-block btn-primary">Agregar</button>
+</div>
+</div>
+</form>
 
-<div class="container">
-<div class="tab-content">
-<div class="tab-pane active" id="pane1" role="tabpanel" aria-labelledby="home-tab">
+<?php if($row_cnt>0){ ?>
 <div class="row">
-                            <span class="border"><br><br>
-                                    <div class="col-xl-12">
-                                       <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2021-2022</p>
-                                       <p>Agradecemos el apoyo en el llenado, ya que el mismo servirá para mostrar la oferta educativa a nivel nacional, incluyendo a su IES con los programas aquí registrados.</p>
-                                       <p><strong>Se cuenta con <?php echo  $row_cnt;?> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
-                                    </div>
-                                    <div class="col-md-4">
-                                        <a href="programa.php"><button type="submit" class="btn btn-block btn-primary">Agregar programa educativo</button></a>
-                                    </div>
-                                    <div class="col-md-12"><br>
-                                    <?php if($row_cnt>0){ ?>
-                                                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+<div class="col-xl-12">
+    <br>
+                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
                                         <thead class="thead-dark">
                                           <tr>  
                                                 <th>#</th>
@@ -130,7 +167,8 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
                                                 <td class="text-center"><?php echo strtoupper($prog['estudiantes']); ?></td>
                                                 <td class="text-center"><?php echo strtoupper($prog['egresados']); ?></td>
                                                 <td class="text-center"> <?php echo strtoupper($prog['num']); ?>
-                                                </td>                                               
+                                                 <a data-toggle="modal" data-target="#convenio" data-nombre="<?php echo $prog['dt_programa']; ?>" data-id="<?php echo $prog['id_programa']?>"><img src="../img/icons/mas.png" class=""></a> <img src="../img/icons/lupa.png" class="">
+                                                 </td>                                               
                                               </tr> 
                                               <?php
                                                 }
@@ -138,40 +176,18 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
                                             </tbody>
 
                                       </table>
-                                    <br>
-                                  <?php } ?>
 
-
-                                     </div>                                     
-                            </span><br><br>
+                                      <div class="col-md-2">
+                                        <a href="registro.php"><button type="submit" class="btn btn-block btn-primary">Salir</button></a>
+                                     <br><br>
+                                     </div>
 </div>
 </div>
 
-<br><br><br><br>
-</div> 
+<?php } ?>
+   
 </div>
-
-            <footer style="background-color: #98213A;" id="contacto">
-                <div class="w-100 pt-121  opc1 position-relative">
-                    <div class="container position-relative">
-                        <div class="footer-wrap w-100 text-center">
-                            <div class="footer-inner d-inline-block">
-                                <div class="logo d-inline-block">
-                                    <h1 class="mb-0">
-                                        <!--<a href="index.html" title=""><br>
-                                            <img class="img-fluid" src="assets/images/img/logoforos.png" alt="Logo">
-                                        </a>-->
-                                    </h1>
-                                </div>
-                                <p class="mb-0" style="color: #fff">Contacto:</p>
-                                <p class="mb-0" style="color: #fff">@fese.mx</p>
-                            </div>
-                            <div class="footer-bottom d-flex flex-wrap justify-content-between w-100">                              
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </footer><!-- Footer -->
+</div>
       </main>
       <!-- Main Wrapper -->
       <script src="../assets/js/jquery.min.js"></script>
@@ -185,6 +201,33 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
         <script src="../assets/js/slick.min.js"></script>
         <script src="../assets/js/custom-scripts.js"></script>
         <script src="../assets/js/simplyCountdown.min.js"></script>
-        <script src="../assets/js/countdown.js"></script>    
-    
+        <script src="../assets/js/countdown.js"></script>  
+
+         <script language="javascript">
+         $(document).ready(function(){
+           $("#denominacion").change(function () {          
+             $("#denominacion option:selected").each(function () {
+               grado_denominacion = $(this).val();
+               $.post("../includes/get_programa_edu.php", { grado_denominacion: grado_denominacion }, function(data){
+                 $("#programa_edu").html(data);
+               });            
+             });
+           })
+         });      
+      </script>  
+
+      <script language="javascript">
+         $(document).ready(function() {
+         $("input[type=radio]").click(function(event){
+             var valor = $(event.target).val();
+             if(valor =="Si"){
+                 $("#divid1").show();
+             } else if (valor == "No") {   
+                 $("#divid1").hide();
+             }
+         });
+         })
+      </script>
+      <script src="../assets/js/app.js"></script>
+      <script src="../assets/js/unidad.js"></script>
 </html>

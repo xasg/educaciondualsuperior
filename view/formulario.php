@@ -1,7 +1,6 @@
 <?php 
-require_once('../model/databases_responsable.php');
+require_once('../model/databases.php');
 $entidad=view_entidad();
-$subsistema=view_subsistema();
 ?>
  <!DOCTYPE html>
 <html lang="es">
@@ -25,22 +24,22 @@ $subsistema=view_subsistema();
             field.value = field.value.toUpperCase() 
         }   
         </script>
-		<!-- Global site tag (gtag.js) - Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-7K2QJNTN5J"></script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<!--<script async src="https://www.googletagmanager.com/gtag/js?id=G-7K2QJNTN5J"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'G-7K2QJNTN5J');
-</script>
+</script>-->
 </head>
    <body>
   <header class="stick style1 w-100" style=" background-color: #860f01;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
                         <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></a></h1></div> 
-                        <nav class="d-inline-flex align-items-center">
+                       <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
                                     <li class="menu-item-has-children"><a href="../" title="">INICIO</a></li>
@@ -51,10 +50,7 @@ $subsistema=view_subsistema();
                                 </ul>
                             </div>
                             <div class="header-right-btns">
-                                <!--<a class="search-btn" href="javascript:void(0);" title="">
-                                    <i class="flaticon-magnifying-glass"></i></a>-->
                                <a class="user-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
-                               <!-- <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>-->
                             </div>
                         </nav>
                     </div><!-- Logo Menu Wrap -->
@@ -98,9 +94,10 @@ $subsistema=view_subsistema();
 
 <div class="row border">
                     <div class="col-md-12"> <br>
-                    <h3>Datos del responsable de la IES encargado de reportar los avances de Educación Dual</h3><br>
-                    </div>
-                    <div class="col-md-2">
+                    <h4>Datos del responsable de la IES encargado de reportar y dar atención sobre los avances de Educación Dual</h4>
+                   <div class="alert alert-warning" role="alert">Los datos de contacto (correo y teléfono Institucional) serán publicados en este sitio</div>
+                    </div> 
+                    <div class="col-md-3">
                      <div class="form-group">
                         <label for="exampleInputEmail1">Entidad de la IES</label>
                          <select class="form-control" name="entidad" id="entidad" required>
@@ -114,7 +111,16 @@ $subsistema=view_subsistema();
                       </div>                       
                      </div>
 
-                     <div class="col-md-8">    
+                <!--<div class="col-md-8">    
+                     <div class="form-group">
+                        <label for="exampleInputEmail1">subsistema</label>
+                        <select class="form-control" name="subsistema" id="subsistema" required>
+                        </select>                        
+                      </div>                      
+               </div>-->
+
+
+                     <div class="col-md-9">    
                      <div class="form-group">
                         <label for="exampleInputEmail1">Nombre de la IES</label>
                         <select class="form-control" name="ies" id="ies" required>
@@ -122,17 +128,7 @@ $subsistema=view_subsistema();
                       </div>                      
                      </div>
 
-                     <div class="col-md-2">    
-                     <div class="form-group">
-                        <label for="exampleInputEmail1">Subsistema educativo</label>
-                       <select class="form-control" name="subsistema" required>
-                          <option value="" selected>Seleccionar</option>
-                          <option value="TSU">TSU</option>
-                          <option value="UP">UP</option>
-                          <option value="ALL">ALL</option>
-                       </select>
-                      </div>                      
-                     </div>
+                     
 
 
                     <div class="col-md-8">    
@@ -265,6 +261,23 @@ $subsistema=view_subsistema();
         <script src="../assets/js/custom-scripts.js"></script>
         <script src="../assets/js/simplyCountdown.min.js"></script>
         <script src="../assets/js/countdown.js"></script>    
+
+
+
+
+      <script language="javascript">
+         $(document).ready(function(){
+           $("#entidad").change(function () {          
+             $("#entidad option:selected").each(function () {
+               id_cat_entidad = $(this).val();
+               $.post("../includes/getSubsistema.php", {id_cat_entidad: id_cat_entidad }, function(data){
+                 $("#subsistema").html(data);
+               });            
+             });
+           })
+         });      
+      </script>
+
       <script language="javascript">
          $(document).ready(function(){
            $("#entidad").change(function () {          

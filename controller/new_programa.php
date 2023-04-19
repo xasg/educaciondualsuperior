@@ -1,15 +1,16 @@
 <?php
    session_start();
-   include_once('../model/databases_responsable.php');
+   include_once('../model/databases.php');
    mysqli_set_charset( $mysqli, 'utf8');
    $id_ies=$_SESSION["id_ies"];
    if( $_POST )
    {  
-   $denominacion = isset( $_POST['denominacion']) ? $_POST['denominacion'] : '';
    $programa_edu = isset( $_POST['programa_edu']) ? $_POST['programa_edu'] : '';
+   $otro_programa = isset( $_POST['otro_programa']) ? $_POST['otro_programa'] : '';
    $inicio = isset( $_POST['inicio']) ? $_POST['inicio'] : '';
    $periodo = isset( $_POST['periodo']) ? $_POST['periodo'] : '';
-   crear_programa_2($id_ies, $denominacion, $programa_edu, $inicio, $periodo);
+   $num_periodo = isset( $_POST['num_periodo']) ? $_POST['num_periodo'] : '';
+   crear_programa($id_ies, $programa_edu, $otro_programa, $inicio, $num_periodo, $periodo);
   
    
 ?>

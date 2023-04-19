@@ -354,7 +354,7 @@ footer {
 
 /*=== Container ===*/
 .container {
-  padding: 0;
+  padding-top: 5px;
   max-width: 73.125rem;
 }
 

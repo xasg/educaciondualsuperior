@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../model/databases_responsable.php');
+require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $programa = acces_programas($id_ies);
@@ -95,18 +95,17 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
                                     <div class="col-xl-12">
                                        <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2021-2022</p>
                                        <p>Agradecemos el apoyo en el llenado, ya que el mismo servirá para mostrar la oferta educativa a nivel nacional, incluyendo a su IES con los programas aquí registrados.</p>
-                                       <p><strong>Se cuenta con <?php echo  $row_cnt;?> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
+                                       <p><strong>Se cuenta con <strong><?php echo  $row_cnt;?></strong> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
                                     </div>
-                                    <div class="col-md-4">
-                                        <a href="programa.php"><button type="submit" class="btn btn-block btn-primary">Agregar programa educativo</button></a>
+                                    <div class="col-md-3">
+                                        <a href="programa.php"><button type="submit" class="btn btn-block btn-primary">Agregar o Editar</a>
                                     </div>
                                     <div class="col-md-12"><br>
                                     <?php if($row_cnt>0){ ?>
-                                                                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
                                         <thead class="thead-dark">
                                           <tr>  
                                                 <th>#</th>
-                                                <th>Grado/Denominación</th>
                                                 <th>Programa educativo</th>
                                                 <th>Inicio</th> 
                                                 <th>Periodo</th>
@@ -123,8 +122,11 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
                                               ?>
                                               <tr>
                                                 <td class="text-center"><?php echo $counter++ ?></td>
-                                                <td><?php echo strtoupper($prog['dt_denominacion']); ?></td>
+                                                 <?php if($prog['dt_programa']!='OTRO') { ?>
                                                 <td><?php echo strtoupper($prog['dt_programa']); ?></td>
+                                                <?php } else { ?>
+                                                <td><?php echo strtoupper($prog['dt_otro_programa']); ?></td>
+                                                <?php } ?>
                                                 <td><?php echo strtoupper($prog['dt_inicio']); ?></td>
                                                 <td class="text-center"><?php echo strtoupper($prog['dt_unidad']); ?></td>
                                                 <td class="text-center"><?php echo strtoupper($prog['estudiantes']); ?></td>

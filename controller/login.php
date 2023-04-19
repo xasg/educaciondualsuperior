@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once('../model/databases_responsable.php');
+require_once('../model/databases.php');
 if($_POST)
 {
  $correo = isset( $_POST['correo']) ? $_POST['correo'] : '';

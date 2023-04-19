@@ -67,7 +67,6 @@
                                        </div>
                                     </div>
 
-
                                     <div class="col-xl-12">
                                        <div class="form-group">
                                           <label for="nombre">¿Cuenta con egresados?</label>
@@ -104,10 +103,38 @@
                                         </div>
                                    </div>
 
+
+                                   <div class="col-xl-12">
+                                    <hr>
+                                    <div class="form-group">
+                                          <label for="nombre">¿Cuántos estudiantes cursan el programa educativo bajo la Modalidad de Educación Dual en lo que va del ciclo escolar 2022-2023?</label>
+                                    </div>
+                                    </div>
+                                    <div class="col-xl-3">
+                                       <div class="form-group"> 
+                                        <label for="nombre"># De estudiantes femeninos</label>      
+                                        <input type="text" class="form-control input-sm" name="estudiante_cursan_f"  required>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3">
+                                       <div class="form-group"> 
+                                        <label for="nombre"># De estudiantes masculinos</label>
+                                         <input type="text" class="form-control input-sm" name="estudiante_cursan_m"  required>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                    <hr>
+                                    </div>
+
+
+
+
+
+
+
                                    <div class="col-xl-12">
                                     <label for="nombre">Seleccione los beneficios derivados de esta colaboración</label>
-                                    
-                                    <div class="form-group">
+                                    <div class="form-group checkbox-group required">
                                     <div class="form-check-inline">
                                         <label class="form-check-label">
                                           <input type="checkbox" class="form-check-input" value="Inserción laboral" name="beneficio[]">Inserción laboral
@@ -140,10 +167,7 @@
                                     <div class="col-xl-4">
                                       <button type="submit" class="btn btn-block btn-primary">Agregar</button>
                                     </div>
-</div> 
-
-
-         
+</div>          
        
       </div>
     </div>

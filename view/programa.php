@@ -1,8 +1,13 @@
 <?php 
 session_start();
+if($_SESSION['id_ies']== null){
+    header("Location:formulario.php");
+
+}
 require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
+$name_user=$_SESSION["name_user"];
 $nivel_estudios = acces_nivel_estudios($id_ies);
 $programa_educativo = acces_programa_educativo($id_ies);
 $programa = acces_programas($id_ies);
@@ -32,25 +37,23 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
    <body>
     <?php include("modal_unidad.php");?>
     <?php include("modal_detalle_unidad.php");?>
-  <header class="stick style1 w-100" style=" background-color: #860f01;">
+    <header class="stick style1 w-100" style="background-color: #98213A;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
-                    <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></a></h1></div> 
+                    <div class="logo"><h1 class="mb-0"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></h1></div> 
+
                         <nav class="d-inline-flex align-items-center">
-                            <div class="header-left">
+                           <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
-                                    <li class="menu-item-has-children"><a href="../" title="">INICIO</a></li>
-                                    <li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
+                                    <li class="menu-item-has-children"><?php echo $name_user ?></li>
+                                    <!--<li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="#" title="">FORMULARIO</a></li>
                                     <li><a href="../oferta.html" title="">OFERTA</a></li>
-                                    <li><a href="#" title="">BLOG</a></li>
+                                    <li><a href="#" title="">BLOG</a></li>-->
                                 </ul>
                             </div>
                             <div class="header-right-btns">
-                                <!--<a class="search-btn" href="javascript:void(0);" title="">
-                                    <i class="flaticon-magnifying-glass"></i></a>-->
-                               <a class="user-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
-                               <!-- <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>-->
+                               <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
                             </div>
                         </nav>
                     </div><!-- Logo Menu Wrap -->
@@ -59,13 +62,13 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
             <div class="menu-wrap">
                 <span class="menu-close"><i class="fas fa-times"></i></span>
                 <ul class="mb-0 list-unstyled w-100">
-                    <li class="menu-item-has-children"><a href="./" title="">INICIO</a></li>
-                    <li class="menu-it@em-has-children"><a href="#" title="">HISTORIA</a></li>  
-                    <li><a href="#">FORMULARIO</a></li>
+                   <li><a href="logout.php">CERRAR SESIÓN</a></li>
+                    <!--<li class="menu-it@em-has-children"><a href="#" title="">HISTORIA</a></li>  
+                    <li><a href="logout.php">CERRAR SESIÓN</a></li>
                     <li><a href="oferta.html" title="">OFERTA</a></li>
-                    <li><a href="#" title="">BLOG</a></li>                         
+                    <li><a href="#" title="">BLOG</a></li>-->                     
                 </ul>
-            </div>
+            </div><!-- Menu Wrap -->
          <section>
             <div class="w-100 text-center black-layer position-relative">                   
             </div><br><br><br>
@@ -78,7 +81,7 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
 <form action="../controller/new_programa.php" method="POST"> 
 <div class="row p-3 my-3 border">
 <div class="col-xl-12 font-weight-bold">
-   <h5> Registro de programas educativos registrados en su institución educativa, en la Modalidad de Educación Dual al cierre del ciclo escolar 2021-2022<?php //echo $id_ies; ?></h5>
+   <h5> Registro de programas educativos registrados en su institución educativa, en la Modalidad de Educación Dual al cierre del ciclo escolar 2021-2022</h5>
 </div>
 
 <div class="col-xl-4"><br>
@@ -208,13 +211,15 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
                                                 <td class="text-center"><?php echo strtoupper($prog['dt_num_periodo']." ".$prog['dt_unidad']); ?></td>
                                                 <td class="text-center"><?php echo strtoupper($prog['estudiantes']); ?></td>
                                                 <td class="text-center"><?php echo strtoupper($prog['egresados']); ?></td>
-                                                <td class="text-center"> <?php echo strtoupper($prog['num']);?><?php echo $prog['id_programa'] ?> 
+                                                <td class="text-center">  
                                                 <?php if($prog['num']==0) {?>
                                                 <form action="../controller/delate_programa.php" method="POST">
                                                     <input type="hidden" class="form-control" name="id_programa" value="<?php echo $prog['id_programa'] ?>">
                                                     <button type="submit" class="btn"><img src="../img/icons/eliminar.png">
                                                 </form>
-                                                    <?php } ?>
+                                                    <?php } else { ?>
+                                                        <?php echo strtoupper($prog['num']);?>
+                                                    <?php }?>
                                                 </td>
 
                                                 <td class="text-center"><?php echo strtoupper($prog['estudiantes2023']); ?></td>

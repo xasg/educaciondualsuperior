@@ -1,8 +1,13 @@
 <?php
 session_start();
+if($_SESSION['id_ies']== null){
+    header("Location:formulario.php");
+
+}
 require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
+$name_user=$_SESSION["name_user"];
 $programa = acces_programas($id_ies);
 
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
@@ -30,26 +35,23 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
         <link rel="stylesheet" href="../assets/css/color.css">
 </head>
    <body>
-  <header class="stick style1 w-100" style=" background-color: #860f01;">
+  <header class="stick style1 w-100" style="background-color: #98213A;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
-                    <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></a></h1></div> 
+                    <div class="logo"><h1 class="mb-0"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></h1></div> 
 
                         <nav class="d-inline-flex align-items-center">
-                            <div class="header-left">
+                           <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
-                                    <li class="menu-item-has-children"><a href="../" title="">INICIO</a></li>
-                                    <li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
+                                    <li class="menu-item-has-children"><?php echo $name_user ?></li>
+                                    <!--<li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="#" title="">FORMULARIO</a></li>
                                     <li><a href="../oferta.html" title="">OFERTA</a></li>
-                                    <li><a href="#" title="">BLOG</a></li>
+                                    <li><a href="#" title="">BLOG</a></li>-->
                                 </ul>
                             </div>
                             <div class="header-right-btns">
-                                <!--<a class="search-btn" href="javascript:void(0);" title="">
-                                    <i class="flaticon-magnifying-glass"></i></a>-->
-                               <a class="user-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
-                               <!-- <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>-->
+                               <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
                             </div>
                         </nav>
                     </div><!-- Logo Menu Wrap -->
@@ -58,11 +60,11 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
             <div class="menu-wrap">
                 <span class="menu-close"><i class="fas fa-times"></i></span>
                 <ul class="mb-0 list-unstyled w-100">
-                    <li class="menu-item-has-children"><a href="./" title="">INICIO</a></li>
-                    <li class="menu-it@em-has-children"><a href="#" title="">HISTORIA</a></li>  
-                    <li><a href="#">FORMULARIO</a></li>
+                   <li><a href="logout.php">CERRAR SESIÓN</a></li>
+                    <!--<li class="menu-it@em-has-children"><a href="#" title="">HISTORIA</a></li>  
+                    <li><a href="logout.php">CERRAR SESIÓN</a></li>
                     <li><a href="oferta.html" title="">OFERTA</a></li>
-                    <li><a href="#" title="">BLOG</a></li>                         
+                    <li><a href="#" title="">BLOG</a></li>-->                     
                 </ul>
             </div><!-- Menu Wrap -->
 
@@ -72,7 +74,7 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
             </div><br><br><br>
          </section>
 
-
+<!--
 <div class="container"><br><br>
  <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
@@ -83,11 +85,11 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
        </li>
      </ul>
      <br><br>
-</div>
+</div>-->
 
 
 
-<div class="container">
+<div class="container"><br><br>
 <div class="tab-content">
 <div class="tab-pane active" id="pane1" role="tabpanel" aria-labelledby="home-tab">
 <div class="row">
@@ -98,7 +100,7 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
                                        <p><strong>Se cuenta con <strong><?php echo  $row_cnt;?></strong> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="programa.php"><button type="submit" class="btn btn-block btn-primary">Agregar o Editar</a>
+                                        <a href="programa.php" class="btn btn-block btn-primary" aria-disabled="true">Agregar o Editar</a>
                                     </div>
                                     <div class="col-md-12"><br>
                                     <?php if($row_cnt>0){ ?>

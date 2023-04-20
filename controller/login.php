@@ -9,6 +9,7 @@ if($_POST)
  if( $user['dt_password']==$password)
  {    
  	$_SESSION["id_ies"] = $user['id_ies'];
+ 	$_SESSION["name_user"] = $user['dt_nom_responsable'];
   ?>
 				<script>
 				<?php if($user['dt_tipo']==NULL) { ?>
@@ -22,12 +23,10 @@ if($_POST)
 <?php
      //die();
  }else{
-?>
-				<script>
-					window.location="../"
-				</script>
-			<?php
-    
+
+ 				
+		 echo "<script>alert('EL USUARIO NO EXISTE');</script>";
+		 echo 'window.location.href = "/index.php"';
  }
 
 } 

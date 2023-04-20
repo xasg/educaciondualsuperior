@@ -1,13 +1,6 @@
 <?php
 error_reporting(E_ALL);
 require_once('../controller/conec.php');
-$mysqli = new mysqli($servername, $username, $password, $dbname);
-$result ='';
-if( $mysqli->connect_errno )
-{
-  echo '';
-  exit;
-}
 
 /** Select **/
 
@@ -25,7 +18,7 @@ function acces_programas($id_ies)
 {
   global $mysqli;
   $sql = "SELECT programa_educativo.id_programa, programa_educativo.dt_programa,programa_educativo.dt_otro_programa, programa_educativo.dt_inicio,programa_educativo.dt_unidad,programa_educativo.dt_num_periodo, SUM(`dt_estudiante_fem`+`dt_estudiante_mas`) AS estudiantes,  SUM(`dt_egresados_fem`+`dt_egresados_mas`) AS egresados, SUM(`dt_estudiante_cursan_f`+`dt_estudiante_cursan_m`) AS estudiantes2023, COUNT(id_programa_educativo) AS num  FROM programa_educativo 
-LEFT JOIN unidad_educativa ON(unidad_educativa.id_programa_educativo=programa_educativo.id_programa) GROUP BY `id_programa`";
+LEFT JOIN unidad_educativa ON(unidad_educativa.id_programa_educativo=programa_educativo.id_programa) WHERE `id_ies`='{$id_ies}' GROUP BY `id_programa`";
   return $mysqli->query($sql);  
   return $result->fetch_assoc();
 }
@@ -81,8 +74,7 @@ function acces_programa($programa)
 function get_user_acces($correo)
 {
   global $mysqli;
-  $sql = "SELECT * FROM usuarios 
-          WHERE dt_correo = '{$correo}'";
+  $sql = "SELECT * FROM usuarios LEFT JOIN responsable USING(id_usuario) WHERE dt_correo = '{$correo}'";
   $result = $mysqli->query($sql);
   return $result->fetch_assoc();
 }

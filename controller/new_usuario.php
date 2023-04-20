@@ -32,7 +32,7 @@
 //caso contario (else) es porque ese user ya esta registrado 
  ?>
 <script>
-   window.location="../view/existe.php"
+   window.location="../view/formulario.php"
 </script>
 <?php
 

@@ -1,6 +1,7 @@
 <?php
 session_start();
 require_once('../model/databases.php');
+
 if($_POST)
 {
  $correo = isset( $_POST['correo']) ? $_POST['correo'] : '';
@@ -17,11 +18,11 @@ if($_POST)
 				<?php } elseif($user['dt_tipo']==1) { ?>
 					window.location="../"				
 				<?php } elseif($user['dt_tipo']==2) { ?>
-					window.location="../view/registro.php"				
+					window.location="../view/registro.php";				
 				<?php } ?> 
 				</script>
 <?php
-     //die();
+    //  die();
  }else{
 
  				

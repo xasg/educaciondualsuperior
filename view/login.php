@@ -1,4 +1,5 @@
 <?php 
+session_start();
 require_once('../model/databases.php');
 $entidad=view_entidad();
 ?>
@@ -97,7 +98,7 @@ $(document).ready(function() {
 <!--login beneficiario  -->
 <div class="tab-pane" role="tabpanel" aria-labelledby="profile-tab">
  <p>
-   </p><form action="../controller/login.php" method="POST">
+   </p><form action="" method="POST">
                 <div class="row">
                 <div class="col-md-12">
                     <h2>Hola, le damos la bienvenida de nuevo.<br><br></h2>
@@ -108,19 +109,50 @@ $(document).ready(function() {
                     <div class="col-md-12"><br>
                      <div class="form-group">
                         <label for="exampleInputEmail1">Email</label>
-                        <input type="text" class="form-control" name="correo"  placeholder="Ingresa tu email" onChange="conMayusculas(this)" required>
+                        <input type="email" class="form-control" name="correo"  placeholder="Ingresa tu email" onChange="conMayusculas(this)" required>
                       </div>                      
                      </div>
 
                      <div class="col-md-12">    
                      <div class="form-group">
                         <label for="exampleInputEmail1">Contraseña</label>
-                        <input type="text" class="form-control" name="password"  placeholder="Ingresa tu contraseña" required>
-                      </div>                      
+                        <input type="password" class="form-control" name="password"  placeholder="Ingresa tu contraseña" required>
+                      </div> 
+                      
+                      <?php
+
+                          if(isset($_REQUEST['ingresar']))
+                          {
+                            
+                          $correo = $_REQUEST['correo']??'';
+                          $password = $_REQUEST['password']??'';
+                          $user = view_usuarios($correo);
+            
+                          if ($correo == isset($user['dt_correo']) && $password == $user['dt_password']) {
+                            # code...
+                            $_SESSION["correo"] = $user['dt_correo'];
+                            $user = get_user_acces($correo);
+                            // header("location: registro.php");
+                            $_SESSION["id_ies"] = $user['id_ies'];
+                            $_SESSION["name_user"] = $user['dt_nom_responsable'];
+                            $_SESSION["telefono"] = $user['dt_celular'];
+                            echo "<script> window.location ='registro.php'; </script>";
+                            
+                            // echo "existe";
+                          }else{
+                            echo "<div class='alert alert-danger' role='alert'>";
+                            echo "<strong>El usuario o contraseña son incorrectos</strong> intentalo nuevamente";
+                        echo "</div>";
+                          
+                          }                             
+                          }
+
+                     
+                      ?>                     
                      </div>
 
                      <div class="col-md-12"> <br>
-                      <button type="submit" class="btn btn-block btn-primary btn-lg">Ingresar</button><br><br>
+                      <button type="submit" class="btn btn-block btn-primary btn-lg" id="ingresar" name="ingresar">Ingresar</button><br><br>
                      </div>
                      <div class="col-md-12 text-center">
                         <p>¿No tienes una cuenta?</p>

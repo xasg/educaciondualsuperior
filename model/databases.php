@@ -33,6 +33,12 @@ function acces_unidad($id_programa)
   return $result->fetch_assoc();
 }
 
+function acces_ies($id_ies){
+  global $mysqli;
+  $sql = "SELECT * FROM `cat_ies` WHERE `id_ies` =  '{$id_ies}';";
+  return $mysqli->query($sql);  
+  return $result->fetch_assoc();
+}
 
 
 function acces_programa_educativo($id_ies)
@@ -55,9 +61,6 @@ WHERE `id_ies`='{$id_ies}' GROUP BY id_cat_nivel_estudios";
   return $mysqli->query($sql);
   return $result->fetch_assoc();
 }
-
-
-
 function acces_programa($programa)
 {
   global $mysqli;
@@ -74,11 +77,24 @@ function acces_programa($programa)
 function get_user_acces($correo)
 {
   global $mysqli;
-  $sql = "SELECT * FROM usuarios LEFT JOIN responsable USING(id_usuario) WHERE dt_correo = '{$correo}'";
+  $sql = "SELECT * FROM usuarios LEFT JOIN responsable USING(id_usuario) WHERE dt_correo = '{$correo}'; ";
   $result = $mysqli->query($sql);
   return $result->fetch_assoc();
 }
 
+function view_responsable($id_ies){
+  global $mysqli;
+  $sql = "SELECT * FROM responsable where id_ies = '{$id_ies}' ";
+  $result = $mysqli->query($sql);
+  return $result->fetch_assoc();
+}
+
+function view_usuarios($correo){
+  global $mysqli;
+  $sql = "SELECT * FROM usuarios where dt_correo= '{$correo}' ";
+  $result = $mysqli->query($sql);
+  return $result->fetch_assoc();
+}
 
 
 

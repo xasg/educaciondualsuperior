@@ -8,9 +8,11 @@ require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
-$telefon=$_SESSION["telefono"];
+$correo_user=$_SESSION["correo"];
 // $correo=$_SESSION["correo"];
-$programa = acces_programas($id_ies);
+$ies = acces_ies($id_ies);
+$responsable = view_responsable($id_ies);
+$usuario_correo = view_usuarios($id_ies);
 
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
           WHERE id_ies = '{$id_ies}'")) {
@@ -62,7 +64,7 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
             <div class="menu-wrap">
                 <span class="menu-close"><i class="fas fa-times"></i></span>
                 <ul class="mb-0 list-unstyled w-100">
-                    <li><a href="datos_institucionales.php">DATOS INSTITUCIONALES</a></li>
+                    <li><a href="registro.php">PROGRAMAS EDUCATIVOS</a></li>
                     <li><a href="logout.php">CERRAR SESIÓN</a></li>
                     <!--<li class="menu-it@em-has-children"><a href="#" title="">HISTORIA</a></li>  
                     <li><a href="logout.php">CERRAR SESIÓN</a></li>
@@ -73,85 +75,77 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
 
          <!-- Menu Wrap -->
          <section>
-            <div class="w-100 text-center black-layer position-relative">                   
+            <div class="w-100 text-center black-layer ">                   
             </div><br><br><br>
          </section>
-
-<!--
-<div class="container"><br><br>
- <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#pane1" role="tab" aria-controls="home" aria-selected="true">Resumen</a>
-       </li>
-        <li class="nav-item">
-         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#pane3" role="tab" aria-controls="profile" aria-selected="false">Datos Institucionales</a>
-       </li>
-     </ul>
-     <br><br>
-</div>-->
-
-
-
-<div class="container"><br><br>
-<div class="tab-content">
-<div class="tab-pane active" id="pane1" role="tabpanel" aria-labelledby="home-tab">
-<div class="row">
-                            <span class="border"><br><br>
-                                    <div class="col-xl-12">
-                                       <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2021-2022</p>
-                                       <p>Agradecemos el apoyo en el llenado, ya que el mismo servirá para mostrar la oferta educativa a nivel nacional, incluyendo a su IES con los programas aquí registrados.</p>
-                                       <p><strong>Se cuenta con <strong><?php echo  $row_cnt;?></strong> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="programa.php" class="btn btn-block btn-primary" aria-disabled="true">Agregar o Editar</a>
-                                    </div>
-                                    <div class="col-md-12"><br>
-                                    <?php if($row_cnt>0){ ?>
-                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                        <thead class="thead-dark">
-                                          <tr>  
-                                                <th>#</th>
-                                                <th>Programa educativo</th>
-                                                <th>Inicio</th> 
-                                                <th>Periodo</th>
-                                                <th class="text-center">Número de estudiantes</th>
-                                                <th class="text-center">Número de egresados</th>
-                                                 <th class="text-center">Unidades económicas</th>
-                                          </tr>
-                                        </thead>
-                                            <tbody>
-                                              <?php
-                                              $counter = 1;
-                                              while($prog = $programa->fetch_assoc())
-                                              {
-                                              ?>
-                                              <tr>
-                                                <td class="text-center"><?php echo $counter++ ?></td>
-                                                 <?php if($prog['dt_programa']!='OTRO') { ?>
-                                                <td><?php echo strtoupper($prog['dt_programa']); ?></td>
-                                                <?php } else { ?>
-                                                <td><?php echo strtoupper($prog['dt_otro_programa']); ?></td>
-                                                <?php } ?>
-                                                <td><?php echo strtoupper($prog['dt_inicio']); ?></td>
-                                                <td class="text-center"><?php echo strtoupper($prog['dt_unidad']); ?></td>
-                                                <td class="text-center"><?php echo strtoupper($prog['estudiantes']); ?></td>
-                                                <td class="text-center"><?php echo strtoupper($prog['egresados']); ?></td>
-                                                <td class="text-center"> <?php echo strtoupper($prog['num']); ?>
-                                                </td>                                               
-                                              </tr> 
-                                              <?php
-                                                }
-                                              ?>               
-                                            </tbody>
-
-                                      </table>
-                                    <br>
-                                  <?php } ?>
-
-
-                                     </div>                                     
-                            </span><br><br>
+<div class="container border vh-100"><br><br>
+<div class=" border  d-flex w-100 flex-wrap  align-items-center justify-content-center">
+<div class=" " id="pane1" role="tabpanel" aria-labelledby="home-tab">
+<div class=" container-fluid">
+    <h1>Datos Institucionales</h1>
 </div>
+</div>
+<div class="container">
+<form action="">
+    <div class="row">
+      <div class="col-md">
+        <div class="mb-3">
+          <label for="" class="form-label">IES</label>
+          <?php
+        //   $nombreies = acces_ies($id_ies);
+          foreach($ies as $nombre){
+        //   if ($ies['id_ies'] == $id_ies) {
+            # code...
+            echo $id_ies;
+          ?>
+          <input type="text" 
+            class="form-control" name="" id="" aria-describedby="helpId" placeholder="<?php echo $nombre['dt_nombre_ies'];  ?>" readonly>
+          <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+        </div>
+        <?php
+          }
+        ?>
+      </div>
+      <div class="col-md">
+        <div class="mb-3">
+          <label for="" class="form-label">Encargado</label>
+          <input type="text"
+            class="form-control" name="" id="" aria-describedby="helpId" placeholder="<?php echo $name_user; ?>" readonly>
+          <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md">
+        <div class="mb-3">
+          <label for="" class="form-label">Telefono</label>
+         
+          <input type="text" 
+            class="form-control" name="" id="" aria-describedby="helpId" placeholder="<?php echo $responsable['dt_telefono'];  ?>" readonly>
+          <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
+        </div>
+       
+      </div>
+      <div class="col-md">
+        <div class="mb-3">
+          <label for="" class="form-label">correo</label>
+          <?php
+        //   $nombreies = acces_ies($id_ies);
+          foreach($usuario_correo as $correo_usuario){
+        //   if ($usuario_correo['id_ies'] == $id_ies) {
+            # code...
+            // echo $correo_usuario['id_usuario'];
+          ?>
+          <input type="text"
+            class="form-control" name="" id="" aria-describedby="helpId" placeholder="<?php echo $correo_usuario["dt_correo"];?>" readonly>
+          <small id="helpId" class="form-text text-muted">Help text</small>
+        </div>
+        <?php
+          }
+        ?>
+      </div>
+    </div>
+</form>
 </div>
 
 <br><br><br><br>

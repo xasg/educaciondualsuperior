@@ -74,22 +74,20 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
             </div><br><br><br>
          </section>
 
-<!--
 <div class="container"><br><br>
  <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#pane1" role="tab" aria-controls="home" aria-selected="true">Resumen</a>
+         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">Resumen</a>
        </li>
         <li class="nav-item">
-         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#pane3" role="tab" aria-controls="profile" aria-selected="false">Datos Institucionales</a>
+         <a class="nav-link"  href="info_ies.php" role="tab" aria-controls="profile" aria-selected="false">Datos Institucionales</a>
        </li>
      </ul>
      <br><br>
-</div>-->
+</div>
 
 
-
-<div class="container"><br><br>
+<div class="container">
 <div class="tab-content">
 <div class="tab-pane active" id="pane1" role="tabpanel" aria-labelledby="home-tab">
 <div class="row">

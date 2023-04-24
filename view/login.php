@@ -119,9 +119,25 @@ $(document).ready(function() {
                       </div>                      
                      </div>
 
+
+
                      <div class="col-md-12"> <br>
                       <button type="submit" class="btn btn-block btn-primary btn-lg">Ingresar</button><br><br>
                      </div>
+
+
+                    <?php
+                     // Esto evaluará a TRUE así que el texto se imprimirá.
+                    if (isset($_GET['error'])) {
+                        ?>
+                        <div class="alert alert-danger" role="alert">
+                          Los datos de acceso que ingreso son incorrectos
+                        </div>
+                    
+
+                   <?php } ?>
+
+
                      <div class="col-md-12 text-center">
                         <p>¿No tienes una cuenta?</p>
                      </div>

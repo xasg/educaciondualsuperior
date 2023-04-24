@@ -7,7 +7,6 @@
    {  
    $entidad = isset( $_POST['entidad']) ? $_POST['entidad'] : '';
    $ies = isset( $_POST['ies']) ? $_POST['ies'] : '';
-  // $subsistema = isset( $_POST['subsistema']) ? $_POST['subsistema'] : '';
    $nombre_responsable = isset( $_POST['nombre_responsable']) ? $_POST['nombre_responsable'] : '';
    $cargo = isset( $_POST['cargo']) ? $_POST['cargo'] : '';
    $telefono = isset( $_POST['telefono']) ? $_POST['telefono'] : '';
@@ -21,8 +20,10 @@
    $usuario =get_user_acces($correo); 
    $id_user=$usuario['id_usuario']; 
    crear_responsable($id_user, $entidad, $ies, $nombre_responsable, $cargo, $telefono, $celular);
+   crear_info_ies($id_user, $ies);
     $_SESSION["id_ies"] = $ies;
-    //$_SESSION["subsistema"] = $subsistema;
+    $_SESSION["name_user"] = $nombre_responsable;
+    $_SESSION["id_user"] = $id_user;
    ?>
 <script>
    window.location="../view/registro.php"

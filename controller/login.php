@@ -10,6 +10,7 @@ if($_POST)
  {    
  	$_SESSION["id_ies"] = $user['id_ies'];
  	$_SESSION["name_user"] = $user['dt_nom_responsable'];
+ 	$_SESSION["id_user"] = $user['id_usuario'];
   ?>
 				<script>
 				<?php if($user['dt_tipo']==NULL) { ?>
@@ -24,9 +25,12 @@ if($_POST)
      //die();
  }else{
 
- 				
-		 echo "<script>alert('EL USUARIO NO EXISTE');</script>";
-		 echo 'window.location.href = "/index.php"';
+  header('location:../view/login.php?error=empty-password-invalid');
+    exit();
+
+
+
+
  }
 
 } 

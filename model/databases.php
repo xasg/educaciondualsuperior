@@ -80,6 +80,27 @@ function get_user_acces($correo)
 }
 
 
+function acces_responsable($id_ies)
+{
+  global $mysqli;
+  $sql = "SELECT * FROM `responsable` 
+LEFT JOIN cat_ies ON(cat_ies.id_ies=responsable.id_ies)
+LEFT JOIN cat_entidad on(cat_entidad.id_cat_entidad=responsable.dt_entidad)
+WHERE responsable.id_ies =  '{$id_ies}'";
+  $result = $mysqli->query($sql);
+   return $result->fetch_assoc();
+}
+
+
+function acces_info_ies($id_ies, $id_user)
+{
+  global $mysqli;
+  $sql = "SELECT * FROM `info_ies` WHERE id_ies =  '{$id_ies}' AND id_user =  '{$id_user}'";
+  $result = $mysqli->query($sql);
+   return $result->fetch_assoc();
+}
+
+
 
 
 /** Insert **/
@@ -100,6 +121,16 @@ function  crear_responsable($id_user, $entidad, $ies, $nombre_responsable, $carg
 global $mysqli;
 $sql="INSERT INTO responsable(id_responsable, id_usuario, dt_entidad, id_ies,  dt_nom_responsable, dt_cargo, dt_telefono, dt_celular) 
        VALUES (null, '{$id_user}', '{$entidad}' , '{$ies}',  '{$nombre_responsable}', '{$cargo}', '{$telefono}', '{$celular}')";
+$mysqli->query($sql);
+}
+
+
+
+function  crear_info_ies($id_user, $ies)
+{
+global $mysqli;
+$sql="INSERT INTO info_ies(id_info_ies, id_ies, id_user) 
+       VALUES (null, '{$id_user}', '{$ies}')";
 $mysqli->query($sql);
 }
 
@@ -133,6 +164,14 @@ function update_unidad($id, $unidad, $convn, $estudiante_sex_fem, $estudiante_se
 
 }
 
+
+function update_ies($id_ies, $id_user, $correo, $tel, $ext, $direccion, $localidad, $municipio, $entidad, $cp, $latitud, $longitud, $ano_dual)
+{
+  global $mysqli;
+  $sql = "UPDATE info_ies SET  dt_email = '{$correo}', dt_telefono = '{$tel}', dt_extencion = '{$ext}', dt_direccion = '{$direccion}',  dt_localidad = '{$localidad}',  dt_municipio = '{$municipio}', dt_entidad = '{$entidad}',   dt_cp = '{$cp}' , dt_latitud = '{$latitud}' ,dt_longitud = '{$longitud}',dt_ano_dual = '{$ano_dual}'  WHERE id_ies ='{$id_ies}' AND id_user ='{$id_user}' ";
+  $mysqli->query($sql); 
+
+}
 
 
 

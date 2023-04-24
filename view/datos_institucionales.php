@@ -8,11 +8,11 @@ require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
-$correo_user=$_SESSION["correo"];
-// $correo=$_SESSION["correo"];
+$correo_user=$_SESSION['correo'];
+$correo=$_SESSION['correo'];
 $ies = acces_ies($id_ies);
 $responsable = view_responsable($id_ies);
-$usuario_correo = view_usuarios($id_ies);
+$user = view_usuarios($id_ies);
 
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
           WHERE id_ies = '{$id_ies}'")) {
@@ -79,12 +79,13 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
             </div><br><br><br>
          </section>
 <div class="container border vh-100"><br><br>
-<div class=" border  d-flex w-100 flex-wrap  align-items-center justify-content-center">
+<div class="d-flex w-100 flex-wrap  align-items-center justify-content-center">
 <div class=" " id="pane1" role="tabpanel" aria-labelledby="home-tab">
 <div class=" container-fluid">
     <h1>Datos Institucionales</h1>
 </div>
 </div>
+
 <div class="container">
 <form action="">
     <div class="row">
@@ -131,27 +132,27 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
           <label for="" class="form-label">correo</label>
           <?php
         //   $nombreies = acces_ies($id_ies);
-          foreach($usuario_correo as $correo_usuario){
+          // foreach($usuario_correo as $correo_usuario){
         //   if ($usuario_correo['id_ies'] == $id_ies) {
             # code...
             // echo $correo_usuario['id_usuario'];
           ?>
           <input type="text"
-            class="form-control" name="" id="" aria-describedby="helpId" placeholder="<?php echo $correo_usuario["dt_correo"];?>" readonly>
-          <small id="helpId" class="form-text text-muted">Help text</small>
+            class="form-control" name="" id="" aria-describedby="helpId" placeholder="<?php echo $correo;?>" readonly>
+          <!-- <small id="helpId" class="form-text text-muted">Help text</small> -->
         </div>
         <?php
-          }
+          // }
         ?>
       </div>
     </div>
-</form>
+  </form>
+  </div>
 </div>
 
 <br><br><br><br>
 </div> 
 </div>
-
             <footer style="background-color: #98213A;" id="contacto">
                 <div class="w-100 pt-121  opc1 position-relative">
                     <div class="container position-relative">

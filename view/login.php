@@ -136,6 +136,7 @@ $(document).ready(function() {
                             $_SESSION["id_ies"] = $user['id_ies'];
                             $_SESSION["name_user"] = $user['dt_nom_responsable'];
                             $_SESSION["telefono"] = $user['dt_celular'];
+                            $_SESSION["correo"] = $correo['correo'];
                             echo "<script> window.location ='registro.php'; </script>";
                             
                             // echo "existe";

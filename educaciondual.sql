@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 18-04-2023 a las 19:26:15
+-- Tiempo de generación: 24-04-2023 a las 23:30:44
 -- Versión del servidor: 10.4.21-MariaDB
 -- Versión de PHP: 8.0.11
 
@@ -6188,6 +6188,36 @@ INSERT INTO `cat_subsistema` (`id_subsistema`, `id_cat_subsistema`, `dt_nombre_s
 -- --------------------------------------------------------
 
 --
+-- Estructura de tabla para la tabla `info_ies`
+--
+
+CREATE TABLE `info_ies` (
+  `id_info_ies` int(11) NOT NULL,
+  `id_ies` varchar(6) NOT NULL,
+  `id_user` varchar(5) NOT NULL,
+  `dt_email` varchar(100) NOT NULL,
+  `dt_telefono` varchar(10) NOT NULL,
+  `dt_extencion` varchar(5) NOT NULL,
+  `dt_direccion` varchar(200) NOT NULL,
+  `dt_localidad` varchar(200) NOT NULL,
+  `dt_municipio` varchar(200) NOT NULL,
+  `dt_entidad` varchar(50) NOT NULL,
+  `dt_cp` varchar(6) NOT NULL,
+  `dt_latitud` varchar(100) NOT NULL,
+  `dt_longitud` varchar(100) NOT NULL,
+  `dt_ano_dual` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Volcado de datos para la tabla `info_ies`
+--
+
+INSERT INTO `info_ies` (`id_info_ies`, `id_ies`, `id_user`, `dt_email`, `dt_telefono`, `dt_extencion`, `dt_direccion`, `dt_localidad`, `dt_municipio`, `dt_entidad`, `dt_cp`, `dt_latitud`, `dt_longitud`, `dt_ano_dual`) VALUES
+(4, '0313', '29', 'RMENDEZ@FESE.MX', '5555555555', '55555', 'CALLE Y NUMERO', 'LOCALIDAD', 'ALVARO OBREGON', 'AGUASCALIENTES', '123456', '12345678', '12345678', '2000');
+
+-- --------------------------------------------------------
+
+--
 -- Estructura de tabla para la tabla `programa_educativo`
 --
 
@@ -6200,13 +6230,6 @@ CREATE TABLE `programa_educativo` (
   `dt_num_periodo` int(11) NOT NULL,
   `dt_unidad` varchar(200) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Volcado de datos para la tabla `programa_educativo`
---
-
-INSERT INTO `programa_educativo` (`id_programa`, `id_ies`, `dt_programa`, `dt_otro_programa`, `dt_inicio`, `dt_num_periodo`, `dt_unidad`) VALUES
-(21, '2331', 'LICENCIATURA EN CONTADURÍA', '', '2022', 3, 'SEMESTRE');
 
 -- --------------------------------------------------------
 
@@ -25143,6 +25166,13 @@ CREATE TABLE `responsable` (
   `dt_celular` varchar(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Volcado de datos para la tabla `responsable`
+--
+
+INSERT INTO `responsable` (`id_responsable`, `id_usuario`, `dt_entidad`, `id_ies`, `dt_nom_responsable`, `dt_cargo`, `dt_telefono`, `dt_celular`) VALUES
+(29, 29, '01', '0313', 'NOMBRE RESPONSABLE', 'CARGO', '5555555555', '5555555555');
+
 -- --------------------------------------------------------
 
 --
@@ -25181,6 +25211,13 @@ CREATE TABLE `usuarios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id_usuario`, `id_ies`, `dt_correo`, `dt_password`, `dt_tipo`) VALUES
+(29, '0313', 'RMENDEZ@FESE.MX', 'HeVr1043D', 2);
+
+--
 -- Índices para tablas volcadas
 --
 
@@ -25213,6 +25250,12 @@ ALTER TABLE `cat_programa_educativo`
 --
 ALTER TABLE `cat_subsistema`
   ADD UNIQUE KEY `id_subsistema` (`id_subsistema`);
+
+--
+-- Indices de la tabla `info_ies`
+--
+ALTER TABLE `info_ies`
+  ADD PRIMARY KEY (`id_info_ies`);
 
 --
 -- Indices de la tabla `programa_educativo`
@@ -25279,10 +25322,16 @@ ALTER TABLE `cat_subsistema`
   MODIFY `id_subsistema` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
+-- AUTO_INCREMENT de la tabla `info_ies`
+--
+ALTER TABLE `info_ies`
+  MODIFY `id_info_ies` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT de la tabla `programa_educativo`
 --
 ALTER TABLE `programa_educativo`
-  MODIFY `id_programa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_programa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT de la tabla `rel_ies_programa`
@@ -25294,19 +25343,19 @@ ALTER TABLE `rel_ies_programa`
 -- AUTO_INCREMENT de la tabla `responsable`
 --
 ALTER TABLE `responsable`
-  MODIFY `id_responsable` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_responsable` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 
 --
 -- AUTO_INCREMENT de la tabla `unidad_educativa`
 --
 ALTER TABLE `unidad_educativa`
-  MODIFY `id_unidad_educativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
+  MODIFY `id_unidad_educativa` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=42;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+  MODIFY `id_usuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

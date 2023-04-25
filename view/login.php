@@ -70,7 +70,7 @@ $(document).ready(function() {
                                     <li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="#" title="">FORMULARIO</a></li>
                                     <li><a href="../oferta.html" title="">OFERTA</a></li>
-                                    <li><a href="#" title="">BLOG</a></li>  
+                                    <!-- <li><a href="#" title="">BLOG</a></li>   -->
 
                                 </ul>
                             </div>
@@ -97,7 +97,7 @@ $(document).ready(function() {
                     <li class="menu-it@em-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
                     <!-- <li><a href="login.php">FORMULARIO</a></li> -->
                     <li><a href="../oferta.html" title="">OFERTA</a></li>
-                    <li><a href="#" title="">BLOG</a></li>                         
+                    <!-- <li><a href="#" title="">BLOG</a></li>                          -->
                 </ul>
             </div>
             <br><br><br>

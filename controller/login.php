@@ -1,6 +1,12 @@
 <?php
 session_start();
 require_once('../model/databases.php');
+
+if ($_POST == 1) {
+	# code...
+	header('location: index.php?error=empty-password-invalid');
+}
+
 if($_POST)
 {
  $correo = isset( $_POST['correo']) ? $_POST['correo'] : '';
@@ -23,15 +29,14 @@ if($_POST)
 				</script>
 <?php
      //die();
- }else{
+ }{
 
   header('location:../view/login.php?error=empty-password-invalid');
+	// header('location: ../index.php?error=empty-password-invalid');
     exit();
-
-
-
 
  }
 
 } 
 ?>
+

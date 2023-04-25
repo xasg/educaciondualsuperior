@@ -93,7 +93,7 @@ $(document).ready(function() {
              <div class="menu-wrap">
                 <span class="menu-close"><i class="fas fa-times"></i></span>
                 <ul class="mb-0 list-unstyled w-100">
-                    <li class="menu-item-has-children"><a href="javascript:void(0);" title="">INICIO</a></li>
+                    <li class=""><a href="../" title="">INICIO</a></li>
                     <li class="menu-it@em-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
                     <!-- <li><a href="login.php">FORMULARIO</a></li> -->
                     <li><a href="../oferta.html" title="">OFERTA</a></li>

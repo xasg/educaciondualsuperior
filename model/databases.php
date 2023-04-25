@@ -126,11 +126,11 @@ $mysqli->query($sql);
 
 
 
-function  crear_info_ies($id_user, $ies)
+function  crear_info_ies($ies,$id_user,$email,$telefono)
 {
 global $mysqli;
-$sql="INSERT INTO info_ies(id_info_ies, id_ies, id_user) 
-       VALUES (null, '{$id_user}', '{$ies}')";
+$sql="INSERT INTO info_ies(id_info_ies, id_ies, id_user,dt_email,dt_telefono) 
+       VALUES (null, '{$ies}', '{$id_user}', '{$email}','{$telefono}')";
 $mysqli->query($sql);
 }
 

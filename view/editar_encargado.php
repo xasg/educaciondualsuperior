@@ -74,11 +74,11 @@ $info_ies = acces_info_ies($id_ies, $id_user);
          <a class="nav-link" href="registro.php" role="tab" aria-controls="home" aria-selected="true">Resumen</a>
        </li>
         <li class="nav-item">
-         <a class="nav-link active"  href="#" role="tab" aria-controls="profile" aria-selected="false">Datos Institucionales</a>
+         <a class="nav-link"  href="info_ies.php" role="tab" aria-controls="profile" aria-selected="false">Datos Institucionales</a>
        </li>
-        <!-- <li class="nav-item">
-         <a class="nav-link"  href="editar_encargado.php" role="tab" aria-controls="profile" aria-selected="false">Responsable</a>
-       </li> -->
+        <li class="nav-item">
+         <a class="nav-link active"  href="editar_encargado.php" role="tab" aria-controls="profile" aria-selected="false">Responsable</a>
+       </li>
      </ul>
      <br><br>
 </div>
@@ -94,7 +94,7 @@ $info_ies = acces_info_ies($id_ies, $id_user);
 <form action="../controller/update_ies.php" method="POST">  
                         <div class="row border">
                         <div class="col-md-12"><br>
-                        <h3>Datos Institucionales de contacto</h3>
+                        <h3>Datos de Responsable</h3>
                          <div class="alert alert-warning" role="alert">La siguiente información se publicará en la oferta educativa para fines de difusión</div>
                         </div>                        
                       <div class="col-md-12">    
@@ -109,7 +109,7 @@ $info_ies = acces_info_ies($id_ies, $id_user);
                         <label for="exampleInputEmail1">Responsable</label>
                         <input type="text" name="correo" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($name_user); ?>" readonly>
                         <p class="form-text text-muted">
-                          <!-- Atualizar datos del encargado <a href="editar_encargado.php" class="text-primary">aqui</a> -->
+                          Atualizar datos del encargado <a href="editar_encargado.php" class="text-primary">aqui</a>
                         </p>
                       </div>                      
                      </div>

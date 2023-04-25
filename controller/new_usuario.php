@@ -20,7 +20,8 @@
    $usuario =get_user_acces($correo); 
    $id_user=$usuario['id_usuario']; 
    crear_responsable($id_user, $entidad, $ies, $nombre_responsable, $cargo, $telefono, $celular);
-   crear_info_ies($id_user, $ies);
+   $entidad_nombre  = view_entidad();
+   crear_info_ies($ies,$id_user,$correo,$telefono);
     $_SESSION["id_ies"] = $ies;
     $_SESSION["name_user"] = $nombre_responsable;
     $_SESSION["id_user"] = $id_user;

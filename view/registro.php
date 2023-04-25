@@ -16,6 +16,12 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
     $row_cnt = $result->num_rows;
 }
 
+if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo 
+          WHERE grado_denominacion = 'LIC' ORDER BY programa_educativo ASC")) {
+    /* determinar el número de filas del resultado */
+    $row_cnt2 = $result2->num_rows2;
+}
+
 ?> 
  <!DOCTYPE html>
 <html lang="es">
@@ -38,8 +44,7 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
   <header class="stick style1 w-100" style="background-color: #98213A;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
-                    <div class="logo"><h1 class="mb-0"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></h1></div> 
-
+                        <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><!--<img class="img-fluid" src="assets/images/img/logoforos.png" alt="Logo" srcset="assets/images/img/logoforos.png">-->LOGO</a></h1></div> 
                         <nav class="d-inline-flex align-items-center">
                            <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
@@ -149,7 +154,277 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
 </div>
 </div>
 
-<br><br><br><br>
+
+<div class="tab-pane" id="pane2" role="tabpanel" aria-labelledby="profile-tab">
+<form action="../controller/new_programa.php" method="POST"> 
+ <p><strong>Registro de programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2021-2022</strong></p> 
+<div class="row border">
+                                    <div class="col-xl-12">
+                                    <br>
+                                    </div>
+
+                                    <div class="col-xl-2"><br>                                    
+                                     <label>Grado/Denominación</label>
+                                           <select class="form-control" name="denominacion" required="">
+                                                <option value="">selecciona</option>
+                                                <option value="TSU">TSU</option>
+                                                <option value="INGENIERÍA">INGENIERÍA</option>
+                                                <option value="LICENCIATURA">LICENCIATURA</option>
+                                                <option value="ESPECIALIDAD">ESPECIALIDAD</option>
+                                                <option value="MAESTRÍA">MAESTRÍA</option>
+                                                <option value="DOCTORADO">DOCTORADO</option>
+                                                <option value="PROFESIONAL ASOCIADO">PROFESIONAL ASOCIADO</option>
+                                             </select>
+                                    </div>
+                                    <div class="col-xl-6"><br>
+                                       <div class="form-group"> 
+                                          <label>Nombre del programa educativo</label>
+                                          <input type="text" class="form-control" name="programa_educativo" onChange="conMayusculas(this)" required="">
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-4"><br>
+                                       <div class="form-group"> 
+                                          <label>Año de inicio bajo la modalidad Educación Dual</label>
+                                          <input type="text" class="form-control" name="inicio" onChange="conMayusculas(this)" required="">
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-6">
+                                       <div class="form-group"> 
+                                          <label>Nombre de la unidad económica</label>
+                                          <input type="text" class="form-control" name="unidad" onChange="conMayusculas(this)" required="">   
+                                       </div>
+                                    </div> 
+                                    <div class="col-xl-3">
+                                       <div class="form-group"> 
+                                          <label>Cuenta con convenio</label>
+                                          <select class="form-control" name="convn"><option value="1">SI</option><option value="0">NO</option></select>  
+                                       </div>
+                                    </div>                                   
+
+                                    <div class="col-xl-3"><br>
+                                        <input type="button" class="btn btn-block btn-primary btn-lg" id="add_cancion()" onClick="addUnidad()" value="+ Otra unidad económica" />
+                                    </div>
+
+
+
+                                        <div class="col-md-12" id="unidad">
+                                        </div>
+
+  
+
+
+                                    <div class="col-xl-12">
+                                       <div class="form-group">
+                                           <label for="nombre">¿A partir de qué periodo académico el estudiante puede ingresar a esta Modalidad Dual?</label>
+                                         <input type="text" class="form-control input-sm" name="periodo" placeholder="Ejemplo: (2 semestre, 4 cuatrimestre, 4 trimestre, etc)" required>
+                                       </div>
+                                    </div>
+
+                                     <div class="col-xl-12">
+                                       <div class="form-group">
+                                          <label for="nombre">¿Cuántos estudiantes cursaron el programa educativo bajo la Modalidad Dual al cierre del ciclo escolar 2021-2022?</label>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3">
+                                       <div class="form-group"> 
+                                        <label for="nombre"># De estudiantes femeninos</label>      
+                                        <input type="text" class="form-control input-sm" name="sex_fem"  required>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3">
+                                       <div class="form-group"> 
+                                        <label for="nombre"># De estudiantes masculinos</label>
+                                         <input type="text" class="form-control input-sm" name="sex_mas"  required>
+                                       </div>
+                                    </div>
+
+
+                                     <div class="col-xl-12">
+                                       <div class="form-group">
+                                          <label for="nombre">¿Cuántos estudiantes cursan actualmente este programa educativo bajo la Modalidad Dual?</label>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3">
+                                       <div class="form-group"> 
+                                        <label for="nombre"># De estudiantes femeninos</label>      
+                                        <input type="text" class="form-control input-sm" name="sex_fem"  required>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-3">
+                                       <div class="form-group"> 
+                                        <label for="nombre"># De estudiantes masculinos</label>
+                                         <input type="text" class="form-control input-sm" name="sex_mas"  required>
+                                       </div>
+                                    </div>
+
+
+                                    <div class="col-xl-12">
+                                       <div class="form-group">
+                                          <label for="nombre">¿Cuenta con egresados?</label>
+                                       </div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                       <div class="form-group">
+                                          <div class="form-check form-check-inline">
+                                             <input class="form-check-input" type="radio" name="participacion" id="id1" value="Si">
+                                             <label class="form-check-label">Si</label>
+                                          </div>
+                                          <div class="form-check form-check-inline">
+                                             <input class="form-check-input" type="radio" name="participacion" id="id2" value="No">
+                                             <label class="form-check-label">No</label>
+                                          </div>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-12"> 
+                                        <div id="divid1" style="display:none;">
+                                           
+                                        <div class="col-xl-3" id="divid1">
+                                           <div class="form-group">
+                                            <label for="nombre"># De estudiantes femeninos</label>       
+                                            <input type="text" class="form-control input-sm" name="egresados_f"  >
+                                           </div>
+                                        </div>
+                                        <div class="col-xl-3">
+                                           <div class="form-group"> 
+                                             <label for="nombre"># De estudiantes masculinos</label>
+                                             <input type="text" class="form-control input-sm" name="egresados_m">
+                                           </div>
+                                        </div>
+                                        </div>
+                                   </div>
+
+                                    <div class="col-xl-12"></div>
+
+                                    <div class="col-xl-2">
+                                        <input type="hidden" name="id_ies" value="<?php echo $id_ies; ?>" />
+                                        <button type="submit" class="btn btn-block btn-primary btn-lg">Agregar</button><br><br>
+                                    </div>
+</div>                                
+</form>
+</div> 
+
+<div class="tab-pane" id="pane3" role="tabpanel" aria-labelledby="home-tab">
+<form action="../controller/update_ies.php" method="POST">  
+<h3>Datos Institucionales de contacto</h3>
+<p>La siguiente información se publicará en la oferta educativa en Educación Dual para fines de difusión</p>
+<div class="row border">
+
+
+                        <div class="col-md-12"><br>
+                       <!-- <h3>Datos Institucionales de contacto</h3><?php //echo $id_ies; ?>
+                        <p>La siguiente información se publicará en la oferta educativa en Educación Dual para fines de difusión<br><br></p>-->
+                        </div>
+                        
+                      <div class="col-md-8">    
+                        <div class="form-group"><label>Nombre de la Institución</label>
+                        <input type="text"  class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['dt_nombre_ies']); ?>" >
+                      </div>                      
+                        
+                     </div>
+
+                     <div class="col-md-4">
+                        <div class="form-group"><label>Subsistema educativo</label>
+                        <input type="text"  class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['dt_subsistema_resp']); ?>" >
+                        </div>                     
+                     </div>                    
+
+
+                     <div class="col-md-6">    
+                        <div class="form-group">
+                        <label>Correo</label>
+                        <input type="text" name="email" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['dt_email']); ?>" required>
+                      </div>                      
+                     </div>
+
+                     <div class="col-md-6">    
+                        <div class="form-group">
+                        <label>Teléfono</label>
+                        <input type="text" name="telefono" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['dt_telefono']); ?>" required>
+                      </div>                      
+                     </div>
+
+
+                     <div class="col-md-6">    
+                        <div class="form-group">
+                        <label>Dirección (Calle y Número):</label>
+                        <input type="text" name="direccion" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['dt_direccion']); ?>"required>
+                      </div>                      
+                     </div>
+
+                     <div class="col-md-6">    
+                        <div class="form-group">
+                        <label>Localidad, colonia o barrio:</label>
+                        <input type="text" name="localidad" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['dt_localidad']); ?>"required>
+                      </div>                      
+                     </div>
+
+                     <div class="col-md-6">    
+                        <div class="form-group">
+                        <label>Municipio:</label>
+                        <input type="text" name="municipio" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['dt_municipio']); ?>"required>
+                      </div>                      
+                     </div>
+
+                     <div class="col-md-3">    
+                        <div class="form-group">
+                        <label>Entidad:</label>
+                        <input type="text" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['nombre_entidad']); ?>" required>
+                      </div>                      
+                     </div>
+
+
+                     <div class="col-md-3">    
+                      <div class="form-group">
+                        <label>Codigo Postal:</label>
+                        <input type="text" name="cp" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['dt_cp']); ?>" required>
+                      </div>                      
+                     </div>
+
+                     <div class="col-md-12">    
+                        <div class="form-group">
+                        <label>Coordenadas geográficas de ubicación</label>
+                      </div>                      
+                     </div>
+
+                     <div class="col-md-6">    
+                        <div class="form-group">
+                        <label>latitud</label>
+                        <input type="text" name="lat" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['lat']); ?>"required>
+                      </div>                      
+                     </div>
+
+                     <div class="col-md-6">    
+                        <div class="form-group">
+                        <label>longitud</label>
+                        <input type="text" name="lng" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['lng']); ?>"required>
+                      </div>                      
+                     </div>
+
+
+                     <div class="col-md-6">    
+                        <div class="form-group">
+                        <label>Año en que la Institución inicio bajo la modalidad de Educación Dual</label>
+                        <input type="text" name="bajo_modalidad" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['dt_bajo_modalidad']); ?>" required>
+                      </div>                      
+                     </div>
+
+                     <div class="col-md-6">    
+                        <div class="form-group">
+                        <label>Número total de egresados bajo la modalidad de Educación Dual </label>
+                        <input type="text" name="total_egresados" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($ies['dt_total_egresados']); ?>" required>
+                       <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>-->
+                      </div>                      
+                     </div>
+                    <div class="col-xl-12"></div>
+                    <div class="col-xl-2">
+                            <input type="hidden" name="id_ies" value="<?php echo $id_ies; ?>" />
+                            <button type="submit" class="btn btn-block btn-primary btn-lg">Actualizar</button><br><br>
+                    </div>
+
+</div>
+</form>                           
+</div><br><br><br><br>
 </div> 
 </div>
 

@@ -38,7 +38,7 @@
             <header class="stick style1 w-100" style=" background-color: #98213A;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
-                         <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid" src="assets/images/img/logo_blanco2.png" alt="Logo" srcset="assets/images/img/logo_blanco2.png"></a></h1></div> 
+                         <div class="logo"><h1 class="mb-0"><a href="#" title="Home"><img class="img-fluid" src="assets/images/img/logo_blanco2.png" alt="Logo" srcset="assets/images/img/logo_blanco2.png"></a></h1></div> 
                         <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
@@ -46,14 +46,14 @@
                                     <li class="menu-item-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="view/login.php" title="">FORMULARIO</a></li>
                                     <li><a href="oferta.html" title="">OFERTA</a></li>
-                                    <li><a href="#" title="">BLOG</a></li>
+                                    <!-- <li><a href="#" title="">BLOG</a></li> -->
                                 </ul>
                             </div>
                             <div class="header-right-btns">
                                 <!--<a class="search-btn" href="javascript:void(0);" title="">
                                     <i class="flaticon-magnifying-glass"></i></a>-->
                                <a  class="user-btn" href="javascript:void(0);" title="" data-backdrop="static" data-keyboard="false"><i class="flaticon-user"></i></a>                               
-                               <!-- <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>-->
+                               <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>
                                <!-- <a href="view/login.php"><i class="flaticon-user"></i></a> -->
                             </div>
                         </nav>
@@ -67,7 +67,7 @@
                     <li class="menu-it@em-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
                     <li><a href="view/login.php">FORMULARIO</a></li>
                     <li><a href="oferta.html" title="">OFERTA</a></li>
-                    <li><a href="#" title="">BLOG</a></li>                         
+                    <!-- <li><a href="#" title="">BLOG</a></li>                          -->
                 </ul>
             </div><!-- Menu Wrap -->
 
@@ -97,9 +97,10 @@
                     </form>
                 </div>
             </div><!-- Login Popup --><br><br><br><br><br><br><br>
-
+                      
 
 <div class="container-fluid">
+<br><br><br><br>
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
@@ -142,7 +143,7 @@
             </section>
 			
 	
-<section>
+<section> 
     <div class="col-md-3 text-center">
       <div class="service-box mt-5 mx-auto">
        <img src="img/icons/1.png" class="">
@@ -178,26 +179,45 @@
   </div>
  </section><br><br><br>			
 </div>
-            <footer style=" background-color: #98213A;" id="contacto">
-                <div class="w-100 pt-121  opc1 position-relative">
-                    <div class="container position-relative">
-                        <div class="footer-wrap w-100 text-center">
-                            <div class="footer-inner d-inline-block">
-                                <div class="logo d-inline-block">
-                                    <h1 class="mb-0">
-                                        <a href="index.html" title=""><br>
-                                           <!-- <img class="img-fluid" src="assets/images/img/logoforos.png" alt="Logo">-->
-                                        </a>
-                                    </h1>
+<footer class="justify-content-center" style=" background-color: #98213A;" id="contacto">
+                
+                <div class="footer-widget-area justify-content-center">
+                    <br>
+                    <div class="container align-items-center">
+                        <div class="container row container-fluid   ">
+                        <!--------------------------------------------------------------------------------------->
+                            <div class="col-md ">
+                                <img src="img/logo/LogoESR.webp" class="equalheight" title="Ve nuestro apartado esr" alt="Empresa socialmente responsable"/></a> <!--Se cambio el nombre y se agrego un metadato-->
+                            </div>
+                        <!--------------------------------------------------------------------------------------->
+                            <div class="col-md ">
+                                <h4 class="text-light" >Ubicación</h4>
+                                <div class="contact-icon text-white">
+        
+                                    <a href="https://www.google.com/maps/place/Fundaci%C3%B3n+Educaci%C3%B3n+Superior+Empresa/@19.3734491,-99.1622087,17z/data=!3m1!4b1!4m6!3m5!1s0x85d1ffa52c4affa9:0xe7505e0e613e278a!8m2!3d19.3734441!4d-99.1596338!16s%2Fg%2F11b6j9fyp5" target="_blank"><i class="fa fa-map-marker" aria-hidden="true"  text-center> </i> Fundación Educación Superior-Empresa A.C.
+                                    Tenayuca 200, Santa Cruz Atoyac,
+                                    Benito Juárez, 03310, CDMX.</a>
                                 </div>
-                                <p class="mb-0" style="color: #fff">Contacto:</p>
-                                <p class="mb-0" style="color: #fff">contacto@fese.mx</p>
                             </div>
-                            <div class="footer-bottom d-flex flex-wrap justify-content-between w-100">                              
+                            <div class="col-md ">
+                                <h4 class="text-light" >Contacto</h4>
+                                <div class="contact-icon text-white">
+                                    <a href="tel:55 5605 6100"><i class="fa fa-phone" aria-hidden="true"> </i> 55 5605 6100</a>
+                                </div>
+                               
+                                <div class="contact-icon text-white">
+                                    <a href="mailto:ontacto@fese.mx"><i class="fa fa-envelope" aria-hidden="true"> </i> contacto@fese.mx</a>
+                                </div>
                             </div>
+                            <!--------------------------------------------------------------------------------------->
+                            
                         </div>
+                    </div>  
+                    <small class="text-light text-center">Todos los derechos reservados © FESE 2023  </small>
+                    <br><br>
                     </div>
-                </div>
+                    
+                </div>   
             </footer><!-- Footer -->
 
 </div>

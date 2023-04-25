@@ -115,7 +115,7 @@ $(document).ready(function() {
                      <div class="col-md-12">    
                      <div class="form-group">
                         <label for="exampleInputEmail1">Contraseña</label>
-                        <input type="text" class="form-control" name="password"  placeholder="Ingresa tu contraseña" required>
+                        <input type="password" class="form-control" name="password"  placeholder="Ingresa tu contraseña" required>
                       </div>                      
                      </div>
 

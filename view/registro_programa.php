@@ -1,14 +1,20 @@
 <?php
+error_reporting(E_ALL);
 session_start();
-if($_SESSION['id_ies']== null){
-    header("Location:formulario.php");
-
-}
-require_once('../model/databases.php');
+require_once('../controller/conec.php');
+require_once('../model/databases_programa.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
-$name_user=$_SESSION["name_user"];
 $programa = acces_programas($id_ies);
+$responsable = acces_responsable($id_ies);
+$ies = acces_ies($id_ies);
+$mysqli = new mysqli($servername, $username, $password, $dbname);
+$result ='';
+if($mysqli->connect_errno)
+{
+  echo '';
+  exit;
+}
 
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
           WHERE id_ies = '{$id_ies}'")) {
@@ -21,7 +27,7 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
     /* determinar el número de filas del resultado */
     $row_cnt2 = $result2->num_rows2;
 }
-
+error_reporting (E_ALL); 
 ?> 
  <!DOCTYPE html>
 <html lang="es">
@@ -39,24 +45,38 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/responsive.css">
         <link rel="stylesheet" href="../assets/css/color.css">
+      <script>
+a = 0;
+function addUnidad(){
+        a++;
+
+        var div = document.createElement('div');
+            div.innerHTML = '<div class="row"><div class="col-xl-6"><div class="form-group"><label>Nombre de la unidad económica</label><input type="text" class="form-control" name="unidad_'+a+'" onChange="conMayusculas(this)"></div></div><div class="col-xl-3"><div class="form-group"><label>Cuenta con convenio</label><select class="form-control" name="convn_'+a+'"><option value="1">SI</option><option value="0">NO</option></select></div> </div></div> ';
+            document.getElementById('unidad').appendChild(div);document.getElementById('unidad').appendChild(div);
+}
+</script>
 </head>
    <body>
-  <header class="stick style1 w-100" style="background-color: #98213A;">
+  <header class="stick style1 w-100" style=" background-color: #860f01;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
-                        <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><!--<img class="img-fluid" src="assets/images/img/logoforos.png" alt="Logo" srcset="assets/images/img/logoforos.png">-->LOGO</a></h1></div> 
+                    <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></a></h1></div> 
+
                         <nav class="d-inline-flex align-items-center">
-                           <div class="header-left">
+                            <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
-                                    <li class="menu-item-has-children"><?php echo $name_user ?></li>
-                                    <!--<li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
+                                    <li class="menu-item-has-children"><a href="../" title="">INICIO</a></li>
+                                    <li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="#" title="">FORMULARIO</a></li>
                                     <li><a href="../oferta.html" title="">OFERTA</a></li>
-                                    <li><a href="#" title="">BLOG</a></li>-->
+                                    <li><a href="#" title="">BLOG</a></li>
                                 </ul>
                             </div>
                             <div class="header-right-btns">
-                               <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
+                                <!--<a class="search-btn" href="javascript:void(0);" title="">
+                                    <i class="flaticon-magnifying-glass"></i></a>-->
+                               <a class="user-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
+                               <!-- <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>-->
                             </div>
                         </nav>
                     </div><!-- Logo Menu Wrap -->
@@ -65,11 +85,11 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
             <div class="menu-wrap">
                 <span class="menu-close"><i class="fas fa-times"></i></span>
                 <ul class="mb-0 list-unstyled w-100">
-                   <li><a href="logout.php">CERRAR SESIÓN</a></li>
-                    <!--<li class="menu-it@em-has-children"><a href="#" title="">HISTORIA</a></li>  
-                    <li><a href="logout.php">CERRAR SESIÓN</a></li>
+                    <li class="menu-item-has-children"><a href="./" title="">INICIO</a></li>
+                    <li class="menu-it@em-has-children"><a href="#" title="">HISTORIA</a></li>  
+                    <li><a href="#">FORMULARIO</a></li>
                     <li><a href="oferta.html" title="">OFERTA</a></li>
-                    <li><a href="#" title="">BLOG</a></li>-->                     
+                    <li><a href="#" title="">BLOG</a></li>                         
                 </ul>
             </div><!-- Menu Wrap -->
 
@@ -79,17 +99,31 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
             </div><br><br><br>
          </section>
 
+
 <div class="container"><br><br>
  <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">Resumen</a>
+         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#pane1" role="tab" aria-controls="home" aria-selected="true">Resumen</a>
        </li>
+
+       <?php if($row_cnt==0){?>
+       <li class="nav-item">
+         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#pane2" role="tab" aria-controls="profile" aria-selected="false">Registro de programas educativos<span class="spinner-grow text-danger"></span></a>
+       </li>
+   <?php } else { ?>
+    <li class="nav-item">
+         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#pane2" role="tab" aria-controls="profile" aria-selected="false">Registro de programas educativos</a>
+       </li>
+   <?php }  ?>
+
+
         <li class="nav-item">
-         <a class="nav-link"  href="info_ies.php" role="tab" aria-controls="profile" aria-selected="false">Datos Institucionales</a>
+         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#pane3" role="tab" aria-controls="profile" aria-selected="false">Datos Institucionales</a>
        </li>
      </ul>
      <br><br>
 </div>
+
 
 
 <div class="container">
@@ -100,23 +134,19 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
                                     <div class="col-xl-12">
                                        <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2021-2022</p>
                                        <p>Agradecemos el apoyo en el llenado, ya que el mismo servirá para mostrar la oferta educativa a nivel nacional, incluyendo a su IES con los programas aquí registrados.</p>
-                                       <p><strong>Se cuenta con <strong><?php echo  $row_cnt;?></strong> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
-                                    </div>
-                                    <div class="col-md-3">
-                                        <a href="programa.php" class="btn btn-block btn-primary" aria-disabled="true">Agregar o Editar</a>
+                                       <p><strong>Se cuenta con <?php echo  $row_cnt;?> programas educativos registrados.</strong></p><?php //echo "id_ies".$id_ies; ?>
                                     </div>
                                     <div class="col-md-12"><br>
-                                    <?php if($row_cnt>0){ ?>
                                     <table id="example" class="table table-striped table-bordered" style="width:100%">
                                         <thead class="thead-dark">
                                           <tr>  
                                                 <th>#</th>
+                                                <th>Grado/Denominación</th>
                                                 <th>Programa educativo</th>
-                                                <th>Inicio</th> 
-                                                <th>Periodo</th>
-                                                <th class="text-center">Número de estudiantes</th>
-                                                <th class="text-center">Número de egresados</th>
-                                                 <th class="text-center">Unidades económicas</th>
+                                                <th>Unidad económica</th> 
+                                                <th>Estudiantes</th>
+                                                <th>Egresados</th>
+                                                <th>Editar</th>
                                           </tr>
                                         </thead>
                                             <tbody>
@@ -127,29 +157,20 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
                                               ?>
                                               <tr>
                                                 <td class="text-center"><?php echo $counter++ ?></td>
-                                                 <?php if($prog['dt_programa']!='OTRO') { ?>
+                                                <td><?php echo strtoupper($prog['dt_denominacion']); ?></td>
                                                 <td><?php echo strtoupper($prog['dt_programa']); ?></td>
-                                                <?php } else { ?>
-                                                <td><?php echo strtoupper($prog['dt_otro_programa']); ?></td>
-                                                <?php } ?>
-                                                <td><?php echo strtoupper($prog['dt_inicio']); ?></td>
-                                                <td class="text-center"><?php echo strtoupper($prog['dt_unidad']); ?></td>
-                                                <td class="text-center"><?php echo strtoupper($prog['estudiantes']); ?></td>
-                                                <td class="text-center"><?php echo strtoupper($prog['egresados']); ?></td>
-                                                <td class="text-center"> <?php echo strtoupper($prog['num']); ?>
-                                                </td>                                               
+                                                <td><?php echo strtoupper($prog['dt_unidad']."<br>".$prog['dt_unidad_1']); ?></td>
+                                                <td class="text-center"><?php echo ($prog['dt_num_m']+$prog['dt_num_f']); ?></td>
+                                                <td class="text-center"><?php echo ($prog['dt_egresados_m']+$prog['dt_egresados_f']); ?></td>
+                                              <td><a href="editar_programa.php?var=<?php echo base64_encode($prog['id_ies']) ?>">Editar</a></td>
                                               </tr> 
                                               <?php
                                                 }
                                               ?>               
                                             </tbody>
 
-                                      </table>
-                                    <br>
-                                  <?php } ?>
-
-
-                                     </div>                                     
+                                      </table><br><br>
+                                     </div>
                             </span><br><br>
 </div>
 </div>
@@ -178,9 +199,19 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
                                     </div>
                                     <div class="col-xl-6"><br>
                                        <div class="form-group"> 
-                                          <label>Nombre del programa educativo</label>
-                                          <input type="text" class="form-control" name="programa_educativo" onChange="conMayusculas(this)" required="">
+                                         <!--INICIO -->
+                                       <label for="exampleInputEmail1">Entidad de la IES</label>
+                                          <select class="form-control" name="entidad" id="entidad" required>
+                                             <option value="">Seleccione:</option>
+                                                      <?php
+                                                      while ($resul = $result2->fetch_assoc()) { 
+                                                         echo '<option value="'.$resul['id_prog_ed'].'">'.$resul['programa_educativo'].'</option>';    
+                                                      }
+                                                      ?>
+                                          </select>
+                                       <!--FIN -->
                                        </div>
+                                       
                                     </div>
                                     <div class="col-xl-4"><br>
                                        <div class="form-group"> 
@@ -188,10 +219,24 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
                                           <input type="text" class="form-control" name="inicio" onChange="conMayusculas(this)" required="">
                                        </div>
                                     </div>
+                                    
+                                    <div class="col-xl-12">
+                                       <div class="form-group">
+                                           <label for="nombre">¿A partir de qué periodo académico el estudiante puede ingresar a esta Modalidad Dual?</label>
+                                         <input type="text" class="form-control input-sm" name="periodo" placeholder="Ejemplo: (2 semestre, 4 cuatrimestre, 4 trimestre, etc)" required>
+                                       </div>
+                                    </div>
+                                    <div class="col-xl-12">
+                                       <div class="form-group">
+                                       <hr/>
+                                       <label for="nombre"><h3>Información de la unidad económica</h3></label>
+                                       
+                                       </div>
+                                    </div>
                                     <div class="col-xl-6">
                                        <div class="form-group"> 
-                                          <label>Nombre de la unidad económica</label>
-                                          <input type="text" class="form-control" name="unidad" onChange="conMayusculas(this)" required="">   
+                                        <label>Nombre de la unidad económica</label>
+                                        <input type="text" class="form-control" name="unidad" onChange="conMayusculas(this)" required="">
                                        </div>
                                     </div> 
                                     <div class="col-xl-3">
@@ -202,24 +247,10 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
                                     </div>                                   
 
                                     <div class="col-xl-3"><br>
-                                        <input type="button" class="btn btn-block btn-primary btn-lg" id="add_cancion()" onClick="addUnidad()" value="+ Otra unidad económica" />
+                                        <input hidden type="button" class="btn btn-block btn-primary btn-lg" id="add_cancion()" onClick="addUnidad()" value="+ Otra unidad económica" />
                                     </div>
-
-
-
                                         <div class="col-md-12" id="unidad">
-                                        </div>
-
-  
-
-
-                                    <div class="col-xl-12">
-                                       <div class="form-group">
-                                           <label for="nombre">¿A partir de qué periodo académico el estudiante puede ingresar a esta Modalidad Dual?</label>
-                                         <input type="text" class="form-control input-sm" name="periodo" placeholder="Ejemplo: (2 semestre, 4 cuatrimestre, 4 trimestre, etc)" required>
-                                       </div>
-                                    </div>
-
+                                        </div>  
                                      <div class="col-xl-12">
                                        <div class="form-group">
                                           <label for="nombre">¿Cuántos estudiantes cursaron el programa educativo bajo la Modalidad Dual al cierre del ciclo escolar 2021-2022?</label>
@@ -241,18 +272,18 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
 
                                      <div class="col-xl-12">
                                        <div class="form-group">
-                                          <label for="nombre">¿Cuántos estudiantes cursan actualmente este programa educativo bajo la Modalidad Dual?</label>
+                                          <label for="nombre">¿Cuántos docentes se involucrarón en este programa educativo bajo la Modalidad Dual?</label>
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
-                                        <label for="nombre"># De estudiantes femeninos</label>      
+                                        <label for="nombre"># Docentes femeninos</label>      
                                         <input type="text" class="form-control input-sm" name="sex_fem"  required>
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
-                                        <label for="nombre"># De estudiantes masculinos</label>
+                                        <label for="nombre"># Docentes masculinos</label>
                                          <input type="text" class="form-control input-sm" name="sex_mas"  required>
                                        </div>
                                     </div>
@@ -277,8 +308,7 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
                                        </div>
                                     </div>
                                     <div class="col-xl-12"> 
-                                        <div id="divid1" style="display:none;">
-                                           
+                                        <div id="divid1" style="display:none;">                                           
                                         <div class="col-xl-3" id="divid1">
                                            <div class="form-group">
                                             <label for="nombre"># De estudiantes femeninos</label>       
@@ -294,8 +324,17 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
                                         </div>
                                    </div>
 
+                                   <div class="col-xl-12">
+                                       <div class="form-group">
+                                           <label for="nombre">Seleccione los beneficios derivados de esta colaboración</label>
+                                         <fieldset>      
+                                             <input type="checkbox" name="beneficios" value="Capacitación">Capacitación<br>      
+                                             <input type="checkbox" name="beneficios" value="Inserción">Inserción laboral<br>      
+                                             <input type="checkbox" name="beneficios" value="Vinculación">Vinculación<br>      
+                                          </fieldset>  
+                                       </div>
+                                    </div>
                                     <div class="col-xl-12"></div>
-
                                     <div class="col-xl-2">
                                         <input type="hidden" name="id_ies" value="<?php echo $id_ies; ?>" />
                                         <button type="submit" class="btn btn-block btn-primary btn-lg">Agregar</button><br><br>
@@ -309,9 +348,7 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
 <h3>Datos Institucionales de contacto</h3>
 <p>La siguiente información se publicará en la oferta educativa en Educación Dual para fines de difusión</p>
 <div class="row border">
-
-
-                        <div class="col-md-12"><br>
+                      <div class="col-md-12"><br>
                        <!-- <h3>Datos Institucionales de contacto</h3><?php //echo $id_ies; ?>
                         <p>La siguiente información se publicará en la oferta educativa en Educación Dual para fines de difusión<br><br></p>-->
                         </div>
@@ -428,6 +465,8 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
 </div> 
 </div>
 
+
+
             <footer style="background-color: #98213A;" id="contacto">
                 <div class="w-100 pt-121  opc1 position-relative">
                     <div class="container position-relative">
@@ -463,5 +502,17 @@ if ($result2 = $mysqli->query("SELECT * FROM cat_programa_educativo
         <script src="../assets/js/custom-scripts.js"></script>
         <script src="../assets/js/simplyCountdown.min.js"></script>
         <script src="../assets/js/countdown.js"></script>    
-    
+    <script language="javascript">
+         $(document).ready(function() {
+         $("input[type=radio]").click(function(event){
+             var valor = $(event.target).val();
+             if(valor =="Si"){
+                 $("#divid1").show();
+             } else if (valor == "No") {   
+                 $("#divid1").hide();
+             }
+         });
+         })
+      </script>
+
 </html>

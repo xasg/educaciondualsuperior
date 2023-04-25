@@ -130,6 +130,13 @@ $mysqli->query($sql);
 
 
 
+function view_entidad()
+{
+  global $mysqli;
+  $sql ='SELECT DISTINCT(`grado_denominacion`) FROM `cat_programa_educativo` ORDER BY `cat_programa_educativo`.`grado_denominacion` ASC';
+  return $mysqli->query($sql);
+  return $result->fetch_assoc();
+}
 
 
 ?>

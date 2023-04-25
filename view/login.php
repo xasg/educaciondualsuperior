@@ -74,6 +74,13 @@ $(document).ready(function() {
 
                                 </ul>
                             </div>
+                            <div class="header-right-btns ">
+                                    <!--<a class="search-btn" href="javascript:void(0);" title="">
+                                        <i class="flaticon-magnifying-glass"></i></a>-->
+                                                                
+                                   <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>
+                                   <!-- <a href="view/login.php"><i class="flaticon-user"></i></a> -->
+                                </div>
                         </nav>
                     </div><!-- Logo Menu Wrap -->
                 </div>
@@ -82,7 +89,18 @@ $(document).ready(function() {
          <!-- Menu Wrap -->
          <section>
             <div class="w-100 text-center position-relative">                   
-            </div><br><br><br>
+            </div>
+             <div class="menu-wrap">
+                <span class="menu-close"><i class="fas fa-times"></i></span>
+                <ul class="mb-0 list-unstyled w-100">
+                    <li class="menu-item-has-children"><a href="javascript:void(0);" title="">INICIO</a></li>
+                    <li class="menu-it@em-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
+                    <!-- <li><a href="login.php">FORMULARIO</a></li> -->
+                    <li><a href="../oferta.html" title="">OFERTA</a></li>
+                    <li><a href="#" title="">BLOG</a></li>                         
+                </ul>
+            </div>
+            <br><br><br>
          </section>
 
 

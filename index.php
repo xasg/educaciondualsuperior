@@ -38,7 +38,7 @@
             <header class="stick style1 w-100" style=" background-color: #98213A;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
-                         <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid" src="assets/images/img/logo_blanco2.png" alt="Logo" srcset="assets/images/img/logo_blanco2.png"></a></h1></div> 
+                         <div class="logo"><h1 class="mb-0"><a href="#" title="Home"><img class="img-fluid" src="assets/images/img/logo_blanco2.png" alt="Logo" srcset="assets/images/img/logo_blanco2.png"></a></h1></div> 
                         <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
@@ -53,7 +53,7 @@
                                 <!--<a class="search-btn" href="javascript:void(0);" title="">
                                     <i class="flaticon-magnifying-glass"></i></a>-->
                                <a  class="user-btn" href="javascript:void(0);" title="" data-backdrop="static" data-keyboard="false"><i class="flaticon-user"></i></a>                               
-                               <!-- <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>-->
+                               <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>
                                <!-- <a href="view/login.php"><i class="flaticon-user"></i></a> -->
                             </div>
                         </nav>

@@ -48,9 +48,8 @@
                             <div class="header-right-btns">
                                 <!--<a class="search-btn" href="javascript:void(0);" title="">
                                     <i class="flaticon-magnifying-glass"></i></a>-->
-                                    <a href="view/login.php"><i class="flaticon-user"></i></a>
-                                    <!-- <a href="view/login.php" class="user-btn" title=""a>      -->
-                               <!-- <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>-->
+                                    <a class="user-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
+                               <!-- <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a> -->
                             </div>
                         </nav>
                     </div><!-- Logo Menu Wrap -->
@@ -67,7 +66,21 @@
                     
                 </ul>
             </div><!-- Menu Wrap -->
-
+            <div class="login-popup-wrap position-fixed h-100 text-center d-flex flex-wrap align-items-center justify-content-center w-100">
+                <div class="login-popup-inner d-inline-block w-100">
+                    <h3 class="mb-0">Login sesión virtual </h3>
+                   <form action="controller/login.php" method="POST">
+						               <div class="form-group"> 
+                                      <label for="nombre">Email</label>
+                                      <input type="text" class="form-control" name="correo" onChange="conMayusculas(this)" required="">
+                                      <label for="nombre">Password</label>
+                                      <input type="password" class="form-control" name="password" required="">
+                            </div>                       
+                        <button class="thm-btn fill-btn" type="submit">Iniciar<span></span></button>
+                        <!--<a class="d-inline-block" href="javascript:void(0);" title="">Forget A Password</a>-->
+                    </form>
+                </div>
+            </div><!-- Login Popup --><br><br><br><br><br><br><br>
          <!-- Menu Wrap -->
          <section>
             <div class="w-100 text-center black-layer position-relative">                   

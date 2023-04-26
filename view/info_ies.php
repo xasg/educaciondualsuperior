@@ -202,7 +202,7 @@ $info_ies = acces_info_ies($id_ies, $id_user);
                      <div class="col-md-3">    
                         <div class="form-group">
                         <label for="exampleInputEmail1">Codigo Postal:</label>
-                        <input type="number" name="cp" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_cp']); ?>" required>
+                        <input type="text" name="cp" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_cp']); ?>" required>
                       </div>                      
                      </div>
 
@@ -215,7 +215,7 @@ $info_ies = acces_info_ies($id_ies, $id_user);
                      <div class="col-md-6">    
                         <div class="form-group">
                         <label for="exampleInputEmail1">latitud</label>
-                        <input type="number" name="latitud" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_latitud']); ?>" required>
+                        <input type="text" name="latitud" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_latitud']); ?>" required>
                       </div>                      
                      </div>
 

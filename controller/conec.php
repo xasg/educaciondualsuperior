@@ -1,17 +1,17 @@
 
 
 <?php
-//para la base se cambia o se deja depende de como se llame en xamp o el GBD
 $servername = "localhost";
-$dbname = "dual";
-$username = "root";
-$password = ""; 
+$dbname = "educacion_dual";
+$username = "fese";
+$password = "Ws.666.AdQe"; 
+
+$mysqli = new mysqli($servername, $username, $password, $dbname);
+$result ='';
+if( $mysqli->connect_errno )
+{
+  echo '';
+  exit;
+}
 ?>
 
-
-<?php /**
-$servername = "localhost";
-$dbname = "dual2022";
-$username = "root";
-$password = ""; **/
-?>

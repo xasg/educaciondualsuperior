@@ -2,6 +2,7 @@
 		$('#unidad').on('show.bs.modal', function (event) {
 		  var button = $(event.relatedTarget) // Botón que activó el modal
 		  var id = button.data('id') // Extraer la información de atributos de datos
+		  var programa = button.data('programa') // Extraer la información de atributos de datos
 		  var nombre = button.data('nombre') // Extraer la información de atributos de datos
 		  var convenio = button.data('convenio')
 		  var estudiante_fem = button.data('estudiante_fem')
@@ -14,6 +15,7 @@
 		  
 		  var modal = $(this)
 		  modal.find('.modal-body #id').val(id)
+		  modal.find('.modal-body #programa').val(programa)	
 		  modal.find('.modal-body #nombre').val(nombre)	
 		  modal.find('.modal-body #convenio').val(convenio)
 		  modal.find('.modal-body #estudiante_fem').val(estudiante_fem)	

@@ -1,11 +1,13 @@
 <?php
-error_reporting(E_ALL);
 session_start();
-require_once('../controller/conexion.php');
-require_once('../model/databases_programa.php');
+if($_SESSION['id_ies']== null){
+    header("Location:formulario.php");
+
+}
+require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
-$subsistema= $_SESSION["subsistema"];
+$name_user=$_SESSION["name_user"];
 $programa = acces_programas($id_ies);
 
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
@@ -33,26 +35,23 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
         <link rel="stylesheet" href="../assets/css/color.css">
 </head>
    <body>
-  <header class="stick style1 w-100" style=" background-color: #860f01;">
+  <header class="stick style1 w-100" style="background-color: #98213A;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
-                    <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></a></h1></div> 
+                    <div class="logo"><h1 class="mb-0"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></h1></div> 
 
                         <nav class="d-inline-flex align-items-center">
-                            <div class="header-left">
+                           <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
-                                    <li class="menu-item-has-children"><a href="../" title="">INICIO</a></li>
-                                    <li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
+                                    <li class="menu-item-has-children"><?php echo $name_user ?></li>
+                                    <!--<li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="#" title="">FORMULARIO</a></li>
                                     <li><a href="../oferta.html" title="">OFERTA</a></li>
-                                    <li><a href="#" title="">BLOG</a></li>
+                                    <li><a href="#" title="">BLOG</a></li>-->
                                 </ul>
                             </div>
                             <div class="header-right-btns">
-                                <!--<a class="search-btn" href="javascript:void(0);" title="">
-                                    <i class="flaticon-magnifying-glass"></i></a>-->
-                               <a class="user-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
-                               <!-- <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>-->
+                               <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-user"></i></a>
                             </div>
                         </nav>
                     </div><!-- Logo Menu Wrap -->
@@ -61,11 +60,11 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
             <div class="menu-wrap">
                 <span class="menu-close"><i class="fas fa-times"></i></span>
                 <ul class="mb-0 list-unstyled w-100">
-                    <li class="menu-item-has-children"><a href="./" title="">INICIO</a></li>
-                    <li class="menu-it@em-has-children"><a href="#" title="">HISTORIA</a></li>  
-                    <li><a href="#">FORMULARIO</a></li>
+                   <li><a href="logout.php">CERRAR SESIÓN</a></li>
+                    <!--<li class="menu-it@em-has-children"><a href="#" title="">HISTORIA</a></li>  
+                    <li><a href="logout.php">CERRAR SESIÓN</a></li>
                     <li><a href="oferta.html" title="">OFERTA</a></li>
-                    <li><a href="#" title="">BLOG</a></li>                         
+                    <li><a href="#" title="">BLOG</a></li>-->                     
                 </ul>
             </div><!-- Menu Wrap -->
 
@@ -75,19 +74,17 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
             </div><br><br><br>
          </section>
 
-
 <div class="container"><br><br>
  <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#pane1" role="tab" aria-controls="home" aria-selected="true">Resumen</a>
+         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">Resumen</a>
        </li>
         <li class="nav-item">
-         <a class="nav-link" id="profile-tab" data-toggle="tab" href="#pane3" role="tab" aria-controls="profile" aria-selected="false">Datos Institucionales</a>
+         <a class="nav-link"  href="info_ies.php" role="tab" aria-controls="profile" aria-selected="false">Datos Institucionales</a>
        </li>
      </ul>
      <br><br>
 </div>
-
 
 
 <div class="container">
@@ -98,22 +95,23 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
                                     <div class="col-xl-12">
                                        <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2021-2022</p>
                                        <p>Agradecemos el apoyo en el llenado, ya que el mismo servirá para mostrar la oferta educativa a nivel nacional, incluyendo a su IES con los programas aquí registrados.</p>
-                                       <p><strong>Se cuenta con <?php echo  $row_cnt;?> programas educativos registrados.</strong></p><?php //echo $subsistema; ?>
+                                       <p><strong>Se cuenta con <strong><?php echo  $row_cnt;?></strong> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
                                     </div>
-                                    <div class="col-md-4">
-                                        <a href="programa.php"><button type="submit" class="btn btn-block btn-primary">Agregar programa educativo</button></a>
+                                    <div class="col-md-3">
+                                        <a href="programa.php" class="btn btn-block btn-primary" aria-disabled="true">Agregar o Editar</a>
                                     </div>
                                     <div class="col-md-12"><br>
                                     <?php if($row_cnt>0){ ?>
-                                     <table id="example" class="table table-striped table-bordered" style="width:100%">
+                                    <table id="example" class="table table-striped table-bordered" style="width:100%">
                                         <thead class="thead-dark">
                                           <tr>  
                                                 <th>#</th>
-                                                <th>Grado/Denominación</th>
                                                 <th>Programa educativo</th>
                                                 <th>Inicio</th> 
                                                 <th>Periodo</th>
-                                                <th>Unidad economica</th>
+                                                <th class="text-center">Número de estudiantes</th>
+                                                <th class="text-center">Número de egresados</th>
+                                                 <th class="text-center">Unidades económicas</th>
                                           </tr>
                                         </thead>
                                             <tbody>
@@ -124,49 +122,25 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
                                               ?>
                                               <tr>
                                                 <td class="text-center"><?php echo $counter++ ?></td>
-                                                <td><?php echo strtoupper($prog['dt_denominacion']); ?></td>
+                                                 <?php if($prog['dt_programa']!='OTRO') { ?>
                                                 <td><?php echo strtoupper($prog['dt_programa']); ?></td>
+                                                <?php } else { ?>
+                                                <td><?php echo strtoupper($prog['dt_otro_programa']); ?></td>
+                                                <?php } ?>
                                                 <td><?php echo strtoupper($prog['dt_inicio']); ?></td>
                                                 <td class="text-center"><?php echo strtoupper($prog['dt_unidad']); ?></td>
-                                                <td> 
-                                                    <table class="table table-bordered">
-                                                      <thead>                                                       
-                                                      </thead>
-                                                      <tbody>
-                                                    <?php
-                                                    $id_programa=$prog['id_programa'];
-                                                    $mysqli = new mysqli($servername, $username, $password, $dbname);
-                                                    mysqli_set_charset( $mysqli, 'utf8');
-                                                    $result ='';
-                                                    if($mysqli->connect_errno)
-                                                    {
-                                                      echo '';
-                                                      exit;
-                                                    }
-
-                                                    $sql = "SELECT dt_unidad FROM unidad_educativa where id_programa_educativo= $id_programa ";
-                                                    $result = mysqli_query($mysqli,$sql);
-                                                    while($row = mysqli_fetch_array($result)){
-                                                        ?>
-                                                          <tr>
-                                                           <td><?php echo strtoupper($row['dt_unidad']); ?></td>
-                                                          </tr>
-
-                                                        <?php
-                                                    }
-
-                                                    ?>
-                                                      </tbody>
-                                                    </table>
-                                                </td>
-                                              
+                                                <td class="text-center"><?php echo strtoupper($prog['estudiantes']); ?></td>
+                                                <td class="text-center"><?php echo strtoupper($prog['egresados']); ?></td>
+                                                <td class="text-center"> <?php echo strtoupper($prog['num']); ?>
+                                                </td>                                               
                                               </tr> 
                                               <?php
                                                 }
                                               ?>               
                                             </tbody>
 
-                                      </table><br>
+                                      </table>
+                                    <br>
                                   <?php } ?>
 
 

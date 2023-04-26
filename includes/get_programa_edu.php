@@ -1,6 +1,6 @@
 
 <?php
-	require ('../controller/conexion.php');
+	require ('../controller/conec.php');
 	mysqli_set_charset( $mysqli, 'utf8');	
 	$grado_denominacion = $_POST['grado_denominacion'];	
 	$queryM = "SELECT * FROM `cat_programa_educativo` WHERE `grado_denominacion`= '$grado_denominacion'";

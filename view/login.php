@@ -1,9 +1,3 @@
-<?php 
-error_reporting (E_ALL);
-include_once("../model/databases.php");
-$entidad=view_entidad();
-?>
- <!DOCTYPE html>
 <html lang="es">
 <head>
       <meta charset="UTF-8">
@@ -69,7 +63,7 @@ $(document).ready(function() {
                                 <ul class="mb-0 list-unstyled d-inline-flex">
                                     <li class="menu-item-has-children"><a href="../" title="">INICIO</a></li>
                                     <li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
-                                    <li><a href="login.php" title="">FORMULARIO</a></li>
+                                    <li><a href="#" title="">FORMULARIO</a></li>
                                     <li><a href="../oferta.html" title="">OFERTA</a></li>
                                     <li><a href="#" title="">BLOG</a></li>  
 
@@ -91,104 +85,67 @@ $(document).ready(function() {
 
 <div class="container"><br><br>
 
-<div class="tab-content">
-<form action="../controller/new_usuario.php" method="POST">
-<div class="row border">
-                    <div class="col-md-12"> <br>
-                    <h4>Datos del responsable de la IES encargado de reportar y dar atención sobre los avances de Educación Dual</h4>
-                   <div class="alert alert-warning" role="alert">Los datos de contacto (correo y teléfono Institucional) serán publicados en este sitio</div>
-                    </div> 
-                    <div class="col-md-3">
-                     <div class="form-group">
-                        <label for="exampleInputEmail1">Entidad de la IES</label>
-                         <select class="form-control" name="entidad" id="entidad" required>
-                            <option value="">Seleccione:</option>
-                                    <?php
-                                     while ($resul = $entidad->fetch_assoc()) { 
-                                       echo '<option value="'.$resul['id_cat_entidad'].'">'.$resul['nombre_entidad'].'</option>';    
-                                     }
-                                     ?>
-                        </select>                       
-                      </div>                       
-                     </div>
-
-
-                     <div class="col-md-9">    
-                     <div class="form-group">
-                        <label for="exampleInputEmail1">Nombre de la IES</label>
-                        <select class="form-control" name="ies" id="ies">
-                        </select>                        
-                      </div>                      
-                     </div>
-
-                     
-
-
-                    <div class="col-md-8">    
-                     <div class="form-group">
-                        <label for="exampleInputEmail1">Nombre completo del responsable</label>
-                        <input type="text" name="nombre_responsable" pattern="[A-Za-z0-9\u00C0-\u017F ]+" class="form-control" onChange="conMayusculas(this)" required>
-                      </div>                      
-                     </div>
-
-                    <div class="col-md-4">    
-                     <div class="form-group">
-                        <label for="exampleInputEmail1">Cargo</label>
-                        <input type="text" name="cargo" class="form-control"  onChange="conMayusculas(this)" pattern="[A-Za-z0-9\u00C0-\u017F ]+" required>
-                      </div>                      
-                     </div>
-
-                    <div class="col-md-6">    
-                     <div class="form-group">
-                        <label for="exampleInputEmail1">Teléfono</label>
-                        <input type="text" name="telefono" maxlength="10" placeholder="Número de teléfono a 10 caracteres" class="form-control" required>
-                      </div>                      
-                     </div>
-
-                    <div class="col-md-6">    
-                     <div class="form-group">
-                        <label for="exampleInputEmail1">Teléfono celular</label>
-                        <input type="text" name="celular" maxlength="10"  placeholder="Número de teléfono celular a 10 caracteres" class="form-control" >
-                      </div>                      
-                     </div>
-
-                     <div class="col-md-6">    
-                     <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" id="username" class="form-control" onChange="conMayusculas(this)" required>
-                      </div>  
-                      <div id="result-username"></div>                    
-                     </div>
-
-                     <div class="col-md-6">    
-                     <div class="form-group">
-                     <div class="row">
-                        <div class="col-md-6"> 
-                        <label>Contraseña</label>
-                        <input type="password" name="password" maxlength="10" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" class="form-control" required>
-                        </div>
-                        <div class="col-md-6"> 
-                        <label>Validar Contraseña</label>
-                        <input type="password" name="password2" maxlength="10" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" class="form-control" required>
-                        </div>
-                     </div>
-
-
-                        <p>La contraseña debe contener minimo 6 caracteres y maximo 10 caracteres, por lo menos un número, una mayúscula y minúscula</p>
-                      </div>                      
-                     </div>
-
-                     <div class="col-md-3"><br>
-                     <button type="submit" class="btn btn-block btn-primary btn-lg">Registrar</button><br><br>
-                     </div>    
-
-</div> 
-
-
-
-
-</form> <br><br>
+      
 <!-- /Registro beneficiario -->
+
+
+<!--login beneficiario  -->
+<div class="tab-pane" role="tabpanel" aria-labelledby="profile-tab">
+ <p>
+   </p><form action="../controller/login.php" method="POST">
+                <div class="row">
+                <div class="col-md-12">
+                    <h2>Hola, le damos la bienvenida de nuevo.<br><br></h2>
+                </div>
+                </div>
+                <div class="row">
+                 <div class="col-md-4 border">
+                    <div class="col-md-12"><br>
+                     <div class="form-group">
+                        <label for="exampleInputEmail1">Email</label>
+                        <input type="text" class="form-control" name="correo"  placeholder="Ingresa tu email" onChange="conMayusculas(this)" required>
+                      </div>                      
+                     </div>
+
+                     <div class="col-md-12">    
+                     <div class="form-group">
+                        <label for="exampleInputEmail1">Contraseña</label>
+                        <input type="text" class="form-control" name="password"  placeholder="Ingresa tu contraseña" required>
+                      </div>                      
+                     </div>
+
+
+
+                     <div class="col-md-12"> <br>
+                      <button type="submit" class="btn btn-block btn-primary btn-lg">Ingresar</button><br><br>
+                     </div>
+
+
+                    <?php
+                     // Esto evaluará a TRUE así que el texto se imprimirá.
+                    if (isset($_GET['error'])) {
+                        ?>
+                        <div class="alert alert-danger" role="alert">
+                          Los datos de acceso que ingreso son incorrectos
+                        </div>
+                    
+
+                   <?php } ?>
+
+
+                     <div class="col-md-12 text-center">
+                        <p>¿No tienes una cuenta?</p>
+                     </div>
+                      <div class="col-md-12"> 
+                      <a href="formulario.php" class="btn btn-block btn-primary" aria-disabled="true">Regístrate</a>
+                     </div>
+
+                     </div>
+                     <div class="col-md-8">
+                        <img src="../img/img_login.png" class="img-fluid" alt="Responsive image"> 
+                     </div>
+                </div>  
+ </form>
 </div>
 
 <br><br>
@@ -236,7 +193,7 @@ $(document).ready(function() {
         <script src="../assets/js/pas.js"></script>
 
 
-<!--
+
       <script language="javascript">
          $(document).ready(function(){
            $("#entidad").change(function () {          
@@ -248,7 +205,7 @@ $(document).ready(function() {
              });
            })
          });      
-      </script>-->
+      </script>
 
       <script language="javascript">
          $(document).ready(function(){

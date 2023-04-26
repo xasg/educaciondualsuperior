@@ -70,16 +70,48 @@ $(document).ready(function() {
                                     <li class="menu-item-has-children"><a href="../" title="">INICIO</a></li>
                                     <li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="login.php" title="">FORMULARIO</a></li>
-                                    <li><a href="../oferta.html" title="">OFERTA</a></li>
-                                    <li><a href="#" title="">BLOG</a></li>  
+                                    <!-- <li><a href="../oferta.html" title="">OFERTA</a></li>
+                                    <li><a href="#" title="">BLOG</a></li>   -->
 
                                 </ul>
+                            </div>
+                            <div class="header-right-btns">
+                                <!--<a class="search-btn" href="javascript:void(0);" title="">
+                                    <i class="flaticon-magnifying-glass"></i></a>-->
+                               <a  class="user-btn" href="javascript:void(0);" title="" data-backdrop="static" data-keyboard="false"><i class="flaticon-user"></i></a>                               
+                               <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>
+                               <!-- <a href="view/login.php"><i class="flaticon-user"></i></a> -->
                             </div>
                         </nav>
                     </div><!-- Logo Menu Wrap -->
                 </div>
             </header><!-- Header -->
+            <div class="menu-wrap">
+                <span class="menu-close"><i class="fas fa-times"></i></span>
+                <ul class="mb-0 list-unstyled w-100">
+                    <li class="menu-item-has-children"><a href="javascript:void(0);" title="">INICIO</a></li>
+                    <li class="menu-it@em-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
+                    <li><a href="view/login.php">FORMULARIO</a></li>
+                    <!-- <li><a href="oferta.html" title="">OFERTA</a></li> -->
+                    <!-- <li><a href="#" title="">BLOG</a></li>                          -->
+                </ul>
+            </div><!-- Menu Wrap -->
+            <div class="login-popup-wrap position-fixed h-100 text-center d-flex flex-wrap align-items-center justify-content-center w-100" data-backdrop="static" data-keyboard="false">
+                <div class="login-popup-inner d-inline-block w-100">
+                    <h3 class="mb-0">Login sesión virtual </h3>
+                   <form action="../controller/login.php" method="POST">
+						               <div class="form-group"> 
+                                      <label for="Email" name="inicio">Email</label>
+                                      <input type="text" class="form-control" name="correo" onChange="conMayusculas(this)" required="">
+                                      <label for="Pass">Password</label>
+                                      <input type="password" class="form-control" name="password" required="">
+                            </div>                       
 
+            <button class="thm-btn fill-btn" type="submit" >Iniciar<span></span></button>          
+                        <!-- <a class="d-inline-block" href="javascript:void(0);" title="">Forget A Password</a> -->
+                    </form>
+                </div>
+            </div>
          <!-- Menu Wrap -->
          <section>
             <div class="w-100 text-center position-relative">                   

@@ -1,3 +1,8 @@
+<?php 
+require_once('../model/databases.php');
+$entidad=view_entidad();
+?>
+ <!DOCTYPE html>
 <html lang="es">
 <head>
       <meta charset="UTF-8">
@@ -57,18 +62,25 @@ $(document).ready(function() {
   <header class="stick style1 w-100" style=" background-color: #98213A;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
-                        <div class="logo"><h1 class="mb-0"><a href="index.html" title="Home"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></a></h1></div> 
+                        <div class="logo"><h1 class="mb-0"><a href="../index.php" title="Home"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></a></h1></div> 
                        <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
                                     <li class="menu-item-has-children"><a href="../" title="">INICIO</a></li>
                                     <li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
-                                    <li><a href="#" title="">FORMULARIO</a></li>
-                                    <li><a href="../oferta.html" title="">OFERTA</a></li>
-                                    <li><a href="#" title="">BLOG</a></li>  
+                                    <!-- <li><a href="#" title="">FORMULARIO</a></li> -->
+                                    <!-- <li><a href="../oferta.html" title="">OFERTA</a></li> -->
+                                    <!-- <li><a href="#" title="">BLOG</a></li>   -->
 
                                 </ul>
                             </div>
+                            <div class="header-right-btns ">
+                                    <!--<a class="search-btn" href="javascript:void(0);" title="">
+                                        <i class="flaticon-magnifying-glass"></i></a>-->
+                                                                
+                                   <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>
+                                   <!-- <a href="view/login.php"><i class="flaticon-user"></i></a> -->
+                                </div>
                         </nav>
                     </div><!-- Logo Menu Wrap -->
                 </div>
@@ -77,7 +89,18 @@ $(document).ready(function() {
          <!-- Menu Wrap -->
          <section>
             <div class="w-100 text-center position-relative">                   
-            </div><br><br><br>
+            </div>
+             <div class="menu-wrap">
+                <span class="menu-close"><i class="fas fa-times"></i></span>
+                <ul class="mb-0 list-unstyled w-100">
+                    <li class=""><a href="../" title="">INICIO</a></li>
+                    <li class="menu-it@em-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
+                    <!-- <li><a href="login.php">FORMULARIO</a></li> -->
+                    <!-- <li><a href="../oferta.html" title="">OFERTA</a></li> -->
+                    <!-- <li><a href="#" title="">BLOG</a></li>                          -->
+                </ul>
+            </div>
+            <br><br><br>
          </section>
 
 
@@ -110,7 +133,7 @@ $(document).ready(function() {
                      <div class="col-md-12">    
                      <div class="form-group">
                         <label for="exampleInputEmail1">Contraseña</label>
-                        <input type="text" class="form-control" name="password"  placeholder="Ingresa tu contraseña" required>
+                        <input type="password" class="form-control" name="password"  placeholder="Ingresa tu contraseña" required>
                       </div>                      
                      </div>
 
@@ -153,8 +176,6 @@ $(document).ready(function() {
 </div>
 
 </div>
-
-
 <footer class="justify-content-center" style=" background-color: #98213A;" id="contacto">
                 
                 <div class="footer-widget-area justify-content-center">

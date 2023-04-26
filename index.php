@@ -45,7 +45,7 @@
                                     <li class="menu-item-has-children"><a href="javascript:void(0);" title="">INICIO</a></li>
                                     <li class="menu-item-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="view/login.php" title="">FORMULARIO</a></li>
-                                    <li><a href="oferta.html" title="">OFERTA</a></li>
+                                    <!-- <li><a href="oferta.html" title="">OFERTA</a></li> -->
                                     <!-- <li><a href="#" title="">BLOG</a></li> -->
                                 </ul>
                             </div>
@@ -66,7 +66,7 @@
                     <li class="menu-item-has-children"><a href="javascript:void(0);" title="">INICIO</a></li>
                     <li class="menu-it@em-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
                     <li><a href="view/login.php">FORMULARIO</a></li>
-                    <li><a href="oferta.html" title="">OFERTA</a></li>
+                    <!-- <li><a href="oferta.html" title="">OFERTA</a></li> -->
                     <!-- <li><a href="#" title="">BLOG</a></li>                          -->
                 </ul>
             </div><!-- Menu Wrap -->

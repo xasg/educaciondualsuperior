@@ -4,6 +4,7 @@ require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_programa = base64_decode($_GET['id_programa']); 
 $unidad = acces_unidad($id_programa);
+$name_user = $_SESSION['name_user'];
 ?>
 <!DOCTYPE html>
 <html lang="es">

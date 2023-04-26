@@ -179,11 +179,17 @@
                   var xml = data.responseXML;
                   var markers = xml.documentElement.getElementsByTagName('marker');
                   Array.prototype.forEach.call(markers, function(markerElem) {
-                      var idmapa = markerElem.getAttribute('idmapa');
-              var persona = markerElem.getAttribute('persona');
-                      var descripcion = markerElem.getAttribute('descripcion');
+                      let idmapa = markerElem.getAttribute('idmapa');
+              let institucion = markerElem.getAttribute('institucion');
+
+              let responsable = markerElem.getAttribute('responsable');
+              let cargo = markerElem.getAttribute('cargo');
+              let telefono = markerElem.getAttribute('telefono');
+              let email = markerElem.getAttribute('email');
+                    //   let descripcion = markerElem.getAttribute('');
+                      let descripcion = "Institucion con modalidad de Educacion Dual";
                      
-                      var point = new google.maps.LatLng(
+                      let point = new google.maps.LatLng(
                           parseFloat(markerElem.getAttribute('lat')),
                           parseFloat(markerElem.getAttribute('lng')));
                       const contentString =
@@ -191,12 +197,17 @@
                           '<div id="siteNotice">' +
                           "</div>" +
                           '<center>'+
-                          '<h3 id="firstHeading" class="firstHeading">'+ persona +  '</h3>' +
+                          '<h3 id="firstHeading" class="firstHeading">'+ institucion +  '</h3>' +
                           '</center>'+
                           '<br>'+
                           '<div id="bodyContent">' +
                           '<br>'+
                           "<p><b>" + descripcion + "</p>" +
+                          "<p><b>" + 'Contacto:' + "</p>" +
+                          "<p><b> Responsable: " + responsable + "</p>" +
+                          "<p><b> Cargo: " + cargo + "</p>" +
+                          "<p><b> Telefono: " + telefono + "</p>" +
+                          "<p><b> Email: " + email + "</p>" +
                           "</p>" +
                           "</div>" +
                           "</div>";

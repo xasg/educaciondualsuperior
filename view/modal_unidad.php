@@ -23,7 +23,8 @@
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                           <label>Cuenta con convenio</label>
-                                          <select class="form-control" name="convn">
+                                          <select class="form-control" name="convn" required="">
+                                          <option value="">Seleccione:</option>
                                             <option value="SI">SI</option>
                                             <option value="NO">NO</option>
                                           </select>  
@@ -38,13 +39,13 @@
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># De estudiantes femeninos</label>      
-                                        <input type="text" class="form-control input-sm" name="estudiante_sex_fem"  required>
+                                        <input type="number" class="form-control input-sm" name="estudiante_sex_fem"  required>
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># De estudiantes masculinos</label>
-                                         <input type="text" class="form-control input-sm" name="estudiante_sex_mas"  required>
+                                         <input type="number" class="form-control input-sm" name="estudiante_sex_mas"  required>
                                        </div>
                                     </div>
 
@@ -57,13 +58,13 @@
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># Docentes femeninos</label>      
-                                        <input type="text" class="form-control input-sm" name="docente_sex_fem"  required>
+                                        <input type="number" class="form-control input-sm" name="docente_sex_fem"  required>
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># Docentes masculinos</label>
-                                         <input type="text" class="form-control input-sm" name="docente_sex_mas"  required>
+                                         <input type="number" class="form-control input-sm" name="docente_sex_mas"  required>
                                        </div>
                                     </div>
 
@@ -76,7 +77,7 @@
                                     <div class="col-md-12">
                                        <div class="form-group">
                                           <div class="form-check form-check-inline">
-                                             <input class="form-check-input" type="radio" name="egresados" id="id1" value="Si">
+                                             <input class="form-check-input" type="radio" name="egresados" id="id1" value="Si" required>
                                              <label class="form-check-label">Si</label>
                                           </div>
                                           <div class="form-check form-check-inline">
@@ -91,13 +92,13 @@
                                         <div class="col-xl-3" id="divid1">
                                            <div class="form-group">
                                             <label for="nombre"># De estudiantes femeninos</label>       
-                                            <input type="text" class="form-control input-sm" name="egresados_f"  >
+                                            <input type="number" class="form-control input-sm" name="egresados_f"  >
                                            </div>
                                         </div>
                                         <div class="col-xl-3">
                                            <div class="form-group"> 
                                              <label for="nombre"># De estudiantes masculinos</label>
-                                             <input type="text" class="form-control input-sm" name="egresados_m">
+                                             <input type="number" class="form-control input-sm" name="egresados_m">
                                            </div>
                                         </div>
                                         </div>
@@ -113,31 +114,29 @@
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># De estudiantes femeninos</label>      
-                                        <input type="text" class="form-control input-sm" name="estudiante_cursan_f"  required>
+                                        <input type="number" class="form-control input-sm" name="estudiante_cursan_f"  required>
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># De estudiantes masculinos</label>
-                                         <input type="text" class="form-control input-sm" name="estudiante_cursan_m"  required>
+                                         <input type="number" class="form-control input-sm" name="estudiante_cursan_m"  required>
                                        </div>
                                     </div>
                                     <div class="col-xl-12">
                                     <hr>
                                     </div>
-
-
-
-
-
-
-
                                    <div class="col-xl-12">
                                     <label for="nombre">Seleccione los beneficios derivados de esta colaboración</label>
                                     <div class="form-group checkbox-group required">
-                                    <div class="form-check-inline">
+                                       <div class="form-check-inline">
                                         <label class="form-check-label">
-                                          <input type="checkbox" class="form-check-input" value="Inserción laboral" name="beneficio[]" checked>Inserción laboral
+                                          <input type="checkbox" class="form-check-input" value="Inserción laboral" name="beneficio[]" checked >Ninguno
+                                        </label>
+                                      </div>
+                                       <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                          <input type="checkbox" class="form-check-input" value="Inserción laboral" name="beneficio[]" >Inserción laboral
                                         </label>
                                       </div>
                                       <div class="form-check-inline">

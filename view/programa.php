@@ -116,7 +116,7 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
 <div class="col-xl-4"><br>
 <div class="form-group">
   <label>Año de inicio bajo la Modalidad de Educación Dual</label>
- <select class="form-control" name="inicio">
+ <select class="form-control" name="inicio" required="">
     <option value="">Seleccione:</option>
     <option value="2023">2023</option>
     <option value="2022">2022</option>
@@ -141,30 +141,31 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
     <label>¿A partir de qué periodo académico el estudiante puede ingresar a esta Modalidad de Educación Dual?</label>
 <div class="row">
 <div class="col-xl-4">
-    <select class="form-control" name="num_periodo" required="">
-    <option value="">Seleccione grado:</option>
-    <option value="1">1</option>
-    <option value="2">2</option>
-    <option value="3">3</option>
-    <option value="4">4</option>
-    <option value="5">5</option>
-    <option value="6">6</option>
-    <option value="7">7</option>
-    <option value="8">8</option>
-    <option value="9">9</option>
-    <option value="10">10</option>
-    <option value="11">11</option>
-    <option value="12">12</option>
-  </select>
-</div>
-<div class="col-xl-4">
-    <select class="form-control" name="periodo" required="">
-    <option value="">Seleccione tipo:</option>
-    <option value="TRIMESTRE">TRIMESTRE</option>
-    <option value="CUATRIMESTRE">CUATRIMESTRE</option>
-    <option value="SEMESTRE">SEMESTRE</option>
-  </select>
-</div>
+      <select class="form-control" name="periodo" required="">
+        <option value="">Seleccione el periodo:</option>
+        <option value="TRIMESTRE">TRIMESTRE</option>
+        <option value="CUATRIMESTRE">CUATRIMESTRE</option>
+        <option value="SEMESTRE">SEMESTRE</option>
+      </select>
+  </div>
+  <div class="col-xl-4">
+      <select class="form-control" name="num_periodo" required="">
+        <option value="">Seleccione el número:</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+        <option value="11">11</option>
+        <option value="12">12</option>
+      </select>
+  </div>
+  
 </div>
 
   </div>

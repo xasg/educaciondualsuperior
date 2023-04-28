@@ -22,6 +22,12 @@ $name_user = $_SESSION['name_user'];
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/responsive.css">
         <link rel="stylesheet" href="../assets/css/color.css">
+        <script language="JavaScript"> 
+        function conMayusculas(field) 
+        { 
+            field.value = field.value.toUpperCase() 
+        }   
+        </script>
 </head>
    <body>
     <?php include("modal_detalle_unidad.php");?>

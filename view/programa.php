@@ -33,6 +33,12 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/responsive.css">
         <link rel="stylesheet" href="../assets/css/color.css">
+        <script language="JavaScript"> 
+        function conMayusculas(field) 
+        { 
+            field.value = field.value.toUpperCase() 
+        }   
+        </script>
 </head>
    <body>
     <?php include("modal_unidad.php");?>
@@ -311,6 +317,9 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
              }
          }
 </script>
+
+
+
       <script src="../assets/js/app.js"></script>
       <script src="../assets/js/unidad.js"></script>
 </html>

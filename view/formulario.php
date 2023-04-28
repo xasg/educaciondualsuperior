@@ -158,29 +158,29 @@ $(document).ready(function() {
 
                     <div class="col-md-8">    
                      <div class="form-group">
-                        <label for="exampleInputEmail1">Nombre completo del responsable</label>
+                        <label>Nombre completo del responsable</label>
                         <input type="text" name="nombre_responsable" pattern="[A-Za-z0-9\u00C0-\u017F ]+" class="form-control" onChange="conMayusculas(this)" required>
                       </div>                      
                      </div>
 
                     <div class="col-md-4">    
                      <div class="form-group">
-                        <label for="exampleInputEmail1">Cargo</label>
+                        <label>Cargo</label>
                         <input type="text" name="cargo" class="form-control"  onChange="conMayusculas(this)" pattern="[A-Za-z0-9\u00C0-\u017F ]+" required>
                       </div>                      
                      </div>
 
                     <div class="col-md-6">    
                      <div class="form-group">
-                        <label for="exampleInputEmail1">Teléfono</label>
-                        <input type="text" name="telefono" maxlength="10" placeholder="Número de teléfono a 10 caracteres" class="form-control" required>
+                        <label>Teléfono</label>
+                        <input type="number" name="telefono" maxlength="10" placeholder="Número de teléfono a 10 caracteres" class="form-control" required>
                       </div>                      
                      </div>
 
                     <div class="col-md-6">    
                      <div class="form-group">
-                        <label for="exampleInputEmail1">Teléfono celular</label>
-                        <input type="text" name="celular" maxlength="10"  placeholder="Número de teléfono celular a 10 caracteres" class="form-control" >
+                        <label>Teléfono celular</label>
+                        <input type="number" name="celular" maxlength="10"  placeholder="Número de teléfono celular a 10 caracteres" class="form-control" >
                       </div>                      
                      </div>
 

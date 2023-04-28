@@ -159,7 +159,8 @@ $mysqli->query($sql);
 function update_unidad($id, $unidad, $convn, $estudiante_sex_fem, $estudiante_sex_mas, $docente_sex_fem, $docente_sex_mas, $egresados_f, $egresados_m)
 {
   global $mysqli;
-  $sql = "UPDATE `unidad_educativa` SET `dt_unidad`='{$unidad}',`dt_convenio`='{$convn}',`dt_estudiante_fem`='{$estudiante_sex_fem}',`dt_estudiante_mas`='{$estudiante_sex_mas}',`dt_docente_fem`='{$docente_sex_fem}',`dt_docente_mas`='{$docente_sex_mas}',`dt_egresados_fem`='{$egresados_f}',`dt_egresados_mas`='{$egresados_m}' WHERE  id_unidad_educativa = '{$id}' ";
+  $unidad_escape = $mysqli->real_escape_string($unidad); 
+  $sql = "UPDATE `unidad_educativa` SET `dt_unidad`= '{$unidad_escape}',`dt_convenio`='{$convn}',`dt_estudiante_fem`='{$estudiante_sex_fem}',`dt_estudiante_mas`='{$estudiante_sex_mas}',`dt_docente_fem`='{$docente_sex_fem}',`dt_docente_mas`='{$docente_sex_mas}',`dt_egresados_fem`='{$egresados_f}',`dt_egresados_mas`='{$egresados_m}' WHERE  id_unidad_educativa = '{$id}' ";
   $mysqli->query($sql); 
 
 }

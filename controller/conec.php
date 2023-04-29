@@ -9,7 +9,6 @@
 $servername = "localhost";
 $dbname = "educaciondual";
 $username = "root";
-<<<<<<< HEAD
 $password = "";  
 
 $mysqli = new mysqli($servername, $username, $password, $dbname);
@@ -21,17 +20,3 @@ if( $mysqli->connect_errno )
 }
 ?>
 
-=======
-$password = ""; 
-
-
-$mysqli = new mysqli($servername, $username, $password, $dbname);
-$result ='';
-if( $mysqli->connect_errno )
-{
-  echo '';
-  exit;
-}
-?>
-
->>>>>>> 92831b92051958f2bd145986eed27aad325837d7

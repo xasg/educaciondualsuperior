@@ -4,13 +4,14 @@
 $servername = "localhost";
 $dbname = "educaciondual";
 $username = "root";
-$password = ""; 
+$password = "";  
+
+$mysqli = new mysqli($servername, $username, $password, $dbname);
+$result ='';
+if( $mysqli->connect_errno )
+{
+  echo 'error en la conexion ';
+  exit;
+}
 ?>
 
-
-<?php /**
-$servername = "localhost";
-$dbname = "dual2022";
-$username = "root";
-$password = ""; **/
-?>

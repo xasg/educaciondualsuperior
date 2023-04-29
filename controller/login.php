@@ -1,6 +1,7 @@
 <?php
+error_reporting(E_ALL);
 session_start();
-require_once('../model/databases_responsable.php');
+require_once('../model/databases.php');
 if($_POST)
 {
  $correo = isset( $_POST['correo']) ? $_POST['correo'] : '';
@@ -9,6 +10,8 @@ if($_POST)
  if( $user['dt_password']==$password)
  {    
  	$_SESSION["id_ies"] = $user['id_ies'];
+ 	$_SESSION["name_user"] = $user['dt_nom_responsable'];
+ 	$_SESSION["id_user"] = $user['id_usuario'];
   ?>
 				<script>
 				<?php if($user['dt_tipo']==NULL) { ?>
@@ -22,12 +25,13 @@ if($_POST)
 <?php
      //die();
  }else{
-?>
-				<script>
-					window.location="../"
-				</script>
-			<?php
-    
+
+  header('location:../view/login.php?error=empty-password-invalid');
+    exit();
+
+
+
+
  }
 
 } 

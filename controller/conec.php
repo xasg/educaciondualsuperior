@@ -1,15 +1,15 @@
 
 
 <?php
- /*$servername = "localhost";
+ $servername = "localhost";
  $dbname = "educacion_dual";
  $username = "fese";
- $password = "Ws.666.AdQe"; */
+ $password = "Ws.666.AdQe"; 
 
-$servername = "localhost";
+/*$servername = "localhost";
 $dbname = "educaciondual";
 $username = "root";
-$password = "";  
+$password = ""; */ 
 
 $mysqli = new mysqli($servername, $username, $password, $dbname);
 $result ='';

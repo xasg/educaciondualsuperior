@@ -68,6 +68,7 @@
                                        </div>
                                     </div>
 
+                                  
                                     <div class="col-xl-12">
                                        <div class="form-group">
                                           <label for="nombre">¿Cuenta con egresados?</label>
@@ -77,7 +78,7 @@
                                     <div class="col-md-12">
                                        <div class="form-group">
                                           <div class="form-check form-check-inline">
-                                             <input class="form-check-input" type="radio" name="egresados" id="id1" value="Si" required>
+                                             <input id= "checkboxSI" class="form-check-input" type="radio" name="egresados" id="id1" value="Si" required>
                                              <label class="form-check-label">Si</label>
                                           </div>
                                           <div class="form-check form-check-inline">
@@ -92,15 +93,18 @@
                                         <div class="col-xl-3" id="divid1">
                                            <div class="form-group">
                                             <label for="nombre"># De estudiantes femeninos</label>       
-                                            <input type="number" class="form-control input-sm" name="egresados_f"  >
+                                            <input type="number" class="form-control input-sm" name="egresados_f"  id= "numero1">
                                            </div>
                                         </div>
                                         <div class="col-xl-3">
                                            <div class="form-group"> 
-                                             <label for="nombre"># De estudiantes masculinos</label>
-                                             <input type="number" class="form-control input-sm" name="egresados_m">
+                                             <label for="nombre"># De estudiantes masculinoss</label>
+                                             <input type="number" class="form-control input-sm" name="egresados_m" id= "numero2">
                                            </div>
-                                           <script>
+                                           <button >Sumar</button>
+
+                                          <!------------------------------------------------------>
+                                          <script>
                                               function sumar()
                                               {
                                                 if (document.getElementById('checkboxSI').checked)
@@ -111,23 +115,19 @@
                                                       var numero4 = (numero2) + 0;
                                                       var suma = parseInt(numero3 + numero4);
                                                       //document.write("la suma de ",numero3, "y wl numero",numero4, "es  ", suma ); 
-                                                      if (suma >= 1)                                                     
-                                                      {
+                                                      if (suma >= 1)                                                      {
                                                         //document.write("Correcto ",suma);                                                        
                                                       }
                                                       else
                                                       {
-                                                        alert(" Datos invalidos,  ",suma);
+                                                        alert(" Datos invalidos, Ingrese un numero mayor a 0 en alumnos egresados.  ",suma);
                                                       }
                                                   }                                                
                                               }
                                           </script>
-
                                         </div>
                                         </div>
                                    </div>
-
-
                                    <div class="col-xl-12">
                                     <hr>
                                     <div class="form-group">
@@ -137,10 +137,10 @@
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># De estudiantes femeninos</label>      
-                                        <input type="number" class="form-control input-sm" name="estudiante_cursan_f"  required>
+                                        <input onclick="sumar()" type="number" class="form-control input-sm" name="estudiante_cursan_f"  required>
                                        </div>
                                     </div>
-                                    <div class="col-xl-3">
+  <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># De estudiantes masculinos</label>
                                          <input type="number" class="form-control input-sm" name="estudiante_cursan_m"  required>

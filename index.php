@@ -138,7 +138,7 @@
             <section>
                  <div class="col-md-12 col-sm-12 col-lg-12 text-center"><br><br><br>
                          <h3 style="color: #000">Educación Dual Superior</h3><br>
-                         <p>Es un espacio creado para recolectar, difundir y fortalecer la opción educativa en Educación Dual, mostrando a las Instituciones educativas que cuentan con esta opción a nivel nacional, la numeralia y los datos de contacto para facilitar su vinculación con jóvenes y unidades económicas con la finalidad de ampliar el alcande de esta opción educativa.</p><br><br><br>
+                         <p>Es un espacio creado para recolectar, difundir y fortalecer la modalidad educativa en Educación Dual, mostrando a las Instituciones educativas que cuentan con esta modalidad a nivel nacional, la numeralia y los datos de contacto para facilitar su vinculación con jóvenes y unidades económicas con la finalidad de ampliar el alcande de esta modalidad educativa.</p><br><br><br>
 				 </div>				 
             </section>
 			

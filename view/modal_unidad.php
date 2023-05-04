@@ -101,7 +101,7 @@
                                              <label for="nombre"># De estudiantes masculinoss</label>
                                              <input type="number" class="form-control input-sm" name="egresados_m" id= "numero2">
                                            </div>
-                                           <button >Sumar</button>
+                                           <!-- <button >Sumar</button> -->
 
                                           <!------------------------------------------------------>
                                           <script>

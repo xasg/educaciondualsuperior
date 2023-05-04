@@ -6,7 +6,7 @@
    {  
    $id=$_POST["id"];
    $programa = $_POST["programa"];
-   $unidad = isset( $_POST['nombre']) ? $_POST['nombre'] : '';
+   $unidad = isset( $_POST["nombre"]) ? $_POST["nombre"] : "";
    $convn = isset( $_POST['convenio']) ? $_POST['convenio'] : '';
    $estudiante_sex_fem = isset( $_POST['estudiante_fem']) ? $_POST['estudiante_fem'] : '';
    $estudiante_sex_mas = isset( $_POST['estudiante_mas']) ? $_POST['estudiante_mas'] : '';

@@ -18,7 +18,12 @@
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                           <label>Cuenta con convenio</label>
-                                          <input type="text" class="form-control" name="convenio" id="convenio" required="">  
+                                          <!-- <input type="text" class="form-control" name="convenio" id="convenio" required="">   -->
+                                          <select class="form-control" name="convenio" id="convenio" required="">
+                                          <option value="">Seleccione:</option>
+                                            <option value="SI">SI</option>
+                                            <option value="NO">NO</option>
+                                          </select>   
                                        </div>
                                     </div>
 
@@ -49,13 +54,13 @@
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="number"># Docentes femeninos</label>      
-                                        <input type="text" class="form-control" name="docente_fem" id="docente_fem" required="">
+                                        <input type="number" class="form-control" name="docente_fem" id="docente_fem" required="">
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="number"># Docentes masculinos</label>
-                                         <input type="text" class="form-control" name="docente_mas" id="docente_mas" required="">
+                                         <input type="number" class="form-control" name="docente_mas" id="docente_mas" required="">
                                        </div>
                                     </div>
 

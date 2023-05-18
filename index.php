@@ -223,7 +223,7 @@
                             <div class="col-md ">
                                 <h4 class="text-light" >Contacto</h4>
                                 <div class="contact-icon text-white">
-                                    <a href="tel:55 5420 4900 Ext. 2073"><i class="fa fa-phone" aria-hidden="true"> </i> 55 5605 6100</a>
+                                    <a href="tel:55 5420 4900"><i class="fa fa-phone" aria-hidden="true"> </i> 55 5420 4900 Ext. 2073</a>
                                 </div>
                                
                                 <div class="contact-icon text-white">

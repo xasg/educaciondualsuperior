@@ -14,7 +14,7 @@ function view_entidad()
 
 
 
-function acces_programas($id_ies)
+function acces_programas($id_ies, $id_user)
 {
   global $mysqli;
   $sql = "SELECT programa_educativo.id_programa, programa_educativo.dt_programa,programa_educativo.dt_otro_programa, programa_educativo.dt_inicio,programa_educativo.dt_unidad,programa_educativo.dt_num_periodo, SUM(`dt_estudiante_fem`+`dt_estudiante_mas`) AS estudiantes,  SUM(`dt_egresados_fem`+`dt_egresados_mas`) AS egresados, SUM(`dt_estudiante_cursan_f`+`dt_estudiante_cursan_m`) AS estudiantes2023, COUNT(id_programa_educativo) AS num  FROM programa_educativo 
@@ -92,6 +92,16 @@ WHERE responsable.id_ies =  '{$id_ies}'";
 }
 
 
+function acces_responsables()
+{
+  global $mysqli;
+  $sql = "SELECT dt_nombre_ies, dt_nom_responsable, dt_correo, dt_cargo,dt_telefono,dt_celular FROM usuarios
+LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
+LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
+where usuarios.dt_tipo=2";
+  return $mysqli->query($sql);  
+  return $result->fetch_assoc();
+}
 function acces_info_ies($id_ies, $id_user)
 {
   global $mysqli;
@@ -126,20 +136,19 @@ $mysqli->query($sql);
 
 
 
-function  crear_info_ies($id_user, $ies)
+function  crear_info_ies($ies,$id_user,$correo,$telefono)
 {
 global $mysqli;
-$sql="INSERT INTO info_ies(id_info_ies, id_ies, id_user) 
-       VALUES (null, '{$id_user}', '{$ies}')";
+$sql="INSERT INTO info_ies(id_info_ies, id_ies, id_user, dt_email, dt_telefono) 
+       VALUES (null, '{$ies}', '{$id_user}', '{$correo}', '{$telefono}')";
 $mysqli->query($sql);
 }
 
 
-function  crear_programa($id_ies,  $programa_edu, $otro_programa, $inicio, $num_periodo, $periodo)
+function  crear_programa($id_ies, $id_user, $programa_edu, $otro_programa, $inicio, $num_periodo, $periodo)
 {
 global $mysqli;
-$sql="INSERT INTO programa_educativo(id_programa, id_ies,  dt_programa, dt_otro_programa, dt_inicio, dt_num_periodo, dt_unidad) 
-                      VALUES (null, '{$id_ies}', '{$programa_edu}', '{$otro_programa}', '{$inicio}', '{$num_periodo}', '{$periodo}')";
+$sql="INSERT INTO programa_educativo(id_programa, id_ies, id_usuario, dt_programa, dt_otro_programa, dt_inicio, dt_num_periodo, dt_unidad) VALUES (null, '{$id_ies}', '{$id_user}', '{$programa_edu}', '{$otro_programa}', '{$inicio}', '{$num_periodo}', '{$periodo}')";
 $mysqli->query($sql);
 }
 

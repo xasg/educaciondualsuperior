@@ -8,10 +8,11 @@ require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
-$programa = acces_programas($id_ies);
+$id_user = $_SESSION["id_user"];
+$programa = acces_programas($id_ies, $id_user);
 
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
-          WHERE id_ies = '{$id_ies}'")) {
+          WHERE id_ies = '{$id_ies}' AND `id_usuario`='{$id_user}'")) {
     /* determinar el número de filas del resultado */
     $row_cnt = $result->num_rows;
 }

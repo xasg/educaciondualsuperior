@@ -3,6 +3,8 @@
    include_once('../model/databases.php');
    mysqli_set_charset( $mysqli, 'utf8');
    $id_ies=$_SESSION["id_ies"];
+   $id_user = $_SESSION["id_user"];
+
    if( $_POST )
    {  
    $programa_edu = isset( $_POST['programa_edu']) ? $_POST['programa_edu'] : '';
@@ -10,8 +12,7 @@
    $inicio = isset( $_POST['inicio']) ? $_POST['inicio'] : '';
    $periodo = isset( $_POST['periodo']) ? $_POST['periodo'] : '';
    $num_periodo = isset( $_POST['num_periodo']) ? $_POST['num_periodo'] : '';
-   crear_programa($id_ies, $programa_edu, $otro_programa, $inicio, $num_periodo, $periodo);
-  
+   crear_programa($id_ies, $id_user, $programa_edu, $otro_programa, $inicio, $num_periodo, $periodo);
    
 ?>
 <script>

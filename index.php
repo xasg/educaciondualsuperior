@@ -18,6 +18,24 @@
         <link rel="stylesheet" href="assets/css/style.css">
         <link rel="stylesheet" href="assets/css/responsive.css">
         <link rel="stylesheet" href="assets/css/color.css">
+         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+          <style>
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+
+            z-index: 9999;
+            background-color: green;
+            color: white;
+            padding: 12px;
+            border-radius: 40%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0px 0px 4px #000;
+        }
+    </style>
 		<script language="JavaScript"> 
          function conMayusculas(field) 
          { 
@@ -34,6 +52,9 @@
 </script>
     </head>
     <body>
+       <div class="whatsapp-button" onclick="abrirWhatsApp()">
+        <i class="fab fa-whatsapp"></i>
+    </div>
         <main>
             <header class="stick style1 w-100" style=" background-color: #98213A;">
                 <div class="container">
@@ -202,7 +223,7 @@
                             <div class="col-md ">
                                 <h4 class="text-light" >Contacto</h4>
                                 <div class="contact-icon text-white">
-                                    <a href="tel:55 5605 6100"><i class="fa fa-phone" aria-hidden="true"> </i> 55 5605 6100</a>
+                                    <a href="tel:55 5420 4900"><i class="fa fa-phone" aria-hidden="true"> </i> 55 5420 4900 Ext. 2073</a>
                                 </div>
                                
                                 <div class="contact-icon text-white">
@@ -235,5 +256,17 @@
         <script src="assets/js/custom-scripts.js"></script>
         <script src="assets/js/simplyCountdown.min.js"></script>
         <script src="assets/js/countdown.js"></script>
+            <script>
+        function abrirWhatsApp() {
+            // Reemplaza "xxxxxxxxxxxxx" con el número de teléfono de destino
+            var numeroTelefono = "5551012306";
+            
+            // Crea el enlace para abrir WhatsApp con el número de teléfono
+            var url = "https://api.whatsapp.com/send?phone=" + numeroTelefono;
+
+            // Abre una nueva ventana o pestaña con el enlace de WhatsApp
+            window.open(url);
+        }
+    </script>
     </body>	
 </html>

@@ -8,10 +8,11 @@ require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
-$programa = acces_programas($id_ies);
+$id_user = $_SESSION["id_user"];
+$programa = acces_programas($id_ies, $id_user);
 
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
-          WHERE id_ies = '{$id_ies}'")) {
+          WHERE id_ies = '{$id_ies}' AND `id_usuario`='{$id_user}'")) {
     /* determinar el número de filas del resultado */
     $row_cnt = $result->num_rows;
 }
@@ -32,9 +33,29 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
         <link rel="stylesheet" href="../assets/css/slick.css">
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/responsive.css">
-        <link rel="stylesheet" href="../assets/css/color.css">
+        <link rel="stylesheet" href="../assets/css/color.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+          <style>
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+
+            z-index: 9999;
+            background-color: green;
+            color: white;
+            padding: 12px;
+            border-radius: 40%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0px 0px 4px #000;
+        }
+    </style>
 </head>
    <body>
+   <div class="whatsapp-button" onclick="abrirWhatsApp()">
+       <i class="fab fa-whatsapp"></i>
+    </div>
   <header class="stick style1 w-100" style="background-color: #98213A;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
@@ -207,5 +228,17 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
         <script src="../assets/js/custom-scripts.js"></script>
         <script src="../assets/js/simplyCountdown.min.js"></script>
         <script src="../assets/js/countdown.js"></script>    
+        <script>
+          function abrirWhatsApp() {
+            // Reemplaza  con el número de teléfono de destino
+            var numeroTelefono = "5551012306";
+            
+            // Crea el enlace para abrir WhatsApp con el número de teléfono
+            var url = "https://api.whatsapp.com/send?phone=" + numeroTelefono;
+
+            // Abre una nueva ventana o pestaña con el enlace de WhatsApp
+            window.open(url);
+          }
+        </script>
     
 </html>

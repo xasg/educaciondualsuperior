@@ -8,9 +8,10 @@ require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
+$id_user = $_SESSION["id_user"];
 $nivel_estudios = acces_nivel_estudios($id_ies);
 $programa_educativo = acces_programa_educativo($id_ies);
-$programa = acces_programas($id_ies);
+$programa = acces_programas($id_ies, $id_user);
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
           WHERE id_ies = '{$id_ies}'")) {
     /* determinar el número de filas del resultado */
@@ -33,6 +34,12 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/responsive.css">
         <link rel="stylesheet" href="../assets/css/color.css">
+        <script language="JavaScript"> 
+        function conMayusculas(field) 
+        { 
+            field.value = field.value.toUpperCase() 
+        }   
+        </script>
 </head>
    <body>
     <?php include("modal_unidad.php");?>

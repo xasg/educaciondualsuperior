@@ -19,6 +19,24 @@ $entidad=view_entidad();
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/responsive.css">
         <link rel="stylesheet" href="../assets/css/color.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+          <style>
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+
+            z-index: 9999;
+            background-color: green;
+            color: white;
+            padding: 12px;
+            border-radius: 40%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0px 0px 4px #000;
+        }
+    </style>
       <script language="JavaScript"> 
         function conMayusculas(field) 
         { 
@@ -60,6 +78,9 @@ $(document).ready(function() {
 
 </head>
    <body>
+   <div class="whatsapp-button" onclick="abrirWhatsApp()">
+                  <i class="fab fa-whatsapp"></i>
+                </div>
   <header class="stick style1 w-100" style=" background-color: #98213A;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
@@ -257,7 +278,7 @@ $(document).ready(function() {
                                 </div>
                                
                                 <div class="contact-icon text-white">
-                                    <a href="mailto:ontacto@fese.mx"><i class="fa fa-envelope" aria-hidden="true"> </i> contacto@fese.mx</a>
+                                    <a href="mailto:francisco@fese.mx"><i class="fa fa-envelope" aria-hidden="true"> </i> francisco@fese.mx</a>
                                 </div>
                             </div>
                             <!--------------------------------------------------------------------------------------->
@@ -269,6 +290,7 @@ $(document).ready(function() {
                     </div>
                     
                 </div>   
+                
             </footer><!-- Footer -->
       </main>
       <!-- Main Wrapper -->
@@ -313,5 +335,17 @@ $(document).ready(function() {
            })
          });      
       </script>
+      <script>
+          function abrirWhatsApp() {
+            // Reemplaza  con el número de teléfono de destino
+            var numeroTelefono = "5551012306";
+            
+            // Crea el enlace para abrir WhatsApp con el número de teléfono
+            var url = "https://api.whatsapp.com/send?phone=" + numeroTelefono;
+
+            // Abre una nueva ventana o pestaña con el enlace de WhatsApp
+            window.open(url);
+          }
+        </script>
 
 </html>

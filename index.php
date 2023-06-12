@@ -19,8 +19,9 @@
         <link rel="stylesheet" href="assets/css/responsive.css">
         <link rel="stylesheet" href="assets/css/color.css">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+         <link rel="stylesheet" href="style-button-ws.css">
           <style>
-        .whatsapp-button {
+        /* .whatsapp-button {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -34,7 +35,7 @@
             font-size: 20px;
             cursor: pointer;
             box-shadow: 0px 0px 4px #000;
-        }
+        } */
     </style>
 		<script language="JavaScript"> 
          function conMayusculas(field) 
@@ -52,8 +53,28 @@
 </script>
     </head>
     <body>
-       <div class="whatsapp-button" onclick="abrirWhatsApp()">
-        <i class="fab fa-whatsapp"></i>
+       <!-- <div class="whatsapp-button" onclick="abrirWhatsApp()">
+        <i class="fab fa-whatsapp"></i> -->
+        <div class="whatsapp-button" onclick="toggleWhatsAppPopup()">
+        <!-- <i class="fab fa-whatsapp"></i> -->
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
+            <path d="M9 10a.5 .5 0 0 0 1 0v-1a.5 .5 0 0 0 -1 0v1a5 5 0 0 0 5 5h1a.5 .5 0 0 0 0 -1h-1a.5 .5 0 0 0 0 1" />
+          </svg>
+        </div>
+        <div id="whatsappPopup" class="whatsapp-popup">
+            <button class="close-button" onclick="toggleWhatsAppPopup()">X</button>
+            <h2 class="text-light">¡Hola!</h2>
+            <p class="text-light" >Gracias por visitar nuestro sitio web. ¿Cómo podemos ayudarte hoy?</p>
+
+            <textarea class="input-field" id="whatsappMessage" placeholder="Escribe tu mensaje"></textarea>
+
+            <button class="send-button" onclick="sendWhatsAppMessage()">Enviar</button>
+            <button class="send-button" onclick="clearWhatsAppMessage()">Limpiar</button>
+          </div>
+
+    </div>
     </div>
         <main>
             <header class="stick style1 w-100" style=" background-color: #98213A;">
@@ -223,7 +244,7 @@
                             <div class="col-md ">
                                 <h4 class="text-light" >Contacto</h4>
                                 <div class="contact-icon text-white">
-                                    <a href="tel:55 5420 4900"><i class="fa fa-phone" aria-hidden="true"> </i> 55 5420 4900 Ext. 2073</a>
+                                    <a href="tel:55 5605 6100"><i class="fa fa-phone" aria-hidden="true"> </i> 55 5605 6100</a>
                                 </div>
                                
                                 <div class="contact-icon text-white">
@@ -256,17 +277,7 @@
         <script src="assets/js/custom-scripts.js"></script>
         <script src="assets/js/simplyCountdown.min.js"></script>
         <script src="assets/js/countdown.js"></script>
-            <script>
-        function abrirWhatsApp() {
-            // Reemplaza "xxxxxxxxxxxxx" con el número de teléfono de destino
-            var numeroTelefono = "5551012306";
-            
-            // Crea el enlace para abrir WhatsApp con el número de teléfono
-            var url = "https://api.whatsapp.com/send?phone=" + numeroTelefono;
-
-            // Abre una nueva ventana o pestaña con el enlace de WhatsApp
-            window.open(url);
-        }
-    </script>
+        <!--javascript del Boton wstap-->
+      <script src="btn-ws.js"></script>
     </body>	
 </html>

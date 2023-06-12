@@ -77,22 +77,24 @@ $responsable = acces_responsables();
 
 <br><br>
 
-<div class="container">
+<div class="container-fluid">
 <div class="tab-content">
-<div class="row">
-                            <span class="border"><br><br>   
+<div class="m-0 row ">
+                            <span class="justify-content-center"><br><br>   
                                     <div class="col-md-12">
                                         <h4>Responsable de la IES registrados</h4>
                                         <form method="POST" action="create_excel.php">
 				<button class="btn btn-success pull-right" name="export"><i class="fas fa-file-excel"></i> Exportar a Excel</button>
+                <br><br>
 			</form>
 
-                                        <table id="example" id="" class="table table-striped table-bordered" style="width:100%">
+                                        <table id="example" id="" class="table table-striped table-bordered w-100" style="width:100%">
                                         <thead class="thead-dark">
                                           <tr>  
                                                 <th>#</th>
                                                 <th>Entidad</th>
                                                 <th>Nombre IES</th> 
+                                                <th>Subsistema</th> 
                                                 <th>correo</th>
                                                 <th>Programas Educativos</th>
                                                 <th>Unidades Economicas</th>
@@ -111,6 +113,7 @@ $responsable = acces_responsables();
                                                 <td class="text-center"><?php echo $counter++ ?></td>
                                                 <td><?php echo strtoupper($resp['nombre_entidad']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_nombre_ies']);?></td>
+                                                <td><?php echo strtoupper($resp['dt_nombre_subsistema']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_correo']);?></td>
                                                 <td><?php echo strtoupper($resp['programas_educativos']);?></td>
                                                 <td><?php echo strtoupper($resp['unidad_economica']);?></td>

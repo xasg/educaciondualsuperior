@@ -103,21 +103,21 @@ $info_ies = acces_info_ies($id_ies, $id_user);
                      <div class="col-md-6">    
                         <div class="form-group">
                         <label for="exampleInputEmail1">Correo</label>
-                        <input type="text" name="correo" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_email']); ?>" required>
+                        <input type="email" name="correo" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_email']); ?>" required>
                       </div>                      
                      </div>
 
                      <div class="col-md-4">    
                         <div class="form-group">
                         <label for="exampleInputEmail1">Teléfono</label>
-                        <input type="text" name="tel" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_telefono']); ?>" required>
+                        <input type="number" maxlength="10" name="tel" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_telefono']); ?>" required>
                       </div>                      
                      </div>
 
                      <div class="col-md-2">    
                         <div class="form-group">
                         <label for="exampleInputEmail1">Extención</label>
-                        <input type="text" name="ext" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_extencion']); ?>">
+                        <input type="number" maxlength="5" name="ext" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_extencion']); ?>">
                       </div>                      
                      </div>
 
@@ -188,7 +188,7 @@ $info_ies = acces_info_ies($id_ies, $id_user);
                      <div class="col-md-3">    
                         <div class="form-group">
                         <label for="exampleInputEmail1">Codigo Postal:</label>
-                        <input type="text" name="cp" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_cp']); ?>" required>
+                        <input type="number" name="cp"  maxlength="6" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_cp']); ?>" required>
                       </div>                      
                      </div>
 
@@ -201,14 +201,14 @@ $info_ies = acces_info_ies($id_ies, $id_user);
                      <div class="col-md-6">    
                         <div class="form-group">
                         <label for="exampleInputEmail1">latitud</label>
-                        <input type="text" name="latitud" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_latitud']); ?>" required>
+                        <input type="text" name="latitud"  maxlength="18" class="form-control" placeholder="Ejemplo: 19.37358595769604" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_latitud']); ?>" required>
                       </div>                      
                      </div>
 
                      <div class="col-md-6">    
                         <div class="form-group">
                         <label for="exampleInputEmail1">longitud</label>
-                        <input type="text" name="longitud" class="form-control" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_longitud']); ?>" required>
+                        <input type="text" name="longitud" maxlength="18" class="form-control" placeholder="Ejemplo: -99.15939571314618" onChange="conMayusculas(this)" value="<?php echo strtoupper($info_ies['dt_longitud']); ?>" required>
                       </div>                      
                      </div>
                      <div class="col-md-6">    

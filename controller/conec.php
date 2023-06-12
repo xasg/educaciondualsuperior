@@ -15,10 +15,3 @@ if( $mysqli->connect_errno )
 }
 ?>
 
-
-<?php /**
-$servername = "localhost";
-$dbname = "dual2022";
-$username = "root";
-$password = ""; **/
-?>

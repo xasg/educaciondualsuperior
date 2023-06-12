@@ -1,3 +1,4 @@
+-- Se agrega base de dual
 -- MySQL dump 10.13  Distrib 8.0.29, for Win64 (x86_64)
 --
 -- Host: 18.216.120.87    Database: educacion_dual

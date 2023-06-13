@@ -262,7 +262,7 @@ else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes
 <!------------------------------------------------------------------------------------------------------------------->
 <?php           
                 
-                echo "<strong><p>El status del usuario es ".$estatus_Usuario."</p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular                    
+                //echo "<strong><p>El status del usuario es ".$estatus_Usuario."</p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular                    
                 if ($estatus_Usuario == 0)
                 {
                     echo "<strong><p>El usuario NO tiene ningun Programa educativo </p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular  

@@ -193,6 +193,16 @@ body {
   width: 100%;
   max-width: 100%;
 }
+.lista
+{
+  font-family: Roboto;
+  color: #666766;
+  line-height: 1.875rem;
+  font-size: 1.125rem;
+  font-weight: 300;
+}
+
+
 h1,
 h2,
 h3,

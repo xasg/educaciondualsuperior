@@ -52,7 +52,7 @@ if ($resultado->num_rows > 0)
    // echo "El valor de tp_status es: " . $estatus_Usuario;
 } 
 
-if(($estatus_Usuario == 0) && ($cont > 0))  // si tu estatus es 0 y tienes al menos un programa inscrito pasar a estar al estatus 1 
+/*if(($estatus_Usuario == 0) && ($cont > 0))  // si tu estatus es 0 y tienes al menos un programa inscrito pasar a estar al estatus 1 
 {
   if ($sqltpStatusUsuario = $mysqli->query
                     ("UPDATE educacion_dual.usuarios

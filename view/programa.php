@@ -82,16 +82,6 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
                     //    echo "jalo"; 
                     }
 }
-/*else if (($estatus_Usuario == 2) && ($cont == 0))
-{
-  if ($sqltpStatusUsuario = $mysqli->query
-                    ("UPDATE educacion_dual.usuarios
-                    SET tp_status = 1
-                    where id_usuario = '$id_user'"))
-                    {
-                    //    echo "jalo"; 
-                    }
-}*/
 /////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -164,7 +154,6 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
 </div>
 <div class="container">
 <div class="tab-content">
-
 <form action="../controller/new_programa.php" method="POST"> 
 <div class="row p-3 my-3 border">
 <div class="col-xl-12 font-weight-bold">

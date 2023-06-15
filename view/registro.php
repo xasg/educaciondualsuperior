@@ -116,6 +116,7 @@ else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/responsive.css">
         <link rel="stylesheet" href="../assets/css/color.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+        
           <style>
         .whatsapp-button {
             position: fixed;
@@ -142,6 +143,35 @@ else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes
             font-weight: 300;
         }
     </style>
+    
+
+<script LANGUAGE='JavaScript'>
+  /*function superalerta()
+  {
+    var resultado = window.confirm('¿Estas seguro de Terminar la carga de los programas academicos?');
+    if (resultado === true) 
+    {
+      window.alert('Se ha Finalizado la carga de los Programas');
+      return true;
+    } 
+    else
+    { 
+      document.write ("");      
+      window.location.href = 'registro.php';
+      return false;
+    }
+  }*/
+
+  function confirmarEnvio() 
+  {
+      if (confirm("¿Estas seguro de Terminar la carga de los programas academicos?")) 
+      {
+        document.querySelector('form').submit();
+      }
+    }
+    
+</script>
+
 </head>
    <body>
    <div class="whatsapp-button" onclick="abrirWhatsApp()">
@@ -259,11 +289,12 @@ else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes
                                      </div>                                     
                             </span><br>
 </div>
+
 <!------------------------------------------------------------------------------------------------------------------->
 <?php           
                 
                 //echo "<strong><p>El status del usuario es ".$estatus_Usuario."</p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular                    
-                if ($estatus_Usuario == 0)
+                if ( ($cont == 0) )
                 {
                     echo "<strong><p>El usuario NO tiene ningun Programa educativo </p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular  
                     echo "
@@ -271,7 +302,7 @@ else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes
                       <form method='POST' action='mensaje_tp_status.php'>
                       <input type='text' id='usuario' name='usuario' value='$id_user' readonly hidden='true'>
                       <input type='text' id='contador' name='contador' value='$cont' readonly hidden='true''>                    
-                      <input type='submit' class='btn btn-block btn-primary' value='Finalizar la carga sin Programas Educativos'>
+                      <input type='button' class='btn btn-block btn-primary' onclick='confirmarEnvio();' value='Finalizar la carga sin Programas Educativos'>
                       </form>
                     </div>";
                 }
@@ -280,15 +311,12 @@ else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes
                     echo    "<lu>
                                 <li class = 'lista'>El usuario tiene ". $cont . " Programa Educativo inscrito y  concluyo el proceso de carga de programas educativos.</li>
                                 <li class = 'lista'>Si desea seguir agregando mas Programas educativos de clic en el Boton de \"Agregar y Editar\".</li>
-                    
-                    
-                    
                             </lu>";
                     //echo "<strong><p>El usuario tiene ". $cont . " Programa Educativo inscrito y  concluyo el proceso de carga de programas educativos.</p></strong>"; // si tiene el tp status 2 despliega un mensaje que ya se finalizada la carga de Prgramas Educativos
                 }
-                else
+                else if($estatus_Usuario == 1)
                 { 
-                  if (($cont == 1 ))
+                  if (($cont  == 1 ))
                     {
                       echo "<strong><p>El usuario tiene ". $cont . " Programa Educativo inscrito</p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular  
                      
@@ -303,7 +331,7 @@ else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes
                       <form method='POST' action='mensaje_tp_status.php'>
                       <input type='text' id='usuario' name='usuario' value='$id_user' readonly hidden='true'>
                       <input type='text' id='contador' name='contador' value='$cont' readonly hidden='true''>                    
-                      <input type='submit' class='btn btn-block btn-primary' value='Finalizar carga de Programas Educativos'>
+                      <input type='button' class='btn btn-block btn-primary' onclick='confirmarEnvio();' value='Finalizar la carga de Programas Educativos'>
                       </form>
                     </div>";
                 }

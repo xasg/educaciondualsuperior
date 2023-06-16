@@ -12,13 +12,13 @@
                                     <div class="col-xl-6">
                                        <div class="form-group"> 
                                           <label>Nombre de la unidad económica</label>
-                                          <input type="text" class="form-control" name="nombre" id="nombre">
+                                          <input type="text" class="form-control" name="nombre" id="nombre" onChange="conMayusculas(this)" required="">
                                        </div>
                                     </div> 
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                           <label>Cuenta con convenio</label>
-                                          <input type="text" class="form-control" name="convenio" id="convenio">  
+                                          <input type="text" class="form-control" name="convenio" id="convenio" required="">  
                                        </div>
                                     </div>
 
@@ -30,13 +30,13 @@
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># De estudiantes femeninos</label>      
-                                        <input type="text" class="form-control" name="estudiante_fem" id="estudiante_fem">  
+                                        <input type="number" class="form-control" name="estudiante_fem" id="estudiante_fem" required="">  
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># De estudiantes masculinos</label>
-                                         <input type="text" class="form-control" name="estudiante_mas" id="estudiante_mas">
+                                         <input type="number" class="form-control" name="estudiante_mas" id="estudiante_mas" required="">
                                        </div>
                                     </div>
 
@@ -48,14 +48,14 @@
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
-                                        <label for="nombre"># Docentes femeninos</label>      
-                                        <input type="text" class="form-control" name="docente_fem" id="docente_fem">
+                                        <label for="number"># Docentes femeninos</label>      
+                                        <input type="text" class="form-control" name="docente_fem" id="docente_fem" required="">
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
-                                        <label for="nombre"># Docentes masculinos</label>
-                                         <input type="text" class="form-control" name="docente_mas" id="docente_mas">
+                                        <label for="number"># Docentes masculinos</label>
+                                         <input type="text" class="form-control" name="docente_mas" id="docente_mas" required="">
                                        </div>
                                     </div>
 
@@ -69,21 +69,22 @@
                                      <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># Egresados femeninos</label>      
-                                        <input type="text" class="form-control" name="egresados_fem" id="egresados_fem">
+                                        <input type="number" class="form-control" name="egresados_fem" id="egresados_fem">
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
                                        <div class="form-group"> 
                                         <label for="nombre"># Egresados masculinos</label>
-                                         <input type="text" class="form-control" name="egresados_mas" id="egresados_mas">
+                                         <input type="number" class="form-control" name="egresados_mas" id="egresados_mas">
                                        </div>
                                     </div>
-
-                                    <div class="col-xl-12">  <br>
+                                    <div class="col-xl-12">
+                                    <div class="col-xl-4">  <br>
                                           <input type="hidden" class="form-control" id="id" name="id">
                                           <input type="hidden" class="form-control" id="programa" name="programa">
                                           <button type="submit" class="btn btn-block btn-primary btn-lg">Editar</button><br><br>
-                     </div>
+                                    </div>
+                                    </div>
 
 </div> 
              

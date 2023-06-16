@@ -131,7 +131,7 @@
                                     <div class="form-group checkbox-group required">
                                        <div class="form-check-inline">
                                         <label class="form-check-label">
-                                          <input type="checkbox" class="form-check-input" value="Inserción laboral" name="beneficio[]" checked >Ninguno
+                                          <input type="checkbox" class="form-check-input" value="Ninguno" name="beneficio[]" checked >Ninguno
                                         </label>
                                       </div>
                                        <div class="form-check-inline">

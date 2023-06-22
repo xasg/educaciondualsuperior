@@ -76,10 +76,44 @@ $responsable = acces_responsables();
          </section>
 
 <br><br>
+<<<<<<< HEAD
+=======
+<!--se va a cambiar esta parde de pro por la que se tiene en dev, los combios son el el estilo y los elementos mostrados "Subsistema"-->
+<!--<div class="container">
+<div class="tab-content">
+<div class="row">
+   
+                            <span class="border"><br><br>   
+                                    <div class="col-md-12">
+                                        <h4>Responsable de la IES registrados</h4>
+                                        <form method="POST" action="create_excel.php">
+				<button class="btn btn-success pull-right" name="export"><i class="fas fa-file-excel"></i> Exportar a Excel</button>
+			</form>
+
+                                        <table id="example" id="" class="table table-striped table-bordered" style="width:100%">
+                                        <thead class="thead-dark">
+                                          <tr>  
+                                                <th>#</th>
+                                                <th>Entidad</th>
+                                                <th>Nombre IES</th> 
+                                                <th>correo</th>
+                                                <th>Programas Educativos</th>
+                                                <th>Unidades Economicas</th>
+                                                <th>Estudiantes 2021 2022</th>
+                                                <th>Egresados</th>
+                                                <th>Estudiantes 2022 2023</th>
+                                          </tr>
+                                        </thead>
+                                            <tbody>-->
+>>>>>>> Francisco
  
 <div class="container-fluid">
 <div class="tab-content">
 <div class="m-0 row ">
+<<<<<<< HEAD
+=======
+
+>>>>>>> Francisco
                             <span class="justify-content-center"><br><br>   
                                     <div class="container col-md-auto justify-content-center">
                                         <h4>Responsable de la IES registrados</h4>
@@ -103,8 +137,14 @@ $responsable = acces_responsables();
                                                 <th>Estudiantes 2022 2023</th>
                                           </tr>
                                         </thead>
+<<<<<<< HEAD
                                             <tbody>
                                               <?php
+=======
+                                            <tbody>      
+                                              <?php
+                                              
+>>>>>>> Francisco
                                               $counter = 1;
                                               while($resp = $responsable->fetch_assoc())
                                               {
@@ -113,6 +153,10 @@ $responsable = acces_responsables();
                                                 <td class="text-center"><?php echo $counter++ ?></td>
                                                 <td><?php echo strtoupper($resp['nombre_entidad']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_nombre_ies']);?></td>
+<<<<<<< HEAD
+=======
+                                                <!--Aqui se va agregar un td para mostrar el subsistema -->
+>>>>>>> Francisco
                                                 <td><?php echo strtoupper($resp['dt_nombre_subsistema']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_correo']);?></td>
                                                 <td><?php echo strtoupper($resp['programas_educativos']);?></td>

@@ -53,7 +53,7 @@
 </script>
     </head>
     <body>
-       <!-- <div class="whatsapp-button" onclick="abrirWhatsApp()">
+        <!-- <div class="whatsapp-button" onclick="abrirWhatsApp()">
         <i class="fab fa-whatsapp"></i> -->
         <div class="whatsapp-button" onclick="toggleWhatsAppPopup()">
         <!-- <i class="fab fa-whatsapp"></i> -->
@@ -74,7 +74,7 @@
             <button class="send-button" onclick="clearWhatsAppMessage()">Limpiar</button>
           </div>
 
-    </div>
+    </div>       
     </div>
         <main>
             <header class="stick style1 w-100" style=" background-color: #98213A;">
@@ -278,6 +278,6 @@
         <script src="assets/js/simplyCountdown.min.js"></script>
         <script src="assets/js/countdown.js"></script>
         <!--javascript del Boton wstap-->
-      <script src="btn-ws.js"></script>
+        <script src="btn-ws.js"></script>            
     </body>	
 </html>

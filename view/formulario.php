@@ -20,7 +20,24 @@ $entidad=view_entidad();
         <link rel="stylesheet" href="../assets/css/responsive.css">
         <link rel="stylesheet" href="../assets/css/color.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="../style-button-ws.css">
+        <link rel="stylesheet" href="../style-button-ws.css">  <!--ESTA LLAMDA VIENE DE LA VERSION DE DEV-->
+         <!--- <style>    ESTA SECCION ES ORIGINAL DE PROD PERO SE VA A COMENTAR 
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+
+            z-index: 9999;
+            background-color: green;
+            color: white;
+            padding: 12px;
+            border-radius: 40%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0px 0px 4px #000;
+        }
+    </style>-->
       <script language="JavaScript"> 
         function conMayusculas(field) 
         { 
@@ -62,7 +79,11 @@ $(document).ready(function() {
 
 </head>
    <body>
-   <div class="whatsapp-button" onclick="toggleWhatsAppPopup()">
+   <!---SE VA A COMENTAR EL BOTON DE PROD Y SE VA A AGREGAR EL BOTON DE DEV -->
+   <!--<div class="whatsapp-button" onclick="abrirWhatsApp()">  
+                  <i class="fab fa-whatsapp"></i>-->
+
+        <div class="whatsapp-button" onclick="toggleWhatsAppPopup()">
         <!-- <i class="fab fa-whatsapp"></i> -->
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
@@ -80,6 +101,7 @@ $(document).ready(function() {
             <button class="send-button" onclick="sendWhatsAppMessage()">Enviar</button>
             <button class="send-button" onclick="clearWhatsAppMessage()">Limpiar</button>
           </div>
+
                 </div>
   <header class="stick style1 w-100" style=" background-color: #98213A;">
                 <div class="container">
@@ -336,16 +358,18 @@ $(document).ready(function() {
          });      
       </script>
       <script>
-          // function abrirWhatsApp() {
-          //   // Reemplaza  con el número de teléfono de destino
-          //   var numeroTelefono = "5551012306";
+        // SE COMENTA EL SCRIPT YA QUE EN LA VERSION DEV ESTO ESTA COMENTADO 
+          //function abrirWhatsApp() {
+            // Reemplaza  con el número de teléfono de destino
+            //var numeroTelefono = "5551012306";
             
-          //   // Crea el enlace para abrir WhatsApp con el número de teléfono
-          //   var url = "https://api.whatsapp.com/send?phone=" + numeroTelefono;
+            // Crea el enlace para abrir WhatsApp con el número de teléfono
+            //var url = "https://api.whatsapp.com/send?phone=" + numeroTelefono;
 
-          //   // Abre una nueva ventana o pestaña con el enlace de WhatsApp
-          //   window.open(url);
-          // }
+            // Abre una nueva ventana o pestaña con el enlace de WhatsApp
+            //window.open(url);
+          //}
         </script>
         <script src="../btn-ws.js"></script>
+
 </html>

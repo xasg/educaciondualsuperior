@@ -20,7 +20,24 @@ $entidad=view_entidad();
         <link rel="stylesheet" href="../assets/css/color.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
         <link rel="stylesheet" href="../style-button-ws.css">
-          
+        <!--Se comento este style ya que en la version de dev no se encuentra este --> 
+        <!-- <style>
+        .whatsapp-button {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+
+            z-index: 9999;
+            background-color: green;
+            color: white;
+            padding: 12px;
+            border-radius: 40%;
+            font-size: 20px;
+            cursor: pointer;
+            box-shadow: 0px 0px 4px #000;
+        }
+    </style>-->
       <script language="JavaScript"> 
         function conMayusculas(field) 
         { 
@@ -62,6 +79,9 @@ $(document).ready(function() {
 
 </head>
    <body>
+   <!--<div class="whatsapp-button" onclick="abrirWhatsApp()">   el metodo onclick cambia, este es el original de prod
+        <i class="fab fa-whatsapp"></i>
+   </div>--> 
    <div class="whatsapp-button" onclick="toggleWhatsAppPopup()">
         <!-- <i class="fab fa-whatsapp"></i> -->
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -280,7 +300,19 @@ $(document).ready(function() {
            })
          });      
       </script>
-<!--javascript del Boton wstap-->
-<script src="../btn-ws.js"></script>
+      <!--javascript del Boton wstap-->
+      <script src="../btn-ws.js"></script>
+      <!--<script>  SE COMENTA ESTA PARTE ORIGINAL DE PROD
+          function abrirWhatsApp() {
+            // Reemplaza  con el número de teléfono de destino
+            var numeroTelefono = "5551012306";
+            
+            // Crea el enlace para abrir WhatsApp con el número de teléfono
+            var url = "https://api.whatsapp.com/send?phone=" + numeroTelefono;
+
+            // Abre una nueva ventana o pestaña con el enlace de WhatsApp
+            window.open(url);
+          }
+        </script>-->
 
 </html>

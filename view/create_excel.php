@@ -26,6 +26,7 @@ require_once('../model/databases.php');
                     <th>#</th>
                     <th>Entidad</th>
                     <th>IES</th> 
+					<th>Subsistema</th>
                     <th>correo</th>
                     <th>Programas Educativos</th>
                     <th>Unidades Economicas</th>
@@ -45,6 +46,7 @@ require_once('../model/databases.php');
                     <td>".$counter++."</td>
                     <td> ".$resp['nombre_entidad']."</td>
                     <td> ".$resp['dt_nombre_ies']."</td>
+					<td> ".$resp['dt_nombre_subsistema']."</td>    
                     <td> ".$resp['dt_correo']."</td>
                     <td> ".$resp['programas_educativos']."</td>
                     <td> ".$resp['unidad_economica']."</td>

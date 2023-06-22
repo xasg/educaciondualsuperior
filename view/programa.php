@@ -17,6 +17,76 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
     /* determinar el número de filas del resultado */
     $row_cnt = $result->num_rows;
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cont = 0;
+if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM educacion_dual.programa_educativo where id_usuario = '$id_user'"))
+          {
+            if ($sqlProgramaUsuario->num_rows > 0) 
+            {
+              // con este ciclo sabemos cuantos programas educativos tiene un usuario registrado 
+              while ($row = $result->fetch_assoc()) 
+              { 
+                $cont = $cont +1;  // Programas registrado
+              }
+            }
+          }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Preparar la consulta SQL
+$sql = "SELECT * FROM educacion_dual.usuarios 
+        WHERE id_usuario  = '$id_user'";
+
+// Ejecutar la consulta
+$resultado = $mysqli->query($sql);
+
+// Verificar si se obtuvieron resultados
+if ($resultado->num_rows > 0) 
+{
+    // Obtener la primera fila de resultados
+    $row = $resultado->fetch_assoc();
+    
+    // Guardar el valor de la columna "tp_status" en la variable $tp_status
+    $estatus_Usuario = $row["tp_status"];
+    
+    
+   // echo "El valor de tp_status es: " . $estatus_Usuario;
+} 
+
+if(($estatus_Usuario == 0) && ($cont > 0))  // si tu estatus es 0 y tienes al menos un programa inscrito pasar a estar al estatus 1 
+{
+  if ($sqltpStatusUsuario = $mysqli->query
+                    ("UPDATE educacion_dual.usuarios
+                    SET tp_status = 1
+                    where id_usuario = '$id_user'"))
+                    {
+                    //    echo "jalo"; 
+                    }
+
+}
+else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes al menos un programa inscrito pasar a estar al estatus 1 
+{
+  if ($sqltpStatusUsuario = $mysqli->query
+                    ("UPDATE educacion_dual.usuarios
+                    SET tp_status = 0
+                    where id_usuario = '$id_user'"))
+                    {
+                    //    echo "jalo"; 
+                    }
+}
+else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes al menos un programa inscrito pasar a estar al estatus 1 
+{
+  if ($sqltpStatusUsuario = $mysqli->query
+                    ("UPDATE educacion_dual.usuarios
+                    SET tp_status = 0
+                    where id_usuario = '$id_user'"))
+                    {
+                    //    echo "jalo"; 
+                    }
+}
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

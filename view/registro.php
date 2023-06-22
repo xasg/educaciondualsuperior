@@ -16,6 +16,86 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
     /* determinar el número de filas del resultado */
     $row_cnt = $result->num_rows;
 }
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+$cont = 0;
+if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM educacion_dual.programa_educativo where id_usuario = '$id_user'"))
+          {
+            if ($sqlProgramaUsuario->num_rows > 0) 
+            {
+              // con este ciclo sabemos cuantos programas educativos tiene un usuario registrado 
+              while ($row = $result->fetch_assoc()) 
+              { 
+                $cont = $cont +1;  // Programas registrado
+              }
+            }
+          }
+//////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Preparar la consulta SQL
+$sql = "SELECT * FROM educacion_dual.usuarios 
+        WHERE id_usuario  = '$id_user'";
+
+// Ejecutar la consulta
+$resultado = $mysqli->query($sql);
+
+// Verificar si se obtuvieron resultados
+if ($resultado->num_rows > 0) 
+{
+    // Obtener la primera fila de resultados
+    $row = $resultado->fetch_assoc();
+    
+    // Guardar el valor de la columna "tp_status" en la variable $tp_status
+    $estatus_Usuario = $row["tp_status"];
+    
+    
+   // echo "El valor de tp_status es: " . $estatus_Usuario;
+} 
+
+/*if(($estatus_Usuario == 0) && ($cont > 0))  // si tu estatus es 0 y tienes al menos un programa inscrito pasar a estar al estatus 1 
+{
+  if ($sqltpStatusUsuario = $mysqli->query
+                    ("UPDATE educacion_dual.usuarios
+                    SET tp_status = 1
+                    where id_usuario = '$id_user'"))
+                    {
+                    //    echo "jalo"; 
+                    }
+
+}
+else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes al menos un programa inscrito pasar a estar al estatus 1 
+{
+  if ($sqltpStatusUsuario = $mysqli->query
+                    ("UPDATE educacion_dual.usuarios
+                    SET tp_status = 0
+                    where id_usuario = '$id_user'"))
+                    {
+                    //    echo "jalo"; 
+                    }
+}
+/*else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes al menos un programa inscrito pasar a estar al estatus 1 
+{
+  if ($sqltpStatusUsuario = $mysqli->query
+                    ("UPDATE educacion_dual.usuarios
+                    SET tp_status = 0
+                    where id_usuario = '$id_user'"))
+                    {
+                    //    echo "jalo"; 
+                    }
+}*/
+/*else if (($estatus_Usuario == 2) && ($cont == 0))
+{
+  if ($sqltpStatusUsuario = $mysqli->query
+                    ("UPDATE educacion_dual.usuarios
+                    SET tp_status = 1
+                    where id_usuario = '$id_user'"))
+                    {
+                    //    echo "jalo"; 
+                    }
+}*/
+/////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+
 
 ?> 
  <!DOCTYPE html>
@@ -34,6 +114,7 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
         <link rel="stylesheet" href="../assets/css/style.css">
         <link rel="stylesheet" href="../assets/css/responsive.css">
         <link rel="stylesheet" href="../assets/css/color.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
           <style>
         .whatsapp-button {
             position: fixed;
@@ -50,7 +131,47 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
             cursor: pointer;
             box-shadow: 0px 0px 4px #000;
         }
+
+        
+        .lista
+        {
+            font-family: Roboto;
+            color: #666766;
+            line-height: 1.875rem;
+            font-size: 1.125rem;
+            font-weight: 300;
+        }
+
     </style>
+
+
+    <script LANGUAGE='JavaScript'>
+  /*function superalerta()
+  {
+    var resultado = window.confirm('¿Estas seguro de Terminar la carga de los programas academicos?');
+    if (resultado === true) 
+    {
+      window.alert('Se ha Finalizado la carga de los Programas');
+      return true;
+    } 
+    else
+    { 
+      document.write ("");      
+      window.location.href = 'registro.php';
+      return false;
+    }
+  }*/
+
+  function confirmarEnvio() 
+  {
+      if (confirm("¿Estas seguro de Terminar la carga de los programas academicos?")) 
+      {
+        document.querySelector('form').submit();
+      }
+    }
+    
+</script>
+
 </head>
    <body>
    <div class="whatsapp-button" onclick="abrirWhatsApp()">
@@ -166,8 +287,66 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
 
 
                                      </div>                                     
-                            </span><br><br>
+                            </span><br>
 </div>
+
+<!------------------------------------------------------------------------------------------------------------------->
+<?php           
+                
+                //echo "<strong><p>El status del usuario es ".$estatus_Usuario."</p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular                    
+                if ( ($cont == 0)  && ($estatus_Usuario != 2))
+                {
+                    echo "<strong><p>El usuario NO tiene ningun Programa educativo </p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular  
+                    echo "
+                    <div class = 'col-md-5'>
+                      <form method='POST' action='mensaje_tp_status.php'>
+                      <input type='text' id='usuario' name='usuario' value='$id_user' readonly hidden='true'>
+                      <input type='text' id='contador' name='contador' value='$cont' readonly hidden='true''>                    
+                      <input type='button' class='btn btn-block btn-primary' onclick='confirmarEnvio();' value='Finalizar la carga sin Programas Educativos'>
+                      </form>
+                    </div>";
+                }
+                else if  ($estatus_Usuario == 2)
+                {
+                    echo    "<lu>
+                                <li class = 'lista'>El usuario tiene ". $cont . " Programa Educativo inscrito y  concluyo el proceso de carga de programas educativos.</li>
+                                <li class = 'lista'>Si desea seguir agregando mas Programas educativos de clic en el Boton de \"Agregar y Editar\".</li>
+                            </lu>";
+                    //echo "<strong><p>El usuario tiene ". $cont . " Programa Educativo inscrito y  concluyo el proceso de carga de programas educativos.</p></strong>"; // si tiene el tp status 2 despliega un mensaje que ya se finalizada la carga de Prgramas Educativos
+                }
+                else if($estatus_Usuario == 1)
+                { 
+                  if (($cont  == 1 ))
+                    {
+                      echo "<strong><p>El usuario tiene ". $cont . " Programa Educativo inscrito</p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular  
+                     
+                    }
+                    else
+                    {
+                      echo "<strong><p>El usuario tiene ". $cont . " Programas Educativos inscritos </p></strong>"; // si tiene mas de un prgrama educativo despliega un mensaje en plural
+                    } 
+                    //echo "<strong><p>El status del usuario es ".$estatus_Usuario; // si tiene un solo programa educativo despliega el mensaje em singular                    
+                    echo "
+                    <div class = 'col-md-5'>
+                      <form method='POST' action='mensaje_tp_status.php'>
+                      <input type='text' id='usuario' name='usuario' value='$id_user' readonly hidden='true'>
+                      <input type='text' id='contador' name='contador' value='$cont' readonly hidden='true''>                    
+                      <input type='button' class='btn btn-block btn-primary' onclick='confirmarEnvio();' value='Finalizar la carga de Programas Educativos'>
+                      </form>
+                    </div>";
+                }
+                  //}                
+                /*else
+                {
+                  echo "<strong><p>El status del usuario es ".$estatus_Usuario.". Ya termino su carga de Programas Educativos"; // si tiene un solo programa educativo despliega el mensaje em singular  
+                  echo "<strong><p>El usuario tiene ". $cont . " Programas Educativos inscritos </p></strong>"; // si tiene mas de un prgrama educativo despliega un mensaje en plural
+                }*/
+
+                  
+                
+  ?>
+<!--------------------------------------------------------------------------------------------------------------->
+
 </div>
 
 <br><br><br><br>

@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-<?php
-//servidor, usuario de base de datos, contraseña del usuario, nombre de base de datos
-=======
 <?php  
 
 // Esta conexion es la que esta en la rama de prod y se va a cambiar por la de dev
@@ -17,7 +13,6 @@
 <?php
 //servidor, usuario de base de datos, contraseña del usuario, nombre de base de datos
 // esta es la conexion que tenemos en dev
->>>>>>> Francisco
 	$mysqli = new mysqli("localhost","root","","educaciondual"); 
 	
 	if(mysqli_connect_errno()){

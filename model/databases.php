@@ -95,9 +95,6 @@ WHERE responsable.id_ies =  '{$id_ies}'";
 function acces_responsables()
 {
   global $mysqli;
-<<<<<<< HEAD
-  $sql = "SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
-=======
   //  esta nconsulta es  original de PROD, pero se va a cambiar por la de dev
   /*
   $sql = "SELECT nombre_entidad,dt_nombre_ies,dt_correo, COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
@@ -117,7 +114,6 @@ function acces_responsables()
   
   // esta consulta es la que se ocupa en la rama de dev
  $sql = "SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
->>>>>>> Francisco
   COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
    COUNT(unidad_educativa.id_programa_educativo) as unidad_economica,
    SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes_2021_2022,

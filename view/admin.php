@@ -76,8 +76,6 @@ $responsable = acces_responsables();
          </section>
 
 <br><br>
-<<<<<<< HEAD
-=======
 <!--se va a cambiar esta parde de pro por la que se tiene en dev, los combios son el el estilo y los elementos mostrados "Subsistema"-->
 <!--<div class="container">
 <div class="tab-content">
@@ -105,15 +103,11 @@ $responsable = acces_responsables();
                                           </tr>
                                         </thead>
                                             <tbody>-->
->>>>>>> Francisco
  
 <div class="container-fluid">
 <div class="tab-content">
 <div class="m-0 row ">
-<<<<<<< HEAD
-=======
 
->>>>>>> Francisco
                             <span class="justify-content-center"><br><br>   
                                     <div class="container col-md-auto justify-content-center">
                                         <h4>Responsable de la IES registrados</h4>
@@ -137,14 +131,9 @@ $responsable = acces_responsables();
                                                 <th>Estudiantes 2022 2023</th>
                                           </tr>
                                         </thead>
-<<<<<<< HEAD
-                                            <tbody>
-                                              <?php
-=======
                                             <tbody>      
                                               <?php
                                               
->>>>>>> Francisco
                                               $counter = 1;
                                               while($resp = $responsable->fetch_assoc())
                                               {
@@ -153,10 +142,7 @@ $responsable = acces_responsables();
                                                 <td class="text-center"><?php echo $counter++ ?></td>
                                                 <td><?php echo strtoupper($resp['nombre_entidad']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_nombre_ies']);?></td>
-<<<<<<< HEAD
-=======
                                                 <!--Aqui se va agregar un td para mostrar el subsistema -->
->>>>>>> Francisco
                                                 <td><?php echo strtoupper($resp['dt_nombre_subsistema']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_correo']);?></td>
                                                 <td><?php echo strtoupper($resp['programas_educativos']);?></td>

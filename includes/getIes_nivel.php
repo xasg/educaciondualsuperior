@@ -9,7 +9,7 @@ LEFT JOIN cat_programa_educativo ON(cat_programa_educativo.id_cat_programa_educa
 WHERE `id_ies`IN ('{$id_ies}','2500') AND rel_ies_programa.id_cat_nivel_estudios='$id_nivel'";
 	$resultadoM = $mysqli->query($queryM);
 	
-	$html= "<option value=''>Seleccionar Programa Educativo</option>";
+	$html= "<option value=''></option>";
 	
 	while($rowM = $resultadoM->fetch_assoc())
 	{

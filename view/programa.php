@@ -86,6 +86,7 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
 
 
 
+
 ?>
 <!DOCTYPE html>
 <html lang="es">

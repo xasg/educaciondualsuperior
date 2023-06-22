@@ -164,7 +164,7 @@ else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes
 
   function confirmarEnvio() // mensaje de confirmacion del Finalizacion de carga de programas
   {
-      if (confirm("¿Estas seguro de Terminar la carga de los programas educativos?")) 
+      if (confirm("¿Estas seguro de Terminar la carga de los Programas Educativos?")) 
       {
         document.querySelector('form').submit();
       }

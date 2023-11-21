@@ -49,11 +49,12 @@ WHERE `id_ies` IN ('{$id_ies}','2500')";
 function acces_nivel_estudios($id_ies)
 {
   global $mysqli;
-  $sql ="SELECT cat_nivel_estudios.id_cat_nivel_estudios, cat_nivel_estudios.dt_nombre_nivel_estudios FROM `rel_ies_programa` 
-LEFT JOIN cat_nivel_estudios ON(cat_nivel_estudios.id_cat_nivel_estudios=rel_ies_programa.id_cat_nivel_estudios)
-WHERE `id_ies`='{$id_ies}' GROUP BY id_cat_nivel_estudios";
+  $sql ="SELECT cat_nivel_estudios.id_cat_nivel_estudios, cat_nivel_estudios.dt_nombre_nivel_estudios 
+  FROM rel_ies_programa 
+  LEFT JOIN cat_nivel_estudios USING(id_cat_nivel_estudios) 
+  where rel_ies_programa.id_ies = '{$id_ies}'
+  group by cat_nivel_estudios.id_cat_nivel_estudios , cat_nivel_estudios.dt_nombre_nivel_estudios";
   return $mysqli->query($sql);
-  return $result->fetch_assoc();
 }
 
 

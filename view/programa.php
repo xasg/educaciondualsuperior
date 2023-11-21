@@ -19,7 +19,7 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 $cont = 0;
-if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM educacion_dual.programa_educativo where id_usuario = '$id_user'"))
+if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM programa_educativo where id_usuario = '$id_user'"))
           {
             if ($sqlProgramaUsuario->num_rows > 0) 
             {
@@ -32,7 +32,7 @@ if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM educacion_dual.programa_
           }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Preparar la consulta SQL
-$sql = "SELECT * FROM educacion_dual.usuarios 
+$sql = "SELECT * FROM usuarios 
         WHERE id_usuario  = '$id_user'";
 
 // Ejecutar la consulta
@@ -54,7 +54,7 @@ if ($resultado->num_rows > 0)
 if(($estatus_Usuario == 0) && ($cont > 0))  // si tu estatus es 0 y tienes al menos un programa inscrito pasar a estar al estatus 1 
 {
   if ($sqltpStatusUsuario = $mysqli->query
-                    ("UPDATE educacion_dual.usuarios
+                    ("UPDATE usuarios
                     SET tp_status = 1
                     where id_usuario = '$id_user'"))
                     {

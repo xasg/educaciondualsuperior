@@ -18,7 +18,7 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 $cont = 0;
-if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM educacion_dual.programa_educativo where id_usuario = '$id_user'"))
+if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM programa_educativo where id_usuario = '$id_user'"))
           {
             if ($sqlProgramaUsuario->num_rows > 0) 
             {
@@ -31,7 +31,7 @@ if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM educacion_dual.programa_
           }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Preparar la consulta SQL
-$sql = "SELECT * FROM educacion_dual.usuarios 
+$sql = "SELECT * FROM usuarios 
         WHERE id_usuario  = '$id_user'";
 
 // Ejecutar la consulta

@@ -65,7 +65,7 @@ if(($estatus_Usuario == 0) && ($cont > 0))  // si tu estatus es 0 y tienes al me
 else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes al menos un programa inscrito pasar a estar al estatus 1 
 {
   if ($sqltpStatusUsuario = $mysqli->query
-                    ("UPDATE educacion_dual.usuarios
+                    ("UPDATE usuarios
                     SET tp_status = 0
                     where id_usuario = '$id_user'"))
                     {
@@ -75,7 +75,7 @@ else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes
 else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes al menos un programa inscrito pasar a estar al estatus 1 
 {
   if ($sqltpStatusUsuario = $mysqli->query
-                    ("UPDATE educacion_dual.usuarios
+                    ("UPDATE usuarios
                     SET tp_status = 0
                     where id_usuario = '$id_user'"))
                     {

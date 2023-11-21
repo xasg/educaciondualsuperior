@@ -18,7 +18,7 @@ if ($result = $mysqli->query("SELECT * FROM programa_educativo
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 $cont = 0;
-if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM programa_educativo where id_usuario = '$id_user'"))
+if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM programa_educativo where id_usuario = '{$id_user}'"))
           {
             if ($sqlProgramaUsuario->num_rows > 0) 
             {

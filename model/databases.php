@@ -133,8 +133,9 @@ function acces_responsables()
 // LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
 // LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
 // where usuarios.dt_tipo=2";
+  // $result = $mysqli->query($sql); 
   return $mysqli->query($sql);  
-  return $result->fetch_assoc();
+  // return $result->fetch_assoc();
 }
 function acces_info_ies($id_ies, $id_user)
 {

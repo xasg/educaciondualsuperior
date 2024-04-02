@@ -1,10 +1,7 @@
 
 
 <?php
-$servername = "localhost";
-$dbname = "educaciondual";
-$username = "root";
-$password = ""; 
+
 
 $servername = "ec2-18-216-120-87.us-east-2.compute.amazonaws.com";
 $dbname = "educacion_dual";

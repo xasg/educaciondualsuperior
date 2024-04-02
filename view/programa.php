@@ -195,6 +195,7 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
   <label>Año de inicio bajo la Modalidad de Educación Dual</label>
  <select class="form-control" name="inicio" required="">
     <option value="">Seleccione:</option>
+    <option value="2024">2024</option>
     <option value="2023">2023</option>
     <option value="2022">2022</option>
     <option value="2021">2021</option>

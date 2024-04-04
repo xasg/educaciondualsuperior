@@ -158,7 +158,7 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
 <form action="../controller/new_programa.php" method="POST"> 
 <div class="row p-3 my-3 border">
 <div class="col-xl-12 font-weight-bold">
-   <h5> Registro de programas educativos registrados en su institución educativa, en la Modalidad de Educación Dual al cierre del ciclo escolar 2021-2022</h5>
+   <h5> Registro de programas educativos registrados en su institución educativa, en la Modalidad de Educación Dual al cierre del ciclo escolar 2022-2023</h5>
 </div>
 
 <div class="col-xl-4"><br>
@@ -265,10 +265,10 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
                                                 <th>Programa educativo</th>
                                                 <th class="text-center">Inicio</th> 
                                                 <th class="text-center">Periodo</th>
-                                                <th class="text-center">Estudiantes 2021-2022</th>
-                                                <th class="text-center">Egresados 2021-2022</th>
-                                                <th class="text-center">Unidades económicas</th>
                                                 <th class="text-center">Estudiantes 2022-2023</th>
+                                                <th class="text-center">Egresados 2022-2023</th>
+                                                <th class="text-center">Unidades económicas</th>
+                                                <th class="text-center">Estudiantes 2023-2024</th>
                                                 <th class="text-center">Agregar Unidad económica</th>
                                                 <th class="text-center">Consultar Unidades económicas</th>
                                           </tr>

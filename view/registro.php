@@ -235,7 +235,7 @@ else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes
 <div class="row">
                             <span class="border"><br><br>
                                     <div class="col-xl-12">
-                                       <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2021-2022</p>
+                                       <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2022-2023</p>
                                        <p>Agradecemos el apoyo en el llenado, ya que el mismo servirá para mostrar la oferta educativa a nivel nacional, incluyendo a su IES con los programas aquí registrados.</p>
                                        <p><strong>Se cuenta con <strong><?php echo  $row_cnt;?></strong> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
                                     </div>

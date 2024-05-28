@@ -12,13 +12,15 @@ $id_user = $_SESSION["id_user"];
 $programa = acces_programas($id_ies, $id_user);
 
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
-          WHERE id_ies = '{$id_ies}' AND `id_usuario`='{$id_user}'")) {
+          WHERE id_ies = '{$id_ies}' AND inf_ciclo='2022-2023' AND `id_usuario`='{$id_user}'")) {
     /* determinar el número de filas del resultado */
     $row_cnt = $result->num_rows;
 }
+
+echo ("SELECT * FROM programa_educativo WHERE id_ies = '{$id_ies}' AND inf_ciclo='2022-2023' AND `id_usuario`='{$id_user}'");
 ////////////////////////////////////////////////////////////////////////////////////////////////////////
 $cont = 0;
-if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM programa_educativo where id_usuario = '{$id_user}'"))
+if ($sqlProgramaUsuario = $mysqli->query("SELECT * FROM programa_educativo where id_ies = '{$id_ies}' AND id_usuario = '{$id_user}' AND inf_ciclo='2022-2023'"))
           {
             if ($sqlProgramaUsuario->num_rows > 0) 
             {
@@ -235,7 +237,7 @@ else if(($estatus_Usuario == 1) && ($cont == 0))  // si tu estatus es 0 y tienes
 <div class="row">
                             <span class="border"><br><br>
                                     <div class="col-xl-12">
-                                       <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2022-2023</p>
+                                       <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2023-2024</p>
                                        <p>Agradecemos el apoyo en el llenado, ya que el mismo servirá para mostrar la oferta educativa a nivel nacional, incluyendo a su IES con los programas aquí registrados.</p>
                                        <p><strong>Se cuenta con <strong><?php echo  $row_cnt;?></strong> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
                                     </div>

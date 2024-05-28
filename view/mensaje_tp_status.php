@@ -22,10 +22,13 @@
         
        if ($sqlProgramaUsuario = $mysqli->query
             ("UPDATE educacion_dual.usuarios
-            SET tp_status = 2            
+            SET `tp_status_2022-2023` = 2            
             where id_usuario = '$usuario'"))
         {
-            //echo "su starus ahora es de 2";
+            //echo "su status ahora es de 2";
+            echo '<script type="text/javascript">
+                    alert("Se ha guardado su progreso");
+                </script>';
         }
     }    
     ?>

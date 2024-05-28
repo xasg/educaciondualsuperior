@@ -264,7 +264,7 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
                                                 <th>#</th>
                                                 <th>Programa educativo</th>
                                                 <th class="text-center">Inicio</th> 
-                                                <th class="text-center">Periodo</th>
+                                                <th class="text-center">Periodo de inicio</th>
                                                 <th class="text-center">Estudiantes 2022-2023</th>
                                                 <th class="text-center">Egresados 2022-2023</th>
                                                 <th class="text-center">Unidades económicas</th>

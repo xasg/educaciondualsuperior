@@ -33,7 +33,7 @@
 
                                     <div class="col-xl-12">
                                        <div class="form-group">
-                                          <label for="nombre">¿Cuántos estudiantes cursaron el programa educativo bajo la Modalidad de Educación Dual al cierre del ciclo escolar 2021-2022?</label>
+                                          <label for="nombre">¿Cuántos estudiantes cursaron el programa educativo bajo la Modalidad de Educación Dual al cierre del ciclo escolar 2022-2023?</label>
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
@@ -108,7 +108,7 @@
                                    <div class="col-xl-12">
                                     <hr>
                                     <div class="form-group">
-                                          <label for="nombre">¿Cuántos estudiantes cursan el programa educativo bajo la Modalidad de Educación Dual en lo que va del ciclo escolar 2022-2023?</label>
+                                          <label for="nombre">¿Cuántos estudiantes cursan el programa educativo bajo la Modalidad de Educación Dual en lo que va del ciclo escolar 2023-2024?</label>
                                     </div>
                                     </div>
                                     <div class="col-xl-3">

@@ -3,6 +3,7 @@
    include_once('../model/databases.php');
    mysqli_set_charset( $mysqli, 'utf8');
    $id=$_POST["id"];
+   $ciclo=$_POST["ciclo"];
    if( $_POST )
    {  
    $unidad = isset( $_POST['unidad']) ? $_POST['unidad'] : '';
@@ -36,7 +37,7 @@
    
 ?>
 <script>
-   window.location="../view/programa.php"
+   window.location="../view/programa.php?ciclo=<?php echo $ciclo;?>"
 </script>
 <?php
 }else{

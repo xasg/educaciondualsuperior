@@ -11,6 +11,7 @@
 		  var docente_mas = button.data('docente_mas')
 		  var egresados_fem = button.data('egresados_fem')
 		  var egresados_mas = button.data('egresados_mas')
+		  var ciclo = button.data('ciclo')
 		  
 		  
 		  var modal = $(this)
@@ -23,7 +24,8 @@
 		  modal.find('.modal-body #docente_fem').val(docente_fem)	
 		  modal.find('.modal-body #docente_mas').val(docente_mas)
 		  modal.find('.modal-body #egresados_fem').val(egresados_fem)	
-		  modal.find('.modal-body #egresados_mas').val(egresados_mas)	
+		  modal.find('.modal-body #egresados_mas').val(egresados_mas)
+		  modal.find('.modal-body #ciclo').val(ciclo)		
 		  $('.alert').hide();//Oculto alert
 		})
 		

@@ -24,7 +24,7 @@
 
                                     <div class="col-xl-12">
                                        <div class="form-group">
-                                          <label for="nombre">¿Cuántos estudiantes cursaron el programa educativo bajo la Modalidad Dual al cierre del ciclo escolar 2021-2022?</label>
+                                          <label for="nombre">¿Cuántos estudiantes cursaron el programa educativo bajo la Modalidad Dual al cierre del ciclo escolar <?php echo $ciclo?></label>
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
@@ -82,6 +82,7 @@
                                     <div class="col-xl-4">  <br>
                                           <input type="hidden" class="form-control" id="id" name="id">
                                           <input type="hidden" class="form-control" id="programa" name="programa">
+                                          <input type="hidden" class="form-control" name="ciclo" value="<?php echo $ciclo; ?>">
                                           <button type="submit" class="btn btn-block btn-primary btn-lg">Editar</button><br><br>
                                     </div>
                                     </div>

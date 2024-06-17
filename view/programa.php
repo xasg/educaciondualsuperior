@@ -6,6 +6,7 @@ if($_SESSION['id_ies']== null){
 }
 require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
+$ciclo=$_GET["ciclo"];
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
 $id_user = $_SESSION["id_user"];
@@ -158,12 +159,12 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
 <form action="../controller/new_programa.php" method="POST"> 
 <div class="row p-3 my-3 border">
 <div class="col-xl-12 font-weight-bold">
-   <h5> Registro de programas educativos registrados en su institución educativa, en la Modalidad de Educación Dual al cierre del ciclo escolar 2022-2023</h5>
+   <h5> Registro de programas educativos registrados en su institución educativa, en la Modalidad de Educación Dual al cierre del ciclo escolar <?php echo $ciclo?></h5><br>
 </div>
 
 <div class="col-xl-4"><br>
    <div class="form-group">
-    <label>Nivel Estudios</label>  
+    <label>Nivel Estudios</label> 
     <select class="form-control"  id="nivel" required>
                             <option value="">Seleccione Nivel de Estudios:</option>
                                     <?php
@@ -249,6 +250,7 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
   </div>
 </div>
 <div class="col-xl-2"><br>
+  <input type="hidden" name="ciclo" value="<?php echo $ciclo ?>" />
   <button type="submit" class="btn btn-block btn-primary">Agregar</button>
 </div>
 </div>
@@ -265,10 +267,18 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
                                                 <th>Programa educativo</th>
                                                 <th class="text-center">Inicio</th> 
                                                 <th class="text-center">Periodo de inicio</th>
-                                                <th class="text-center">Estudiantes 2022-2023</th>
-                                                <th class="text-center">Egresados 2022-2023</th>
+                                                <th class="text-center">Estudiantes <?php echo $ciclo ?></th>
+                                                <th class="text-center">Egresados <?php echo $ciclo ?></th>
                                                 <th class="text-center">Unidades económicas</th>
-                                                <th class="text-center">Estudiantes 2023-2024</th>
+                                                <th class="text-center">Estudiantes 
+                                                        <?php if($ciclo=="2021-2022"){
+                                                            echo "2022-2023"; 
+                                                         } elseif ($ciclo=="2022-2023") {
+                                                            echo "2023-2024"; 
+                                                         } else {
+                                                            echo "2024-2025";                                          
+                                                            } ?>
+                                                       </th>
                                                 <th class="text-center">Agregar Unidad económica</th>
                                                 <th class="text-center">Consultar Unidades económicas</th>
                                           </tr>
@@ -294,6 +304,7 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
                                                 <?php if($prog['num']==0) {?>
                                                 <form action="../controller/delate_programa.php" method="POST">
                                                     <input type="hidden" class="form-control" name="id_programa" value="<?php echo $prog['id_programa'] ?>">
+                                                    <input type="hidden" class="form-control" name="ciclo" value="<?php echo $ciclo; ?>">
                                                     <button type="submit" class="btn"><img src="../img/icons/eliminar.png">
                                                 </form>
                                                     <?php } else { ?>
@@ -302,9 +313,9 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
                                                 </td>
 
                                                 <td class="text-center"><?php echo strtoupper($prog['estudiantes2023']); ?></td>
-                                                <td class="text-center"><a data-toggle="modal" data-target="#convenio" data-nombre="<?php echo $prog['dt_programa']; ?>" data-id="<?php echo $prog['id_programa']?>"><img src="../img/icons/mas.png" class=""></a> </td>
+                                                <td class="text-center"><a data-toggle="modal" data-target="#convenio" data-nombre="<?php echo $prog['dt_programa']; ?>" data-id="<?php echo $prog['id_programa']?>" data-ciclo="<?php echo $ciclo ?>"><img src="../img/icons/mas.png" class=""></a> </td>
                                                  <td class="text-center">
-                                                 <a href="unidad.php?id_programa=<?php echo base64_encode($prog['id_programa'])?>"><img src="../img/icons/lupa.png" class=""></a>
+                                                 <a href="unidad.php?id_programa=<?php echo base64_encode($prog['id_programa'])?>&ciclo=<?php echo $ciclo; ?>"><img src="../img/icons/lupa.png" class=""></a>
                                                  </td>                                        
                                               </tr> 
                                               <?php

@@ -6,6 +6,7 @@
    {  
    $id=$_POST["id"];
    $programa = $_POST["programa"];
+   $ciclo=$_POST["ciclo"];
    $unidad = isset( $_POST['nombre']) ? $_POST['nombre'] : '';
    $convn = isset( $_POST['convenio']) ? $_POST['convenio'] : '';
    $estudiante_sex_fem = isset( $_POST['estudiante_fem']) ? $_POST['estudiante_fem'] : '';
@@ -17,7 +18,7 @@
    update_unidad($id, $unidad, $convn, $estudiante_sex_fem, $estudiante_sex_mas, $docente_sex_fem, $docente_sex_mas, $egresados_f, $egresados_m);    
 ?>
 <script>
-   window.location="../view/unidad.php?id_programa=<?php echo base64_encode($programa)?>"
+   window.location="../view/unidad.php?id_programa=<?php echo base64_encode($programa)?>&ciclo=<?php echo $ciclo?>"
 </script>
 <?php
 }else{

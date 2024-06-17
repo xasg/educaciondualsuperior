@@ -9,7 +9,8 @@
       <div class="modal-body">
 			<div id="datos_ajax"></div>          
           <div class="form-group">           
-            <input type="hidden" class="form-control" id="id" name="id">
+            <input type="hidden" class="form-control" id="id" name="id" >
+            <input type="hidden" class="form-control" id="ciclo" name="ciclo" >
           </div>
 
 
@@ -33,7 +34,7 @@
 
                                     <div class="col-xl-12">
                                        <div class="form-group">
-                                          <label for="nombre">¿Cuántos estudiantes cursaron el programa educativo bajo la Modalidad de Educación Dual al cierre del ciclo escolar 2022-2023?</label>
+                                          <label for="nombre">¿Cuántos estudiantes cursaron el programa educativo bajo la Modalidad de Educación Dual al cierre del ciclo escolar <?php echo $ciclo; ?></label>
                                        </div>
                                     </div>
                                     <div class="col-xl-3">
@@ -105,10 +106,21 @@
                                    </div>
 
 
+                            <?php if($ciclo=="2021-2022" OR $ciclo=="2022-2023"){ ?>
                                    <div class="col-xl-12">
                                     <hr>
+
                                     <div class="form-group">
-                                          <label for="nombre">¿Cuántos estudiantes cursan el programa educativo bajo la Modalidad de Educación Dual en lo que va del ciclo escolar 2023-2024?</label>
+                                          <label for="nombre">¿Cuántos estudiantes cursan el programa educativo bajo la Modalidad de Educación Dual en lo que va del ciclo escolar 
+                                           
+
+
+                                          <?php if($ciclo=="2021-2022"){
+                                                            echo "2022-2023"; 
+                                                         } elseif($ciclo=="2022-2023") {
+                                                            echo "2023-2024"; 
+                                                         } ?>
+                                          </label>
                                     </div>
                                     </div>
                                     <div class="col-xl-3">
@@ -123,6 +135,10 @@
                                          <input type="number" class="form-control input-sm" name="estudiante_cursan_m"  required>
                                        </div>
                                     </div>
+                               <?php } else { } ?>       
+
+
+
                                     <div class="col-xl-12">
                                     <hr>
                                     </div>

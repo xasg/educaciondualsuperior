@@ -12,11 +12,12 @@
    $inicio = isset( $_POST['inicio']) ? $_POST['inicio'] : '';
    $periodo = isset( $_POST['periodo']) ? $_POST['periodo'] : '';
    $num_periodo = isset( $_POST['num_periodo']) ? $_POST['num_periodo'] : '';
-   crear_programa($id_ies, $id_user, $programa_edu, $otro_programa, $inicio, $num_periodo, $periodo);
+   $ciclo = isset( $_POST['ciclo']) ? $_POST['ciclo'] : '';
+   crear_programa($id_ies, $id_user, $programa_edu, $otro_programa, $inicio, $num_periodo, $periodo, $ciclo);
    
 ?>
 <script>
-   window.location="../view/programa.php"
+   window.location="../view/programa.php?ciclo=<?php echo $ciclo; ?>"
 </script>
 <?php
 }else{

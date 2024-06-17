@@ -3,6 +3,7 @@ session_start();
 require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_programa = base64_decode($_GET['id_programa']); 
+$ciclo = $_GET['ciclo']; 
 $unidad = acces_unidad($id_programa);
 $name_user = $_SESSION['name_user'];
 ?>
@@ -74,7 +75,7 @@ $name_user = $_SESSION['name_user'];
 <div class="tab-content">
 <div class="row">
 <div class="col-xl-12 font-weight-bold">
-   <h5>Detalle de unidades económicas</h5>
+   <h5>Detalle de unidades económicas</h5><?php echo $ciclo ?>
 </div>
 <div class="col-xl-12">
 <br>
@@ -105,11 +106,12 @@ $name_user = $_SESSION['name_user'];
                                                 <td class="text-center"><?php echo strtoupper($unid['dt_egresados_fem']); ?></td>
                                                 <td class="text-center"><?php echo strtoupper($unid['dt_egresados_mas']); ?></td>
                                                 <td class="text-center"><?php echo $unid['dt_beneficios']; ?></td>
-                                                <td class="text-center"><a type="button"  data-toggle="modal" data-target="#unidad" data-nombre="<?php echo $unid['dt_unidad']; ?>" data-id="<?php echo $unid['id_unidad_educativa']?>" data-programa="<?php echo $unid['id_programa_educativo'] ?>" data-convenio="<?php echo $unid['dt_convenio']?>" data-estudiante_fem="<?php echo $unid['dt_estudiante_fem']?>" data-estudiante_mas="<?php echo $unid['dt_estudiante_mas']?>" data-docente_fem="<?php echo $unid['dt_docente_fem']?>" data-docente_mas="<?php echo $unid['dt_docente_mas']?>" data-egresados_fem="<?php echo $unid['dt_egresados_fem']?>" data-egresados_mas="<?php echo $unid['dt_egresados_mas']?>"><img src="../img/icons/editar.png" class=""></a> </td>
+                                                <td class="text-center"><a type="button"  data-toggle="modal" data-target="#unidad" data-nombre="<?php echo $unid['dt_unidad']; ?>" data-id="<?php echo $unid['id_unidad_educativa']?>" data-programa="<?php echo $unid['id_programa_educativo'] ?>" data-convenio="<?php echo $unid['dt_convenio']?>" data-estudiante_fem="<?php echo $unid['dt_estudiante_fem']?>" data-estudiante_mas="<?php echo $unid['dt_estudiante_mas']?>" data-docente_fem="<?php echo $unid['dt_docente_fem']?>" data-docente_mas="<?php echo $unid['dt_docente_mas']?>" data-egresados_fem="<?php echo $unid['dt_egresados_fem']?>" data-egresados_mas="<?php echo $unid['dt_egresados_mas']?>" data-ciclo="<?php echo $ciclo ?>"><img src="../img/icons/editar.png" class=""></a> </td>
                                                 <td class="text-center">
                                                 <form action="../controller/delate_unidad.php" method="POST">
                                                     <input type="hidden" class="form-control" name="id_unidad" value="<?php echo $unid['id_unidad_educativa'] ?>">
                                                      <input type="hidden" class="form-control" name="id_programa" value="<?php echo $unid['id_programa_educativo'] ?>">
+                                                     <input type="hidden" class="form-control" name="ciclo" value="<?php echo $ciclo; ?>">
                                                     <button type="submit" class="btn"><img src="../img/icons/eliminar.png" class=""></button>
                                                 </form>
                                                 </td>
@@ -121,7 +123,7 @@ $name_user = $_SESSION['name_user'];
 
                         </table>
                         <div class="col-md-2">
-                           <a href="programa.php"><button type="submit" class="btn btn-block btn-primary">Regresar</button></a>
+                           <a href="programa.php?ciclo=<?php echo $ciclo; ?>"><button type="submit" class="btn btn-block btn-primary">Regresar</button></a>
                             <br><br>
                         </div>
 </div>

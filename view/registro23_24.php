@@ -160,7 +160,7 @@ if ($resultado->num_rows > 0)
 <div class="container"><br><br>
  <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#?" role="tab" aria-controls="home" aria-selected="true">2021-2022</a>
+         <a class="nav-link" href="registro.php" role="tab" aria-controls="profile" aria-selected="false">2021-2022</a>
        </li>
 
        <li class="nav-item">
@@ -168,7 +168,7 @@ if ($resultado->num_rows > 0)
        </li>
 
         <li class="nav-item">
-         <a class="nav-link" href="registro23_24.php"  role="tab" aria-controls="profile" aria-selected="false">203-2024</a>
+         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">2023-2024</a>
        </li>
 
         <li class="nav-item">
@@ -192,7 +192,7 @@ if ($resultado->num_rows > 0)
                                        <p><strong>Se cuenta con <strong><?php echo  $row_cnt;?></strong> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
                                     </div>
                                     <div class="col-md-3">
-                                        <a href="programa.php?ciclo=2021-2022" class="btn btn-block btn-primary" aria-disabled="true">Agregar o Editar</a>
+                                        <a href="programa.php?ciclo=2023-2024" class="btn btn-block btn-primary" aria-disabled="true">Agregar o Editar</a>
                                     </div>
                                     <div class="col-md-12"><br>
                                     <?php if($row_cnt>0){ ?>

@@ -18,12 +18,29 @@ function acces_programas($id_ies, $id_user)
 {
   global $mysqli;
   $sql = "SELECT programa_educativo.id_programa, programa_educativo.dt_programa,programa_educativo.dt_otro_programa, programa_educativo.dt_inicio,programa_educativo.dt_unidad,programa_educativo.dt_num_periodo, SUM(`dt_estudiante_fem`+`dt_estudiante_mas`) AS estudiantes,  SUM(`dt_egresados_fem`+`dt_egresados_mas`) AS egresados, SUM(`dt_estudiante_cursan_f`+`dt_estudiante_cursan_m`) AS estudiantes2023, COUNT(id_programa_educativo) AS num  FROM programa_educativo 
-LEFT JOIN unidad_educativa ON(unidad_educativa.id_programa_educativo=programa_educativo.id_programa) WHERE `id_ies`='{$id_ies}' AND inf_ciclo='2022-2023' GROUP BY `id_programa`";
+LEFT JOIN unidad_educativa ON(unidad_educativa.id_programa_educativo=programa_educativo.id_programa) WHERE `id_ies`='{$id_ies}' AND inf_ciclo='2021-2022' GROUP BY `id_programa`";
   return $mysqli->query($sql);  
   return $result->fetch_assoc();
 }
 
 
+function acces_programas22_23($id_ies, $id_user)
+{
+  global $mysqli;
+  $sql = "SELECT programa_educativo.id_programa, programa_educativo.dt_programa,programa_educativo.dt_otro_programa, programa_educativo.dt_inicio,programa_educativo.dt_unidad,programa_educativo.dt_num_periodo, SUM(`dt_estudiante_fem`+`dt_estudiante_mas`) AS estudiantes,  SUM(`dt_egresados_fem`+`dt_egresados_mas`) AS egresados, SUM(`dt_estudiante_cursan_f`+`dt_estudiante_cursan_m`) AS estudiantes2023, COUNT(id_programa_educativo) AS num  FROM programa_educativo 
+LEFT JOIN unidad_educativa ON(unidad_educativa.id_programa_educativo=programa_educativo.id_programa) WHERE `id_ies`='{$id_ies}' AND inf_ciclo='2022-2023' GROUP BY `id_programa`";
+  return $mysqli->query($sql);  
+  return $result->fetch_assoc();
+}
+
+function acces_programas23_24($id_ies, $id_user)
+{
+  global $mysqli;
+  $sql = "SELECT programa_educativo.id_programa, programa_educativo.dt_programa,programa_educativo.dt_otro_programa, programa_educativo.dt_inicio,programa_educativo.dt_unidad,programa_educativo.dt_num_periodo, SUM(`dt_estudiante_fem`+`dt_estudiante_mas`) AS estudiantes,  SUM(`dt_egresados_fem`+`dt_egresados_mas`) AS egresados, SUM(`dt_estudiante_cursan_f`+`dt_estudiante_cursan_m`) AS estudiantes2023, COUNT(id_programa_educativo) AS num  FROM programa_educativo 
+LEFT JOIN unidad_educativa ON(unidad_educativa.id_programa_educativo=programa_educativo.id_programa) WHERE `id_ies`='{$id_ies}' AND inf_ciclo='2023-2024' GROUP BY `id_programa`";
+  return $mysqli->query($sql);  
+  return $result->fetch_assoc();
+}
 
 function acces_unidad($id_programa)
 {
@@ -180,10 +197,10 @@ $mysqli->query($sql);
 }
 
 
-function  crear_programa($id_ies, $id_user, $programa_edu, $otro_programa, $inicio, $num_periodo, $periodo)
+function  crear_programa($id_ies, $id_user, $programa_edu, $otro_programa, $inicio, $num_periodo, $periodo, $ciclo)
 {
 global $mysqli;
-$sql="INSERT INTO programa_educativo(id_programa, id_ies, id_usuario, dt_programa, dt_otro_programa, dt_inicio, dt_num_periodo, dt_unidad) VALUES (null, '{$id_ies}', '{$id_user}', '{$programa_edu}', '{$otro_programa}', '{$inicio}', '{$num_periodo}', '{$periodo}')";
+$sql="INSERT INTO programa_educativo(id_programa, id_ies, id_usuario, dt_programa, dt_otro_programa, dt_inicio, dt_num_periodo, dt_unidad, inf_ciclo) VALUES (null, '{$id_ies}', '{$id_user}', '{$programa_edu}', '{$otro_programa}', '{$inicio}', '{$num_periodo}', '{$periodo}', '{$ciclo}')";
 $mysqli->query($sql);
 }
 

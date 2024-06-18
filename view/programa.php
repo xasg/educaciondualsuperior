@@ -12,7 +12,7 @@ $name_user=$_SESSION["name_user"];
 $id_user = $_SESSION["id_user"];
 $nivel_estudios = acces_nivel_estudios($id_ies);
 $programa_educativo = acces_programa_educativo($id_ies);
-$programa = acces_programas($id_ies, $id_user);
+$programa = acces_programas($id_ies, $id_user, $ciclo);
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
           WHERE id_ies = '{$id_ies}'")) {
     /* determinar el número de filas del resultado */
@@ -326,7 +326,7 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
                                       </table>
 
                                       <div class="col-md-2">
-                                        <a href="registro.php"><button type="submit" class="btn btn-block btn-primary">Salir</button></a>
+                                        <a href="registro.php?ciclo=2021-2022"><button type="submit" class="btn btn-block btn-primary">Salir</button></a>
                                      <br><br>
                                      </div>
 </div>

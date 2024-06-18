@@ -4,14 +4,15 @@ if($_SESSION['id_ies']== null){
     header("Location:formulario.php");
 }
 require_once('../model/databases.php');
+$ciclo = $_GET['ciclo'];
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
 $id_user = $_SESSION["id_user"];
-$programa = acces_programas($id_ies, $id_user);
+$programa = acces_programas($id_ies, $id_user, $ciclo);
 
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
-          WHERE id_ies = '{$id_ies}' AND inf_ciclo='2021-2022' AND `id_usuario`='{$id_user}'")) {
+          WHERE id_ies = '{$id_ies}' AND inf_ciclo='{$ciclo}' AND `id_usuario`='{$id_user}'")) {
     /* determinar el número de filas del resultado */
     $row_cnt = $result->num_rows;
 }
@@ -160,15 +161,15 @@ if ($resultado->num_rows > 0)
 <div class="container"><br><br>
  <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-         <a class="nav-link" href="registro.php"  role="tab" aria-controls="profile" aria-selected="false">2021-2022</a>
+         <a class="nav-link" href="registro.php?ciclo=2021-2022"  role="tab" aria-controls="profile" aria-selected="false">2021-2022</a>
        </li>
 
        <li class="nav-item">
-         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">2022-2023</a>
+         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#?ciclo=2022-2023" role="tab" aria-controls="home" aria-selected="true">2022-2023</a>
        </li>
 
         <li class="nav-item">
-         <a class="nav-link" href="registro23_24.php"  role="tab" aria-controls="profile" aria-selected="false">2023-2024</a>
+         <a class="nav-link" href="registro23_24.php?ciclo=2023-2024"  role="tab" aria-controls="profile" aria-selected="false">2023-2024</a>
        </li>
 
         <li class="nav-item">
@@ -187,7 +188,7 @@ if ($resultado->num_rows > 0)
 <div class="row">
                             <span class="border"><br><br>
                                     <div class="col-xl-12">
-                                       <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar 2021-2022</p>
+                                       <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar <?php echo $ciclo; ?></p>
                                        <p>Agradecemos el apoyo en el llenado, ya que el mismo servirá para mostrar la oferta educativa a nivel nacional, incluyendo a su IES con los programas aquí registrados.</p>
                                        <p><strong>Se cuenta con <strong><?php echo  $row_cnt;?></strong> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
                                     </div>

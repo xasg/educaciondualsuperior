@@ -19,7 +19,7 @@ if($_POST)
 				<?php } elseif($user['dt_tipo']==1) { ?>
 					window.location="../view/admin.php"				
 				<?php } elseif($user['dt_tipo']==2) { ?>
-					window.location="../view/registro.php"				
+					window.location="../view/registro.php?ciclo=2021-2022"				
 				<?php } ?> 
 				</script>
 <?php

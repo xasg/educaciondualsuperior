@@ -14,11 +14,11 @@ function view_entidad()
 
 
 
-function acces_programas($id_ies, $id_user)
+function acces_programas($id_ies, $id_user, $ciclo)
 {
   global $mysqli;
   $sql = "SELECT programa_educativo.id_programa, programa_educativo.dt_programa,programa_educativo.dt_otro_programa, programa_educativo.dt_inicio,programa_educativo.dt_unidad,programa_educativo.dt_num_periodo, SUM(`dt_estudiante_fem`+`dt_estudiante_mas`) AS estudiantes,  SUM(`dt_egresados_fem`+`dt_egresados_mas`) AS egresados, SUM(`dt_estudiante_cursan_f`+`dt_estudiante_cursan_m`) AS estudiantes2023, COUNT(id_programa_educativo) AS num  FROM programa_educativo 
-LEFT JOIN unidad_educativa ON(unidad_educativa.id_programa_educativo=programa_educativo.id_programa) WHERE `id_ies`='{$id_ies}' AND inf_ciclo='2021-2022' GROUP BY `id_programa`";
+LEFT JOIN unidad_educativa ON(unidad_educativa.id_programa_educativo=programa_educativo.id_programa) WHERE `id_ies`='{$id_ies}' AND inf_ciclo='{$ciclo}' GROUP BY `id_programa`";
   return $mysqli->query($sql);  
   return $result->fetch_assoc();
 }

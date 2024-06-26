@@ -113,26 +113,8 @@ WHERE responsable.id_ies =  '{$id_ies}'";
 function acces_responsables()
 {
   global $mysqli;
-  //  esta nconsulta es  original de PROD, pero se va a cambiar por la de dev
-  /*
-  $sql = "SELECT nombre_entidad,dt_nombre_ies,dt_correo, COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
-  COUNT(unidad_educativa.id_programa_educativo) as unidad_economica,
-  SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes_2021_2022,
-  SUM(unidad_educativa.dt_egresados_fem + unidad_educativa.dt_egresados_mas) as egresados,
-  SUM(unidad_educativa.dt_estudiante_cursan_f + unidad_educativa.dt_estudiante_cursan_m) as estudiantes_2022_2023
-  FROM usuarios
-  LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
-  LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
-  LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
-  LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
-  LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
-  where usuarios.dt_tipo=2 
-  GROUP BY dt_correo ORDER BY nombre_entidad ASC";
-  */
-  
-  // esta consulta es la que se ocupa en la rama de dev
  $sql = "SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
-  COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
+   COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
    COUNT(unidad_educativa.id_programa_educativo) as unidad_economica,
    SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes_2021_2022,
    SUM(unidad_educativa.dt_egresados_fem + unidad_educativa.dt_egresados_mas) as egresados,
@@ -144,16 +126,160 @@ function acces_responsables()
    LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
    LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
    LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
-   where usuarios.dt_tipo=2 
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL  
    GROUP BY dt_correo ORDER BY nombre_entidad ASC";
-//   $sql = "SELECT dt_nombre_ies, dt_nom_responsable, dt_correo, dt_cargo,dt_telefono,dt_celular FROM usuarios
-// LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
-// LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
-// where usuarios.dt_tipo=2";
-  // $result = $mysqli->query($sql); 
-  return $mysqli->query($sql);  
-  // return $result->fetch_assoc();
+  return $mysqli->query($sql); 
 }
+
+
+function acces_report_21()
+{
+  global $mysqli;
+ $sql = "SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
+   COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
+   COUNT(unidad_educativa.id_programa_educativo) as unidad_economica,
+   SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes_2021_2022,
+   SUM(unidad_educativa.dt_egresados_fem + unidad_educativa.dt_egresados_mas) as egresados,
+   SUM(unidad_educativa.dt_estudiante_cursan_f + unidad_educativa.dt_estudiante_cursan_m) as estudiantes_2022_2023
+   FROM usuarios
+   LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
+   LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
+   LEFT JOIN cat_subsistema ON(cat_subsistema.id_cat_subsistema = cat_ies.id_cat_subsistema)
+   LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
+   LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
+   LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL  AND inf_ciclo='2021-2022'
+   GROUP BY dt_correo ORDER BY nombre_entidad ASC";
+  return $mysqli->query($sql); 
+}
+
+
+
+function acces_report_22()
+{
+  global $mysqli;
+ $sql = "SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
+   COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
+   COUNT(unidad_educativa.id_programa_educativo) as unidad_economica,
+   SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes_2021_2022,
+   SUM(unidad_educativa.dt_egresados_fem + unidad_educativa.dt_egresados_mas) as egresados,
+   SUM(unidad_educativa.dt_estudiante_cursan_f + unidad_educativa.dt_estudiante_cursan_m) as estudiantes_2022_2023
+   FROM usuarios
+   LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
+   LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
+   LEFT JOIN cat_subsistema ON(cat_subsistema.id_cat_subsistema = cat_ies.id_cat_subsistema)
+   LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
+   LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
+   LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL AND inf_ciclo='2022-2023' 
+   GROUP BY dt_correo ORDER BY nombre_entidad ASC";
+  return $mysqli->query($sql); 
+}
+
+function acces_report_23()
+{
+  global $mysqli;
+ $sql = "SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
+   COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
+   COUNT(unidad_educativa.id_programa_educativo) as unidad_economica,
+   SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes_2021_2022,
+   SUM(unidad_educativa.dt_egresados_fem + unidad_educativa.dt_egresados_mas) as egresados,
+   SUM(unidad_educativa.dt_estudiante_cursan_f + unidad_educativa.dt_estudiante_cursan_m) as estudiantes_2022_2023
+   FROM usuarios
+   LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
+   LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
+   LEFT JOIN cat_subsistema ON(cat_subsistema.id_cat_subsistema = cat_ies.id_cat_subsistema)
+   LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
+   LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
+   LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL  AND inf_ciclo='2023-2024'
+   GROUP BY dt_correo ORDER BY nombre_entidad ASC";
+  return $mysqli->query($sql); 
+}
+
+
+
+function rep_ies()
+{
+  global $mysqli;
+ $sql = "SELECT COUNT(DISTINCT dt_nombre_ies) AS ies
+   FROM usuarios
+   LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
+   LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
+   LEFT JOIN cat_subsistema ON(cat_subsistema.id_cat_subsistema = cat_ies.id_cat_subsistema)
+   LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
+   LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
+   LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL";
+  $result = $mysqli->query($sql);
+  return $result->fetch_assoc();
+}
+
+
+function rep_programas()
+{
+  global $mysqli;
+ $sql = "SELECT COUNT(DISTINCT programa_educativo.id_programa) as programas
+   FROM usuarios
+   LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
+   LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
+   LEFT JOIN cat_subsistema ON(cat_subsistema.id_cat_subsistema = cat_ies.id_cat_subsistema)
+   LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
+   LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
+   LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL";
+  $result = $mysqli->query($sql);
+  return $result->fetch_assoc();
+}
+
+function rep_estudiantes()
+{
+  global $mysqli;
+ $sql = "SELECT SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes
+   FROM usuarios
+   LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
+   LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
+   LEFT JOIN cat_subsistema ON(cat_subsistema.id_cat_subsistema = cat_ies.id_cat_subsistema)
+   LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
+   LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
+   LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL";
+  $result = $mysqli->query($sql);
+  return $result->fetch_assoc(); 
+}
+
+function rep_egresados()
+{
+  global $mysqli;
+ $sql = "SELECT SUM(unidad_educativa.dt_egresados_fem + unidad_educativa.dt_egresados_mas) as egresados
+   FROM usuarios
+   LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
+   LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
+   LEFT JOIN cat_subsistema ON(cat_subsistema.id_cat_subsistema = cat_ies.id_cat_subsistema)
+   LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
+   LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
+   LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL";
+  $result = $mysqli->query($sql);
+  return $result->fetch_assoc();
+}
+
+function rep_unidad()
+{
+  global $mysqli;
+ $sql = "SELECT COUNT(unidad_educativa.id_programa_educativo) as unidad
+   FROM usuarios
+   LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
+   LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
+   LEFT JOIN cat_subsistema ON(cat_subsistema.id_cat_subsistema = cat_ies.id_cat_subsistema)
+   LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
+   LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
+   LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL";
+  $result = $mysqli->query($sql);
+  return $result->fetch_assoc();
+}
+
 function acces_info_ies($id_ies, $id_user)
 {
   global $mysqli;
@@ -162,12 +288,7 @@ function acces_info_ies($id_ies, $id_user)
    return $result->fetch_assoc();
 }
 
-
-
-
 /** Insert **/
-
-
 
 function crear_usuario($ies, $correo, $password, $est)
 {
@@ -177,7 +298,6 @@ $mysqli->query($sql);
 }
 
 
-
 function  crear_responsable($id_user, $entidad, $ies, $nombre_responsable, $cargo, $telefono, $celular)
 {
 global $mysqli;
@@ -185,7 +305,6 @@ $sql="INSERT INTO responsable(id_responsable, id_usuario, dt_entidad, id_ies,  d
        VALUES (null, '{$id_user}', '{$entidad}' , '{$ies}',  '{$nombre_responsable}', '{$cargo}', '{$telefono}', '{$celular}')";
 $mysqli->query($sql);
 }
-
 
 
 function  crear_info_ies($ies,$id_user,$correo,$telefono)

@@ -17,7 +17,7 @@ if($_POST)
 				<?php if($user['dt_tipo']==NULL) { ?>
 					window.location="../"
 				<?php } elseif($user['dt_tipo']==1) { ?>
-					window.location="../view/admin.php"				
+					window.location="../view/report_21_22.php"				
 				<?php } elseif($user['dt_tipo']==2) { ?>
 					window.location="../view/registro.php?ciclo=2021-2022"				
 				<?php } ?> 

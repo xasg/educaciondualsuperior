@@ -169,7 +169,7 @@ if ($resultado->num_rows > 0)
        </li>
 
         <li class="nav-item">
-         <a class="nav-link" href="registro23_24.php?ciclo=203-2024"  role="tab" aria-controls="profile" aria-selected="false">2023-2024</a>
+         <a class="nav-link" href="registro23_24.php?ciclo=2023-2024"  role="tab" aria-controls="profile" aria-selected="false">2023-2024</a>
        </li>
 
         <li class="nav-item">

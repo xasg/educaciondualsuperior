@@ -276,7 +276,7 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
                                                          } elseif ($ciclo=="2022-2023") {
                                                             echo "2023-2024"; 
                                                          } else {
-                                                            echo "2024-2025";                                          
+                                                                                                    
                                                             } ?>
                                                        </th>
                                                 <th class="text-center">Agregar Unidad económica</th>

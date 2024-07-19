@@ -105,8 +105,9 @@
                                         </div>
                                    </div>
 
+<!--
 
-                            <?php if($ciclo=="2021-2022" OR $ciclo=="2022-2023"){ ?>
+                         <?php // if($ciclo=="2021-2022" OR $ciclo=="2022-2023"){ ?>
                                    <div class="col-xl-12">
                                     <hr>
 
@@ -115,11 +116,11 @@
                                            
 
 
-                                          <?php if($ciclo=="2021-2022"){
+                                          <?php/** if($ciclo=="2021-2022"){
                                                             echo "2022-2023"; 
                                                          } elseif($ciclo=="2022-2023") {
                                                             echo "2023-2024"; 
-                                                         } ?>
+                                                         } **/?>
                                           </label>
                                     </div>
                                     </div>
@@ -135,9 +136,9 @@
                                          <input type="number" class="form-control input-sm" name="estudiante_cursan_m"  required>
                                        </div>
                                     </div>
-                               <?php } else { } ?>       
+                               <?php// } else { } ?>       
 
-
+-->
 
                                     <div class="col-xl-12">
                                     <hr>

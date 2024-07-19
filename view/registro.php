@@ -242,64 +242,6 @@ if ($resultado->num_rows > 0)
                                      </div>                                     
                             </span><br>
 </div>
-
-<!------------------------------------------------------------------------------------------------------------------->
-<?php           
-                
-                //echo "<strong><p>El status del usuario es ".$estatus_Usuario."</p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular                    
-                if ( ($cont == 0)  && ($estatus_Usuario != 2))
-                {
-                    echo "<strong><p>El usuario NO tiene ningun Programa educativo </p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular  
-                    echo "
-                    <div class = 'col-md-5'>
-                      <form method='POST' action='mensaje_tp_status.php'>
-                      <input type='text' id='usuario' name='usuario' value='$id_user' readonly hidden='true'>
-                      <input type='text' id='contador' name='contador' value='$cont' readonly hidden='true''>                    
-                      <input type='button' class='btn btn-block btn-primary' onclick='confirmarEnvio();' value='Finalizar la carga sin Programas Educativos'>
-                      </form>
-                    </div>";
-                }
-                else if  ($estatus_Usuario == 2)
-                {
-                    echo    "<lu>
-                                <li class = 'lista'>El usuario tiene ". $cont . " Programa Educativo inscrito y  concluyo el proceso de carga de programas educativos.</li>
-                                <li class = 'lista'>Si desea seguir agregando mas Programas educativos de clic en el Boton de \"Agregar y Editar\".</li>
-                            </lu>";
-                    //echo "<strong><p>El usuario tiene ". $cont . " Programa Educativo inscrito y  concluyo el proceso de carga de programas educativos.</p></strong>"; // si tiene el tp status 2 despliega un mensaje que ya se finalizada la carga de Prgramas Educativos
-                }
-                else if($estatus_Usuario == 1)
-                { 
-                  if (($cont  == 1 ))
-                    {
-                      echo "<strong><p>El usuario tiene ". $cont . " Programa Educativo inscrito</p></strong>"; // si tiene un solo programa educativo despliega el mensaje em singular  
-                     
-                    }
-                    else
-                    {
-                      echo "<strong><p>El usuario tiene ". $cont . " Programas Educativos inscritos </p></strong>"; // si tiene mas de un prgrama educativo despliega un mensaje en plural
-                    } 
-                    //echo "<strong><p>El status del usuario es ".$estatus_Usuario; // si tiene un solo programa educativo despliega el mensaje em singular                    
-                    echo "
-                    <div class = 'col-md-5'>
-                      <form method='POST' action='mensaje_tp_status.php'>
-                      <input type='text' id='usuario' name='usuario' value='$id_user' readonly hidden='true'>
-                      <input type='text' id='contador' name='contador' value='$cont' readonly hidden='true''>                    
-                      <input type='button' class='btn btn-block btn-primary' onclick='confirmarEnvio();' value='Finalizar la carga de Programas Educativos'>
-                      </form>
-                    </div>";
-                }
-                  //}                
-                /*else
-                {
-                  echo "<strong><p>El status del usuario es ".$estatus_Usuario.". Ya termino su carga de Programas Educativos"; // si tiene un solo programa educativo despliega el mensaje em singular  
-                  echo "<strong><p>El usuario tiene ". $cont . " Programas Educativos inscritos </p></strong>"; // si tiene mas de un prgrama educativo despliega un mensaje en plural
-                }*/
-
-                  
-                
-  ?>
-<!--------------------------------------------------------------------------------------------------------------->
-
 </div>
 <!-- /Tab1 -->
 

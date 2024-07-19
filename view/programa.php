@@ -270,15 +270,16 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
                                                 <th class="text-center">Estudiantes <?php echo $ciclo ?></th>
                                                 <th class="text-center">Egresados <?php echo $ciclo ?></th>
                                                 <th class="text-center">Unidades económicas</th>
-                                                <th class="text-center">Estudiantes 
-                                                        <?php if($ciclo=="2021-2022"){
+                                                <!--<th class="text-center">Estudiantes 
+                                                        <?php /**if($ciclo=="2021-2022"){
                                                             echo "2022-2023"; 
                                                          } elseif ($ciclo=="2022-2023") {
                                                             echo "2023-2024"; 
                                                          } else {
                                                                                                     
-                                                            } ?>
-                                                       </th>
+                                                            } **/?>
+                                                </th>
+                                            -->
                                                 <th class="text-center">Agregar Unidad económica</th>
                                                 <th class="text-center">Consultar Unidades económicas</th>
                                           </tr>
@@ -312,7 +313,7 @@ else if(($estatus_Usuario == 2) && ($cont == 0))  // si tu estatus es 0 y tienes
                                                     <?php }?>
                                                 </td>
 
-                                                <td class="text-center"><?php echo strtoupper($prog['estudiantes2023']); ?></td>
+                                               <!-- <td class="text-center"><?php //echo strtoupper($prog['estudiantes2023']); ?></td>-->
                                                 <td class="text-center"><a data-toggle="modal" data-target="#convenio" data-nombre="<?php echo $prog['dt_programa']; ?>" data-id="<?php echo $prog['id_programa']?>" data-ciclo="<?php echo $ciclo ?>"><img src="../img/icons/mas.png" class=""></a> </td>
                                                  <td class="text-center">
                                                  <a href="unidad.php?id_programa=<?php echo base64_encode($prog['id_programa'])?>&ciclo=<?php echo $ciclo; ?>"><img src="../img/icons/lupa.png" class=""></a>

@@ -9,6 +9,7 @@ mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
 $id_user = $_SESSION["id_user"];
+$ciclo_estatus = 2021;
 $programa = acces_programas($id_ies, $id_user, $ciclo);
 
 if ($result = $mysqli->query("SELECT * FROM programa_educativo 
@@ -34,7 +35,7 @@ if ($resultado->num_rows > 0)
     $row = $resultado->fetch_assoc();
     
     // Guardar el valor de la columna "tp_status" en la variable $tp_status
-    $estatus_Usuario = $row["tp_status"];
+    $estatus_2021 = $row["tp_estatus_2021"];
     
     
    // echo "El valor de tp_status es: " . $estatus_Usuario;
@@ -178,8 +179,6 @@ if ($resultado->num_rows > 0)
      </ul>
      <br><br>
 </div>
-
-
 <div class="container">
 <div class="tab-content">
 
@@ -187,14 +186,73 @@ if ($resultado->num_rows > 0)
 <div class="tab-pane active" id="pane1" role="tabpanel" aria-labelledby="home-tab">
 <div class="row">
                             <span class="border"><br><br>
-                                    <div class="col-xl-12">
+                                    <div class="col-md-12">
                                        <p>A continuación se muestran los programas educativos registrados en su institución educativa, en la modalidad Educación Dual al cierre del ciclo escolar <?php echo $ciclo; ?></p>
                                        <p>Agradecemos el apoyo en el llenado, ya que el mismo servirá para mostrar la oferta educativa a nivel nacional, incluyendo a su IES con los programas aquí registrados.</p>
                                        <p><strong>Se cuenta con <strong><?php echo  $row_cnt;?></strong> programas educativos registrados.</strong></p><?php //echo $id_ies; ?>
                                     </div>
-                                    <div class="col-md-3">
-                                        <a href="programa.php?ciclo=2021-2022" class="btn btn-block btn-primary" aria-disabled="true">Agregar o Editar</a>
+
+
+ <!--Finalizar la carga de Programas Educativos -->
+
+                            <?php   if( $estatus_2021==0){ ?>
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                          <a href="programa.php?ciclo=2021-2022" class="btn btn-block btn-primary" aria-disabled="true">Agregar o Editar</a>
+                                        </div>
+                                        <?php   if( $row_cnt>=1){ ?>
+                                        <div class="col-md-4">
+                                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                          Finalizar la carga de Programas Educativos
+                                         </button>
+                                        </div>
+                                        <?php } ?>
                                     </div>
+</div>
+                             <?php   } else { ?>
+                                     <div class="row">
+                                      <div class="col-md-6">
+                                        <div class="alert alert-danger">
+                                          <strong>Se ha Finalizado la carga de los Programas</strong> 
+                                        </div>
+                                      </div>
+                                     </div>
+                             <?php   } ?>
+
+                                    <!-- The Modal -->
+                                    <div class="modal" id="myModal">
+                                      <div class="modal-dialog modal-lg">
+                                        <div class="modal-content">
+
+                                          <!-- Modal Header -->
+                                          <div class="modal-header">        
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                          </div>
+
+                                          <!-- Modal body -->
+                                          <div class="modal-body">
+                                           <h4> ¿Estas seguro de Terminar la carga de los Programas Educativos?</h4>
+                                           <br>
+                                           <div class="row">
+                                            <div class="col-md-3">
+                                            </div>
+                                           <div class="col-md-3">
+                                           <form method='POST' action='mensaje_tp_status.php'>
+                                                <input type='text' id='ciclo' name='ciclo' value='<?php echo $ciclo_estatus; ?>' readonly hidden='true'>
+                                                 <input type='text' id='usuario' name='usuario' value='<?php echo $id_user; ?>' readonly hidden='true'>
+                                                 <button type="submit" class="btn btn-block btn-primary">SI</button> 
+                                                </form><br>
+                                            </div>
+                                            <div class="col-md-3">
+                                                <button type="button" class="btn btn-block btn-primary" data-dismiss="modal">NO</button><br>
+                                            </div> 
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    </div>
+ <!--Finalizar la carga de Programas Educativos --> 
+
                                     <div class="col-md-12"><br>
                                     <?php if($row_cnt>0){ ?>
                                     <table id="example" class="table table-striped table-bordered" style="width:100%">
@@ -237,7 +295,6 @@ if ($resultado->num_rows > 0)
                                       </table>
                                     <br>
                                   <?php } ?>
-
 
                                      </div>                                     
                             </span><br>

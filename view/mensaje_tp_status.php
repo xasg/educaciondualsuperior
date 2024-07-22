@@ -1,41 +1,34 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Procesamiento del formulario en PHP</title>
-</head>
-<body>
-    <!--<h2>Datos enviados desde el formulario</h2>-->
-    <?php
-    // Verificar si se enviaron los datos del formulario
-    session_start();    
-    require_once('../model/databases.php');
-    mysqli_set_charset( $mysqli, 'utf8');
-
-
-    if ($_SERVER["REQUEST_METHOD"] === "POST") 
-    {
-        $usuario = $_POST["usuario"];
-        $contador = $_POST["contador"];
-       // echo "Id: " . $usuario . "<br>";        
-        //echo "Programas educativos: " . $contador . "<br>";
-        
-        
-       if ($sqlProgramaUsuario = $mysqli->query
-            ("UPDATE educacion_dual.usuarios
-            SET `tp_status_2022-2023` = 2            
-            where id_usuario = '$usuario'"))
-        {
-            //echo "su status ahora es de 2";
-            echo '<script type="text/javascript">
-                    alert("Se ha guardado su progreso");
-                </script>';
-        }
-    }    
+<?php
+    include_once('../model/databases.php');
+   mysqli_set_charset( $mysqli, 'utf8');
+   session_start();   
+   if( $_POST && $_POST['ciclo']==2021)
+   {     
+   $usuario = isset( $_POST['usuario']) ? $_POST['usuario'] : '';
+   update_estatus_usuario($usuario);
     ?>
+        <script>
+            window.location.replace("registro.php?ciclo=2021-2022");
+        </script>
+    <?php
 
-<script language="javascript">
-        window.location.replace("registro.php");
-</script>
+    } elseif ( $_POST && $_POST['ciclo']==2022) {
+         $usuario = isset( $_POST['usuario']) ? $_POST['usuario'] : '';
+         update_estatus_usuario2022($usuario);
+    ?>
+        <script>
+            window.location.replace("registro22_23.php?ciclo=2022-2023");
+        </script>
+    <?php     
+    } elseif ($_POST && $_POST['ciclo']==2023) {
+        $usuario = isset( $_POST['usuario']) ? $_POST['usuario'] : '';
+        update_estatus_usuario2023($usuario);
 
-</body>
-</html>
+    ?>
+        <script>
+            window.location.replace("registro23_24.php?ciclo=2023-2024");
+        </script>
+
+    <?php
+    }
+    ?>

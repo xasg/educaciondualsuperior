@@ -355,6 +355,33 @@ function update_ies($id_ies, $id_user, $correo, $tel, $ext, $direccion, $localid
 
 
 
+function update_estatus_usuario($usuario)
+{
+  global $mysqli;
+  $sql = "UPDATE usuarios SET  tp_estatus_2021 = 1  WHERE id_usuario ='{$usuario}'";
+  $mysqli->query($sql); 
+
+}
+
+
+function update_estatus_usuario2022($usuario)
+{
+  global $mysqli;
+  $sql = "UPDATE usuarios SET  tp_estatus_2022= 1  WHERE id_usuario ='{$usuario}'";
+  $mysqli->query($sql); 
+
+}
+
+
+function update_estatus_usuario2023($usuario)
+{
+  global $mysqli;
+  $sql = "UPDATE usuarios SET  tp_estatus_2023= 1  WHERE id_usuario ='{$usuario}'";
+  $mysqli->query($sql); 
+
+}
+
+
 function delate_unidad($id_unidad)
 {
 global $mysqli;

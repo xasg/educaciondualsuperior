@@ -189,7 +189,7 @@
     <div class="col-md-3 text-center">
       <div class="service-box mt-5 mx-auto">
        <img src="img/icons/1.png" class="">
-       <h3 class="counter tipo">1,272</h3>
+       <h3 class="counter tipo">300</h3>
        <p><strong>IES con programas </strong></p>
      </div>
    </div>

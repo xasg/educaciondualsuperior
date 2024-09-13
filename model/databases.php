@@ -151,6 +151,7 @@ function acces_report_21()
    where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL  AND inf_ciclo='2021-2022'
    GROUP BY dt_correo ORDER BY nombre_entidad ASC";
   return $mysqli->query($sql); 
+  return $result->fetch_assoc();
 }
 
 

@@ -135,7 +135,7 @@ function acces_responsables()
 function acces_report_21()
 {
   global $mysqli;
- $sql = 'SELECT * FROM cat_entidad'
+ $sql = 'SELECT * FROM cat_entidad';
   return $mysqli->query($sql); 
   return $result->fetch_assoc();
 }

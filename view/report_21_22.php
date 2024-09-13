@@ -9,7 +9,7 @@ mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
 $responsable = acces_report_21();
-
+**/
 $rep_ies = rep_ies();
 $ies=$rep_ies['ies'];
 $rep_programas = rep_programas();
@@ -19,7 +19,7 @@ $estudiantes=$rep_estudiantes['estudiantes'];
 $rep_egresados = rep_egresados();
 $egresados=$rep_egresados['egresados'];
 $rep_unidad = rep_unidad();
-$unidad=$rep_unidad['unidad'];**/
+$unidad=$rep_unidad['unidad'];
 ?> 
  <!DOCTYPE html>
 <html lang="es">
@@ -92,7 +92,7 @@ $unidad=$rep_unidad['unidad'];**/
 <div class="container col-md-auto justify-content-center">
 <div class="container">
 
-<!--
+
 <table class="table">
   <thead class="thead-dark">
     <tr class="text-center">
@@ -105,15 +105,15 @@ $unidad=$rep_unidad['unidad'];**/
   </thead>
   <tbody>
     <tr class="text-center">
-      <th scope="row"><?php //echo $ies; ?></th>
-      <th scope="row"><?php //echo $programas; ?></th>
-      <th scope="row"><?php //echo $estudiantes; ?></th>
-      <th scope="row"><?php //echo $egresados; ?></th>
-      <th scope="row"><?php //echo $unidad; ?></th>
+      <th scope="row"><?php echo $ies; ?></th>
+      <th scope="row"><?php echo $programas; ?></th>
+      <th scope="row"><?php echo $estudiantes; ?></th>
+      <th scope="row"><?php echo $egresados; ?></th>
+      <th scope="row"><?php echo $unidad; ?></th>
     </tr>   
   </tbody>
 </table>
--->
+
 
 
 </div><br>

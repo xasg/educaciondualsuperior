@@ -149,7 +149,7 @@ function acces_report_21()
    LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
    LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
    where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL  
-   GROUP BY dt_correo ORDER BY nombre_entidad ASC'
+   GROUP BY dt_correo ORDER BY nombre_entidad ASC';
   return $mysqli->query($sql); 
   return $result->fetch_assoc();
 }

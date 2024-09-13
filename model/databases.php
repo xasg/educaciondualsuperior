@@ -135,7 +135,7 @@ function acces_responsables()
 function acces_report_21()
 {
   global $mysqli;
- $sql = 'SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
+ $sql = "SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
    COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
    COUNT(unidad_educativa.id_programa_educativo) as unidad_economica,
    SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes_2021_2022,
@@ -148,8 +148,8 @@ function acces_report_21()
    LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
    LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
    LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
-   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL  
-   GROUP BY dt_correo ORDER BY nombre_entidad ASC';
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL  AND inf_ciclo='2021-2022'
+   GROUP BY dt_correo ORDER BY nombre_entidad ASC";
   return $mysqli->query($sql); 
   return $result->fetch_assoc();
 }

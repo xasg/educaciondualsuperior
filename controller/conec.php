@@ -1,8 +1,4 @@
-
-
 <?php
-
-
 $servername = "localhost";
 $dbname = "educacion_dual";
 $username = "fese";

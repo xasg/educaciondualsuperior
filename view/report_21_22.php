@@ -5,12 +5,9 @@ if($_SESSION['id_ies']== null){
 }
 require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
-$id_ies=$_SESSION["id_ies"];
+/**$id_ies=$_SESSION["id_ies"];**/
 $name_user=$_SESSION["name_user"];
-/**
-
 $responsable = acces_report_21();
-**/
 $rep_ies = rep_ies();
 $ies=$rep_ies['ies'];
 $rep_programas = rep_programas();

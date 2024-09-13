@@ -144,7 +144,7 @@ $unidad=$rep_unidad['unidad'];
 <br><br>
 </form>
 
-<!--
+
         <table id="example" class="table  table-striped table-bordered table-sm" style="width:100%">
                                         <thead class="thead-dark">
                                           <tr>  
@@ -162,20 +162,20 @@ $unidad=$rep_unidad['unidad'];
                                             <tbody>      
                                               <?php
                                               
-                                              //$counter = 1;
-                                              //while($resp = $responsable->fetch_assoc())
+                                              $counter = 1;
+                                              while($resp = $responsable->fetch_assoc())
                                               {
                                               ?>
                                               <tr>
                                                 <td class="text-center"><?php //echo $counter++ ?></td>
-                                                <td><?php //echo strtoupper($resp['nombre_entidad']);?></td>
-                                                <td><?php //echo strtoupper($resp['dt_nombre_ies']);?></td>
-                                                <td><?php //echo strtoupper($resp['dt_nombre_subsistema']);?></td>
-                                                <td><?php //echo strtoupper($resp['dt_correo']);?></td>
-                                                <td><?php //echo strtoupper($resp['programas_educativos']);?></td>
-                                                <td><?php //echo strtoupper($resp['unidad_economica']);?></td>
-                                                <td><?php //echo strtoupper($resp['estudiantes_2021_2022']);?></td>
-                                                <td><?php //echo strtoupper($resp['egresados']);?></td>
+                                                <td><?php echo strtoupper($resp['nombre_entidad']);?></td>
+                                                <td><?php echo strtoupper($resp['dt_nombre_ies']);?></td>
+                                                <td><?php echo strtoupper($resp['dt_nombre_subsistema']);?></td>
+                                                <td><?php echo strtoupper($resp['dt_correo']);?></td>
+                                                <td><?php echo strtoupper($resp['programas_educativos']);?></td>
+                                                <td><?php echo strtoupper($resp['unidad_economica']);?></td>
+                                                <td><?php echo strtoupper($resp['estudiantes_2021_2022']);?></td>
+                                                <td><?php echo strtoupper($resp['egresados']);?></td>
                                               </tr> 
                                               <?php
                                                 }
@@ -183,7 +183,7 @@ $unidad=$rep_unidad['unidad'];
                                             </tbody>
 
         </table>
--->
+
 
                                     <br>
 

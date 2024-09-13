@@ -7,7 +7,7 @@ require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 /**$id_ies=$_SESSION["id_ies"];**/
 $name_user=$_SESSION["name_user"];
-$responsable = acces_report_21();
+$responsable = view_entidad();
 $rep_ies = rep_ies();
 $ies=$rep_ies['ies'];
 $rep_programas = rep_programas();

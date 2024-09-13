@@ -167,7 +167,7 @@ $unidad=$rep_unidad['unidad'];
                                               {
                                               ?>
                                               <tr>
-                                                <td class="text-center"><?php //echo $counter++ ?></td>
+                                                <td class="text-center"><?php echo $counter++ ?></td>
                                                 <td><?php echo strtoupper($resp['nombre_entidad']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_nombre_ies']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_nombre_subsistema']);?></td>

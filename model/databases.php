@@ -1,7 +1,5 @@
 <?php
 require_once('../controller/conec.php');
-
-
 /** Select **/
 
 function view_entidad()

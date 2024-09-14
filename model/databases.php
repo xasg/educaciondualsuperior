@@ -137,15 +137,14 @@ function acces_report_21()
    COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
    COUNT(unidad_educativa.id_programa_educativo) as unidad_economica,
    SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes_2021_2022,
-   SUM(unidad_educativa.dt_egresados_fem + unidad_educativa.dt_egresados_mas) as egresados,
-   SUM(unidad_educativa.dt_estudiante_cursan_f + unidad_educativa.dt_estudiante_cursan_m) as estudiantes_2022_2023
+   SUM(unidad_educativa.dt_egresados_fem + unidad_educativa.dt_egresados_mas) as egresados
    FROM usuarios
    LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
    LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
    LEFT JOIN cat_subsistema ON(cat_subsistema.id_cat_subsistema = cat_ies.id_cat_subsistema)
    LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
    LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
-   LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
+   LEFT JOIN unidad_educativa ON(unidad_educativa.id_programa_educativo = programa_educativo.id_programa )
    where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL  AND inf_ciclo='2021-2022'
    GROUP BY dt_correo ORDER BY nombre_entidad ASC";
   return $mysqli->query($sql); 
@@ -198,7 +197,7 @@ function acces_report_23()
 
 
 
-function rep_ies()
+function rep_ies($ciclo)
 {
   global $mysqli;
  $sql = "SELECT COUNT(DISTINCT dt_nombre_ies) AS ies
@@ -209,13 +208,13 @@ function rep_ies()
    LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
    LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
    LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
-   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL";
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL AND inf_ciclo='{$ciclo}'";
   $result = $mysqli->query($sql);
   return $result->fetch_assoc();
 }
 
 
-function rep_programas()
+function rep_programas($ciclo)
 {
   global $mysqli;
  $sql = "SELECT COUNT(DISTINCT programa_educativo.id_programa) as programas
@@ -226,12 +225,12 @@ function rep_programas()
    LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
    LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
    LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
-   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL";
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL AND inf_ciclo='{$ciclo}'";
   $result = $mysqli->query($sql);
   return $result->fetch_assoc();
 }
 
-function rep_estudiantes()
+function rep_estudiantes($ciclo)
 {
   global $mysqli;
  $sql = "SELECT SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes
@@ -242,12 +241,12 @@ function rep_estudiantes()
    LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
    LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
    LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
-   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL";
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL AND inf_ciclo='{$ciclo}'";
   $result = $mysqli->query($sql);
   return $result->fetch_assoc(); 
 }
 
-function rep_egresados()
+function rep_egresados($ciclo)
 {
   global $mysqli;
  $sql = "SELECT SUM(unidad_educativa.dt_egresados_fem + unidad_educativa.dt_egresados_mas) as egresados
@@ -258,12 +257,12 @@ function rep_egresados()
    LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
    LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
    LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
-   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL";
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL AND inf_ciclo='{$ciclo}'";
   $result = $mysqli->query($sql);
   return $result->fetch_assoc();
 }
 
-function rep_unidad()
+function rep_unidad($ciclo)
 {
   global $mysqli;
  $sql = "SELECT COUNT(unidad_educativa.id_programa_educativo) as unidad
@@ -274,7 +273,7 @@ function rep_unidad()
    LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
    LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
    LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
-   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL";
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL AND inf_ciclo='{$ciclo}'";
   $result = $mysqli->query($sql);
   return $result->fetch_assoc();
 }

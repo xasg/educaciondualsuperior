@@ -8,15 +8,16 @@ mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
 $responsable = acces_report_23();
-$rep_ies = rep_ies();
+$ciclo="2023-2024";
+$rep_ies = rep_ies($ciclo);
 $ies=$rep_ies['ies'];
-$rep_programas = rep_programas();
+$rep_programas = rep_programas($ciclo);
 $programas=$rep_programas['programas'];
-$rep_estudiantes = rep_estudiantes();
+$rep_estudiantes = rep_estudiantes($ciclo);
 $estudiantes=$rep_estudiantes['estudiantes'];
-$rep_egresados = rep_egresados();
+$rep_egresados = rep_egresados($ciclo);
 $egresados=$rep_egresados['egresados'];
-$rep_unidad = rep_unidad();
+$rep_unidad = rep_unidad($ciclo);
 $unidad=$rep_unidad['unidad'];
 ?> 
  <!DOCTYPE html>
@@ -92,29 +93,6 @@ $unidad=$rep_unidad['unidad'];
 <div class="m-0 row ">
 <span class="justify-content-center"><br><br>   
 <div class="container col-md-auto justify-content-center">
-<div class="container">
-<table class="table">
-  <thead class="thead-dark">
-    <tr class="text-center">
-      <th scope="col"># IES</th>
-      <th scope="col"># PROGRAMAS EDUCATIVOS</th>
-      <th scope="col"># ESTUDIANTES</th>
-      <th scope="col"># EGRESADOS</th>
-      <th scope="col"># UNIDADES ECONOMICAS</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr class="text-center">
-      <th scope="row"><?php echo $ies; ?></th>
-      <th scope="row"><?php echo $programas; ?></th>
-      <th scope="row"><?php echo $estudiantes; ?></th>
-      <th scope="row"><?php echo $egresados; ?></th>
-      <th scope="row"><?php echo $unidad; ?></th>
-    </tr> 
-  </tbody>
-</table>
-</div><br>
-
                             <span class="justify-content-center"> 
                                     <div class="container col-md-auto justify-content-center">
                                        <!-- <h4>Responsable de la IES registrados</h4>
@@ -140,6 +118,31 @@ $unidad=$rep_unidad['unidad'];
      </ul>
      <br><br>
 </div>
+
+<div class="container">
+<table class="table">
+  <thead class="thead-dark">
+    <tr class="text-center">
+      <th scope="col"># IES</th>
+      <th scope="col"># PROGRAMAS EDUCATIVOS</th>
+      <th scope="col"># ESTUDIANTES</th>
+      <th scope="col"># EGRESADOS</th>
+      <th scope="col"># UNIDADES ECONOMICAS</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="text-center">
+      <th scope="row"><?php echo $ies; ?></th>
+      <th scope="row"><?php echo $programas; ?></th>
+      <th scope="row"><?php echo $estudiantes; ?></th>
+      <th scope="row"><?php echo $egresados; ?></th>
+      <th scope="row"><?php echo $unidad; ?></th>
+    </tr> 
+  </tbody>
+</table>
+</div><br>
+
+
 
                                         <table id="example" id="" class="table  table-striped table-bordered table-sm" style="width:100%">
                                         <thead class="thead-dark">

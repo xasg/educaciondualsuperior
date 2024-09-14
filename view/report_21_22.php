@@ -7,16 +7,17 @@ require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
+$ciclo="2021-2022";
 $responsable = acces_report_21();
-$rep_ies = rep_ies();
+$rep_ies = rep_ies($ciclo);
 $ies=$rep_ies['ies'];
-$rep_programas = rep_programas();
+$rep_programas = rep_programas($ciclo);
 $programas=$rep_programas['programas'];
-$rep_estudiantes = rep_estudiantes();
+$rep_estudiantes = rep_estudiantes($ciclo);
 $estudiantes=$rep_estudiantes['estudiantes'];
-$rep_egresados = rep_egresados();
+$rep_egresados = rep_egresados($ciclo);
 $egresados=$rep_egresados['egresados'];
-$rep_unidad = rep_unidad();
+$rep_unidad = rep_unidad($ciclo);
 $unidad=$rep_unidad['unidad'];
 ?> 
  <!DOCTYPE html>
@@ -89,8 +90,24 @@ $unidad=$rep_unidad['unidad'];
 <span class="justify-content-center"><br><br>   
 <div class="container col-md-auto justify-content-center">
 <div class="container">
+ <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item">
+         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">2021-2022</a>
+       </li>
+
+       <li class="nav-item">
+         <a class="nav-link" href="report_22_23.php" role="tab" aria-controls="profile" aria-selected="false">2022-2023</a>
+       </li>
+
+        <li class="nav-item">
+         <a class="nav-link" href="report_23_24.php"  role="tab" aria-controls="profile" aria-selected="false">2023-2024</a>
+       </li>
+     </ul>
+     <br><br>
+</div>
 
 
+<div class="container">
 <table class="table">
   <thead class="thead-dark">
     <tr class="text-center">
@@ -111,29 +128,7 @@ $unidad=$rep_unidad['unidad'];
     </tr>   
   </tbody>
 </table>
-
-
-
 </div><br>
-
-
-
-<div class="container">
- <ul class="nav nav-tabs" id="myTab" role="tablist">
-        <li class="nav-item">
-         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">2021-2022</a>
-       </li>
-
-       <li class="nav-item">
-         <a class="nav-link" href="report_22_23.php" role="tab" aria-controls="profile" aria-selected="false">2022-2023</a>
-       </li>
-
-        <li class="nav-item">
-         <a class="nav-link" href="report_23_24.php"  role="tab" aria-controls="profile" aria-selected="false">2023-2024</a>
-       </li>
-     </ul>
-     <br><br>
-</div>
 
 
 <form method="POST" action="create_excel.php">

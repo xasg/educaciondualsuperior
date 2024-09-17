@@ -23,27 +23,30 @@ $unidad=$rep_unidad['unidad'];
  <!DOCTYPE html>
 <html lang="es">
 <head>
-      <meta charset="UTF-8">
-      <link rel="icon" href="../assets/images/favicon.png" sizes="35x35" type="image/png">
-      <title>Registro</title>
-      <link rel="stylesheet" href="../assets/css/all.min.css">
-        <link rel="stylesheet" href="../assets/css/flaticon.css">
-        <link rel="stylesheet" href="../assets/css/animate.min.css">
-        <link rel="stylesheet" href="../assets/css/bootstrap.css">
-        <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css">
-        <link rel="stylesheet" href="../assets/css/perfect-scrollbar.css">
-        <link rel="stylesheet" href="../assets/css/slick.css">
-        <link rel="stylesheet" href="../assets/css/style.css">
-        <link rel="stylesheet" href="../assets/css/responsive.css">
-        <link rel="stylesheet" href="../assets/css/color.css">
-            <!-- links para exportar a excel -->
-    <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
-    <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
-    <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
-    
-    
+<meta charset="UTF-8">
+<link rel="icon" href="../assets/images/favicon.png" sizes="35x35" type="image/png">
+<title>Registro</title>
+<link rel="stylesheet" href="../assets/css/bootstrap.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/animate.min.css">
+<link rel="stylesheet" href="../assets/css/all.min.css">
+<!-- links para exportar a excel -->
+<script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
+<script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
+<script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"> 
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"> </script> 
+
+
+
+
+
 </head>
-   <body>
+<body>
   <header class="stick style1 w-100" style="background-color: #98213A;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
@@ -105,8 +108,6 @@ $unidad=$rep_unidad['unidad'];
      </ul>
      <br><br>
 </div>
-
-
 <div class="container">
 <table class="table">
   <thead class="thead-dark">
@@ -128,29 +129,29 @@ $unidad=$rep_unidad['unidad'];
     </tr>   
   </tbody>
 </table>
-</div><br>
+</div><br> 
 
 
 <form method="POST" action="create_excel.php">
 <button class="btn btn-success pull-right" name="export"><i class="fas fa-file-excel"></i> Exportar a Excel</button>
-<br><br>
+<br><br><br>
 </form>
 
 
-        <table id="example" class="table  table-striped table-bordered table-sm" style="width:100%">
-                                        <thead class="thead-dark">
-                                          <tr>  
-                                                <th>#</th>
-                                                <th>Entidad</th>
-                                                <th>Nombre IES</th> 
-                                                <th>Subsistema</th> 
-                                                <th>correo</th>
-                                                <th>Programas Educativos</th>
-                                                <th>Unidades Economicas</th>
-                                                <th>Estudiantes</th>
-                                                <th>Egresados</th>
-                                          </tr>
-                                        </thead>
+        <table id="tableID" class="table  table-striped table-bordered table-sm" style="width:100%"> 
+            <thead class="thead-dark">
+                <tr>  
+                    <th>#</th>
+                    <th>Entidad</th>
+                    <th>Nombre IES</th> 
+                    <th>Subsistema</th> 
+                    <th>correo</th>
+                    <th>Programas Educativos</th>
+                    <th>Unidades Economicas</th>
+                    <th>Estudiantes</th>
+                    <th>Egresados</th>
+                </tr>
+            </thead>
                                             <tbody>      
                                               <?php
                                               
@@ -227,8 +228,8 @@ $unidad=$rep_unidad['unidad'];
                 </div>   
             </footer><!-- Footer -->      </main>
       <!-- Main Wrapper -->
-      <script src="../assets/js/jquery.min.js"></script>
-        <script src="../assets/js/popper.min.js"></script>
+      <!--<script src="../assets/js/jquery.min.js"></script>-->
+      <!--  <script src="../assets/js/popper.min.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src="../assets/js/wow.min.js"></script>
         <script src="../assets/js/counterup.min.js"></script>
@@ -238,9 +239,8 @@ $unidad=$rep_unidad['unidad'];
         <script src="../assets/js/slick.min.js"></script>
         <script src="../assets/js/custom-scripts.js"></script>
         <script src="../assets/js/simplyCountdown.min.js"></script>
-        <script src="../assets/js/countdown.js"></script>   
-        <script type="text/javascript">
-            //exporte les données sélectionnées
+        <script src="../assets/js/countdown.js"></script>-->   
+       <!-- <script type="text/javascript">            
 var $table = $('#table');
     $(function () {
         $('#toolbar').find('select').change(function () {
@@ -255,5 +255,23 @@ var $table = $('#table');
     $(trBoldBlue).on("click", "tr", function (){
             $(this).toggleClass("bold-blue");
     });
-        </script> 
+        </script> -->
+
+
+
+<script> 
+  
+    // Initialize the DataTable 
+    $(document).ready(function () { 
+      $('#tableID').DataTable({ 
+  
+        // Show the information of the 
+        // current records of the DataTable 
+        info: true 
+      }); 
+    });  
+  </script> 
+
+
+
 </html>

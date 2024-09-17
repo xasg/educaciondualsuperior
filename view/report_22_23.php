@@ -7,8 +7,8 @@ require_once('../model/databases.php');
 mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
-$responsable = acces_report_22();
 $ciclo="2022-2023";
+$responsable = acces_report_22();
 $rep_ies = rep_ies($ciclo);
 $ies=$rep_ies['ies'];
 $rep_programas = rep_programas($ciclo);
@@ -23,27 +23,30 @@ $unidad=$rep_unidad['unidad'];
  <!DOCTYPE html>
 <html lang="es">
 <head>
-      <meta charset="UTF-8">
-      <link rel="icon" href="../assets/images/favicon.png" sizes="35x35" type="image/png">
-      <title>Registro</title>
-      <link rel="stylesheet" href="../assets/css/all.min.css">
-        <link rel="stylesheet" href="../assets/css/flaticon.css">
-        <link rel="stylesheet" href="../assets/css/animate.min.css">
-        <link rel="stylesheet" href="../assets/css/bootstrap.css">
-        <link rel="stylesheet" href="../assets/css/jquery.fancybox.min.css">
-        <link rel="stylesheet" href="../assets/css/perfect-scrollbar.css">
-        <link rel="stylesheet" href="../assets/css/slick.css">
-        <link rel="stylesheet" href="../assets/css/style.css">
-        <link rel="stylesheet" href="../assets/css/responsive.css">
-        <link rel="stylesheet" href="../assets/css/color.css">
-            <!-- links para exportar a excel -->
-    <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
-    <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
-    <script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
-    
-    
+<meta charset="UTF-8">
+<link rel="icon" href="../assets/images/favicon.png" sizes="35x35" type="image/png">
+<title>Registro</title>
+<link rel="stylesheet" href="../assets/css/bootstrap.css">
+<link rel="stylesheet" href="../assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/animate.min.css">
+<link rel="stylesheet" href="../assets/css/all.min.css">
+<!-- links para exportar a excel -->
+<script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
+<script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
+<script src="https://unpkg.com/tableexport@latest/dist/js/tableexport.min.js"></script>
+
+
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"> 
+<!-- DataTables JS -->
+<script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"> </script> 
+
+
+
+
+
 </head>
-   <body>
+<body>
   <header class="stick style1 w-100" style="background-color: #98213A;">
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
@@ -83,29 +86,20 @@ $unidad=$rep_unidad['unidad'];
             </div><br><br><br>
          </section>
 
-<br><br> 
-<div class="container-fluid">
-<div class="tab-content">
-<div class="m-0 row ">
-
-    <br>
+<br>
 <div class="container">
 <div class="tab-content">
 <div class="m-0 row ">
 <span class="justify-content-center"><br><br>   
 <div class="container col-md-auto justify-content-center">
-
-<span class="justify-content-center">
-<div class="container col-md-auto justify-content-center">  
 <div class="container">
  <ul class="nav nav-tabs" id="myTab" role="tablist">
-        
-       <li class="nav-item">
-         <a class="nav-link" href="report_21_22.php" role="tab" aria-controls="profile" aria-selected="false">2021-2022</a>
+        <li class="nav-item">
+         <a class="nav-link" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">2021-2022</a>
        </li>
 
        <li class="nav-item">
-         <a class="nav-link active" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">2022-2023</a>
+         <a class="nav-link active" href="report_22_23.php" role="tab" aria-controls="profile" aria-selected="false">2022-2023</a>
        </li>
 
         <li class="nav-item">
@@ -114,8 +108,6 @@ $unidad=$rep_unidad['unidad'];
      </ul>
      <br><br>
 </div>
-
-
 <div class="container">
 <table class="table">
   <thead class="thead-dark">
@@ -134,38 +126,32 @@ $unidad=$rep_unidad['unidad'];
       <th scope="row"><?php echo $estudiantes; ?></th>
       <th scope="row"><?php echo $egresados; ?></th>
       <th scope="row"><?php echo $unidad; ?></th>
-    </tr>    
+    </tr>   
   </tbody>
 </table>
-</div>
+</div><br> 
 
 
-
-  <!--<h4>Responsable de la IES registrados</h4>-->
-                                        <form method="POST" action="create_excel.php">
-                                            <button class="btn btn-success pull-right" name="export"><i class="fas fa-file-excel"></i> Exportar a Excel</button>
-                                            <br><br>
-                                        </form>
+<form method="POST" action="create_excel.php">
+<button class="btn btn-success pull-right" name="export"><i class="fas fa-file-excel"></i> Exportar a Excel</button>
+<br><br><br>
+</form>
 
 
-
-
-
-
-                                        <table id="example" id="" class="table  table-striped table-bordered table-sm" style="width:100%">
-                                        <thead class="thead-dark">
-                                          <tr>  
-                                                <th>#</th>
-                                                <th>Entidad</th>
-                                                <th>Nombre IES</th> 
-                                                <th>Subsistema</th> 
-                                                <th>correo</th>
-                                                <th>Programas Educativos</th>
-                                                <th>Unidades Economicas</th>
-                                                <th>Estudiantes</th>
-                                                <th>Egresados</th>
-                                          </tr>
-                                        </thead>
+        <table id="tableID" class="table  table-striped table-bordered table-sm" style="width:100%"> 
+            <thead class="thead-dark">
+                <tr>  
+                    <th>#</th>
+                    <th>Entidad</th>
+                    <th>Nombre IES</th> 
+                    <th>Subsistema</th> 
+                    <th>correo</th>
+                    <th>Programas Educativos</th>
+                    <th>Unidades Economicas</th>
+                    <th>Estudiantes</th>
+                    <th>Egresados</th>
+                </tr>
+            </thead>
                                             <tbody>      
                                               <?php
                                               
@@ -177,7 +163,6 @@ $unidad=$rep_unidad['unidad'];
                                                 <td class="text-center"><?php echo $counter++ ?></td>
                                                 <td><?php echo strtoupper($resp['nombre_entidad']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_nombre_ies']);?></td>
-                                                <!--Aqui se va agregar un td para mostrar el subsistema -->
                                                 <td><?php echo strtoupper($resp['dt_nombre_subsistema']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_correo']);?></td>
                                                 <td><?php echo strtoupper($resp['programas_educativos']);?></td>
@@ -189,8 +174,8 @@ $unidad=$rep_unidad['unidad'];
                                                 }
                                               ?>               
                                             </tbody>
+        </table>
 
-                                      </table>
                                     <br>
 
                                      </div>                                     
@@ -243,8 +228,8 @@ $unidad=$rep_unidad['unidad'];
                 </div>   
             </footer><!-- Footer -->      </main>
       <!-- Main Wrapper -->
-      <script src="../assets/js/jquery.min.js"></script>
-        <script src="../assets/js/popper.min.js"></script>
+      <!--<script src="../assets/js/jquery.min.js"></script>-->
+      <!--  <script src="../assets/js/popper.min.js"></script>
         <script src="../assets/js/bootstrap.min.js"></script>
         <script src="../assets/js/wow.min.js"></script>
         <script src="../assets/js/counterup.min.js"></script>
@@ -254,5 +239,39 @@ $unidad=$rep_unidad['unidad'];
         <script src="../assets/js/slick.min.js"></script>
         <script src="../assets/js/custom-scripts.js"></script>
         <script src="../assets/js/simplyCountdown.min.js"></script>
-        <script src="../assets/js/countdown.js"></script>    
+        <script src="../assets/js/countdown.js"></script>-->   
+       <!-- <script type="text/javascript">            
+var $table = $('#table');
+    $(function () {
+        $('#toolbar').find('select').change(function () {
+            $table.bootstrapTable('refreshOptions', {
+                exportDataType: $(this).val()
+            });
+        });
+    })
+
+        var trBoldBlue = $("table");
+
+    $(trBoldBlue).on("click", "tr", function (){
+            $(this).toggleClass("bold-blue");
+    });
+        </script> -->
+
+
+
+<script> 
+  
+    // Initialize the DataTable 
+    $(document).ready(function () { 
+      $('#tableID').DataTable({ 
+  
+        // Show the information of the 
+        // current records of the DataTable 
+        info: true 
+      }); 
+    });  
+  </script> 
+
+
+
 </html>

@@ -8,7 +8,7 @@ mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
 $ciclo="2023-2024";
-$responsable = acces_report_23();
+$responsable = acces_report($ciclo);
 $rep_ies = rep_ies($ciclo);
 $ies=$rep_ies['ies'];
 $rep_programas = rep_programas($ciclo);
@@ -95,7 +95,7 @@ $unidad=$rep_unidad['unidad'];
 <div class="container">
  <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-         <a class="nav-link" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">2021-2022</a>
+         <a class="nav-link" id="home-tab" data-toggle="tab" href="report_21_22.php" role="tab" aria-controls="home" aria-selected="true">2021-2022</a>
        </li>
 
        <li class="nav-item">

@@ -4,6 +4,7 @@ require_once('../model/databases.php');
 	header("Content-Disposition: attachment; filename=documento_exportado_" . date('Y:m:d:m:s').".xls");
 	header("Pragma: no-cache"); 
 	header("Expires: 0");
+	$ciclo= $_POST["$ciclo"];
     $responsable = acces_responsables();
 
 	// require_once '.php';

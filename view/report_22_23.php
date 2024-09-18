@@ -8,7 +8,7 @@ mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
 $ciclo="2022-2023";
-$responsable = acces_report_22();
+$responsable = acces_report($ciclo);
 $rep_ies = rep_ies($ciclo);
 $ies=$rep_ies['ies'];
 $rep_programas = rep_programas($ciclo);
@@ -95,7 +95,7 @@ $unidad=$rep_unidad['unidad'];
 <div class="container">
  <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
-         <a class="nav-link" id="home-tab" data-toggle="tab" href="#" role="tab" aria-controls="home" aria-selected="true">2021-2022</a>
+         <a class="nav-link" id="home-tab" data-toggle="tab" href="report_21_22.php" role="tab" aria-controls="home" aria-selected="true">2021-2022</a>
        </li>
 
        <li class="nav-item">
@@ -133,6 +133,7 @@ $unidad=$rep_unidad['unidad'];
 
 
 <form method="POST" action="create_excel.php">
+<input type="text" name="<?php echo $ciclo?>">
 <button class="btn btn-success pull-right" name="export"><i class="fas fa-file-excel"></i> Exportar a Excel</button>
 <br><br><br>
 </form>

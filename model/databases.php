@@ -130,7 +130,8 @@ function acces_responsables()
 }
 
 
-function acces_report_21()
+
+function acces_report($ciclo)
 {
   global $mysqli;
  $sql = "SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
@@ -145,54 +146,10 @@ function acces_report_21()
    LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
    LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
    LEFT JOIN unidad_educativa ON(unidad_educativa.id_programa_educativo = programa_educativo.id_programa )
-   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL  AND inf_ciclo='2021-2022'
+   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL  AND inf_ciclo='{$ciclo}'
    GROUP BY dt_correo ORDER BY nombre_entidad ASC";
   return $mysqli->query($sql); 
   return $result->fetch_assoc();
-}
-
-
-
-function acces_report_22()
-{
-  global $mysqli;
- $sql = "SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
-   COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
-   COUNT(unidad_educativa.id_programa_educativo) as unidad_economica,
-   SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes_2021_2022,
-   SUM(unidad_educativa.dt_egresados_fem + unidad_educativa.dt_egresados_mas) as egresados,
-   SUM(unidad_educativa.dt_estudiante_cursan_f + unidad_educativa.dt_estudiante_cursan_m) as estudiantes_2022_2023
-   FROM usuarios
-   LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
-   LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
-   LEFT JOIN cat_subsistema ON(cat_subsistema.id_cat_subsistema = cat_ies.id_cat_subsistema)
-   LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
-   LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
-   LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
-   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL AND inf_ciclo='2022-2023' 
-   GROUP BY dt_correo ORDER BY nombre_entidad ASC";
-  return $mysqli->query($sql); 
-}
-
-function acces_report_23()
-{
-  global $mysqli;
- $sql = "SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
-   COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
-   COUNT(unidad_educativa.id_programa_educativo) as unidad_economica,
-   SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes_2021_2022,
-   SUM(unidad_educativa.dt_egresados_fem + unidad_educativa.dt_egresados_mas) as egresados,
-   SUM(unidad_educativa.dt_estudiante_cursan_f + unidad_educativa.dt_estudiante_cursan_m) as estudiantes_2022_2023
-   FROM usuarios
-   LEFT JOIN responsable ON(responsable.id_usuario=usuarios.id_usuario)
-   LEFT JOIN cat_ies ON(cat_ies.id_ies=usuarios.id_ies)
-   LEFT JOIN cat_subsistema ON(cat_subsistema.id_cat_subsistema = cat_ies.id_cat_subsistema)
-   LEFT JOIN cat_entidad ON(cat_entidad.id_cat_entidad = responsable.dt_entidad)
-   LEFT JOIN programa_educativo ON(programa_educativo.id_usuario = responsable.id_usuario)
-   LEFT JOIN unidad_educativa ON(programa_educativo.id_programa = unidad_educativa.id_programa_educativo)
-   where usuarios.dt_tipo=2 AND nombre_entidad IS  NOT NULL  AND inf_ciclo='2023-2024'
-   GROUP BY dt_correo ORDER BY nombre_entidad ASC";
-  return $mysqli->query($sql); 
 }
 
 

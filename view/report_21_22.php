@@ -8,6 +8,7 @@ mysqli_set_charset( $mysqli, 'utf8');
 $id_ies=$_SESSION["id_ies"];
 $name_user=$_SESSION["name_user"];
 $ciclo="2021-2022";
+$id_user=$_SESSION["id_user"];
 $responsable = acces_report($ciclo);
 $rep_ies = rep_ies($ciclo);
 $ies=$rep_ies['ies'];
@@ -30,6 +31,7 @@ $unidad=$rep_unidad['unidad'];
 <link rel="stylesheet" href="../assets/css/style.css">
 <link rel="stylesheet" href="../assets/css/animate.min.css">
 <link rel="stylesheet" href="../assets/css/all.min.css">
+ <link rel="stylesheet" href="../assets/css/flaticon.css">
 <!-- links para exportar a excel -->
 <script src="https://unpkg.com/xlsx@0.16.9/dist/xlsx.full.min.js"></script>
 <script src="https://unpkg.com/file-saverjs@latest/FileSaver.min.js"></script>
@@ -87,13 +89,9 @@ $unidad=$rep_unidad['unidad'];
          </section>
 
 <br>
+
 <div class="container">
-<div class="tab-content">
-<div class="m-0 row ">
-<span class="justify-content-center"><br><br>   
-<div class="container col-md-auto justify-content-center">
-<div class="container">
- <ul class="nav nav-tabs" id="myTab" role="tablist">
+<ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
          <a class="nav-link active"  href="#" role="tab" aria-controls="home" aria-selected="true">2021-2022</a>
        </li>
@@ -105,11 +103,10 @@ $unidad=$rep_unidad['unidad'];
         <li class="nav-item">
          <a class="nav-link" href="report_23_24.php"  role="tab" aria-controls="profile" aria-selected="false">2023-2024</a>
        </li>
-     </ul>
-     <br><br>
-</div>
-<div class="container">
-<table class="table">
+</ul>
+<br><br>
+
+<table class="table table-striped table-bordered">
   <thead class="thead-dark">
     <tr class="text-center">
       <th scope="col"># IES</th>
@@ -129,7 +126,6 @@ $unidad=$rep_unidad['unidad'];
     </tr>   
   </tbody>
 </table>
-</div><br> 
 
 
 <form method="POST" action="create_excel.php">
@@ -138,7 +134,7 @@ $unidad=$rep_unidad['unidad'];
 </form>
 
 
-        <table id="tableID" class="table  table-striped table-bordered table-sm" style="width:100%"> 
+        <table id="tableID" class="table table-striped table-bordered"> 
             <thead class="thead-dark">
                 <tr>  
                     <th>#</th>
@@ -159,13 +155,16 @@ $unidad=$rep_unidad['unidad'];
                                               while($resp = $responsable->fetch_assoc())
                                               {
                                               ?>
-                                              <tr>
-                                                <td class="text-center"><?php echo $counter++ ?></td>
+                                              <tr class="text-center">
+                                                <td><?php echo $counter++ ?></td>
                                                 <td><?php echo strtoupper($resp['nombre_entidad']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_nombre_ies']);?></td>
-                                                <td><?php echo strtoupper($resp['dt_nombre_subsistema']);?></td>
+                                                <td><?php echo strtoupper($resp['id_cat_subsistema']);?></td>
                                                 <td><?php echo strtoupper($resp['dt_correo']);?></td>
-                                                <td><?php echo strtoupper($resp['programas_educativos']);?></td>
+                                                <td><?php echo strtoupper($resp['programas_educativos']);?>&nbsp; 
+                                                <a href="programas_ies.php?ciclo=<?php echo $ciclo;?>&id_ies=<?php echo $resp['id_ies'];?>&id_user=<?php echo $resp['id_usuario'];?>&ies_nombre=<?php echo $resp['dt_nombre_ies'];?>">
+                                                <i class="fas fa-search"></i>
+                                                </a></td>
                                                 <td><?php echo strtoupper($resp['unidad_economica']);?></td>
                                                 <td><?php echo strtoupper($resp['estudiantes_2021_2022']);?></td>
                                                 <td><?php echo strtoupper($resp['egresados']);?></td>
@@ -178,13 +177,8 @@ $unidad=$rep_unidad['unidad'];
 
                                     <br>
 
-                                     </div>                                     
-                            </span><br><br>
-</div>
+</div>   
 
-<br><br><br><br>
-</div> 
-</div>
 
 
 <footer class="justify-content-center" style=" background-color: #98213A;" id="contacto">
@@ -227,6 +221,8 @@ $unidad=$rep_unidad['unidad'];
                     
                 </div>   
             </footer><!-- Footer -->      </main>
+
+<script src="../assets/js/custom-scripts.js"></script>
       <!-- Main Wrapper -->
       <!--<script src="../assets/js/jquery.min.js"></script>-->
       <!--  <script src="../assets/js/popper.min.js"></script>
@@ -237,9 +233,9 @@ $unidad=$rep_unidad['unidad'];
         <script src="../assets/js/jquery.fancybox.min.js"></script>
         <script src="../assets/js/perfect-scrollbar.min.js"></script>
         <script src="../assets/js/slick.min.js"></script>
-        <script src="../assets/js/custom-scripts.js"></script>
-        <script src="../assets/js/simplyCountdown.min.js"></script>
-        <script src="../assets/js/countdown.js"></script>-->   
+        
+        
+        >-->   
        <!-- <script type="text/javascript">            
 var $table = $('#table');
     $(function () {

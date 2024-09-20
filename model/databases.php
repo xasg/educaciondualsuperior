@@ -134,7 +134,7 @@ function acces_responsables()
 function acces_report($ciclo)
 {
   global $mysqli;
- $sql = "SELECT nombre_entidad,dt_nombre_ies,cat_subsistema.dt_nombre_subsistema,dt_correo,
+ $sql = "SELECT nombre_entidad,cat_ies.id_ies,responsable.id_usuario, dt_nombre_ies,cat_ies.id_cat_subsistema,dt_correo,
    COUNT(DISTINCT programa_educativo.id_programa) as programas_educativos,
    COUNT(unidad_educativa.id_programa_educativo) as unidad_economica,
    SUM(unidad_educativa.dt_estudiante_fem + unidad_educativa.dt_estudiante_mas) as estudiantes_2021_2022,

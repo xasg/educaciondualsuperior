@@ -96,7 +96,7 @@ $programa = acces_programas($id_ies, $id_user, $ciclo);
                                                 <th class="text-center">Periodo de inicio</th>
                                                 <th class="text-center">Estudiantes <?php echo $ciclo ?></th>
                                                 <th class="text-center">Egresados <?php echo $ciclo ?></th>
-                                                <!--<th class="text-center">Unidades económicas</th>-->
+                                                <th class="text-center">Unidades económicas</th>
                                           </tr>
                                         </thead>
                                             <tbody>
@@ -116,9 +116,9 @@ $programa = acces_programas($id_ies, $id_user, $ciclo);
                                                 <td class="text-center"><?php echo strtoupper($prog['dt_num_periodo']." ".$prog['dt_unidad']); ?></td>
                                                 <td class="text-center"><?php echo strtoupper($prog['estudiantes']); ?></td>
                                                 <td class="text-center"><?php echo strtoupper($prog['egresados']); ?></td>
-                                               <!-- <td class="text-center">
-                                                 <a href="unidad.php?id_programa=<?php //echo base64_encode($prog['id_programa'])?>&ciclo=<?php //echo $ciclo; ?>"><img src="../img/icons/lupa.png" class=""></a>
-                                                 </td>-->                                        
+                                               <td class="text-center">
+                                                 <a href="unidad.php?id_programa=<?php echo base64_encode($prog['id_programa'])?>&ciclo=<?php echo $ciclo; ?>"><img src="../img/icons/lupa.png" class=""></a>
+                                                 </td>                                      
                                               </tr> 
                                               <?php
                                                 }

@@ -12,13 +12,15 @@ return $xmlStr;
 }
 
 
-$query = "SELECT * FROM cat_ies where lat!=''";
+$query = "SELECT * FROM mapa;";
 $result = mysqli_query($conn,$query);
 if (!$result) {
   die('Invalidproyecto query: ' . mysqli_error());
 }
 
 header("Content-type: text/xml");
+
+
 echo "<?xml version='1.0' ?>";
 echo '<markers>';
 $ind=0;
@@ -26,11 +28,16 @@ $ind=0;
 while ($row = @mysqli_fetch_assoc($result)){
 
   echo '<marker ';
-  echo 'idmapa="' . $row['id_cat_ies'] . '" ';
-  echo 'persona="' . $row['dt_nombre_ies'] . '" ';
-  echo 'descripcion="' . parseToXML($row['dt_control']) . '" ';
-  echo 'lat="' . $row['lat'] . '" ';
-  echo 'lng="' . $row['lng'] . '" ';
+  echo 'idmapa="' . $row['id_mapa'] . '" ';
+  echo 'dt_ies="' . $row['dt_nombre_ies'] . '" ';
+  echo 'dt_programas="' . $row['programas_educativos'] . '" ';
+  echo 'dt_unidades="' . $row['unidad_economica'] . '" ';
+  echo 'dt_estudiantes="' . $row['estudiantes'] . '" ';
+  echo 'dt_egresados="' . $row['egresados'] . '" ';
+  echo 'dt_responsable="' . parseToXML($row['dt_nom_responsable']) . '" ';
+  echo 'dt_email="' . parseToXML($row['dt_correo']) . '" ';
+  echo 'latitud="' . $row['dt_latitud'] . '" ';
+  echo 'longitud="' . $row['dt_longitud'] . '" ';
   echo '/>';
   $ind = $ind + 1;
 }

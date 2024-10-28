@@ -1,6 +1,5 @@
 <?php
 require_once('../controller/conec.php');
-/** Select **/
 
 function view_entidad()
 {
@@ -9,7 +8,6 @@ function view_entidad()
   return $mysqli->query($sql);
   return $result->fetch_assoc();
 }
-
 
 
 function acces_programas($id_ies, $id_user, $ciclo)

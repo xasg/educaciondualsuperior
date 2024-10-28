@@ -1,4 +1,16 @@
-<!--Pequeño cambio  -->
+<?php
+require_once('model/conteo.php');
+$rep_ies = rep_ies();
+$ies=$rep_ies['ies'];
+$rep_programas = rep_programas();
+$programas=$rep_programas['programas'];
+$rep_estudiantes = rep_estudiantes();
+$estudiantes=$rep_estudiantes['estudiantes'];
+$rep_egresados = rep_egresados();
+$egresados=$rep_egresados['egresados'];
+$rep_unidad = rep_unidad();
+$unidad=$rep_unidad['unidad'];
+?>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -88,7 +100,7 @@
                                     <li class="menu-item-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="view/login.php" title="">FORMULARIO</a></li>
                                     <li><a href="videos.php" title="">VIDEOS</a></li>
-                                    <!-- <li><a href="oferta.html" title="">OFERTA</a></li> -->
+                                    <li><a href="mapa.php" title="">OFERTA</a></li> 
                                     <!-- <li><a href="#" title="">BLOG</a></li> -->
                                 </ul>
                             </div>
@@ -109,7 +121,8 @@
                     <li class="menu-item-has-children"><a href="javascript:void(0);" title="">INICIO</a></li>
                     <li class="menu-it@em-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
                     <li><a href="view/login.php">FORMULARIO</a></li>
-                    <!-- <li><a href="oferta.html" title="">OFERTA</a></li> -->
+                    <li><a href="videos.php" title="">VIDEOS</a></li>
+                    <li><a href="mapa.php" title="">OFERTA</a></li> 
                     <!-- <li><a href="#" title="">BLOG</a></li>                          -->
                 </ul>
             </div><!-- Menu Wrap -->
@@ -190,7 +203,7 @@
     <div class="col-md-3 text-center">
       <div class="service-box mt-5 mx-auto">
        <img src="img/icons/1.png" class="">
-       <h3 class="counter tipo">300</h3>
+       <h3 class="counter tipo"><?php echo $ies;?></h3>
        <p><strong>IES con programas </strong></p>
      </div>
    </div>
@@ -199,7 +212,7 @@
    <div class="col-md-3 text-center">
     <div class="service-box mt-5 mx-auto">
       <img src="img/icons/2.png" class="">
-      <h3 class="counter tipo">3,639</h3>
+      <h3 class="counter tipo"><?php echo $estudiantes;?></h3>
       <p><strong>Estudiantes </strong></p>
     </div>
   </div>  
@@ -208,7 +221,7 @@
   <div class="col-md-3 text-center">
     <div class="service-box mt-5 mx-auto">
       <img src="img/icons/3.png" class="">
-      <h3 class="counter tipo">150</h3>
+      <h3 class="counter tipo"><?php echo $egresados;?></h3>
       <p><strong>Egresados</strong></p>
     </div>
   </div>
@@ -216,7 +229,7 @@
    <div class="col-md-3 text-center">
     <div class="service-box mt-5 mx-auto">
       <img src="img/icons/4.png" class="">
-      <h3 class="counter tipo">2,908</h3>
+      <h3 class="counter tipo"><?php echo $unidad;?></h3>
       <p><strong>Unidades económicas</strong></p>
     </div>
   </div>

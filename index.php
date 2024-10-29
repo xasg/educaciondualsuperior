@@ -1,5 +1,5 @@
 <?php
-require_once('model/conteo.php');
+/** require_once('model/conteo.php');
 $rep_ies = rep_ies();
 $ies=$rep_ies['ies'];
 $rep_programas = rep_programas();
@@ -9,7 +9,7 @@ $estudiantes=$rep_estudiantes['estudiantes'];
 $rep_egresados = rep_egresados();
 $egresados=$rep_egresados['egresados'];
 $rep_unidad = rep_unidad();
-$unidad=$rep_unidad['unidad'];
+$unidad=$rep_unidad['unidad'];**/
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -203,7 +203,7 @@ $unidad=$rep_unidad['unidad'];
     <div class="col-md-3 text-center">
       <div class="service-box mt-5 mx-auto">
        <img src="img/icons/1.png" class="">
-       <h3 class="counter tipo"><?php echo $ies;?></h3>
+       <h3 class="counter tipo">300<?php //echo $ies;?></h3>
        <p><strong>IES con programas </strong></p>
      </div>
    </div>
@@ -212,7 +212,7 @@ $unidad=$rep_unidad['unidad'];
    <div class="col-md-3 text-center">
     <div class="service-box mt-5 mx-auto">
       <img src="img/icons/2.png" class="">
-      <h3 class="counter tipo"><?php echo $estudiantes;?></h3>
+      <h3 class="counter tipo">15091<?php //echo $estudiantes;?></h3>
       <p><strong>Estudiantes </strong></p>
     </div>
   </div>  
@@ -221,7 +221,7 @@ $unidad=$rep_unidad['unidad'];
   <div class="col-md-3 text-center">
     <div class="service-box mt-5 mx-auto">
       <img src="img/icons/3.png" class="">
-      <h3 class="counter tipo"><?php echo $egresados;?></h3>
+      <h3 class="counter tipo">11046<?php //echo $egresados;?></h3>
       <p><strong>Egresados</strong></p>
     </div>
   </div>
@@ -229,7 +229,7 @@ $unidad=$rep_unidad['unidad'];
    <div class="col-md-3 text-center">
     <div class="service-box mt-5 mx-auto">
       <img src="img/icons/4.png" class="">
-      <h3 class="counter tipo"><?php echo $unidad;?></h3>
+      <h3 class="counter tipo">5764<?php //echo $unidad;?></h3>
       <p><strong>Unidades económicas</strong></p>
     </div>
   </div>

@@ -61,7 +61,7 @@
                                     <li class="menu-item-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="view/login.php" title="">FORMULARIO</a></li>
                                     <li><a href="videos.php" title="">VIDEOS</a></li>
-                                    <li><a href="mapa.php" title="">OFERTA</a></li> 
+                                    <li class="active"><a href="mapa.php" title="">OFERTA</a></li> 
                             </div>
                             <div class="header-right-btns">
                                 <!--<a class="search-btn" href="javascript:void(0);" title="">
@@ -80,9 +80,8 @@
                     <li class="menu-item-has-children"><a href="index.php" title="">INICIO</a></li>
                     <li class="menu-it@em-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
                     <li><a href="view/login.php">FORMULARIO</a></li>
-
-                    <!-- <li><a href="oferta.html" title="">OFERTA</a></li> -->
-                    <!-- <li><a href="#" title="">BLOG</a></li>                          -->
+                    <li><a href="videos.php" title="">VIDEOS</a></li>
+                    <li class="active"><a href="mapa.php" title="">OFERTA</a></li>
                 </ul>
             </div><!-- Menu Wrap -->
 
@@ -274,6 +273,7 @@
                   var markers = xml.documentElement.getElementsByTagName('marker');
                   Array.prototype.forEach.call(markers, function(markerElem) {
                       var idmapa = markerElem.getAttribute('idmapa');
+                      var id_usuario = markerElem.getAttribute('id_usuario');
                       var dt_ies = markerElem.getAttribute('dt_ies');
                       var dt_responsable = markerElem.getAttribute('dt_responsable');
                       var dt_email = markerElem.getAttribute('dt_email');
@@ -295,6 +295,10 @@
                           '<p style="line-height:30%;">Unidades Económicas: '+ dt_unidades +'</h5>' +
                           '<p style="line-height:30%;">Estudiantes: '+ dt_unidades +'</h5>' +
                           '<p style="line-height:30%;">Egresados: '+ dt_egresados +'</h5>' +
+                          '<br>'+
+                          '<br>'+
+                          '<br>'+
+                          '<a href="view/detalle_dual.php?usuario='+ id_usuario +'" target="_blank" class="btn btn-block btn-primary" aria-disabled="true">Detalle</a>'+
                           '<br>'+ 
                           '<h6>DATOS DEL RESPONSABLE EN EDUCACIÓN DUAL EN LA IES:</h6>' +
                           '<br>'+

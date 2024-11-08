@@ -1,7 +1,7 @@
 <?php
 $servername="localhost";
-$username="root";
-$password="";
+$username="fese";
+$password="Ws.666.AdQe";
 $dbname="educacion_dual";
 
 $conn=new mysqli($servername,$username,$password,$dbname);

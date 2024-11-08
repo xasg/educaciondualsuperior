@@ -29,6 +29,7 @@ while ($row = @mysqli_fetch_assoc($result)){
 
   echo '<marker ';
   echo 'idmapa="' . $row['id_mapa'] . '" ';
+   echo 'id_usuario="' . $row['id_usuario'] . '" ';
   echo 'dt_ies="' . $row['dt_nombre_ies'] . '" ';
   echo 'dt_programas="' . $row['programas_educativos'] . '" ';
   echo 'dt_unidades="' . $row['unidad_economica'] . '" ';

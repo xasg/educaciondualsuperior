@@ -69,11 +69,11 @@
                         <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
-                                    <li class="menu-item-has-children"><a href="index.php" title="">INICIO</a></li>
-                                    <li class="menu-item-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
+                                    <li><a href="./" title="">INICIO</a></li>
+                                    <li><a href="historia.html" title="">HISTORIA</a></li>
                                     <li><a href="view/login.php" title="">FORMULARIO</a></li>
-                                    <!-- <li><a href="oferta.html" title="">OFERTA</a></li> -->
-                                    <!-- <li><a href="#" title="">BLOG</a></li> -->
+                                    <li class="active"><a href="videos.php" title="">VIDEOS</a></li>
+                                    <li><a href="mapa.php" title="">OFERTA</a></li> 
                                 </ul>
                             </div>
                             <div class="header-right-btns">
@@ -93,8 +93,8 @@
                     <li class="menu-item-has-children"><a href="index.php" title="">INICIO</a></li>
                     <li class="menu-it@em-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
                     <li><a href="view/login.php">FORMULARIO</a></li>
-                    <!-- <li><a href="oferta.html" title="">OFERTA</a></li> -->
-                    <!-- <li><a href="#" title="">BLOG</a></li>                          -->
+                    <li class="active"><a href="videos.php" title="">VIDEOS</a></li>
+                    <li><a href="mapa.php" title="">OFERTA</a></li>   
                 </ul>
             </div><!-- Menu Wrap -->
 

@@ -5851,4 +5851,25 @@ table.dataTable thead .sorting_desc_disabled:before {
 }
 
 
-/* ? ---------------------------- */
+/*--------------------------------------------------------------
+# Call To Action Section
+--------------------------------------------------------------*/
+
+/** Canvas **/
+
+.call-back-section{
+    position:relative;
+    background-attachment:fixed;
+    background-position:center center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    padding:5% 0% 5% 0%;
+    color: #fff;
+    font-size: 1.5em;
+}
+
+
+.color_titulo{
+  color: #247180;
+
+}

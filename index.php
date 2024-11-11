@@ -32,6 +32,8 @@ $unidad=$rep_unidad['unidad'];**/
         <link rel="stylesheet" href="assets/css/color.css">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
          <link rel="stylesheet" href="style-button-ws.css">
+         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+
           <style>
         /* .whatsapp-button {
             position: fixed;
@@ -96,12 +98,11 @@ $unidad=$rep_unidad['unidad'];**/
                         <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
-                                    <li class="menu-item-has-children"><a href="javascript:void(0);" title="">INICIO</a></li>
-                                    <li class="menu-item-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
+                                    <li><a href="javascript:void(0);" title="">INICIO</a></li>
+                                    <li><a href="historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="view/login.php" title="">FORMULARIO</a></li>
                                     <li><a href="videos.php" title="">VIDEOS</a></li>
                                     <li><a href="mapa.php" title="">OFERTA</a></li> 
-                                    <!-- <li><a href="#" title="">BLOG</a></li> -->
                                 </ul>
                             </div>
                             <div class="header-right-btns">
@@ -118,12 +119,11 @@ $unidad=$rep_unidad['unidad'];**/
             <div class="menu-wrap">
                 <span class="menu-close"><i class="fas fa-times"></i></span>
                 <ul class="mb-0 list-unstyled w-100">
-                    <li class="menu-item-has-children"><a href="javascript:void(0);" title="">INICIO</a></li>
-                    <li class="menu-it@em-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
+                    <li><a href="javascript:void(0);" title="">INICIO</a></li>
+                    <li><a href="historia.html" title="">HISTORIA</a></li>  
                     <li><a href="view/login.php">FORMULARIO</a></li>
                     <li><a href="videos.php" title="">VIDEOS</a></li>
-                    <li><a href="mapa.php" title="">OFERTA</a></li> 
-                    <!-- <li><a href="#" title="">BLOG</a></li>                          -->
+                    <li><a href="mapa.php" title="">OFERTA</a></li>                    -->
                 </ul>
             </div><!-- Menu Wrap -->
 
@@ -174,32 +174,70 @@ $unidad=$rep_unidad['unidad'];**/
         
         <div class="row">
           <div class="col-md-12">
-          </div>
-          <div class="col-md-12">
-            <h1 style="color: #fff;"><strong>Estudiantes</stron> <br>Identifica la oferta educativa con modalidad en educación Dual</h1>
-            <br><br>
-             <!--<h1 style="color: #fff;">Lorem Ipsum</h1>
-             <br><br>
-             <h1 style="color: #fff;">Lorem Ipsum</h1><br><br>
-             <h1 style="color: #fff;">Lorem Ipsum</h1>--><br><br><br><br><br><br><br>
+            <h1 style="color: #fff;"><strong>Estudiantes</strong> <br>Identifica la oferta educativa con modalidad en educación Dual</h1>
+            <br><br> <br><br><br><br><br><br><br><br><br>
           </div><style type="text/css"></style>
         </div>
       </div>
 
 </div>
+</div>
 
 
                  
-<div class="container">
-            <section>
-                 <div class="col-md-12 col-sm-12 col-lg-12 text-center"><br><br><br>
-                         <h3 style="color: #000">Educación Dual Superior</h3><br>
-                         <p>Es un espacio creado para recolectar, difundir y fortalecer la modalidad educativa en Educación Dual, mostrando a las Instituciones educativas que cuentan con esta modalidad a nivel nacional, la numeralia y los datos de contacto para facilitar su vinculación con jóvenes y unidades económicas con la finalidad de ampliar el alcande de esta modalidad educativa.</p><br><br><br>
-				 </div>				 
-            </section>
-			
-	
+
+<section>
+                <div class="container">
+                    <div class="row">
+                    <div class="col-md-8 col-sm-8 col-lg-8 text-justify" style="padding-top: 9%"> 
+                         <h1 style="color: #98213A;">¿Qué es Educación Dual?</h1><br>
+                         <p>En México diversas instituciones educativas del tipo medio superior y superior han impulsado proyectos de formación de sus estudiantes en coordinación con los sectores productivos a los que se les ha referido como formación o educación dual.</p>
+                         <p>En la educación superior, la educación dual es una modalidad y opción educativa en la que el proceso de aprendizaje del estudiante se lleva a cabo de manera articulada en una institución educativa y en contextos reales del ámbito laboral, en unidades económicas (empresas, cooperativas, instituciones públicas, fundaciones, organizaciones, etc.) a través de fases teórico - prácticas interrelacionadas que se complementan entre sí.</p>
+                         <p>Parte del principio de “aprender haciendo”, donde los estudiantes tienen un acercamiento directo y oportuno con la realidad del mundo productivo, el cual es orientado a partir de un plan de formación en el que se establece qué, cómo, cuándo y bajo qué criterios tendrá lugar la formación del estudiante en ambos espacios de aprendizaje, de acuerdo al programa de estudios y a las funciones productivas del entorno laboral. </p>
+                    </div>	
+
+                    <div class="col-md-4 col-sm-4 col-lg-4" style="padding-top: 7%">
+                        <br><br><br> <br><br> 
+                         <iframe src="https://player.vimeo.com/video/719179373?h=8fa8921de4" width="100%" height="40%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                    </div>
+
+                    </div>
+                </div>			 
+</section>
+
+
+
+
+<div class="container-fluid call-back-section text-center" style="background-image:url(img/canv.png);"> 
+                        <div class="row"> 
+                        <div class="col-md-8">
+                            <br>
+                            <h1 style="color: #fff;">Marco General</h1>
+                            <h3 style="color: #fff;">Para la educación DUAL del tipo superior en méxico</h3>
+                            <br>
+                            <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal" >Saber más</button>
+                            <a href="https://educacionsuperior.sep.gob.mx/pdfs/2024/Marco_Educacion_Dual.pdf" target="_blank" style="color: #98213A;">
+                            <button type="button" class="btn btn-danger">Descargar</button>
+                            </a>
+                        </div>           
+
+                         <div class="col-md-2 text-right">
+                            <div data-anijs="if: scroll, on: window, do: rollIn animated, before: scrollReveal; if: load, on: window, do: rubberBand animated; if: mouseover, do: rubberBand animated">
+                            <img class="img-fluid" src="img/marco.jpg">
+                            </div>
+                        </div>
+
+                        </div>
+                    
+</div>
+
+
+
+
+<!--
 <section> 
+<div class="container">
+    <div class="row">
     <div class="col-md-3 text-center">
       <div class="service-box mt-5 mx-auto">
        <img src="img/icons/1.png" class="">
@@ -233,8 +271,154 @@ $unidad=$rep_unidad['unidad'];**/
       <p><strong>Unidades económicas</strong></p>
     </div>
   </div>
- </section><br><br><br>			
 </div>
+ </section><br><br><br>		
+
+-->
+
+
+
+ <div class="container">
+        <div class="row">
+            <div class="col-md-12 text-justify" style="padding-top: 5%"> 
+                <h1 style="color: #98213A;">¿Dónde estamos?</h1><br>
+            </div>
+
+            <div class="col-md-12 text-center" style="padding-top: 2%;"> 
+                 <img class="img-fluid" src="img/estamos/logo_dual.jpg" style="width: 20%;">                 
+            </div>
+
+            <div class="col-md-12 text-center" style="padding-bottom: 3%";> 
+                 <img class="img-fluid" src="img/estamos/arriba.jpg">                
+            </div>
+
+            <div class="col-md-3 text-center" >
+            <div class="card ">
+                <img class="img-fluid" src="img/estamos/UTyP.png" style="width: 50%;">
+              <div class="card-body">
+                <p><h3 class="counter text-center">41</h3>Universidades Tecnológicas</p>
+                <p><h3></h3>con una matrícula de</p>
+                <p><h3 class="counter tipo text-center">2,348</h3>estudiantes<p>
+              </div>
+            </div>
+            </div>
+
+
+
+            <div class="col-md-3 text-center" >
+            <div class="card">
+                <img class="img-fluid" src="img/estamos/TecNM.png" style="width: 50%;">
+              <div class="card-body">
+                <p><h3 class="counter">128</h3>Instituciones del <br>TecNM</p>
+                <p><h3></h3>con una matrícula de</p>
+                <p><h3 class="counter">3,097</h3>estudiantes<p>
+              </div>
+            </div>
+            </div>
+
+
+            <div class="col-md-3 text-center">
+            <div class="card">
+                <img class="img-fluid" src="img/estamos/anuies.png" style="width: 50%;">
+                <div class="card-body">
+                <p><h3  class="counter">14</h3>Universidades Públicas Estatales</p>
+                <p><h3  class="counter">2</h3>Universidades Interculturales</p>
+                <p><h3></h3>IPN, Zacatecas</p>
+                <p><h3></h3>con una matrícula de</p>
+                <p><h3 class="counter">1,078</h3>estudiantes<p>
+              </div>
+            </div>
+            </div>
+
+
+
+            <div class="col-md-3 text-center" >
+            <div class="card">
+                <img class="img-fluid" src="img/estamos/UTyP.png" style="width: 50%;"> 
+             <div class="card-body">
+                <p><h3 class="counter text-center">2</h3>Universidades Privadas</p>
+                <p><h3></h3>con una matrícula de</p>
+                <p><h3 class="counter tipo text-center">129</h3>estudiantes<p>
+              </div>
+            </div>
+            </div>
+            <div class="col-md-12 text-center" style="padding-top: 2%;"> 
+                 <img class="img-fluid" src="img/estamos/abajo.jpg">
+            </div>
+
+        </div>
+</div>
+
+
+<div class="container text-center" style="padding-top: 5%">
+    <p>Estudiantes bajo la modalidad de educación dual por entidad federativa</p>
+
+    <div class="row">
+    <div class="col">        
+            <div class="card-body">
+                <div class="col-md-12">
+                    <canvas id="ChartDual"></canvas>
+                </div>  
+           </div>
+    </div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <div class="col-md-12 text-center">
+                <!--<img class="img-fluid" src="assets/img/logos/feseverde.png">-->
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+            </div>
+        
+      </div>
+      <div class="modal-body">
+        <div class="col-md-12"> 
+            <div class="col-md-12 color_titulo"><br>
+                <h3 style="color: #98213A;">Marco normativo</h3>
+            </div>
+            <div class="col-md-12 text-justify">
+                <p><strong>Durante los últimos años se han sentado las bases normativas y metodológicas de la educación dual del tipo superior:</strong></p>
+                <ul>
+                <li><p>Se establece como una modalidad educativa en el artículo 12 de la <a href="https://www.diputados.gob.mx/LeyesBiblio/pdf/LGES_200421.pdf" target="_blank" style="color: #98213A;">Ley General de Educación Superior</a>, publicada en abril de 2021.</p></li>
+                <li><p>Se define como una modalidad y opción educativa del tipo superior en el <a href="https://dof.gob.mx/nota_detalle.php?codigo=5669525&fecha=25/10/2022#gsc.tab=0" target="_blank" style="color: #98213A;">Acuerdo Secretarial  20/10/22</a>, publicado en octubre de 2022.</p></li>
+                <li><p>Se describe en el documento <a href="https://educacionsuperior.sep.gob.mx/pdfs/2024/Marco_Educacion_Dual.pdf" target="_blank" style="color: #98213A;">Marco General para la Educación Dual del Tipo Superior en México</a>, presentado en el Consejo Nacional para la Coordinación de la Educación Superior (CONACES) en junio de 2024.</p></li> 
+                </ul>
+            </div>
+
+            <div class="col-md-12 text-justify">
+                <p><strong>En el ámbito programático se contempla en diversos mecanismos de política pública como:</strong></p>
+                <ul>
+                <li><p>En el <a href="https://www.gob.mx/cms/uploads/attachment/file/562380/Programa_Sectorial_de_Educaci_n_2020-2024.pdf" target="_blank" style="color: #98213A;">Programa Sectorial de Educación 2020-2024</a> se establece como acción puntual en el numeral 2.1.9 de la estrategia prioritaria 2.1 del objetivo prioritario 2, que se deberá consolidar, con la participación de los sectores productivos, el Sistema de Educación Dual en el tipo medio superior y superior.</p></li>
+                <li><p>El <a href="https://www.dof.gob.mx/nota_detalle.php?codigo=5712746&fecha=28/12/2023#gsc.tab=0
+" target="_blank" style="color: #98213A;">Programa Nacional de Educación Superior 2023-2024 (PRONES)</a>, como parte de la Estrategia prioritaria 4.1., se establece como una acción puntual: 4.1.2.- Promover, en el marco de las COEPES o instancias equivalentes, acciones de vinculación de las IES con los sectores social y productivo, dando particular impulso a la educación dual.</p></li>
+                </ul>
+            </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- /Modal -->
+
+
+
+
 <footer class="justify-content-center" style=" background-color: #98213A;" id="contacto">
                 
                 <div class="footer-widget-area justify-content-center">
@@ -292,6 +476,56 @@ $unidad=$rep_unidad['unidad'];**/
         <script src="assets/js/simplyCountdown.min.js"></script>
         <script src="assets/js/countdown.js"></script>
         <!--javascript del Boton wstap-->
-        <script src="btn-ws.js"></script>            
+        <script src="btn-ws.js"></script>   
+
+
+
+<script>
+    var ctx = document.getElementById("ChartDual").getContext("2d");
+    var MyChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['México', 'Nuevo Léon', 'Hidalgo', 'Guanajuato', 'Puebla', 'Jalisto', 'Aguascalientes', 'San Luis Potosí', 'Michoacán', 'Veracruz', 'Querétaro', 'Yucatán', 'Sinaloa', 'Zactecas', 'Tabasco', 'Ciudad de México', 'Coahuila', 'Tlaxcla', 'Chiapas', 'Sonora','Baja California', 'Campeche', 'Chihuahua', 'Quintana Roo', 'Durango', 'Guerrero', 'Oaxaca', 'Tamaulipas', 'Morelos', 'Baja California Sur', 'Colima', 'Nayarit'],
+            datasets: [{
+                label: 'Numero de estudiantes',
+                data: [2032, 761, 494, 487, 467, 408, 340, 334, 267, 266, 151, 151, 150, 146, 143,142,142,126,113,108,79,41,41,23,22,22,22,12,10,3,2,1],
+                backgroundColor: [
+                    'rgb(0, 153, 255, 0.5)',
+                    'rgb(163, 0, 204, 0.5)',
+                    'rgb(0, 51, 17, 0.5)',
+                    'rgb(255, 102, 0, 0.5)',
+                    'rgb(179, 179, 0, 0.5)',
+                    'rgb(255, 0, 0, 0.5)',
+                    'rgb(0, 255, 255, 0.5)',
+                    'rgb(204, 51, 0, 0.5)',
+                    'rgb(68, 204, 0, 0.5)',
+                    'rgb(0, 0, 204, 0.5)',
+                    'rgb(102, 0, 102, 0.5)',
+                    'rgb(102, 153, 255, 0.5)',
+                    'rgb(0, 153, 255, 0.5)',
+                    'rgb(163, 0, 204, 0.5)',
+                    'rgb(0, 51, 17, 0.5)',
+                    'rgb(255, 102, 0, 0.5)',
+                    'rgb(179, 179, 0, 0.5)',
+                    'rgb(255, 0, 0, 0.5)',
+                    'rgb(0, 255, 255, 0.5)',
+                    'rgb(204, 51, 0, 0.5)',
+                    'rgb(68, 204, 0, 0.5)',
+                    'rgb(0, 0, 204, 0.5)',
+                    'rgb(102, 0, 102, 0.5)',
+                    'rgb(102, 153, 255, 0.5)',
+                     'rgb(102, 153, 255, 0.5)',
+                    'rgb(0, 153, 255, 0.5)',
+                    'rgb(163, 0, 204, 0.5)',
+                    'rgb(0, 51, 17, 0.5)',
+                    'rgb(255, 102, 0, 0.5)',
+                    'rgb(179, 179, 0, 0.5)',
+                    'rgb(255, 0, 0, 0.5)',
+                    'rgb(0, 255, 255, 0.5)',
+                ]
+            }]
+        }
+    });
+</script>         
     </body>	
 </html>

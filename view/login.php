@@ -107,11 +107,11 @@ $(document).ready(function() {
                        <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
-                                    <li class="menu-item-has-children"><a href="../" title="">INICIO</a></li>
-                                    <li class="menu-item-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
-                                    <!-- <li><a href="#" title="">FORMULARIO</a></li> -->
-                                    <!-- <li><a href="../oferta.html" title="">OFERTA</a></li> -->
-                                    <!-- <li><a href="#" title="">BLOG</a></li>   -->
+                                    <li><a href="../" title="">INICIO</a></li>
+                                    <li><a href="../historia.html" title="">HISTORIA</a></li>
+                                    <li><a href="login.php" title="">FORMULARIO</a></li>
+                                    <li><a href="../videos.php" title="">VIDEOS</a></li>
+                                    <li><a href="../mapa.php" title="">OFERTA</a></li>   
 
                                 </ul>
                             </div>
@@ -134,11 +134,11 @@ $(document).ready(function() {
              <div class="menu-wrap">
                 <span class="menu-close"><i class="fas fa-times"></i></span>
                 <ul class="mb-0 list-unstyled w-100">
-                    <li class=""><a href="../" title="">INICIO</a></li>
-                    <li class="menu-it@em-has-children"><a href="../historia.html" title="">HISTORIA</a></li>  
-                    <!-- <li><a href="login.php">FORMULARIO</a></li> -->
-                    <!-- <li><a href="../oferta.html" title="">OFERTA</a></li> -->
-                    <!-- <li><a href="#" title="">BLOG</a></li>                          -->
+                    <li><a href="../" title="">INICIO</a></li>
+                    <li><a href="../historia.html" title="">HISTORIA</a></li>  
+                    <li class="active"><a href="login.php" title="">FORMULARIO</a></li>
+                    <li><a href="../videos.php" title="">VIDEOS</a></li>
+                    <li><a href="../mapa.php" title="">OFERTA</a></li>               
                 </ul>
             </div>
             <br><br><br>

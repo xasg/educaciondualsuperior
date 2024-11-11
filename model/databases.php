@@ -351,4 +351,12 @@ $mysqli->query($sql);
 }
 
 
+function detalle_dual($usuario)
+{
+  global $mysqli;
+  $sql = "SELECT * FROM `programa_educativo` WHERE id_usuario =  '{$usuario}'";
+  return $mysqli->query($sql); 
+  return $result->fetch_assoc();
+}
+
 ?>

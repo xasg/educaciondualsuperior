@@ -126,197 +126,132 @@
             </div><!-- Login Popup -->
                       
 
-<div class="container-fluid" style="padding-top: 9%">
-            <section>
-                <div id="accordion">
-                    <div class="row">
-                        <div class="pad col-4 col-lg-2 col-md-2 text-center">
-                            <a data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                <div class="view overlay">
-                                    <button type="button" class="btn btn-outline-danger">
-                                        <img src="img/sur_sureste.png" class="img-fluid" alt="Responsive image">
-                                    </button>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="pad col-4 col-lg-2 col-md-2 text-center">
-                            <a data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                <div class="view overlay">
-                                    <button type="button" class="btn btn-outline-danger">
-                                        <img src="img/centro_sur.png" class="img-fluid" alt="Responsive image">
-                                    </button>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="pad col-4 col-lg-2 col-md-2 text-center">
-                            <a data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                <div class="view overlay">
-                                    <button type="button" class="btn btn-outline-danger">
-                                        <img src="img/centro_occidente.png" class="img-fluid" alt="Responsive image">
-                                    </button>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="pad col-4 col-ms-3 col-lg-2 col-md-2 text-center">
-                            <a data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-                                <div class="view overlay">
-                                    <button type="button" class="btn btn-outline-danger">
-                                        <img src="img/noreste.png" class="img-fluid" alt="Responsive image">
-                                    </button>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="pad col-4 col-lg-2 col-md-2 text-center">
-                            <a data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
-                                <div class="view overlay">
-                                    <button type="button" class="btn btn-outline-danger">
-                                        <img src="img/noroeste.png" class="img-fluid" alt="Responsive image">
-                                    </button>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="pad col-4 col-lg-2 col-md-2 text-center">
-                            <a data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
-                                <div class="view overlay">
-                                    <button type="button" class="btn btn-outline-danger">
-                                        <img src="img/metropolitana.png" class="img-fluid" alt="Responsive image">
-                                    </button>
-                                </div>
-                            </a>
-                        </div>
-                    </div><br><br>
 
 
 
-                    
-                    
-                    <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12 text-center" style="background-color:#8D203D">
-                                    <h1 style="color: #ffffff">Región Sur sureste</h1>
-                                </div>
-                            </div><br><br><br><br>
-                            
-                            <div class="container">
-                                <!---------->
-                                <div class="row">
-                                    <div id="videoContainer1" class="col-md-12 col-lg-12">
-                                        <!-- Aquí se mostrará el video -->
-                                        <iframe width="100%" height="600" src="https://www.youtube.com/embed/e3pdeS-z0kU" title="Foros de Vinculación Región &quot;Sur Sureste&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                    </div> 
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12 text-center" style="background-color:#8D203D;">
-                                    <h1 style="color: #ffffff">Región Centro Sur</h1>
-                                </div>
-                            </div><br><br><br><br>
-                        <div class="container">
-                                <!---------->
-                                <div class="row">
-                                    <div id="videoContainer1" class="col-md-12 col-lg-12">
-                                        <!-- Aquí se mostrará el video -->
-                                        <iframe width="100%" height="600" src="https://www.youtube.com/embed/SOjh43IM8uI" title="Foros de Vinculación Región &quot;Centro Sur&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                    </div> 
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12 text-center" style="background-color:#8D203D">
-                                    <h1 style="color: #ffffff">Región Centro Occidente</h1>
-                                </div>
-                            </div><br><br><br><br>
-
-                             <div class="container">
-                                <!---------->
-                                <div class="row">
-                                    <div id="videoContainer1" class="col-md-12 col-lg-12">
-                                        <!-- Aquí se mostrará el video -->
-                                        <iframe width="100%" height="600" src="https://www.youtube.com/embed/feHi8hYUTlw" title="Foros de Vinculación Región &quot;Centro Occidente&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                    </div> 
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
+<div class="container" style="padding-top: 9%">
+    <div class="row">
+    <div class="col-md-12">
+    <h1 style="color: #98213A;" >Buenas prácticas</h1><br>
+        <p>Actualmente poco más de 200 Instituciones de Educación Superior impulsan experiencias de educación dual en vinculación con unidades económicas de los diversos sectores productivos, desde la industria y sus diversas ramas hasta el sector servicios y agropecuario. Se presentan algunos videos de buenas prácticas. 
+        </p>
+    </div>
+    </div>
+</div>
 
 
-                    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12 text-center" style="background-color:#8D203D">
-                                    <h1 style="color: #ffffff">Región Noreste</h1>
-                                </div>
-                            </div><br><br><br><br>
+<div class="container">
+<section>
+<div class="row">
+<div class="col-md-4 pad">
+<div class="card">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="card-body">
+    <h5 class="card-title">Universidad Intercultural del Estado de Puebla </h5>
+    <p class="card-text">sector agropecuario</p>
+  </div>
+</div>
+</div>
 
-                                <div class="container">
-                                <!---------->
-                                <div class="row">
-                                    <div id="videoContainer1" class="col-md-12 col-lg-12">
-                                        <!-- Aquí se mostrará el video -->
-                                        <iframe width="100%" height="600" src="https://www.youtube.com/embed/KBicCc86VYE" title="Foros de Vinculación Región &quot;Noreste&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                    </div> 
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
+<div class="col-md-4 pad">
+<div class="card">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/u40ASJzUuoc" title="Asesor/a Financiero/a Cooperativo/a bajo el sistema de educación dual - México" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="card-body">
+    <h5 class="card-title">Universidades Tecnológicas</h5><br>
+    <p class="card-text">cooperativas de ahorro</p>
+  </div>
+</div>
+</div>
 
-
-                   <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12 text-center" style="background-color:#8D203D">
-                                    <h1 style="color: #ffffff">Región Noroeste</h1>
-                                </div>
-                            </div><br><br><br><br>
-
-                             <div class="container">
-                                <!---------->
-                                <div class="row">
-                                    <div id="videoContainer1" class="col-md-12 col-lg-12">
-                                        <!-- Aquí se mostrará el video -->
-                                        <iframe width="100%" height="600" src="https://www.youtube.com/embed/-jEvfkYWAOI" title="Foros de Vinculación Región &quot;Noroeste&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                    </div> 
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
+<div class="col-md-4 pad" >
+<div class="card">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="card-body">
+    <h5 class="card-title">Universidad Autónoma de Querétaro</h5>
+    <p class="card-text">sector industrial</p>
+  </div>
+</div>
+</div>
+</div>
 
 
-                    <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordion">
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-12 text-center" style="background-color:#8D203D">
-                                    <h1 style="color: #ffffff">Región Metropolitana</h1>
-                                </div>
-                            </div><br><br><br><br>
+<div class="row">
+<div class="col-md-4 pad">
+<div class="card">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="card-body">
+    <h5 class="card-title">Universidad Tecnológica de Jalisco&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;     </h5>
+    <p class="card-text">sector agropecuario</p>
+  </div>
+</div>
+</div>
 
-                             <div class="container">
-                                <!---------->
-                                <div class="row text-center">
-                                    <div id="videoContainer1" class="col-md-120 col-lg-12">
-                                        <!-- Aquí se mostrará el video -->
-                                        <iframe width="100%" height="600" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-                                    </div> 
-                                </div> 
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-        <div class="container-fluid" style="padding-top: 15%">
-            
+<div class="col-md-4 pad">
+<div class="card">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="card-body">
+    <h5 class="card-title">Universidad Tecnológica de Puebla</h5><br>
+    <p class="card-text">sector automotriz</p>
+  </div>
+</div>
+</div>
 
-        </div>
+<div class="col-md-4 pad">
+<div class="card">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="card-body">
+    <h5 class="card-title">TecNM Villa Hermosa</h5><br>
+    <p class="card-text">sector energético</p>
+  </div>
+</div>
+</div>
+</div>
+
+<div class="row">
+<div class="col-md-4 pad">
+<div class="card">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="card-body">
+    <h5 class="card-title">Universidad Politécnica de Huatusco &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</h5>
+    <p class="card-text">sector salud</p>
+  </div>
+</div>
+</div>
+
+<div class="col-md-4 pad">
+<div class="card">
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <div class="card-body">
+    <h5 class="card-title">Universidad Tecnológica Fidel Velázquez &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;</h5>
+    <p class="card-text">sector industrial</p>
+  </div>
+</div>
+</div>
+
+</div>
+
+
+<div class="col-md-4 pad">
+<div class="card">  
+  </div>
+</div>
+</div>
+
+</div>
+
+
+
+
+
+
+
+
+</section>
+</div>
+
+
+
+
 
 
 <footer class="justify-content-center" style=" background-color: #98213A;" id="contacto" >

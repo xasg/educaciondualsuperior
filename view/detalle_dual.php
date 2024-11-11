@@ -64,7 +64,7 @@ $detalle = detalle_dual($usuario);
             </div><!-- Menu Wrap -->
          <section>
             <div class="w-100 text-center black-layer position-relative">                   
-            </div><br><br><br>
+            </div><br><br>
          </section>
 <div class="container">
     <br><br>

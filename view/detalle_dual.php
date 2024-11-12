@@ -34,7 +34,6 @@ $detalle = detalle_dual($usuario);
                 <div class="container">
                     <div class="logo-menu-wrap w-100 d-flex flex-wrap justify-content-between align-items-start">
                     <div class="logo"><h1 class="mb-0"><img class="img-fluid" src="../assets/images/img/logo_blanco2.png" alt="Logo" srcset="../assets/images/img/logo_blanco2.png"></h1></div> 
-
                         <nav class="d-inline-flex align-items-center">
                            <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
@@ -107,11 +106,6 @@ $detalle = detalle_dual($usuario);
 </div>   
 </div>
 </div>
-
-
-
-
-
       </main>
       <!-- Main Wrapper -->
       <script src="../assets/js/jquery.min.js"></script>

@@ -116,6 +116,10 @@
 
 <div class="container-fluid" style="padding-top: 6%">
 <div class="row">
+    <div class="col-md-12">
+    </div>
+
+
 <div class="col-md-2"><br>
 <div id="listaEntidades" style="height:50%; width:100%; overflow-y:scroll;">
                     <h5>Entidad</h5>

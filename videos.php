@@ -145,7 +145,7 @@
 <div class="row">
 <div class="col-md-4 pad">
 <div class="card">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+   <iframe width="100%" height="100%" src="https://www.youtube.com/embed/JC0vQVRYnHs" title="Programa Rancho Agrosol ANUIES - FESE - SEP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   <div class="card-body">
     <h5 class="card-title">Universidad Intercultural del Estado de Puebla </h5>
     <p class="card-text">sector agropecuario</p>
@@ -165,7 +165,7 @@
 
 <div class="col-md-4 pad" >
 <div class="card">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/3Be8qjIeQdI" title="Video Experiencias de Formación Dual UAQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   <div class="card-body">
     <h5 class="card-title">Universidad Autónoma de Querétaro</h5>
     <p class="card-text">sector industrial</p>
@@ -178,7 +178,7 @@
 <div class="row">
 <div class="col-md-4 pad">
 <div class="card">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+   <iframe width="100%" height="100%" src="https://www.youtube.com/embed/V55hR3Z3Ers" title="Educación Dual en la Universidad Tecnológica de Jalisco" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   <div class="card-body">
     <h5 class="card-title">Universidad Tecnológica de Jalisco&nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;     </h5>
     <p class="card-text">sector agropecuario</p>

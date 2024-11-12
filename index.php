@@ -197,7 +197,7 @@ $unidad=$rep_unidad['unidad'];**/
                     </div>	
 
                     <div class="col-md-8 col-sm-8 col-lg-8" style="padding-top: 2%">                        
-                         <iframe src="https://player.vimeo.com/video/719179373?h=8fa8921de4" width="100%" height="80%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                         <iframe width="100%" height="80%" src="https://www.youtube.com/embed/0VL--x9sbw8" title="Educacion dual 2024 FESE ANUIES SEP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                          <br><br><br> <br><br> <br><br><br> <br><br>  <br><br><br> <br><br> 
                     </div>
 
@@ -213,7 +213,7 @@ $unidad=$rep_unidad['unidad'];**/
                         <div class="col-md-8">
                             <br>
                             <h1 style="color: #fff;">Marco General</h1>
-                            <h3 style="color: #fff;">Para la educación DUAL del tipo superior en méxico</h3>
+                            <h3 style="color: #fff;">Para la educación Dual del tipo superior en méxico</h3>
                             <br>
                             <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal" >Saber más</button>
                             <a href="https://educacionsuperior.sep.gob.mx/pdfs/2024/Marco_Educacion_Dual.pdf" target="_blank" style="color: #98213A;">
@@ -297,7 +297,7 @@ $unidad=$rep_unidad['unidad'];**/
                 <img class="img-fluid" src="img/estamos/UTyP.png" style="width: 50%;">
               <div class="card-body">
                 <p><h3 class="counter text-center">41</h3>Universidades Tecnológicas</p>
-                <p><h3></h3>con una matrícula de</p>
+                <p>con una matrícula de</p>
                 <p><h3 class="counter tipo text-center">2,348</h3>estudiantes<p>
               </div>
             </div>
@@ -329,9 +329,6 @@ $unidad=$rep_unidad['unidad'];**/
               </div>
             </div>
             </div>
-
-
-
             <div class="col-md-3 text-center" >
             <div class="card">
                 <img class="img-fluid" src="img/estamos/UTyP.png" style="width: 50%;"> 

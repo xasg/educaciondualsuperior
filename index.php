@@ -174,7 +174,7 @@ $unidad=$rep_unidad['unidad'];**/
         
         <div class="row">
           <div class="col-md-12">
-            <h1 style="color: #fff;"><strong>Estudiantes</strong> <br>Identifica la oferta educativa con modalidad en educación Dual</h1>
+            <h1 style="color: #fff;"><strong>Los estudiantes</strong> <br>Identifica la oferta educativa con modalidad en educación Dual</h1>
             <br><br> <br><br><br><br><br><br><br><br><br>
           </div><style type="text/css"></style>
         </div>
@@ -189,16 +189,16 @@ $unidad=$rep_unidad['unidad'];**/
 <section>
                 <div class="container">
                     <div class="row">
-                    <div class="col-md-8 col-sm-8 col-lg-8 text-justify" style="padding-top: 9%"> 
+                    <div class="col-md-12 col-sm-12 col-lg-12 text-justify" style="padding-top: 9%"> 
                          <h1 style="color: #98213A;">¿Qué es Educación Dual?</h1><br>
                          <p>En México diversas instituciones educativas del tipo medio superior y superior han impulsado proyectos de formación de sus estudiantes en coordinación con los sectores productivos a los que se les ha referido como formación o educación dual.</p>
                          <p>En la educación superior, la educación dual es una modalidad y opción educativa en la que el proceso de aprendizaje del estudiante se lleva a cabo de manera articulada en una institución educativa y en contextos reales del ámbito laboral, en unidades económicas (empresas, cooperativas, instituciones públicas, fundaciones, organizaciones, etc.) a través de fases teórico - prácticas interrelacionadas que se complementan entre sí.</p>
                          <p>Parte del principio de “aprender haciendo”, donde los estudiantes tienen un acercamiento directo y oportuno con la realidad del mundo productivo, el cual es orientado a partir de un plan de formación en el que se establece qué, cómo, cuándo y bajo qué criterios tendrá lugar la formación del estudiante en ambos espacios de aprendizaje, de acuerdo al programa de estudios y a las funciones productivas del entorno laboral. </p>
                     </div>	
 
-                    <div class="col-md-4 col-sm-4 col-lg-4" style="padding-top: 7%">
-                        <br><br><br> <br><br> 
-                         <iframe src="https://player.vimeo.com/video/719179373?h=8fa8921de4" width="100%" height="40%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                    <div class="col-md-8 col-sm-8 col-lg-8" style="padding-top: 2%">                        
+                         <iframe src="https://player.vimeo.com/video/719179373?h=8fa8921de4" width="100%" height="80%" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+                         <br><br><br> <br><br> <br><br><br> <br><br>  <br><br><br> <br><br> 
                     </div>
 
                     </div>

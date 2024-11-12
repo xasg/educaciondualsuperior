@@ -188,7 +188,7 @@
 
 <div class="col-md-4 pad">
 <div class="card">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/xV7adFG_nDg" title="⚙️⚒️Formación Dual #UTP | 🧑🏻‍🔧" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   <div class="card-body">
     <h5 class="card-title">Universidad Tecnológica de Puebla</h5><br>
     <p class="card-text">sector automotriz</p>
@@ -220,7 +220,7 @@
 
 <div class="col-md-4 pad">
 <div class="card">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/8-jvtZlWvwk" title="Educación Dual en la UTFV" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   <div class="card-body">
     <h5 class="card-title">Universidad Tecnológica Fidel Velázquez &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;&nbsp; &nbsp; &nbsp;</h5>
     <p class="card-text">sector industrial</p>

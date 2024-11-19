@@ -198,7 +198,7 @@
 
 <div class="col-md-4 pad">
 <div class="card">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/qBc6tjXGr30" title="IT Villa Hermosa" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   <div class="card-body">
     <h5 class="card-title">TecNM Villa Hermosa</h5><br>
     <p class="card-text">sector energético</p>
@@ -210,7 +210,7 @@
 <div class="row">
 <div class="col-md-4 pad">
 <div class="card">
-  <iframe width="100%" height="100%" src="https://www.youtube.com/embed/vnwPHdhcuYY" title="Foros de Vinculación Región &quot;Metropolitana&quot;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/2w76y6IUE50" title="UP Huatusco" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
   <div class="card-body">
     <h5 class="card-title">Universidad Politécnica de Huatusco &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp;  &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;</h5>
     <p class="card-text">sector salud</p>

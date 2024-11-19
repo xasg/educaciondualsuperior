@@ -1,3 +1,10 @@
+<?php
+include("db.php");
+$sql = "SELECT *  FROM mapa";
+$query = mysqli_query($conn,$sql);
+$row = mysqli_fetch_array($query);
+?>
+
 <!--Pequeño cambio  -->
 <!DOCTYPE html>
 <html lang="es">
@@ -114,16 +121,18 @@
                       
 
 
-<div class="container-fluid" style="padding-top: 6%">
+<div class="container-fluid" style="padding-top: 6%;">
 <div class="row">
-    <div class="col-md-12">
+    <div class="col-md-12 text-center"><br>
+        <h3>IES bajo la modalidad de educación dual por entidad federativa en
+educación superior</h3><br>
     </div>
 
 
 <div class="col-md-2"><br>
-<div id="listaEntidades" style="height:50%; width:100%; overflow-y:scroll;">
-                    <h5>Entidad</h5>
+<div id="listaEntidades" style="height:45%; width:100%; overflow-y:scroll;">                    
                     <ul start="0" style="font-size: small; list-style-image: url('img/center.png');">
+                        <h5>Entidad</h5>
                                 <li><a href="javascript:centrarMapa('0');" title="latitud = 22.143, longitud = -102.358">Estados Unidos Mexicanos</a></li>
                                 <li><a href="javascript:centrarMapa('1');" title="latitud = 22.143, longitud = -102.358" >Aguascalientes</a></li>
                                 <li><a href="javascript:centrarMapa('2');" title="latitud = 30.401, longitud = -115.268">Baja California</a></li>
@@ -160,28 +169,48 @@
                     </ul>
 
             </div>
-
-
-
-
-
-
-
-
-
-
 </div>
 
   <div class="col-md-10">
-          <div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 70%; width:100%;">
+          <div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 50%; width:100%;">
                     </div>
     </div>            
+
+</div>
 </div>
 
 
-            
 
-        </div>
+<div class="container">
+<div class="row">
+    <div class="col-md-12">
+    <table class="table table-striped table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>IES</th>
+                <th>Estudiantes</th>
+                <th>Programas Educativos</th>
+                <th>Unidades económicas</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php
+            while ($row = mysqli_fetch_array($query)) {
+            ?>
+                <tr>
+                    <th><?php echo $row['dt_nombre_ies'] ?></th>
+                    <th class="text-center"><?php echo $row['estudiantes'] ?></th>
+                    <th class="text-center"><?php echo $row['programas_educativos'] ?></th>
+                    <th class="text-center"><?php echo $row['unidad_economica'] ?></th>
+                </tr>
+            <?php
+            }
+            ?>
+        </tbody>
+    </table>
+</div> 
+</div>
+</div>
 
 
 <footer class="justify-content-center" style=" background-color: #98213A;" id="contacto" >

@@ -160,13 +160,16 @@ $unidad=$rep_unidad['unidad'];**/
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img class="d-block w-100" src="img/carusel/carrusel_01.png" alt="">
+      <img class="d-block w-100" src="img/carusel/carrusel_01.jpeg" alt="" style=" filter: brightness(45%); ">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/carusel/carrusel_02.png" alt="">
+      <img class="d-block w-100" src="img/carusel/carrusel_02.jpeg" alt="" style=" filter: brightness(45%); ">
     </div>
     <div class="carousel-item">
-      <img class="d-block w-100" src="img/carusel/carrusel_03.png" alt="">
+      <img class="d-block w-100" src="img/carusel/carrusel_03.jpeg" alt="" style=" filter: brightness(45%); ">
+    </div>
+    <div class="carousel-item">
+      <img class="d-block w-100" src="img/carusel/carrusel_04.jpeg" alt="" style=" filter: brightness(45%); ">
     </div>
   </div>
 
@@ -175,7 +178,6 @@ $unidad=$rep_unidad['unidad'];**/
         <div class="row">
           <div class="col-md-12">
             <h1 style="color: #fff;"><strong>Los estudiantes</strong> <br>Identifica la oferta educativa con modalidad en educación Dual</h1>
-            <br><br> <br><br><br><br><br><br><br><br><br>
           </div><style type="text/css"></style>
         </div>
       </div>
@@ -189,16 +191,21 @@ $unidad=$rep_unidad['unidad'];**/
 <section>
                 <div class="container">
                     <div class="row">
-                    <div class="col-md-12 col-sm-12 col-lg-12 text-justify" style="padding-top: 9%"> 
+                    <div class="col-md-12 col-sm-12 col-lg-12 text-justify" style="padding-top: 4%"> 
                          <h1 style="color: #98213A;">¿Qué es Educación Dual?</h1><br>
                          <p>En México diversas instituciones educativas del tipo medio superior y superior han impulsado proyectos de formación de sus estudiantes en coordinación con los sectores productivos a los que se les ha referido como formación o educación dual.</p>
                          <p>En la educación superior, la educación dual es una modalidad y opción educativa en la que el proceso de aprendizaje del estudiante se lleva a cabo de manera articulada en una institución educativa y en contextos reales del ámbito laboral, en unidades económicas (empresas, cooperativas, instituciones públicas, fundaciones, organizaciones, etc.) a través de fases teórico - prácticas interrelacionadas que se complementan entre sí.</p>
                          <p>Parte del principio de “aprender haciendo”, donde los estudiantes tienen un acercamiento directo y oportuno con la realidad del mundo productivo, el cual es orientado a partir de un plan de formación en el que se establece qué, cómo, cuándo y bajo qué criterios tendrá lugar la formación del estudiante en ambos espacios de aprendizaje, de acuerdo al programa de estudios y a las funciones productivas del entorno laboral. </p>
                     </div>	
 
-                    <div class="col-md-8 col-sm-8 col-lg-8" style="padding-top: 2%">                        
+                    <div class="col-md-8" style="padding-top: 2%">                        
                          <iframe width="100%" height="80%" src="https://www.youtube.com/embed/0VL--x9sbw8" title="Educacion dual 2024 FESE ANUIES SEP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                          <br><br><br> <br><br> <br><br><br> <br><br>  <br><br><br> <br><br> 
+                    </div>
+                    <div class="col-md-1" style="padding-top: 2%">  
+                    </div>
+                    <div class="col-md-3" style="padding-top: 2%">                        
+                         <img src="img/premio_dual.jpeg">
                     </div>
 
                     </div>
@@ -221,7 +228,7 @@ $unidad=$rep_unidad['unidad'];**/
                             </a>
                         </div>           
 
-                         <div class="col-md-2 text-right">
+                         <div class="col-md-2 col-sm-12 text-center">
                             <div data-anijs="if: scroll, on: window, do: rollIn animated, before: scrollReveal; if: load, on: window, do: rubberBand animated; if: mouseover, do: rubberBand animated">
                             <img class="img-fluid" src="img/marco.jpg">
                             </div>
@@ -278,23 +285,19 @@ $unidad=$rep_unidad['unidad'];**/
 
 
 
- <div class="container">
-        <div class="row">
-            <div class="col-md-12 text-justify" style="padding-top: 5%"> 
+<div class="container" style="padding-bottom: 5%;">
+<div class="row">
+
+<div class="col-md-12 text-justify" style="padding-top: 3%"> 
                 <h1 style="color: #98213A;">¿Dónde estamos?</h1><br>
-            </div>
+</div>
 
-            <div class="col-md-12 text-center" style="padding-top: 2%;"> 
-                 <img class="img-fluid" src="img/estamos/logo_dual.jpg" style="width: 20%;">                 
-            </div>
 
-            <div class="col-md-12 text-center" style="padding-bottom: 3%";> 
-                 <img class="img-fluid" src="img/estamos/arriba.jpg">                
-            </div>
-
-            <div class="col-md-3 text-center" >
-            <div class="card ">
-                <img class="img-fluid" src="img/estamos/UTyP.png" style="width: 50%;">
+            <div class="col-md-3 text-center"> 
+            <div class="card"> 
+              <div class="col-md-12 text-center">
+                    <img class="img-fluid" src="img/estamos/UTyP.png" style="width: 70%;">
+                </div>               
               <div class="card-body">
                 <p><h3 class="counter text-center">41</h3>Universidades Tecnológicas</p>
                 <p>con una matrícula de</p>
@@ -307,7 +310,9 @@ $unidad=$rep_unidad['unidad'];**/
 
             <div class="col-md-3 text-center" >
             <div class="card">
-                <img class="img-fluid" src="img/estamos/TecNM.png" style="width: 50%;">
+            <div class="col-md-12 text-center">
+                <img class="img-fluid" src="img/estamos/TecNM.png" style="width: 70%;">
+            </div>
               <div class="card-body">
                 <p><h3 class="counter">128</h3>Instituciones del <br>TecNM</p>
                 <p><h3></h3>con una matrícula de</p>
@@ -319,7 +324,9 @@ $unidad=$rep_unidad['unidad'];**/
 
             <div class="col-md-3 text-center">
             <div class="card">
-                <img class="img-fluid" src="img/estamos/anuies.png" style="width: 50%;">
+            <div class="col-md-12 text-center">
+                <img class="img-fluid" src="img/estamos/anuies.png" style="width: 70%;">
+            </div>
                 <div class="card-body">
                 <p><h3  class="counter">14</h3>Universidades Públicas Estatales</p>
                 <p><h3  class="counter">2</h3>Universidades Interculturales</p>
@@ -329,9 +336,12 @@ $unidad=$rep_unidad['unidad'];**/
               </div>
             </div>
             </div>
+
             <div class="col-md-3 text-center" >
             <div class="card">
-                <img class="img-fluid" src="img/estamos/UTyP.png" style="width: 50%;"> 
+            <div class="col-md-12 text-center">
+                <img class="img-fluid" src="img/estamos/privadas.png" style="width: 70%;">
+            </div> 
              <div class="card-body">
                 <p><h3 class="counter text-center">2</h3>Universidades Privadas</p>
                 <p><h3></h3>con una matrícula de</p>
@@ -339,16 +349,63 @@ $unidad=$rep_unidad['unidad'];**/
               </div>
             </div>
             </div>
-            <div class="col-md-12 text-center" style="padding-top: 2%;"> 
-                 <img class="img-fluid" src="img/estamos/abajo.jpg">
-            </div>
-
         </div>
 </div>
 
 
+
+
+
+
+<div class="container-fluid call-back-section text-center" style="background-image:url(img/canv_numeros.jpeg);" >  
+<div class="row" style="color: #fff;"> 
+    <div class="col-md-3 text-center">
+      <div class="service-box mt-5 mx-auto">
+       <img src="img/icons/1.png" class="">
+       <h1 class="counter tipo" style="color: #fff;">300</h1>
+       <h3 style="color: #fff;"><strong>IES con programas </strong></h3>
+     </div>
+   </div>
+
+
+   <div class="col-md-3 text-center">
+    <div class="service-box mt-5 mx-auto">
+      <img src="img/icons/2.png" class="">
+      <h1 class="counter tipo" style="color: #fff;">3,639</h1>
+      <h3 style="color: #fff;"><strong>Estudiantes </strong></h3>
+    </div>
+  </div>  
+
+
+  <div class="col-md-3 text-center">
+    <div class="service-box mt-5 mx-auto">
+      <img src="img/icons/3.png" class="">
+      <h1 class="counter tipo" style="color: #fff;">241</h1>
+      <h3 style="color: #fff;"><strong>Programas Educativos</strong></h3>
+    </div>
+  </div>
+
+   <div class="col-md-3 text-center">
+    <div class="service-box mt-5 mx-auto">
+      <img src="img/icons/4.png" class="">
+      <h1 class="counter tipo" style="color: #fff;">3,869</h1>
+      <h3 style="color: #fff;"><strong>Unidades económicas</strong></h3>
+    </div>
+  </div>
+</div>                    
+</div>
+
+
+
+
+
+
+
+
+
+
 <div class="container text-center" style="padding-top: 5%">
-    <p>Estudiantes bajo la modalidad de educación dual por entidad federativa</p>
+    <h3>Estudiantes bajo la modalidad de educación dual por entidad federativa en <br>educación superior</h3>
 
     <div class="row">
     <div class="col">        

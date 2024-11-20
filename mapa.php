@@ -27,16 +27,12 @@ $row = mysqli_fetch_array($query);
         <link rel="stylesheet" href="assets/css/color.css">
          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
          <link rel="stylesheet" href="style-button-ws.css">
-         <script src="http://maps.google.com/maps/api/js" type="text/javascript"></script>
-          <style>        
-    </style>
-
+         <script src="http://maps.google.com/maps/api/js" type="text/javascript"></script>          
     </head>
+
     <body>
-        <!-- <div class="whatsapp-button" onclick="abrirWhatsApp()">
-        <i class="fab fa-whatsapp"></i> -->
+        <!--
         <div class="whatsapp-button" onclick="toggleWhatsAppPopup()">
-        <!-- <i class="fab fa-whatsapp"></i> -->
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-brand-whatsapp" width="30" height="30" viewBox="0 0 24 24" stroke-width="2" stroke="#ffffff" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
             <path d="M3 21l1.65 -3.8a9 9 0 1 1 3.4 2.9l-5.05 .9" />
@@ -52,10 +48,8 @@ $row = mysqli_fetch_array($query);
 
             <button class="send-button" onclick="sendWhatsAppMessage()">Enviar</button>
             <button class="send-button" onclick="clearWhatsAppMessage()">Limpiar</button>
-          </div>
+          </div>-->
 
-    </div>       
-    </div>
         <main>
             <header class="stick style1 w-100" style=" background-color: #98213A;">
                 <div class="container">
@@ -68,11 +62,10 @@ $row = mysqli_fetch_array($query);
                                     <li class="menu-item-has-children"><a href="historia.html" title="">HISTORIA</a></li>  
                                     <li><a href="view/login.php" title="">FORMULARIO</a></li>
                                     <li><a href="videos.php" title="">VIDEOS</a></li>
-                                    <li class="active"><a href="mapa.php" title="">OFERTA</a></li> 
+                                    <li class="active"><a href="mapa.php" title="">OFERTA</a></li>
+                                </ul>
                             </div>
                             <div class="header-right-btns">
-                                <!--<a class="search-btn" href="javascript:void(0);" title="">
-                                    <i class="flaticon-magnifying-glass"></i></a>-->
                                <a  class="user-btn" href="javascript:void(0);" title="" data-backdrop="static" data-keyboard="false"><i class="flaticon-user"></i></a>                               
                                <a class="menu-btn" href="javascript:void(0);" title=""><i class="flaticon-menu"></i></a>
                                <!-- <a href="view/login.php"><i class="flaticon-user"></i></a> -->
@@ -96,7 +89,7 @@ $row = mysqli_fetch_array($query);
                 <div class="login-popup-inner d-inline-block w-100">
                     <h3 class="mb-0">Login sesión virtual </h3>
                    <form action="controller/login.php" method="POST">
-						               <div class="form-group"> 
+						    <div class="form-group"> 
                                       <label for="Email" name="inicio">Email</label>
                                       <input type="text" class="form-control" name="correo" onChange="conMayusculas(this)" required="">
                                       <label for="Pass">Password</label>
@@ -113,7 +106,7 @@ $row = mysqli_fetch_array($query);
 
                    <?php } ?>
 
-            <button class="thm-btn fill-btn" type="submit" >Iniciar<span></span></button>          
+                    <button class="thm-btn fill-btn" type="submit" >Iniciar<span></span></button>          
                         <!-- <a class="d-inline-block" href="javascript:void(0);" title="">Forget A Password</a> -->
                     </form>
                 </div>
@@ -121,7 +114,7 @@ $row = mysqli_fetch_array($query);
                       
 
 
-<div class="container-fluid" style="padding-top: 6%;">
+<div class="container-fluid" style="padding-top: 6%; ">
 <div class="row">
     <div class="col-md-12 text-center"><br>
         <h3>IES bajo la modalidad de educación dual por entidad federativa en
@@ -129,7 +122,7 @@ educación superior</h3><br>
     </div>
 
 
-<div class="col-md-2"><br>
+<div class="col-md-2" ><br>
 <div id="listaEntidades" style="height:45%; width:100%; overflow-y:scroll;">                    
                     <ul start="0" style="font-size: small; list-style-image: url('img/center.png');">
                         <h5>Entidad</h5>
@@ -168,23 +161,14 @@ educación superior</h3><br>
                                 <li><a href="javascript:centrarMapa('32');" title="latitud = 23.23, longitud = -102.79">Zacatecas</a></li> 
                     </ul>
 
-            </div>
+</div>
 </div>
 
-  <div class="col-md-10">
+<div class="col-md-10">
           <div id="map-container-google-2" class="z-depth-1-half map-container" style="height: 50%; width:100%;">
-                    </div>
-    </div>            
-
-</div>
-</div>
-
-
-
-<div class="container">
-<div class="row">
-    <div class="col-md-12">
-    <table class="table table-striped table-bordered">
+         </div>
+<div class="col-md-12" style="padding-top: 6%;">
+     <table id="tableID" class="table table-striped table-bordered"> 
         <thead class="thead-dark">
             <tr>
                 <th>IES</th>
@@ -208,22 +192,26 @@ educación superior</h3><br>
             ?>
         </tbody>
     </table>
+</div>
+<div class="col-md-12" style="padding-top: 40%;">
+</div>
+
 </div> 
 </div>
 </div>
 
 
-<footer class="justify-content-center" style=" background-color: #98213A;" id="contacto" >
+
+<!--
+<footer class="justify-content-center" style=" background-color: #98213A;" id="contacto">
                 
                 <div class="footer-widget-area justify-content-center">
                     <br>
                     <div class="container align-items-center">
                         <div class="container row container-fluid   ">
-                        <!--------------------------------------------------------------------------------------->
                             <div class="col-md ">
-                                <img src="img/logo/LogoESR.webp" class="equalheight" title="Ve nuestro apartado esr" alt="Empresa socialmente responsable"/></a> <!--Se cambio el nombre y se agrego un metadato-->
+                                <img src="img/logo/LogoESR.webp" class="equalheight" title="Ve nuestro apartado esr" alt="Empresa socialmente responsable"/></a> 
                             </div>
-                        <!--------------------------------------------------------------------------------------->
                             <div class="col-md ">
                                 <h4 class="text-light" >Ubicación</h4>
                                 <div class="contact-icon text-white">
@@ -243,7 +231,6 @@ educación superior</h3><br>
                                     <a href="mailto:ontacto@fese.mx"><i class="fa fa-envelope" aria-hidden="true"> </i> contacto@fese.mx</a>
                                 </div>
                             </div>
-                            <!--------------------------------------------------------------------------------------->
                             
                         </div>
                     </div>  
@@ -252,9 +239,10 @@ educación superior</h3><br>
                     </div>
                     
                 </div>   
-            </footer><!-- Footer -->
+            </footer>
+        -->
 
-</div>
+
         </main><!-- Main Wrapper -->
 
         <script src="assets/js/jquery.min.js"></script>
@@ -271,6 +259,25 @@ educación superior</h3><br>
         <script src="assets/js/countdown.js"></script>
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.11.2.min.js"><\/script>')</script>
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.min.css"> 
+        <!-- DataTables JS -->
+        <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"> </script> 
+        <script> 
+
+                     $(document).ready(function() {
+        $('#tableID').dataTable( {
+            "language": {
+                "url": "//cdn.datatables.net/plug-ins/1.10.16/i18n/Spanish.json"
+            },
+            dom: 'Bfrtip',
+            buttons: [
+                'copy', 'csv', 'excel', 'pdf', 'print'
+            ]
+        } );
+    } );
+      </script>
 
 
 
@@ -577,10 +584,5 @@ function centrarMapa(estado) {
   })
 </script>
 
-
-
-
-
-
-    </body>	
+</body>	
 </html>

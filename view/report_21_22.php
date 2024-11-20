@@ -44,9 +44,6 @@ $unidad=$rep_unidad['unidad'];
 <script src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"> </script> 
 
 
-
-
-
 </head>
 <body>
   <header class="stick style1 w-100" style="background-color: #98213A;">

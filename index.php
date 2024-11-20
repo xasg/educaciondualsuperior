@@ -191,8 +191,11 @@ $unidad=$rep_unidad['unidad'];**/
 <section>
                 <div class="container">
                     <div class="row">
-                    <div class="col-md-12 col-sm-12 col-lg-12 text-justify" style="padding-top: 4%"> 
-                         <h1 style="color: #98213A;">¿Qué es Educación Dual?</h1><br>
+                        <div class="col-md-12 col-sm-12 col-lg-12 text-center" style="padding-top: 3%; padding-bottom:3%;">
+                        <h1 style="color: #98213A;">¿Qué es Educación Dual?</h1> 
+                        </div>
+
+                    <div class="col-md-12 col-sm-12 col-lg-12 text-justify"> 
                          <p>En México diversas instituciones educativas del tipo medio superior y superior han impulsado proyectos de formación de sus estudiantes en coordinación con los sectores productivos a los que se les ha referido como formación o educación dual.</p>
                          <p>En la educación superior, la educación dual es una modalidad y opción educativa en la que el proceso de aprendizaje del estudiante se lleva a cabo de manera articulada en una institución educativa y en contextos reales del ámbito laboral, en unidades económicas (empresas, cooperativas, instituciones públicas, fundaciones, organizaciones, etc.) a través de fases teórico - prácticas interrelacionadas que se complementan entre sí.</p>
                          <p>Parte del principio de “aprender haciendo”, donde los estudiantes tienen un acercamiento directo y oportuno con la realidad del mundo productivo, el cual es orientado a partir de un plan de formación en el que se establece qué, cómo, cuándo y bajo qué criterios tendrá lugar la formación del estudiante en ambos espacios de aprendizaje, de acuerdo al programa de estudios y a las funciones productivas del entorno laboral. </p>
@@ -220,7 +223,7 @@ $unidad=$rep_unidad['unidad'];**/
                         <div class="col-md-8">
                             <br>
                             <h1 style="color: #fff;">Marco General</h1>
-                            <h3 style="color: #fff;">Para la educación Dual del tipo superior en méxico</h3>
+                            <h3 style="color: #fff;">Para la Educación Dual del tipo Superior en México</h3>
                             <br>
                             <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#exampleModal" >Saber más</button>
                             <a href="https://educacionsuperior.sep.gob.mx/pdfs/2024/Marco_Educacion_Dual.pdf" target="_blank" style="color: #98213A;">
@@ -288,8 +291,8 @@ $unidad=$rep_unidad['unidad'];**/
 <div class="container" style="padding-bottom: 5%;">
 <div class="row">
 
-<div class="col-md-12 text-justify" style="padding-top: 3%"> 
-                <h1 style="color: #98213A;">¿Dónde estamos?</h1><br>
+<div class="col-md-12 text-center" style="padding-top: 5%; padding-bottom: 5%;"> 
+                <h1 style="color: #98213A;">¿Dónde estamos en la Educación Superior?</h1><br>
 </div>
 
 
@@ -405,7 +408,7 @@ $unidad=$rep_unidad['unidad'];**/
 
 
 <div class="container text-center" style="padding-top: 5%">
-    <h3>Estudiantes bajo la modalidad de educación dual por entidad federativa en <br>educación superior</h3>
+    <h2>Estudiantes bajo la modalidad de educación dual por entidad federativa en <br>educación superior</h2>
 
     <div class="row">
     <div class="col">        

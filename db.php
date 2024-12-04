@@ -13,8 +13,3 @@ if($conn->connect_error){
 }
 
 ?>
-
-<!--
-$username="fese";
-$password="Ws.666.AdQe";
--->

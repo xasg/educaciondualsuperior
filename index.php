@@ -98,11 +98,11 @@ $unidad=$rep_unidad['unidad'];**/
                         <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
-                                    <li><a href="javascript:void(0);" title="">INICIO</a></li>
-                                    <li><a href="historia.html" title="">HISTORIA</a></li>  
-                                    <li><a href="view/login.php" title="">FORMULARIO</a></li>
-                                    <li><a href="videos.php" title="">VIDEOS</a></li>
-                                    <li><a href="mapa.php" title="">OFERTA</a></li> 
+                                    <li class="active"><a href="#" title="">INICIO</a></li>
+                                    <li><a href="historia.html" title="">AVANCES</a></li>
+                                    <li><a href="mapa.php" title="">OFERTA</a></li>
+                                    <li><a href="videos.php" title="">VIDEOS</a></li>  
+                                    <li><a href="view/login.php">FORMULARIO</a></li> 
                                 </ul>
                             </div>
                             <div class="header-right-btns">
@@ -120,10 +120,10 @@ $unidad=$rep_unidad['unidad'];**/
                 <span class="menu-close"><i class="fas fa-times"></i></span>
                 <ul class="mb-0 list-unstyled w-100">
                     <li><a href="javascript:void(0);" title="">INICIO</a></li>
-                    <li><a href="historia.html" title="">HISTORIA</a></li>  
-                    <li><a href="view/login.php">FORMULARIO</a></li>
-                    <li><a href="videos.php" title="">VIDEOS</a></li>
-                    <li><a href="mapa.php" title="">OFERTA</a></li>                    -->
+                    <li><a href="historia.html" title="">AVANCES</a></li>
+                    <li><a href="mapa.php" title="">OFERTA</a></li>
+                    <li><a href="videos.php" title="">VIDEOS</a></li>  
+                    <li><a href="view/login.php">FORMULARIO</a></li>                               
                 </ul>
             </div><!-- Menu Wrap -->
 
@@ -177,7 +177,7 @@ $unidad=$rep_unidad['unidad'];**/
         
         <div class="row">
           <div class="col-md-12">
-            <h1 style="color: #fff;"><strong>Los estudiantes</strong> <br>Identifica la oferta educativa con modalidad en educación Dual</h1>
+            <h1 style="color: #fff;" data-aos="fade-up"><strong>Los estudiantes</strong> <br>Identifica la oferta educativa con modalidad en educación Dual</h1>
           </div><style type="text/css"></style>
         </div>
       </div>
@@ -201,14 +201,12 @@ $unidad=$rep_unidad['unidad'];**/
                          <p>Parte del principio de “aprender haciendo”, donde los estudiantes tienen un acercamiento directo y oportuno con la realidad del mundo productivo, el cual es orientado a partir de un plan de formación en el que se establece qué, cómo, cuándo y bajo qué criterios tendrá lugar la formación del estudiante en ambos espacios de aprendizaje, de acuerdo al programa de estudios y a las funciones productivas del entorno laboral. </p>
                     </div>	
 
-                    <div class="col-md-8" style="padding-top: 2%">                        
+                    <div class="col-md-6" style="padding-top: 2%">                        
                          <iframe width="100%" height="80%" src="https://www.youtube.com/embed/0VL--x9sbw8" title="Educacion dual 2024 FESE ANUIES SEP" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                          <br><br><br> <br><br> <br><br><br> <br><br>  <br><br><br> <br><br> 
                     </div>
-                    <div class="col-md-1" style="padding-top: 2%">  
-                    </div>
-                    <div class="col-md-3" style="padding-top: 2%">                        
-                         <img src="img/premio_dual.jpeg">
+                    <div class="col-md-6" style="padding-top: 2%">                        
+                         <img class="img-fluid" src="img/UPAtlautla.jpg" >
                     </div>
 
                     </div>

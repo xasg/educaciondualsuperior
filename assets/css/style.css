@@ -5893,3 +5893,20 @@ table.dataTable thead .sorting_desc_disabled:before {
   padding: 2px 16px;
 }
 
+
+
+
+.section-title-hr {
+  width: 60%;
+  height: 1px;
+  border: 1px solid rgb(152, 33, 58);
+  background-color: rgb(152, 33, 58);
+  display: block;
+}
+
+.white-hr {
+  width: 60%;
+  border: 1px solid rgb(152, 33, 58);
+  background-color: rgb(152, 33, 58);
+  display: block;
+}

@@ -69,11 +69,11 @@
                         <nav class="d-inline-flex align-items-center">
                             <div class="header-left">
                                 <ul class="mb-0 list-unstyled d-inline-flex">
-                                    <li><a href="./" title="">INICIO</a></li>
-                                    <li><a href="historia.html" title="">HISTORIA</a></li>
-                                    <li><a href="view/login.php" title="">FORMULARIO</a></li>
-                                    <li class="active"><a href="videos.php" title="">VIDEOS</a></li>
-                                    <li><a href="mapa.php" title="">OFERTA</a></li> 
+                                    <li><a href="index.php" title="">INICIO</a></li>
+                                    <li><a href="historia.html" title="">AVANCES</a></li>
+                                    <li><a href="mapa.php" title="">OFERTA</a></li>
+                                    <li class="active"><a href="videos.php" title="">VIDEOS</a></li>  
+                                    <li><a href="view/login.php">FORMULARIO</a></li>
                                 </ul>
                             </div>
                             <div class="header-right-btns">

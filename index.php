@@ -177,7 +177,7 @@ $unidad=$rep_unidad['unidad'];**/
         
         <div class="row">
           <div class="col-md-12">
-            <h1 style="color: #fff;" data-aos="fade-up"><strong>Los estudiantes</strong> <br>Identifica la oferta educativa con modalidad en educación Dual</h1>
+            <h1 style="color: #fff;" data-aos="fade-up"><strong>La Educación Dual</strong> <br>es una modalidad educativa del tipo superior en la que el proceso de aprendizaje tiene lugar en una institución educativa y en una unidad económica</h1>
           </div><style type="text/css"></style>
         </div>
       </div>
@@ -363,7 +363,7 @@ $unidad=$rep_unidad['unidad'];**/
     <div class="col-md-3 text-center">
       <div class="service-box mt-5 mx-auto">
        <img src="img/icons/1.png" class="">
-       <h1 class="counter tipo" style="color: #fff;">300</h1>
+       <h1 class="counter tipo" style="color: #fff;">215</h1>
        <h3 style="color: #fff;"><strong>IES con programas </strong></h3>
      </div>
    </div>
@@ -372,7 +372,7 @@ $unidad=$rep_unidad['unidad'];**/
    <div class="col-md-3 text-center">
     <div class="service-box mt-5 mx-auto">
       <img src="img/icons/2.png" class="">
-      <h1 class="counter tipo" style="color: #fff;">3,639</h1>
+      <h1 class="counter tipo" style="color: #fff;">7,506</h1>
       <h3 style="color: #fff;"><strong>Estudiantes </strong></h3>
     </div>
   </div>  

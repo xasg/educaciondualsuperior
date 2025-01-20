@@ -81,9 +81,7 @@ $unidad=$rep_unidad['unidad'];**/
             <button class="close-button" onclick="toggleWhatsAppPopup()">X</button>
             <h2 class="text-light">¡Hola!</h2>
             <p class="text-light" >Gracias por visitar nuestro sitio web. ¿Cómo podemos ayudarte hoy?</p>
-
             <textarea class="input-field" id="whatsappMessage" placeholder="Escribe tu mensaje"></textarea>
-
             <button class="send-button" onclick="sendWhatsAppMessage()">Enviar</button>
             <button class="send-button" onclick="clearWhatsAppMessage()">Limpiar</button>
           </div>
@@ -381,7 +379,7 @@ $unidad=$rep_unidad['unidad'];**/
   <div class="col-md-3 text-center">
     <div class="service-box mt-5 mx-auto">
       <img src="img/icons/3.png" class="">
-      <h1 class="counter tipo" style="color: #fff;">241</h1>
+      <h1 class="counter tipo" style="color: #fff;">683</h1>
       <h3 style="color: #fff;"><strong>Programas Educativos</strong></h3>
     </div>
   </div>
@@ -389,7 +387,7 @@ $unidad=$rep_unidad['unidad'];**/
    <div class="col-md-3 text-center">
     <div class="service-box mt-5 mx-auto">
       <img src="img/icons/4.png" class="">
-      <h1 class="counter tipo" style="color: #fff;">3,869</h1>
+      <h1 class="counter tipo" style="color: #fff;">1780</h1>
       <h3 style="color: #fff;"><strong>Unidades económicas</strong></h3>
     </div>
   </div>
